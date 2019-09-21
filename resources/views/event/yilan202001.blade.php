@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>/resources/views/event/yilan202001.blade.php</h1><hr>
+    <img src="{{ URL::asset('img/yilan202001.jpg') }}" id="img"/><hr>
 
     <a href="/">Home</a>
 </body>

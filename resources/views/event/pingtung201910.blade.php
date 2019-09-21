@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>/resources/views/event/pingtung201910.blade.php</h1><hr>
+    <img src="{{ URL::asset('img/pingtung201910.jpg') }}" id="img"/><hr>
 
     <a href="/">Home</a>
 </body>
