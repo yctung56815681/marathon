@@ -9,7 +9,7 @@
 <body>
     <h1>/resources/views/event/taoyuan201911.blade.php</h1><hr>
     <img src="{{ URL::asset('img/taoyuan201911.jpg') }}" id="img"/><hr>
-
+    <a href="/login/taoyuan/2019/11">Sign Up</a><hr>
     <a href="/">Home</a>
 </body>
 </html>

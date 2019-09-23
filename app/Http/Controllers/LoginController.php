@@ -6,8 +6,12 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    public function index()
+    public function index(Request $request, $city, $year, $month)
     {
-        return view("login.index");
+        $view = "login_{$city}{$year}{$month}";
+        // dd($view);
+        $viewModel = compact(
+            "view");
+        return view("login.index", $viewModel);
     }
 }

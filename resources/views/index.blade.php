@@ -19,7 +19,6 @@
     <a href="/event/pingtung/2019/10">pingtung/2019/10</a><br>
     <a href="/event/yunlin/2019/09">yunlin/2019/09</a><hr>
 
-    <a href="/login">login</a><hr>
     <a href="/management">management</a><hr>
     <a href="/member">member</a><hr>
     <a href="/simulate">simulate</a><hr>

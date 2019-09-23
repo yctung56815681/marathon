@@ -9,7 +9,7 @@
 <body>
     <h1>/resources/views/event/taichung201912.blade.php</h1><hr>
     <img src="{{ URL::asset('img/taichung201912.jpg') }}" id="img"/><hr>
-
+    <a href="/login/taichung/2019/12">Sign Up</a><hr>
     <a href="/">Home</a>
 </body>
 </html>

@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>/resources/views/login/index.blade.php</h1><hr>
-
+    {{$view}}<hr>
     <a href="/">Home</a>
 </body>
 </html>
