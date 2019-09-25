@@ -18,7 +18,7 @@ Route::get('/', function () {
 
 Route::get('/event/{city}/{year}/{month}', "EventController@event");
 
-Route::get('/login', "LoginController@index");
+// Route::get('/login/{city}/{year}/{month}', "LoginController@index");
 
 
 Route::get('/member/', "MemberController@index");
@@ -27,3 +27,4 @@ Route::get('/management', "ManagementController@index");
 
 Route::get('/simulate', "SimulateController@index");
 Route::get('/UI', "UIController@index");
+Route::get('/login', "LoginController@index");

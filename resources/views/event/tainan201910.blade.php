@@ -9,7 +9,7 @@
 <body>
     <h1>/resources/views/event/tainan201910.blade.php</h1><hr>
     <img src="{{ URL::asset('img/tainan201910.jpg') }}" id="img"/><hr>
-
+    <a href="/login/tainan/2019/10">Sign Up</a><hr>
     <a href="/">Home</a>
 </body>
 </html>
