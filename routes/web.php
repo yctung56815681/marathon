@@ -26,3 +26,4 @@ Route::get('/member/', "MemberController@index");
 Route::get('/management', "ManagementController@index");
 
 Route::get('/simulate', "SimulateController@index");
+Route::get('/UI', "UIController@index");
