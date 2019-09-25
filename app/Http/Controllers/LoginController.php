@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class LoginController extends Controller
 {
     // public function index(Request $request, $city, $year, $month)
-    public function index()
+    public function login()
     {
         // $view = "login_{$city}{$year}{$month}";
         // // dd($view);
@@ -15,5 +15,10 @@ class LoginController extends Controller
         //     "view");
         // return view("login.index", $viewModel);
         return view("login.index");
+    }
+
+    public function postLogin()
+    {
+        return redirect("/ui");
     }
 }
