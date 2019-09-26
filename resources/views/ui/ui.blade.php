@@ -19,11 +19,24 @@
 
     .Left{
        
-        width: 300px;
+        width: 25%;
         height: 800px;
         position: relative;
         background-color: yellow;
+        display: inline-block;
     }
+   .Right{
+        width: 75%;
+        height: 800px;
+        position: absolute;
+        background-color: brown;    
+        display: inline-block; 
+
+   }
+   .content{
+    
+   }
+   
    
     
 
@@ -42,85 +55,69 @@
     
     <!--------------------------------------------------------------------------------------content-------------------------------------------------------------------------------------->
     
-      <div class="Left">
-              <div class="accordion" id="accordionExample">
-                      <div class="card">
-                        <div class="card-header" id="headingOne">
-                          <h2 class="mb-0">
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                              客戶資料管理
-                            </button>
-                          </h2>
-                        </div>
-                    
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                          <div class="card-body">
-                                  <button class="btn btn-link" type="button"  aria-expanded="true" aria-controls="collapseOne">
-                                          基本資料
-                                  </button>
-                                  <br>
-                                  <button class="btn btn-link" type="button"  aria-expanded="true" aria-controls="collapseOne">
-                                          基本資料
-                                  </button>
-                                  <br>
-                                  <button class="btn btn-link" type="button"  aria-expanded="true" aria-controls="collapseOne">
-                                          基本資料
-                                  </button>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <div class="card-header" id="headingTwo">
-                          <h2 class="mb-0">
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                              賽事管理
-                            </button>
-                          </h2>
-                        </div>
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                          <div class="card-body">
-                                  <button class="btn btn-link" type="button"  aria-expanded="true" aria-controls="collapseOne">
-                                          基本資料
-                                  </button>
-                                  <br>
-                                  <button class="btn btn-link" type="button"  aria-expanded="true" aria-controls="collapseOne">
-                                          基本資料
-                                  </button>
-                                  <br>
-                                  <button class="btn btn-link" type="button"  aria-expanded="true" aria-controls="collapseOne">
-                                          基本資料
-                                  </button>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <div class="card-header" id="headingThree">
-                          <h2 class="mb-0">
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                              訂單管理
-                            </button>
-                          </h2>
-                        </div>
-                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                          <div class="card-body">
-                                  <button class="btn btn-link" type="button"  aria-expanded="true" aria-controls="collapseOne">
-                                          基本資料
-                                  </button>
-                                  <br>
-                                  <button class="btn btn-link" type="button"  aria-expanded="true" aria-controls="collapseOne">
-                                          基本資料
-                                  </button>
-                                  <br>
-                                  <button class="btn btn-link" type="button"  aria-expanded="true" aria-controls="collapseOne">
-                                          基本資料
-                                  </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+    <div class="Left">
+        <div class="accordion" id="accordionExample">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                  <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    客戶資料管理
+                  </button>
+                </h2>
+              </div>
+          
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    賽事管理
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    訂單管理
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+    </div>              
+    <div class="Right">
+    <h1>編輯在這</h1>
+    </div>
+  
+    
       
 
-    </div>
+  
+  
     
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
