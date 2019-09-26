@@ -7,6 +7,12 @@ composer install<br/>
 shell : cp .env.example .env<br/>
 or<br/>
 ms-windows : copy .env.example .env<br/>
+
+phpmyadmin create database<#>
+DB name:marathon<br/>
+select:utf8mb4_general_ci<br/>
+
+
 php artisan key:generate<br/>
 php artisan migrate<br/>
 php artisan serve<br/>
