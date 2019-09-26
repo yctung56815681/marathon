@@ -8,7 +8,7 @@ shell : cp .env.example .env<br/>
 or<br/>
 ms-windows : copy .env.example .env<br/>
 
-"#至phpmyadmin手動建置資料庫"<br/>
+"# phpmyadmin create database"<br/>
 DB name:marathon <br/>
 select : utf8mb4_general_ci
 ---
