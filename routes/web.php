@@ -28,3 +28,6 @@ Route::get('/management', "ManagementController@index");
 
 Route::get('/simulate', "SimulateController@index");
 Route::get('/ui', "UiController@index");
+
+// Route::get('/', 'MemberAdminController@index');
+Route::resource('/memberAdmin', 'MemberAdminController');
