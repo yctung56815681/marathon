@@ -31,3 +31,5 @@ Route::get('/ui', "UiController@index");
 
 // Route::get('/', 'MemberAdminController@index');
 Route::resource('/memberAdmin', 'MemberAdminController');
+
+Route::get('/signup/{city}/{year}/{month}', "SignupController@index");
