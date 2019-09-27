@@ -95,11 +95,11 @@
             <div class="row01">
                 <div id="menu_div" class="navi_outer">
                     <ul class='navi_menu'>
-                        <li><a href="/event/index">最新消息</a></li>
-                        <li><a href="/event/index/01">報名辦法</a></li>
-                        <li><a href="/event/index/02">競賽獎勵</a></li>
-                        <li><a href="/event/index/03">活動規範</a></li>
-                        <li><a href="SignStart.aspx?CF_ActCode=AM200105">我要報名</a></li>
+                        <li><a href="/event/changhua/2020/02">最新消息</a></li>
+                        <li><a href="/event/changhua/2020/02/regMethod">報名辦法</a></li>
+                        <li><a href="/event/changhua/2020/02/rewardMethod">競賽獎勵</a></li>
+                        <li><a href="/event/changhua/2020/02/actSpec">活動規範</a></li>
+                        <li><a href="/signup/changhua/2020/02">我要報名</a></li>
                         <li><a href="SignQuery.aspx?CF_ActCode=AM200105">報名查詢與修改</a></li>
 
                         <ul>
@@ -304,28 +304,28 @@
     <nav id="mobile_nav" class="mobile_nav">
         <div id="menu_div_mobile">
             <ul>
-                <li><a href="/event/yilan/2020/01">最新消息</a></li>
+                <li><a href="/event/changhua/2020/02">最新消息</a></li>
                 <div style='width:100%' ;>
                     <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
                     </div>
                 </div><br />
-                <li><a href="/event/yilan/2020/01/01">報名辦法</a></li>
+                <li><a href="/event/changhua/2020/02/regMethod">報名辦法</a></li>
                 <div style='width:100%' ;>
                     <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
                     </div>
                 </div><br />
-                <li><a href="/event/yilan/2020/01/02">競賽獎勵</a></li>
+                <li><a href="/event/changhua/2020/02/rewardMethod">競賽獎勵</a></li>
                 <div style='width:100%' ;>
                     <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
                     </div>
                 </div><br />
-                <li><a href="/event/yilan/2020/01/03">活動規範</a></li>
+                <li><a href="/event/changhua/2020/02/actSpec">活動規範</a></li>
                 <div style='width:100%' ;>
                     <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
                     </div>
                 </div><br />
 
-                <li><a href="SignStart.aspx?CF_ActCode=AM200105#MobileStart">我要報名</a></li>
+                <li><a href="/signup/changhua/2020/02">我要報名</a></li>
                 <div style='width:100%' ;>
                     <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
                     </div>

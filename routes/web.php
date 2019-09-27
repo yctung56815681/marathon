@@ -17,6 +17,7 @@ Route::get('/', function () {
 });
 
 Route::get('/event/{city}/{year}/{month}', "EventController@event");
+Route::get('/event/{city}/{year}/{month}/{action}', "EventController@action");
 
 // Route::get('/login/{city}/{year}/{month}', "LoginController@index");
 Route::get('/login', "LoginController@login");
