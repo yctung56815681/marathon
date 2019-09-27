@@ -476,7 +476,7 @@
             var check = $("input[name='confirm[]']:checked").length;
             if (check == 0) {
                 alert("您尚未勾選");
-				return false;
+				return goGroup1();
             }else{
 				alert("你勾選了");
 				return true;

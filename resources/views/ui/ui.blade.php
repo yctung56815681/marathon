@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <title>UI</title>
-    <style>
-        .Top {
-            width: auto;
-            height: 200px;
-            position: relative;
-
-            background-image: url("img/header.jpg");
-            background-size: cover;
-        }
-
-        .Left {
-
-            /* width: 25%; */
-            width: 200px;
-            height: 800px;
-            position: relative;
-            background-color: yellow;
-            display: inline-block;
-        }
-
-        .Right {
-            width: 75%;
-            height: 800px;
-            position: absolute;
-            background-color: brown;
-            display: inline-block;
-
-        }
-
-        .content {}
-
-    </style>
-
-
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+        <title>個人會員資料管理</title>
+        <style>
+            .Top {
+                width: auto;
+                height: 200px;
+                position: relative;
+    
+                background-image: url("/img/header.jpg");
+                background-size: cover;
+            }
+    
+            .Left {
+    
+                /* width: 25%; */
+                width: 200px;
+                height: auto;
+                position: relative;
+                background-color: yellow;
+                display: inline-block;
+            }
+    
+            .Right {
+                width: 85%;
+                height: auto;
+                position: absolute;
+                background-color:#F0F8FF;
+                display: inline-block;
+    
+            }
+    
+            .content {}
+    
+        </style>
+    
+    
+    </head>
 
 <body>
     <!--------------------------------------------------------------------------------------TOP-------------------------------------------------------------------------------------->
@@ -69,7 +69,7 @@
                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                     data-parent="#accordionExample">
                     <div class="card-body">
-                        <a class="dropdown-item" href="#">個人會員管理</a>
+                        <a class="dropdown-item" href="/memberAdmin">個人會員管理</a>
                         <a class="dropdown-item" href="#">團體會員管理</a>
                     </div>
                 </div>
@@ -143,7 +143,7 @@
 
     </div>
     <div class="Right">
-        <h1>編輯在這</h1>
+        <h1>Welcome!</h1>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

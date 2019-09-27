@@ -209,7 +209,7 @@
             <p class="card-text"> <img src="img/calendar.png" alt=""> @{{list[index].time}}</p>
             <p class="card-text"> <img src="img/flag.png" alt="">@{{list[index].distance}}</p>
             <p class="card-text"> <img src="img/placeholder-filled-point.png" alt="">@{{list[index].place}}</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <a href="/event/changhua/2020/02" class="btn btn-primary">Go somewhere</a>
           </div>
          
           
