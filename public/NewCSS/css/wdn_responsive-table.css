@@ -1,0 +1,35 @@
+table, th, td {
+    border: 1px solid #aaa;
+    border-collapse: collapse;
+    padding: 3px 5px;
+  }
+  
+  table {
+    width: 95%;
+    margin: 1em auto;
+  }
+  
+
+  
+  @media only screen and (max-width: 768px) {
+
+    .table table-hover .thead {
+      display: none;
+    }
+  
+    .table table-hover td {
+      display: block;
+      padding: 0.3rem 0.5rem;
+    }
+  
+    .table table-hover td:before {
+
+      display: inline-block;
+      width: auto;
+      min-width: 20%;
+      font-weight: 900;
+      padding-right: 1rem;
+    }
+
+  }
+  
