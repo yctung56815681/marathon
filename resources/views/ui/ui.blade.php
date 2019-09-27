@@ -7,20 +7,20 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
+
         <title>個人會員資料管理</title>
         <style>
             .Top {
                 width: auto;
                 height: 200px;
                 position: relative;
-    
+
                 background-image: url("/img/header.jpg");
                 background-size: cover;
             }
-    
+
             .Left {
-    
+
                 /* width: 25%; */
                 width: 200px;
                 height: auto;
@@ -28,21 +28,21 @@
                 background-color: yellow;
                 display: inline-block;
             }
-    
+
             .Right {
                 width: 85%;
                 height: auto;
                 position: absolute;
                 background-color:#F0F8FF;
                 display: inline-block;
-    
+
             }
-    
+
             .content {}
-    
+
         </style>
-    
-    
+
+
     </head>
 
 <body>
@@ -143,7 +143,7 @@
 
     </div>
     <div class="Right">
-        <h1>Welcome!</h1>
+        <h1>歡迎</h1>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

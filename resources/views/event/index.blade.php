@@ -142,7 +142,7 @@
 
                         </div>
                         <div class="other_link">
-                            <a href="SignStart.aspx?CF_ActCode=AM200105#MobileStart" id="SignTitle"
+                            <a href="/signup/changhua/2020/02" id="SignTitle"
                                 class="btn active">我要報名／Signup</a>
                             <a href="SignQuery.aspx?CF_ActCode=AM200105#MobileStart" id="SignQuery"
                                 class="btn">報名查詢與修改／Query&Modify</a>
