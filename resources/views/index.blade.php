@@ -11,6 +11,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  
     
     
     <style>
@@ -114,20 +116,20 @@
           <nav class=" navbar navbar-expand-md navbar-light bg-dark justify-content-end">
              <section id="titleImage"> <span style="color:red"><h2>III Marathon</h2></span>  </section>
               <nav class="navbar navbar-dark bg-dark ">
-              <a class="navbar-brand" href="#">賽事列表</a>
+              <a class="navbar-brand" href="#raceEvent">賽事列表</a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ">
                   <li class="nav-item">
-                    <a class="nav-link" href="#">歷屆賽事 <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#raceHistory">歷屆賽事 <span class="sr-only">(current)</span></a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">新聞</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">關於我們</a>
+                    <a class="nav-link" href="#footer">關於我們</a>
                   </li>
                   <li class="nav-item">
                       <button type="button" class="btn btn-danger"> <img src="img/magnifier-tool.png" alt=""> </button>
@@ -192,38 +194,31 @@
   <br>
   <br>
   <!---------------------------------------------------------text_Evnet----------------------------------------------------------->
+  <a name="raceEvent"></a>
   <div class="text">
     <h3 > <span style="font-family:fantasy;">Race/Event</span></h3>
 
   </div>
   <!-----------------------------------------------------------Card---------------------------------------------------------------->
-  <div class=" EventCard">
-      <div  class="2019 card CardPermutation" style="width: 18rem ;">
-          <img src="img/changhua202002.jpg" class="card-img-top" alt="...">
+  <div class=" EventCard" id="cardapp">
+        <div v-for="(listitem,index) in list" class="2019 card CardPermutation" style="width: 18rem ;">
+                   
+          <img :src="list[index].imgname" class="card-img-top" :alt="list[index].imgname">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-title">@{{list[index].location}}</h5>
+            <p class="card-text"> <img src="img/calendar.png" alt=""> @{{list[index].time}}</p>
+            <p class="card-text"> <img src="img/flag.png" alt="">@{{list[index].distance}}</p>
+            <p class="card-text"> <img src="img/placeholder-filled-point.png" alt="">@{{list[index].place}}</p>
             <a href="#" class="btn btn-primary">Go somewhere</a>
           </div>
-        </div>
-     
-        <div  class="2019 card CardPermutation july" style="width: 18rem;">
-            <img src="img/changhua202002.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
          
-          <div  class="2019 card CardPermutation" style="width: 18rem;">
-              <img src="img/changhua202002.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
+          
+
+          
+        </div>
+        
+     
+        
 
    </div>
    <br>
@@ -262,6 +257,7 @@
      <br>
 
      <!---------------------------------------------------------text_History----------------------------------------------------------->
+     <a name="raceHistory"></a>
     <div class="text">
       <h3 ><span style="font-family:fantasy;">Race/History</span></h3>
   
@@ -314,7 +310,9 @@
   <br>
   <br>
   <!-----------------------------------------------------------------------------footer---------------------------------------------------->
-  <div id="footer">
+  <a name="footer"></a>
+ <div id="footer">
+  
   
 
 
@@ -350,6 +348,30 @@
 		}
 	}).scroll();
 });
+
+var app = new Vue({
+  el: '#cardapp',
+  data: {
+    message:"Hello",
+    list:
+      [
+        {location:"彰化",time:"2019年02月09日",distance:"21K-10K-5K",place:"鹿港鎮",imgname:"img/pingtung201910.jpg"},
+        {location:"宜蘭",time:"2019年08月09日",distance:"21K-10K-5K",place:"宜蘭鎮",imgname:"img/pingtung201910.jpg"},
+        {location:"台北",time:"2019年10月09日",distance:"21K-10K-5K",place:"台北鎮",imgname:"img/newtaipei201911.jpg"},
+        {location:"新北",time:"2019年12月09日",distance:"21K-10K-5K",place:"新北鎮",imgname:"img/kaohsiung201912.jpg"},
+        {location:"台南",time:"2019年07月09日",distance:"21K-10K-5K",place:"台南鎮",imgname:"img/tainan201910.jpg"},
+        {location:"新竹",time:"2019年01月09日",distance:"21K-10K-5K",place:"新竹鎮",imgname:"img/taoyuan201911.jpg"},
+        {location:"基隆",time:"2019年04月09日",distance:"21K-10K-5K",place:"基隆鎮",imgname:"img/yilan202001.jpg"},
+        {location:"嘉義",time:"2019年11月09日",distance:"21K-10K-5K",place:"嘉義鎮",imgname:"img/yunlin201909.jpg"},
+        {location:"台中",time:"2019年05月09日",distance:"21K-10K-5K",place:"台中鎮",imgname:"img/taichung201912.jpg"}
+
+      ]
+  
+  }
+
+})
+
+
 
 
   
