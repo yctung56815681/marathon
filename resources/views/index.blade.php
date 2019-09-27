@@ -56,8 +56,7 @@
           text-align: center;
           position: relative;
           bottom: 0px;
-          margin: auto;
-          width: 700px;
+          margin: auto;         
           height: 50px;
           background-color: palevioletred;
         }
@@ -89,7 +88,7 @@
           background-color: red;
           position: relative;
           width: auto;
-          height: 300px;
+          height: 200px;
           bottom: 0px;
         }
        
@@ -100,12 +99,9 @@
 
 </head>
 <body>
+  <div>
   <!---------------------------------------------------------------------GoTop------------------------------------------------------------>
-    <div id="GoTop">
-        <img src="img/up-arrow.png" alt="">
-       
-
-    </div>
+  
      
       
       
@@ -162,17 +158,17 @@
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="" aria-hidden="true"><img src="img/left-arrow.png" alt=""></span>
         <span class="sr-only">Previous</span>
       </a>
       <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="" aria-hidden="true"><img src="img/right-arrow.png" alt=""></span>
         <span class="sr-only">Next</span>
       </a>
   </div>
   <br>
   <!-----------------------------------------------------------Search-------------------------------------------------------------->
-  <div id="Search">
+  <div class="col-xl-6 col-md-12 " id="Search">
  
     <div id="searchBlock">
     <select style="height :25px; width :200px" class="col-4" name="" id="">
@@ -200,7 +196,7 @@
 
   </div>
   <!-----------------------------------------------------------Card---------------------------------------------------------------->
-  <div class=" EventCard" id="cardapp">
+  <div class=" EventCard " id="cardapp">
         <div v-for="(listitem,index) in list" class="2019 card CardPermutation" style="width: 18rem ;">
                    
           <img :src="list[index].imgname" class="card-img-top" :alt="list[index].imgname">
@@ -209,7 +205,7 @@
             <p class="card-text"> <img src="img/calendar.png" alt=""> @{{list[index].time}}</p>
             <p class="card-text"> <img src="img/flag.png" alt="">@{{list[index].distance}}</p>
             <p class="card-text"> <img src="img/placeholder-filled-point.png" alt="">@{{list[index].place}}</p>
-            <a href="/event/changhua/2020/02" class="btn btn-primary">Go somewhere</a>
+            <a :href="list[index].add" class="btn btn-primary">Go somewhere</a>
           </div>
          
           
@@ -312,11 +308,18 @@
   <!-----------------------------------------------------------------------------footer---------------------------------------------------->
   <a name="footer"></a>
  <div id="footer">
+   <h1>ABOUT US</h1>
   
   
 
 
   </div>
+</div>
+<div id="GoTop">
+    <img src="img/up-arrow.png" alt="">
+   
+
+</div>
   
  
   
@@ -355,15 +358,15 @@ var app = new Vue({
     message:"Hello",
     list:
       [
-        {location:"彰化",time:"2019年02月09日",distance:"21K-10K-5K",place:"鹿港鎮",imgname:"img/pingtung201910.jpg"},
-        {location:"宜蘭",time:"2019年08月09日",distance:"21K-10K-5K",place:"宜蘭鎮",imgname:"img/pingtung201910.jpg"},
-        {location:"台北",time:"2019年10月09日",distance:"21K-10K-5K",place:"台北鎮",imgname:"img/newtaipei201911.jpg"},
-        {location:"新北",time:"2019年12月09日",distance:"21K-10K-5K",place:"新北鎮",imgname:"img/kaohsiung201912.jpg"},
-        {location:"台南",time:"2019年07月09日",distance:"21K-10K-5K",place:"台南鎮",imgname:"img/tainan201910.jpg"},
-        {location:"新竹",time:"2019年01月09日",distance:"21K-10K-5K",place:"新竹鎮",imgname:"img/taoyuan201911.jpg"},
-        {location:"基隆",time:"2019年04月09日",distance:"21K-10K-5K",place:"基隆鎮",imgname:"img/yilan202001.jpg"},
-        {location:"嘉義",time:"2019年11月09日",distance:"21K-10K-5K",place:"嘉義鎮",imgname:"img/yunlin201909.jpg"},
-        {location:"台中",time:"2019年05月09日",distance:"21K-10K-5K",place:"台中鎮",imgname:"img/taichung201912.jpg"}
+        {location:"屏東",time:"2019年10月09日",distance:"21K-10K-5K",place:"屏東鎮",imgname:"img/pingtung201910.jpg",add:"event/pingtung/2019/10"},
+        {location:"彰化",time:"2020年02月09日",distance:"21K-10K-5K",place:"彰化鎮",imgname:"img/changhua202002.jpg",add:"event/changhua/2020/02"},
+        {location:"新北",time:"2019年11月09日",distance:"21K-10K-5K",place:"新北鎮",imgname:"img/newtaipei201911.jpg",add:"event/newtaipei/2019/11"},
+        {location:"高雄",time:"2019年12月09日",distance:"21K-10K-5K",place:"高雄鎮",imgname:"img/kaohsiung201912.jpg",add:"event/kaohsiung/2019/12"},
+        {location:"台南",time:"2019年10月09日",distance:"21K-10K-5K",place:"台南鎮",imgname:"img/tainan201910.jpg",add:"event/tainan/2019/10"},
+        {location:"桃園",time:"2019年11月09日",distance:"21K-10K-5K",place:"桃園鎮",imgname:"img/taoyuan201911.jpg",add:"event/taoyuan/2019/11"},
+        {location:"宜蘭",time:"2020年01月09日",distance:"21K-10K-5K",place:"宜蘭鎮",imgname:"img/yilan202001.jpg",add:"event/yilan/2020/01"},
+        {location:"員林",time:"2019年19月09日",distance:"21K-10K-5K",place:"員林鎮",imgname:"img/yunlin201909.jpg",add:"event/yunlin/2019/09"},
+        {location:"台中",time:"2019年12月09日",distance:"21K-10K-5K",place:"台中鎮",imgname:"img/taichung201912.jpg",add:"event/taichung/2019/12"}
 
       ]
   
