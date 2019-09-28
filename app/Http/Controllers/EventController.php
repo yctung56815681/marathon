@@ -28,4 +28,16 @@ class EventController extends Controller
         );
         return view("event.index", $viewModel);
     }
+
+    public function action(Request $request, $city, $year, $month, $action)
+    {
+        $view = "event.{$action}";
+        $viewModel = compact(
+            "city",
+            "year",
+            "month",
+            "action"
+        );
+        return view($view, $viewModel);
+    }
 }
