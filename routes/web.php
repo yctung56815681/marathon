@@ -34,5 +34,6 @@ Route::get('/ui', "UiController@index");
 Route::resource('/memberAdmin', 'MemberAdminController');
 
 Route::get('/signup/{city}/{year}/{month}', "SignupController@index");
+Route::get('/signup/{city}/{year}/{month}/{action}', "SignupController@action");
 
 Route::get('/query/{city}/{year}/{month}', "QueryController@index");
