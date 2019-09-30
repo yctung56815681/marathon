@@ -143,7 +143,7 @@
                                 class="btn active">我要報名／Signup</a>
                             <a href="/query/{{$city}}/{{$year}}/{{$month}}" id="SignQuery"
                                 class="btn">報名查詢與修改／Query&Modify</a>
-                            <a href="#" id="PostURL" class="btn">參賽名單與包裹查詢</a>
+                            {{-- <a href="#" id="PostURL" class="btn">參賽名單與包裹查詢</a> --}}
                         </div>
 
                     </div>

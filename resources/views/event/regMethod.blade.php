@@ -144,7 +144,7 @@
                                 class="btn active">我要報名／Signup</a>
                             <a href="SignQuery.aspx?CF_ActCode=AM200105#MobileStart" id="SignQuery"
                                 class="btn">報名查詢與修改／Query&Modify</a>
-                            <a href="#" id="PostURL" class="btn">參賽名單與包裹查詢</a>
+                            {{-- <a href="#" id="PostURL" class="btn">參賽名單與包裹查詢</a> --}}
                         </div>
 
                     </div>
