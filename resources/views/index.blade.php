@@ -44,13 +44,16 @@
         }
         #Navbar{
           top: 0px;
-          position: relative;
+          position: fixed;
+          width: 100%;
         }
-        #Image{
+        #Image{          
+                    
           position: relative;
           
         }
         #Search{
+          
          
           padding: 10px 50px;
           text-align: center;
@@ -61,7 +64,7 @@
           background-color: palevioletred;
         }
         .EventCard{
-          background-color: aqua;
+          background-color: ;
           width: 75%;          
           padding: 20px;
           text-align: center;
@@ -79,7 +82,12 @@
         }
         .CardPermutation{         
           display: inline-block;
-          margin: 0px 30px;
+          margin: 10px 30px;
+          
+        }
+        .CardPermutation:hover{
+          transform: scale(1.1);
+          opacity:0.7;
         }
         .text{
           text-align: center;
@@ -91,7 +99,10 @@
           height: 200px;
           bottom: 0px;
         }
-       
+        #space{
+          height: 60px;
+        }
+      
     
     
 
@@ -107,39 +118,12 @@
       
   
   <!---------------------------------------------------------------------NavBar------------------------------------------------------------>
-  <div id="Navbar">
-      
-          <nav class=" navbar navbar-expand-md navbar-light bg-dark justify-content-end">
-             <section id="titleImage"> <span style="color:red"><h2>III Marathon</h2></span>  </section>
-              <nav class="navbar navbar-dark bg-dark ">
-              <a class="navbar-brand" href="#raceEvent">賽事列表</a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav ">
-                  <li class="nav-item">
-                    <a class="nav-link" href="#raceHistory">歷屆賽事 <span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">新聞</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#footer">關於我們</a>
-                  </li>
-                  <li class="nav-item">
-                      <button type="button" class="btn btn-danger"> <img src="img/magnifier-tool.png" alt=""> </button>
-                    </li>
-                
-                </ul>
-              </div>
-            </nav>
-        </nav>
-        
+  <div id="space">
+
   </div>
 
   <!--------------------------------------------------------------Image--------------------------------------------------------------------> 
- 
+ <div id="Image">
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -166,6 +150,7 @@
         <span class="sr-only">Next</span>
       </a>
   </div>
+</div>
   <br>
   <!-----------------------------------------------------------Search-------------------------------------------------------------->
   <div class="col-xl-6 col-md-12 " id="Search">
@@ -197,21 +182,22 @@
   </div>
   <!-----------------------------------------------------------Card---------------------------------------------------------------->
   <div class=" EventCard " id="cardapp">
-        <div v-for="(listitem,index) in list" class="2019 card CardPermutation" style="width: 18rem ;">
-                   
-          <img :src="list[index].imgname" class="card-img-top" :alt="list[index].imgname">
-          <div class="card-body">
-            <h5 class="card-title">@{{list[index].location}}</h5>
-            <p class="card-text"> <img src="img/calendar.png" alt=""> @{{list[index].time}}</p>
-            <p class="card-text"> <img src="img/flag.png" alt="">@{{list[index].distance}}</p>
-            <p class="card-text"> <img src="img/placeholder-filled-point.png" alt="">@{{list[index].place}}</p>
-            <a :href="list[index].add" class="btn btn-primary">Go somewhere</a>
-          </div>
-         
-          
-
-          
+    <div id="CARD">
+        <div v-for="(listitem,index) in list"  class= "CardPermutation" style="width: 18rem ;">
+          <div id="cardSelect" >
+            <img :src="list[index].imgname" class="card-img-top" :alt="list[index].imgname">
+            <div class="card-body">
+              <h5 class="card-title">@{{list[index].location}}</h5>
+              <p class="card-text"> <img src="img/calendar.png" alt=""> @{{list[index].time}}</p>
+              <p class="card-text"> <img src="img/flag.png" alt="">@{{list[index].distance}}</p>
+              <p class="card-text"> <img src="img/placeholder-filled-point.png" alt="">@{{list[index].place}}</p>
+              <a :href="list[index].add" class="btn btn-primary">Go somewhere</a>
+              
+            </div>   
+          </div>  
         </div>
+    </div>
+        
         
      
         
@@ -320,6 +306,34 @@
    
 
 </div>
+<div id="Navbar">      
+    <nav class=" navbar navbar-expand-md navbar-light bg-dark justify-content-end">
+      <section id="titleImage"> <span style="color:red"><h2>III Marathon</h2></span>  </section>
+        <nav class="navbar navbar-dark bg-dark ">
+          <a class="navbar-brand" href="#raceEvent">賽事列表</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ">
+              <li class="nav-item">
+                <a class="nav-link" href="#raceHistory">歷屆賽事 <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">新聞</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#footer">關於我們</a>
+              </li>
+              <li class="nav-item">
+                <button type="button" class="btn btn-danger"> <img src="img/magnifier-tool.png" alt=""> </button>
+              </li>                
+            </ul>
+          </div>
+        </nav>
+    </nav>
+        
+  </div>
   
  
   
@@ -329,13 +343,29 @@
 
 
 <script>
+$(document).ready(function(){
+  $("#keyWord").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#cardSelect h5").filter(function() {
+     
+      
+      $(this).parent("div").parent("div").toggle($(this).text().toLowerCase().indexOf(value) > -1);
+      var k = $(this).parent("div").parent("div").parent("div").toggle($(this).text().toLowerCase().indexOf(value) > -1);
+      console.log(typeof(k));
+      
+  
+    
+    });
+  });
+});
+
   function SEARCH(){
     var keyWord = document.getElementById("keyWord").value;
     var match = document.getElementsByClassName(keyWord);
     
     console.log(match);
     console.log(typeof(match));
-    $(".EventCard").empty();
+    
   
 
  }
