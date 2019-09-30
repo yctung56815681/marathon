@@ -16,6 +16,7 @@
 </body>
 </html> --}}
 
+<script>Sid='2019/10/14 23:59:59';</script>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -31,15 +32,12 @@
     </title>
 
     <!--CIS ico-->
-    <link rel="shortcut icon" href="image/favicon.ico" />
-    <link rel="bookmark" href="image/favicon.ico" />
+    {{-- <link rel="shortcut icon" href="image/favicon.ico" />
+    <link rel="bookmark" href="image/favicon.ico" /> --}}
 
     <!-- Bootstrap CSS-->
     <link href="{{ URL::asset('NewCSS/css/style.css') }}" rel="stylesheet" />
 
-    <!--引用SweetAlert2 css-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.10.3/sweetalert2.css" />
-    <!--soruce https://dotblogs.com.tw/shadow/2017/10/17/130645-->
 
     <!--引用RWD table css-->
     <link href="{{ URL::asset('NewCSS/css/wdn_responsive-table.css') }}" rel="stylesheet" />
@@ -50,14 +48,17 @@
 
 
     <!--引用縣市js檔-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script>
-
+   
 
 
 </head>
 
 
 <body class="body_detail">
+    <div id="twzipcode"></div>
+    <script> $("#twzipcode").twzipcode();</script>
 
     <button class="toggle_btn">
         <span></span>
@@ -69,22 +70,22 @@
         <div class="outer">
             <div class="site_logo">
                 <a href="/">
-                    <img src="{{ URL::asset('NewCSS/images/logo_zepro_w.png') }}"></a>
+                    {{-- <img src="{{ URL::asset('/NewCSS/images/logo_zepro_w.png') }}"> --}}
+                    <img src="/NewCSS/images/logo_zepro_w.png">
+                </a>
             </div>
         </div>
     </section>
 
-    <section class="header_banner">
-        <a href="https://www.ctrun.com.tw/page.aspx?CF_ActCode=AM200105&id=363">
-            <div class="web">
-                {{-- 更改大圖示 --}}
-                <img src="{{ URL::asset("img/{$city}{$year}{$month}.jpg") }}">
+    <section class="header_banner">{{-- 更改大圖示 --}}
+        {{-- <a href="/">
+            <div class="web">              
+                <img src="{{ URL::asset("/img/{$city}{$year}{$month}.jpg") }}">
             </div>
-        </a>
-        <a href="https://www.ctrun.com.tw/page.aspx?CF_ActCode=AM200105&id=363">
-            <div class="mobile">
-                <img src="https://www.ctrun.com.tw/image/AM200105/ac4df6956b6547e19970f7ac71c4aae3.jpg">
-            </div>
+        </a> --}}
+        <a href="/">   
+            <img src="{{ URL::asset("img/{$city}{$year}{$month}.jpg") }}" class="img-fluid">
+            {{-- <img src="img/{{$city}}{{$year}}{{$month}}.jpg" class="img-fluid"> --}}
         </a>
     </section>
 
@@ -95,37 +96,33 @@
             <div class="row01">
                 <div id="menu_div" class="navi_outer">
                     <ul class='navi_menu'>
-                        <li><a href="/event/changhua/2020/02">最新消息</a></li>
-                        <li><a href="/event/changhua/2020/02/regMethod">報名辦法</a></li>
-                        <li><a href="/event/changhua/2020/02/rewardMethod">競賽獎勵</a></li>
-                        <li><a href="/event/changhua/2020/02/actSpec">活動規範</a></li>
-                        <li><a href="/signup/changhua/2020/02">我要報名</a></li>
-                        <li><a href="SignQuery.aspx?CF_ActCode=AM200105">報名查詢與修改</a></li>
-
-                        <ul>
+                        <li><a href="/event/{{$city}}/{{$year}}/{{$month}}">最新消息</a></li>
+                        <li><a href="/event/{{$city}}/{{$year}}/{{$month}}/regMethod">報名辦法</a></li> 
+                        <li><a href="/event/{{$city}}/{{$year}}/{{$month}}/rewardMethod">競賽獎勵</a></li>
+                        <li><a href="/event/{{$city}}/{{$year}}/{{$month}}/actSpec">活動規範</a></li> 
+                        <li><a href="/signup/{{$city}}/{{$year}}/{{$month}}">我要報名</a></li>
+                        <li><a href="/query/{{$city}}/{{$year}}/{{$month}}">報名查詢與修改</a></li>    
+                    <ul>
                 </div>
             </div>
+
             <a name="MobileStart"></a>
             <div class="row02">
                 <div class="countdown_div">
                     <div id="outerdiv" class="countdown_outer" style="display: block;">
-                        <div class="other_link">
+                        {{-- <div class="other_link">
                             <div class="btn111" style="font-size: 1em;">
                                 <span id="remain_txt"><span>報名截止剩餘:</span></span>
                                 <span id="remain_time">Label</span>
                             </div>
-
                             <div style="text-align: center; width: 100%; height: 50px; font-size: 22px">
                                 <span id="name_txt">2020 ZEPRO RUN<br /> 全國半程馬拉松 - 宜蘭場</span>
                             </div>
                         </div>
 
 
-
                         <div class="gray_bg">
-
                             <div class="box">
-
                                 <div class="info">
                                     <i class="fas fa-calendar-alt"></i>
                                     <span id="date_txt"> 2020年01月05日 (星期日)</span><br />
@@ -139,21 +136,53 @@
                                     <span id="Label1"> 0800-271-637(工作日9:00~18:00)</span>
                                 </div>
                             </div>
+                        </div> --}}
 
-                        </div>
                         <div class="other_link">
-                            <a href="/signup/changhua/2020/02" id="SignTitle"
+                            <div class="btn111" style="font-size: 1em;">
+                                <span id="remain_txt"><span>報名截止剩餘:</span></span>
+                                <span id="remain_time">Label</span>
+                            </div>
+                            <div style="text-align: center; width: 100%; height: 50px; font-size: 22px">
+                                <span id="name_txt">2020 ZEPRO RUN<br /> {{$list["location"]}}</span>
+                            </div>
+                        </div>
+
+
+                        <div class="gray_bg">
+                            <div class="box">
+                                <div class="info">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span id="date_txt">{{$list["time"]}}</span><br />
+                                    <i class="fas fa-flag"></i>
+                                    <span id="km_txt">{{$list["distance"]}} </span>
+                                    <br />
+                                    <i class="fas fa-map-marker-alt"></i><a
+                                        href="http://maps.google.com.tw/maps?q=宜蘭冬山河親水公園>">
+                                        <span id="place_txt">{{$list["place"]}} </span></a><br />
+                                    <i class="fas fa-phone"></i>
+                                    <span id="Label1">{{$list["phone"]}} </span>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        {{--以上為測試替換區--}}
+                        <div class="other_link">
+                            <a href="/signup/{{$city}}/{{$year}}/{{$month}}" id="SignTitle"
                                 class="btn active">我要報名／Signup</a>
-                            <a href="SignQuery.aspx?CF_ActCode=AM200105#MobileStart" id="SignQuery"
+                            <a href="/query/{{$city}}/{{$year}}/{{$month}}" id="SignQuery"
                                 class="btn">報名查詢與修改／Query&Modify</a>
                             <a href="#" id="PostURL" class="btn">參賽名單與包裹查詢</a>
                         </div>
+
                     </div>
                 </div>
 
 
                 <form id="form1">
-
+                   
                     <div class="detail_div">
                      <!--中間可替換內容處-->
                         {{--要更改路徑格式--}}
@@ -172,10 +201,12 @@
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
                         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
                             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-                            crossorigin="anonymous"></script>
+                            crossorigin="anonymous">
+                        </script>
                         <div id="ContentPlaceHolder1_content">
                             <h2 style="text-align:center">最新消息</h2>
-
+                            <!--以下要能替換內容-->
+                            
                             <h3><i class="fa fa-chevron-down"></i>團體報名</h3>
 
                             <div class="fold o" style="display: block">團報20人以上如欲索取團報EXCEL檔案，請按此<a
@@ -239,7 +270,7 @@
                                         style="color:#e74c3c;">主動聯繫</span></strong>主辦單位驗證得獎資格與核對尺寸，<span
                                     style="color:#e74c3c;"><strong>逾期視同放棄</strong></span><br />
                                 5. 主辦單位擁有最終活動解釋權力
-
+                                
 
                                 <div><img alt=""
                                         src="https://www.ctrun.com.tw/image/AM200105/af8f7cc0d753469bb49a822a0e262a5b.jpg"
@@ -281,6 +312,7 @@
                                 //     $(this).parent().removeClass('o').slideUp();
                                 // });
                             });
+                           
                         </script>
 
                     </div>
@@ -295,7 +327,8 @@
     {{--要更改路徑格式--}}
     <section class="back_top">
         <a href="#">
-            <img src="{{ URL::asset('NewCSS/images/icon_gotop.png') }}"></a>
+          <i class="far fa-arrow-alt-circle-up "
+             style="font-size:50px; color:rgb(73, 175, 73); position: fixed; bottom:20px; right:20px;"></i>  
     </section>
 
     <section class="footer">
@@ -304,33 +337,33 @@
     <nav id="mobile_nav" class="mobile_nav">
         <div id="menu_div_mobile">
             <ul>
-                <li><a href="/event/changhua/2020/02">最新消息</a></li>
+                <li><a href="/event/{{$city}}/{{$year}}/{{$month}}">最新消息</a></li>
+                <div style='width:100%' ;>
+                    <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
+                    </div>
+                </div><br />          
+                <li><a href="/event/{{$city}}/{{$year}}/{{$month}}/regMethod">報名辦法</a></li>
+                <div style='width:100%' ;>
+                    <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
+                    </div>
+                </div><br /> 
+                <li><a href="/event/{{$city}}/{{$year}}/{{$month}}/rewardMethod">競賽獎勵</a></li>
                 <div style='width:100%' ;>
                     <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
                     </div>
                 </div><br />
-                <li><a href="/event/changhua/2020/02/regMethod">報名辦法</a></li>
-                <div style='width:100%' ;>
-                    <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
-                    </div>
-                </div><br />
-                <li><a href="/event/changhua/2020/02/rewardMethod">競賽獎勵</a></li>
-                <div style='width:100%' ;>
-                    <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
-                    </div>
-                </div><br />
-                <li><a href="/event/changhua/2020/02/actSpec">活動規範</a></li>
+                <li><a href="/event/{{$city}}/{{$year}}/{{$month}}/actSpec">活動規範</a></li>
                 <div style='width:100%' ;>
                     <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
                     </div>
                 </div><br />
 
-                <li><a href="/signup/changhua/2020/02">我要報名</a></li>
+                <li><a href="/signup/{{$city}}/{{$year}}/{{$month}}">我要報名</a></li>
                 <div style='width:100%' ;>
                     <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
                     </div>
                 </div><br />
-                <li><a href="SignQuery.aspx?CF_ActCode=AM200105#MobileStart">報名查詢與修改</a></li>
+                <li><a href="/query/{{$city}}/{{$year}}/{{$month}}">報名查詢與修改</a></li>
                 <div style='width:100%' ;>
                     <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
                     </div>
@@ -338,10 +371,9 @@
         </div>
     </nav>
 
-    <style>
-    </style>
-
-    <div id="myModal" class="modal fade bs-example-modal-lg" tabindex="-1" data-toggle="modal" role="dialog"
+   
+    {{-- 彈出視窗模組 --}}
+    {{-- <div id="myModal" class="modal fade bs-example-modal-lg" tabindex="-1" data-toggle="modal" role="dialog"
         aria-labelledby="myLargeModalLabel" style="display:none;">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -352,7 +384,8 @@
                         data-dismiss="modal" /></a>
             </div>
         </div>
-    </div>
+    </div> --}}
+    
 
 
     <!-------JavaScript特定日期倒數計時 START-------->
@@ -378,11 +411,11 @@
         }
     </script>
     <!-------JavaScript特定日期倒數計時 END-------->
-
+   
 
     <div id="body_overly"></div>
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="{{ URL::asset('NewCSS/js/jquery-3.1.0.js') }}"></script>
+    
     <script src="{{ URL::asset('NewCSS/js/jquery.countdown.js') }}"></script>
     <script src="{{ URL::asset('NewCSS/js/script.js') }}"></script>
     <!--這行是驗證用，要放在jquery後面-->
@@ -390,7 +423,7 @@
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js">
     </script>
-
+    
 
 </body>
 

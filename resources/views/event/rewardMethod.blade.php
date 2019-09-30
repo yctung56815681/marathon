@@ -1,3 +1,4 @@
+<script>Sid='2019/10/14 23:59:59';</script>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -14,14 +15,12 @@
         2020 ZEPRO RUN 全國半程馬拉松 - 宜蘭場
     </title>
 
-    <!--CIS ico-->
-    <link rel="shortcut icon" href="image/favicon.ico" />
-    <link rel="bookmark" href="image/favicon.ico" />
+    
 
     <!-- Bootstrap CSS-->
     <link href="{{ URL::asset('NewCSS/css/style.css') }}" rel="stylesheet" />
 
-
+   
     <!--引用RWD table css-->
     <link href="{{ URL::asset('NewCSS/css/wdn_responsive-table.css') }}" rel="stylesheet" />
 
@@ -36,7 +35,7 @@
 <!--競賽獎勵-->
 <body class="body_detail">
 
-
+   
 
     <button class="toggle_btn">
         <span></span>
@@ -47,24 +46,17 @@
         <div class="outer">
             <div class="site_logo">
                 <a href="/">
-                    <img src="{{ URL::asset('NewCSS/images/logo_zepro_w.png') }}"></a>
+                    <img src="{{ URL::asset('/NewCSS/images/logo_zepro_w.png') }}"></a>
+                </a>
             </div>
         </div>
     </section>
 
     <section class="header_banner">
-        <a href="https://www.ctrun.com.tw/page.aspx?CF_ActCode=AM200105&id=363">
-            <div class="web">
-                {{-- <img src="https://www.ctrun.com.tw/image/AM200105/b637097185ef46ec940065f257e96cb5.jpg"> --}}
-            </div>
-        </a>
-        <a href="https://www.ctrun.com.tw/page.aspx?CF_ActCode=AM200105&id=363">
-            <div class="mobile">
-                <img src="https://www.ctrun.com.tw/image/AM200105/ac4df6956b6547e19970f7ac71c4aae3.jpg">
-            </div>
+        <a href="/">   
+            <img src="{{ URL::asset("img/{$city}{$year}{$month}.jpg") }}" class="img-fluid">
         </a>
     </section>
-
 
 
     <section class="main">
@@ -72,12 +64,12 @@
             <div class="row01">
                 <div id="menu_div" class="navi_outer">
                     <ul class='navi_menu'>
-                            <li><a href="/event/changhua/2020/02">最新消息</a></li>
-                            <li><a href="/event/changhua/2020/02/regMethod">報名辦法</a></li>
-                            <li><a href="/event/changhua/2020/02/rewardMethod">競賽獎勵</a></li>
-                            <li><a href="/event/changhua/2020/02/actSpec">活動規範</a></li>
-                        <li><a href="/signup/changhua/2020/02">我要報名</a></li>
-                        <li><a href="SignQuery.aspx?CF_ActCode=AM200105">報名查詢與修改</a></li>
+                        <li><a href="/event/{{$city}}/{{$year}}/{{$month}}">最新消息</a></li>
+                        <li><a href="/event/{{$city}}/{{$year}}/{{$month}}/regMethod">報名辦法</a></li> 
+                        <li><a href="/event/{{$city}}/{{$year}}/{{$month}}/rewardMethod">競賽獎勵</a></li>
+                        <li><a href="/event/{{$city}}/{{$year}}/{{$month}}/actSpec">活動規範</a></li> 
+                        <li><a href="/signup/{{$city}}/{{$year}}/{{$month}}">我要報名</a></li>
+                        <li><a href="/query/{{$city}}/{{$year}}/{{$month}}">報名查詢與修改</a></li> 
                     <ul>
                 </div>
             </div>
@@ -85,7 +77,8 @@
             <div class="row02">
                 <div class="countdown_div">
                     <div id="outerdiv" class="countdown_outer" style="display: block;">
-                        <div class="other_link">
+
+                        {{-- <div class="other_link">
                             <div class="btn111" style="font-size: 1em;">
                                 <span id="remain_txt"><span>報名截止剩餘:</span></span>
                                 <span id="remain_time">Label</span>
@@ -98,9 +91,7 @@
 
 
                         <div class="gray_bg">
-
                             <div class="box">
-
                                 <div class="info">
                                     <i class="fas fa-calendar-alt"></i>
                                     <span id="date_txt"> 2020年01月05日 (星期日)</span><br />
@@ -114,12 +105,41 @@
                                     <span id="Label1"> 0800-271-637(工作日9:00~18:00)</span>
                                 </div>
                             </div>
+                        </div> --}}
 
-                        </div>
                         <div class="other_link">
-                            <a href="/signup/changhua/2020/02" id="SignTitle"
+                            <div class="btn111" style="font-size: 1em;">
+                                <span id="remain_txt"><span>報名截止剩餘:</span></span>
+                                <span id="remain_time">Label</span>
+                            </div>
+                            <div style="text-align: center; width: 100%; height: 50px; font-size: 22px">
+                                <span id="name_txt">2020 ZEPRO RUN<br /> {{$list["location"]}}</span>
+                            </div>
+                        </div>
+
+
+                        <div class="gray_bg">
+                            <div class="box">
+                                <div class="info">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span id="date_txt">{{$list["time"]}}</span><br />
+                                    <i class="fas fa-flag"></i>
+                                    <span id="km_txt">{{$list["distance"]}} </span>
+                                    <br />
+                                    <i class="fas fa-map-marker-alt"></i><a
+                                        href="http://maps.google.com.tw/maps?q=宜蘭冬山河親水公園>">
+                                        <span id="place_txt">{{$list["place"]}} </span></a><br />
+                                    <i class="fas fa-phone"></i>
+                                    <span id="Label1">{{$list["phone"]}} </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{--以上為測試替換區--}}
+                        <div class="other_link">
+                            <a href="/signup/{{$city}}/{{$year}}/{{$month}}" id="SignTitle"
                                 class="btn active">我要報名／Signup</a>
-                            <a href="SignQuery.aspx?CF_ActCode=AM200105#MobileStart" id="SignQuery"
+                            <a href="/query/{{$city}}/{{$year}}/{{$month}}" id="SignQuery"
                                 class="btn">報名查詢與修改／Query&Modify</a>
                             <a href="#" id="PostURL" class="btn">參賽名單與包裹查詢</a>
                         </div>
@@ -128,10 +148,10 @@
 
 
                 <form  id="form1">
-
+                    
 
                     <div class="detail_div">
-                    <!--中間可替換內容處-->
+                    
                         <link rel="stylesheet" href="{{ URL::asset('NewCSS/css/jquerycollapse.css') }}">
                         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
                             rel="stylesheet">
@@ -153,7 +173,7 @@
                                     <center>
                                         <div class="titleCenter">競賽獎勵</div>
                                         &nbsp;
-
+                                        <!--以下要能替換內容-->
                                         <div class="titleCenter"><img alt=""
                                                 src="https://www.ctrun.com.tw/image/AM200105/b132b5f156b3444e89dcb3c26d428220.jpg"
                                                 style="width: 100%;" /></div>
@@ -344,9 +364,8 @@
 
 
     <section class="back_top">
-        <a href="#">
-            <img src="{{ URL::asset('NewCSS/images/icon_gotop.png') }}">
-        </a>
+        <i class="far fa-arrow-alt-circle-up "
+            style="font-size:50px; color:rgb(73, 175, 73); position: fixed; bottom:20px; right:20px;"></i>  
     </section>
 
     <section class="footer">
@@ -356,33 +375,33 @@
     <nav id="mobile_nav" class="mobile_nav">
         <div id="menu_div_mobile">
             <ul>
-                    <li><a href="/event/changhua/2020/02">最新消息</a></li>
-                    <div style='width:100%' ;>
-                        <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
-                        </div>
-                    </div><br />
-                    <li><a href="/event/yilan/2020/01/01/regMethod">報名辦法</a></li>
-                    <div style='width:100%' ;>
-                        <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
-                        </div>
-                    </div><br />
-                    <li><a href="/event/yilan/2020/01/02/rewardMethod">競賽獎勵</a></li>
-                    <div style='width:100%' ;>
-                        <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
-                        </div>
-                    </div><br />
-                    <li><a href="/event/yilan/2020/01/03/actSpec">活動規範</a></li>
-                    <div style='width:100%' ;>
-                        <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
-                        </div>
-                    </div><br />
-
-                <li><a href="/signup/changhua/2020/02">我要報名</a></li>
+                <li><a href="/event/{{$city}}/{{$year}}/{{$month}}">最新消息</a></li>
+                <div style='width:100%' ;>
+                    <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
+                    </div>
+                </div><br />          
+                <li><a href="/event/{{$city}}/{{$year}}/{{$month}}/regMethod">報名辦法</a></li>
+                <div style='width:100%' ;>
+                    <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
+                    </div>
+                </div><br /> 
+                <li><a href="/event/{{$city}}/{{$year}}/{{$month}}/rewardMethod">競賽獎勵</a></li>
                 <div style='width:100%' ;>
                     <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
                     </div>
                 </div><br />
-                <li><a href="SignQuery.aspx?CF_ActCode=AM200105#MobileStart">報名查詢與修改</a></li>
+                <li><a href="/event/{{$city}}/{{$year}}/{{$month}}/actSpec">活動規範</a></li>
+                <div style='width:100%' ;>
+                    <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
+                    </div>
+                </div><br />
+                
+                <li><a href="/signup/{{$city}}/{{$year}}/{{$month}}">我要報名</a></li>
+                <div style='width:100%' ;>
+                    <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
+                    </div>
+                </div><br />
+                <li><a href="/query/{{$city}}/{{$year}}/{{$month}}">報名查詢與修改</a></li>
                 <div style='width:100%' ;>
                     <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
                     </div>
@@ -390,8 +409,7 @@
         </div>
     </nav>
 
-
-
+   
     <!-------JavaScript特定日期倒數計時 START-------->
 
     <script type="text/javascript">
@@ -430,7 +448,7 @@
 
     <div id="body_overly"></div>
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="{{ URL::asset('NewCSS/js/jquery-3.1.0.js') }}"></script>
+    
     <script src="{{ URL::asset('NewCSS/js/jquery.countdown.js') }}"></script>
     <script src="{{ URL::asset('NewCSS/js/script.js') }}"></script>
     <!--這行是驗證用，要放在jquery後面-->
@@ -438,7 +456,7 @@
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js">
     </script>
-
+    
 
 </body>
 
