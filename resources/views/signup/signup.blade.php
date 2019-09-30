@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>路跑報名</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
 
     <style>
@@ -105,7 +106,8 @@
             <img src="{{ URL::asset("img/changhua202002.jpg") }}" class="img-fluid" alt="Responsive image">
         </div>
         <div class="col-md-10 content">
-            <form action="/memberAdmin" method="POST" name="memberForm">
+                {{-- action="/memberAdmin" --}}
+            <form  method="POST" name="memberForm">
                 @csrf
                 <div class="content">
                         <div class="row">
@@ -286,11 +288,11 @@
                                             </div>
                                         </div>
                                         <div class="btn-group d-flex justify-content-center myButton">
-                                            <div><a href="index.html"><input class="btn btn-primary" type="button"
+                                            <div><a href={{"/signup/{$city}/{$year}/{$month}/index"}}><input class="btn btn-primary" type="button"
                                                         value="報名首頁"></a>
                                             </div>
                                             <div><input class="btn btn-primary" type="button" value="送出資料"
-                                                    onclick="goGroup2();  processFormData(); check_data()"></div>
+                                                    onclick="goGroup2(); processFormData(); check_data();"></div>
                                         </div>
                                     </div>
                                     <div id="group2" style="display:none">
@@ -380,8 +382,8 @@
                                         <div class="btn-group d-flex justify-content-center myButton">
                                             <div><input class="btn btn-primary" type="button" value="報名資料" onclick="goGroup1()">
                                             </div>
-                                            <div><a href="/signup/{city}/{year}/{month}/finish"><input class="btn btn-primary" type="submit"
-                                                        value="確認訂單" ></a>
+                                            <div><a href={{"/signup/{$city}/{$year}/{$month}/finish"}}><input class="btn btn-primary" type="button"
+                                                        value="確認訂單" onclick="myData()"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -547,28 +549,52 @@
         var random_no = today.getTime() + random_no;
         console.log(random_no);
         $("#random").text(random_no);
-
-        // //data to serve
-        // function myData(){
-        //     $(document).ready(function() {
-        //         var name = $("#name").val();
-        //         $.ajax({
-        //             type: "POST",
-        //             url: "add.php",
-        //             data: {
-        //                 "name":name
-        //             }
-                  
-
-        //         });
-            
-        // });
-        // }
+        
+        //ajax
+        $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
+        function myData(){
+            $(document).ready(function() {
+                var name = $("#name").val();
+                var twId = $("#twId").val();
+                var sex = $("input[name=sex]:checked").val();
+                var year = $("#year").val();
+                var month = $("#month").val();
+                var day = $("#day").val();
+                var city = $("#city").val();
+                var town = $("#town").val();
+                var address = $("#address").val();
+                var email = $("#email").val();
+                var cellPhone = $("#cellPhone").val();
+                var emName = $("#emName").val();
+                var emRelationship = $("#emRelationship").val();
+                var emCellphone = $("#emCellphone").val(); 
+                $.ajax({
+                    type: "POST",
+                    url: "/memberAdmin",
+                    data: {
+                        name:name,
+                        twId:twId,
+                        sex:sex,
+                        year:year,
+                        month:month,
+                        day:day,
+                        city:city,
+                        town:town,
+                        address:address,
+                        email:email,
+                        cellPhone:cellPhone,
+                        emName:emName,
+                        emRelationship:emRelationship,
+                        emCellphone:emCellphone
+                    }
+                });    
+        });
+        }
     </script>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    {{-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
+    </script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
     </script>
