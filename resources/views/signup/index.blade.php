@@ -115,7 +115,7 @@
                             <br>
                             <br>
                             <div class="btn-group d-flex justify-content-center">
-                                <div><a href="/signup/{city}/{year}/{month}/signup"> <input id="checkRead" class="btn btn-primary" type="button"
+                                <div><a href={{"/signup/{$city}/{$year}/{$month}/signup"}}> <input id="checkRead" class="btn btn-primary" type="button"
                                             value="個人報名"></a>
                                     <div>
                                     </div>
