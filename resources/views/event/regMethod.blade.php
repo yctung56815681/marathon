@@ -42,7 +42,6 @@
         <div class="outer">
             <div class="site_logo">
                 <a href="/">
-                    {{-- <img src="{{ URL::asset('NewCSS/images/logo_zepro_w.png') }}"> --}}
                     <img src="/NewCSS/images/logo_zepro_w.png"></a>
                 </a>
                     
@@ -51,7 +50,7 @@
     </section>
 
     <section class="header_banner">
-        <a href="/">   
+        <a href="/event/{{$city}}/{{$year}}/{{$month}}">   
             <img src="{{ URL::asset("img/{$city}{$year}{$month}.jpg") }}" class="img-fluid">
         </a>
         {{-- <a href="https://www.ctrun.com.tw/page.aspx?CF_ActCode=AM200105&id=363">

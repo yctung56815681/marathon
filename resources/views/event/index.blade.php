@@ -52,13 +52,33 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script>
    
 
-
+    <!--引用彈出視窗sweetalert2檔-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    
 </head>
+
 
 
 <body class="body_detail">
     {{-- <div id="twzipcode" ></div> --}}
     <script> $("#twzipcode").twzipcode();</script>
+
+    <script>
+        Swal.fire({
+            title: '本賽好禮大放送',
+            text: "",
+            imageUrl: "{{ URL::asset("img/pt01.jpg") }}",
+            imageWidth: 500,
+            imageHeight: 350,
+            width:520,
+            height:350,
+            background: "url({{ URL::asset("img/bg01.jpg") }})",
+            animation: true,
+            customClass: { popup: "animated tada" },
+            timer: 5000,
+            showConfirmButton: false,
+        });
+    </script>
 
     <button class="toggle_btn">
         <span></span>
@@ -83,9 +103,8 @@
                 <img src="{{ URL::asset("/img/{$city}{$year}{$month}.jpg") }}">
             </div>
         </a> --}}
-        <a href="/">   
+        <a href="/event/{{$city}}/{{$year}}/{{$month}}">   
             <img src="{{ URL::asset("img/{$city}{$year}{$month}.jpg") }}" class="img-fluid">
-            {{-- <img src="img/{{$city}}{{$year}}{{$month}}.jpg" class="img-fluid"> --}}
         </a>
     </section>
 
@@ -385,7 +404,7 @@
             </div>
         </div>
     </div> --}}
-    
+   
 
 
     <!-------JavaScript特定日期倒數計時 START-------->

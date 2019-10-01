@@ -53,7 +53,7 @@
     </section>
 
     <section class="header_banner">
-        <a href="/">   
+        <a href="/event/{{$city}}/{{$year}}/{{$month}}">   
             <img src="{{ URL::asset("img/{$city}{$year}{$month}.jpg") }}" class="img-fluid">
         </a>
     </section>
