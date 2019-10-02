@@ -59,6 +59,7 @@
 </head>
 
 <body>
+{{------------------------------------------Modal----------------------------------------------------}}
     <div id="checkRegex" class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content" style="background-color: yellow; border-radius: 0 25%;">
@@ -77,14 +78,15 @@
     </div>
 
     <div class="row">
+{{------------------------------------------Nav----------------------------------------------------}}
         <div class="col-md-12 navList">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="#" style="color: red">III Marathon</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                {{-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
+                </button> --}}
+                {{-- <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
                     <ul class="navbar-nav ">
                         <li class="nav-item active">
                             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
@@ -99,16 +101,18 @@
                             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                         </li>
                     </ul>
-                </div>
+                </div> --}}
             </nav>
         </div>
+{{------------------------------------------header圖片----------------------------------------------------}}
         <div class="col-md-12 header">
             <img src="{{ URL::asset("img/changhua202002.jpg") }}" class="img-fluid" alt="Responsive image">
         </div>
+{{------------------------------------------報名資料----------------------------------------------------}}
         <div class="col-md-10 content">
                 {{-- action="/memberAdmin" --}}
-            <form  method="POST" name="memberForm">
-                @csrf
+            <form name="memberForm">
+                {{-- @csrf --}}
                 <div class="content">
                         <div class="row">
                             <div class="col-md-12 mb-3">
@@ -392,6 +396,7 @@
                     </div>
             </form>
         </div>
+{{------------------------------------------倒數計時----------------------------------------------------}}
         <div class="col-md-2 countDown">這是倒數計時</div>
     </div>
 
