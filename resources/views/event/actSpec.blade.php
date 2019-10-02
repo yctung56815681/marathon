@@ -79,45 +79,12 @@
                 <div class="countdown_div">
                     <div id="outerdiv" class="countdown_outer" style="display: block;">
 
-                        {{-- <div class="other_link">
-                            <div class="btn111" style="font-size: 1em;">
-                                <span id="remain_txt"><span>報名截止剩餘:</span></span>
-                                <span id="remain_time">Label</span>
-                            </div>
-
-                            <div style="text-align: center; width: 100%; height: 50px; font-size: 22px">
-                                <span id="name_txt">2020 ZEPRO RUN<br /> 全國半程馬拉松 - 宜蘭場</span>
-                            </div>
-                        </div>
-
-
-                        <div class="gray_bg">
-                            <div class="box">
-                                <div class="info">
-                                    <i class="fas fa-calendar-alt"></i>
-                                    <span id="date_txt"> 2020年01月05日 (星期日)</span><br />
-                                    <i class="fas fa-flag"></i>
-                                    <span id="km_txt"> 21K / 10K / 5K</span>
-                                    <br />
-                                    <i class="fas fa-map-marker-alt"></i><a
-                                        href="http://maps.google.com.tw/maps?q=宜蘭冬山河親水公園>">
-                                        <span id="place_txt"> 宜蘭冬山河親水公園</span></a><br />
-                                    <i class="fas fa-phone"></i>
-                                    <span id="Label1"> 0800-271-637(工作日9:00~18:00)</span>
-                                </div>
-                            </div>
-                        </div> --}}
 
                         <div class="other_link">
-                            <div class="btn111" style="font-size: 1em;">
-                                <span id="remain_txt"><span>報名截止剩餘:</span></span>
-                                <span id="remain_time">Label</span>
-                            </div>
                             <div style="text-align: center; width: 100%; height: 50px; font-size: 22px">
                                 <span id="name_txt">2020 ZEPRO RUN<br /> {{$list["location"]}}</span>
                             </div>
                         </div>
-
 
                         <div class="gray_bg">
                             <div class="box">
@@ -136,13 +103,19 @@
                             </div>
                         </div>
 
+                        <div class="other_link">
+                            <div class="btn111" style="font-size: 1em;">
+                                <span id="remain_txt"><span>報名截止剩餘:</span></span>
+                                <span id="remain_time">Label</span>
+                            </div>
+                        </div>
+
                         {{--以上為測試替換區--}}
                         <div class="other_link">
                             <a href="/signup/{{$city}}/{{$year}}/{{$month}}" id="SignTitle"
                                 class="btn active">我要報名／Signup</a>
                             <a href="/query/{{$city}}/{{$year}}/{{$month}}" id="SignQuery"
                                 class="btn">報名查詢與修改／Query&Modify</a>
-                            {{-- <a href="#" id="PostURL" class="btn">參賽名單與包裹查詢</a> --}}
                         </div>
 
                     </div>
@@ -172,7 +145,8 @@
                         </script>
 
                         <div id="ContentPlaceHolder1_content">
-                            <h2 style="text-align: center;"><span style="color: #333333;font-weight:900;">活動規範</span>
+                            <h2 style="text-align: center;">
+                                <span style="color: #333333;font-weight:900;">活動規範</span>
                             </h2>
 
                             <!--以下要能替換內容-->
@@ -425,6 +399,7 @@
 
                                 <p>&bull; 癲癇</p>
                             </div>
+                            <!--以上要能替換內容-->
 
                             <p>&nbsp;</p>
                         </div>
@@ -444,10 +419,7 @@
                                         $(this).next('.fold').addClass('o').slideDown();
                                     }
                                 });
-                                // $('.close').click(function () {
-                                //     $(this).parent().prev('h3').find('i.fa').removeClass('fa-chevron-down').addClass('fa-chevron-right');
-                                //     $(this).parent().removeClass('o').slideUp();
-                                // });
+                                
                             });
                         </script>
 

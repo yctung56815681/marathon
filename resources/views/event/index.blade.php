@@ -63,6 +63,7 @@
     {{-- <div id="twzipcode" ></div> --}}
     <script> $("#twzipcode").twzipcode();</script>
 
+    {{-- 彈出視窗模組 --}}
     <script>
         Swal.fire({
             title: '本賽好禮大放送',
@@ -129,44 +130,13 @@
             <div class="row02">
                 <div class="countdown_div">
                     <div id="outerdiv" class="countdown_outer" style="display: block;">
-                        {{-- <div class="other_link">
-                            <div class="btn111" style="font-size: 1em;">
-                                <span id="remain_txt"><span>報名截止剩餘:</span></span>
-                                <span id="remain_time">Label</span>
-                            </div>
-                            <div style="text-align: center; width: 100%; height: 50px; font-size: 22px">
-                                <span id="name_txt">2020 ZEPRO RUN<br /> 全國半程馬拉松 - 宜蘭場</span>
-                            </div>
-                        </div>
-
-
-                        <div class="gray_bg">
-                            <div class="box">
-                                <div class="info">
-                                    <i class="fas fa-calendar-alt"></i>
-                                    <span id="date_txt"> 2020年01月05日 (星期日)</span><br />
-                                    <i class="fas fa-flag"></i>
-                                    <span id="km_txt"> 21K / 10K / 5K</span>
-                                    <br />
-                                    <i class="fas fa-map-marker-alt"></i><a
-                                        href="http://maps.google.com.tw/maps?q=宜蘭冬山河親水公園>">
-                                        <span id="place_txt"> OOO公園</span></a><br />
-                                    <i class="fas fa-phone"></i>
-                                    <span id="Label1"> 0800-271-637(工作日9:00~18:00)</span>
-                                </div>
-                            </div>
-                        </div> --}}
+                        
 
                         <div class="other_link">
-                            <div class="btn111" style="font-size: 1em;">
-                                <span id="remain_txt"><span>報名截止剩餘:</span></span>
-                                <span id="remain_time">Label</span>
-                            </div>
                             <div style="text-align: center; width: 100%; height: 50px; font-size: 22px">
                                 <span id="name_txt">2020 ZEPRO RUN<br /> {{$list["location"]}}</span>
                             </div>
                         </div>
-
 
                         <div class="gray_bg">
                             <div class="box">
@@ -185,7 +155,12 @@
                             </div>
                         </div>
 
-
+                        <div class="other_link">
+                            <div class="btn111" style="font-size: 1em;">
+                                <span id="remain_txt"><span>報名截止剩餘:</span></span>
+                                <span id="remain_time">Label</span>
+                            </div>
+                        </div>
 
                         {{--以上為測試替換區--}}
                         <div class="other_link">
@@ -193,7 +168,6 @@
                                 class="btn active">我要報名／Signup</a>
                             <a href="/query/{{$city}}/{{$year}}/{{$month}}" id="SignQuery"
                                 class="btn">報名查詢與修改／Query&Modify</a>
-                            {{-- <a href="#" id="PostURL" class="btn">參賽名單與包裹查詢</a> --}}
                         </div>
 
                     </div>
@@ -325,11 +299,7 @@
                                         $(this).next('.fold').addClass('o').slideDown();
                                     }
                                 });
-                                // $('.close').click(function () {
-                                //     $(this).parent().prev('h3').find('i.fa').removeClass(
-                                //         'fa-chevron-down').addClass('fa-chevron-right');
-                                //     $(this).parent().removeClass('o').slideUp();
-                                // });
+                               
                             });
                            
                         </script>
@@ -391,20 +361,8 @@
     </nav>
 
    
-    {{-- 彈出視窗模組 --}}
-    {{-- <div id="myModal" class="modal fade bs-example-modal-lg" tabindex="-1" data-toggle="modal" role="dialog"
-        aria-labelledby="myLargeModalLabel" style="display:none;">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <img src="https://www.ctrun.com.tw/image/AM200105/40ed57d0a378480b8fef41beb76a6e4a.jpg"
-                    style="max-width: 100%" data-dismiss="modal" />
-                <a class="closebutton">
-                    <img src="https://www.ctrun.com.tw/image/cancel-button.png" style="max-width: 100%"
-                        data-dismiss="modal" /></a>
-            </div>
-        </div>
-    </div> --}}
-   
+    
+
 
 
     <!-------JavaScript特定日期倒數計時 START-------->
