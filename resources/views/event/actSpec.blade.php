@@ -50,11 +50,6 @@
         <a href="/event/{{$city}}/{{$year}}/{{$month}}">   
             <img src="{{ URL::asset("img/{$city}{$year}{$month}.jpg") }}" class="img-fluid">
         </a>
-        {{-- <a href="https://www.ctrun.com.tw/page.aspx?CF_ActCode=AM200105&id=363">
-            <div class="mobile">
-                <img src="https://www.ctrun.com.tw/image/AM200105/ac4df6956b6547e19970f7ac71c4aae3.jpg">
-            </div>
-        </a> --}}
     </section>
 
 
@@ -81,7 +76,8 @@
 
 
                         <div class="other_link">
-                            <div style="text-align: center; width: 100%; height: 50px; font-size: 22px">
+                            <div style="text-align: center; width: 100%; height: 50px;
+                                        font-size: 22px; margin-top:10px">
                                 <span id="name_txt">2020 ZEPRO RUN<br /> {{$list["location"]}}</span>
                             </div>
                         </div>

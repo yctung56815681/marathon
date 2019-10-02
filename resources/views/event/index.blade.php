@@ -133,7 +133,8 @@
                         
 
                         <div class="other_link">
-                            <div style="text-align: center; width: 100%; height: 50px; font-size: 22px">
+                            <div style="text-align: center; width: 100%; height: 50px; 
+                                        font-size: 22px; margin-top:10px">
                                 <span id="name_txt">2020 ZEPRO RUN<br /> {{$list["location"]}}</span>
                             </div>
                         </div>

@@ -80,7 +80,8 @@
 
                         
                         <div class="other_link">
-                            <div style="text-align: center; width: 100%; height: 50px; font-size: 22px">
+                            <div style="text-align: center; width: 100%; height: 50px;
+                                        font-size: 22px; margin-top:10px">
                                 <span id="name_txt">2020 ZEPRO RUN<br /> {{$list["location"]}}</span>
                             </div>
                         </div>
@@ -103,6 +104,13 @@
                             </div>
                         </div>
 
+                        <div class="other_link">
+                            <div class="btn111" style="font-size: 1em;">
+                                <span id="remain_txt"><span>報名截止剩餘:</span></span>
+                                <span id="remain_time">Label</span>
+                            </div>
+                        </div>
+
                         {{--以上為測試替換區--}}
                         <div class="other_link">
                             <a href="/signup/{{$city}}/{{$year}}/{{$month}}" id="SignTitle"
@@ -113,12 +121,6 @@
                     </div>
                 </div>
 
-                <div class="other_link">
-                    <div class="btn111" style="font-size: 1em;">
-                        <span id="remain_txt"><span>報名截止剩餘:</span></span>
-                        <span id="remain_time">Label</span>
-                    </div>
-                </div>
 
 
                 <form  id="form1">
