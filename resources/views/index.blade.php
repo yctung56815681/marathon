@@ -156,7 +156,7 @@
   <div class="col-xl-6 col-md-12 " id="Search">
  
     <div id="searchBlock">
-    <select style="height :25px; width :200px" class="col-4" name="" id="">
+    <select style="height :25px; width :200px" class="col-4" name="" id="year" >
       <option value="YYYY">YYYY</option>
       <option value="2019">2019</option>
       <option value="2018">2018</option>
@@ -165,8 +165,8 @@
   
 
  
-    <input id="keyWord" style="height :25px; width :200px" class=" col-4" type="text"   >
-    <button onclick="SEARCH()">OK</button>
+    <input id="keyWord" style="height :25px; width :200px" class=" col-4" type="text"  placeholder="賽事搜尋" >
+    
     
   </div>
   </div>
@@ -192,6 +192,7 @@
               <p class="card-text"> <img src="img/flag.png" alt="">@{{list[index].distance}}</p>
               <p class="card-text"> <img src="img/placeholder-filled-point.png" alt="">@{{list[index].place}}</p>
               <a :href="list[index].add" class="btn btn-primary">Go somewhere</a>
+              <button >SHOWDATA</button>
               
             </div>   
           </div>  
@@ -212,6 +213,7 @@
               <h5 class="card-title">Card title</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
               <a href="#" class="btn btn-primary">Go somewhere</a>
+              <button >SHOWDATA</button>
             </div>
           </div>
           <div  class="2018 card CardPermutation" style="width: 18rem;">
@@ -295,6 +297,10 @@
   <a name="footer"></a>
  <div id="footer">
    <h1>ABOUT US</h1>
+   @{{_self.message}}
+   
+  
+   
   
   
 
@@ -332,7 +338,8 @@
           </div>
         </nav>
     </nav>
-        
+       
+
   </div>
   
  
@@ -343,32 +350,24 @@
 
 
 <script>
-$(document).ready(function(){
-  $("#keyWord").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#cardSelect h5").filter(function() {
-     
+  $(document).ready(function(){
+    $("#keyWord").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#cardSelect h5").filter(function() {
       
-      $(this).parent("div").parent("div").toggle($(this).text().toLowerCase().indexOf(value) > -1);
-      var k = $(this).parent("div").parent("div").parent("div").toggle($(this).text().toLowerCase().indexOf(value) > -1);
-      console.log(typeof(k));
-      
-  
+        
+        $(this).parent("div").parent("div").toggle($(this).text().toLowerCase().indexOf(value) > -1);
+        var k = $(this).parent("div").parent("div").parent("div").toggle($(this).text().toLowerCase().indexOf(value) > -1);
+        console.log(typeof(k));
+        
     
+      
+      });
     });
   });
-});
 
-  function SEARCH(){
-    var keyWord = document.getElementById("keyWord").value;
-    var match = document.getElementsByClassName(keyWord);
-    
-    console.log(match);
-    console.log(typeof(match));
-    
-  
 
- }
+
  $(function(){
 	$('#GoTop').click(function(){ 
 		$('html,body').animate({scrollTop:0}, 333);
@@ -400,7 +399,30 @@ var app = new Vue({
 
       ]
   
-  }
+  },
+  methods: {
+    
+  
+      
+    
+  },
+  mounted:function() 
+    {
+      console.log('444');
+      $.ajax({
+      type: 'GET',
+      
+      url: '/memberAdmin',
+      success:function(data) {          
+        message = JSON.stringify(data);
+        console.log(typeof(message));
+      },
+      error: function(){
+        console.log("try again");
+      }
+      });
+    } 
+  
 
 })
 

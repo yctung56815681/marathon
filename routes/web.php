@@ -10,11 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    // return view('welcome');
-    return view('index');
-});
+//Index
+Route::get('/',"IndexController@index" );
 
 Route::get('/event/{city}/{year}/{month}', "EventController@event");
 // Route::get('/event/{city}/{year}/{month}/{page}', "EventController@event2");
@@ -39,3 +36,12 @@ Route::get('/signup/{city}/{year}/{month}', "SignupController@index");
 Route::get('/signup/{city}/{year}/{month}/{action}', "SignupController@action");
 
 Route::get('/query/{city}/{year}/{month}', "QueryController@index");
+Route::resource('/eventManager', 'EventManagerController');
+
+
+//post
+Route::get('/posts', 'PostController@apiAll');
+Route::get('/posts/{id}', 'PostController@apiFindPostById');
+Route::post('/posts', 'PostController@apiCreatePost');
+Route::put('/posts/{id}', 'PostController@apiUpdatePostById');
+Route::delete('/posts/{id}', 'PostController@apiDeletePostById');
