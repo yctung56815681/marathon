@@ -188,15 +188,13 @@ h1,h2,h3,h4,h5,h6,p {
     color: #d4d4d4;
 }
 
+
+
 .header_banner {
     margin-top: 70px;
-}
-
-
-
-.header_banner {
     position: relative;
     padding: 0;
+    box-shadow: 0px 0px 16px -3px rgba(0,0,0,0.45);
 }
 
 .header_banner img {
@@ -205,6 +203,7 @@ h1,h2,h3,h4,h5,h6,p {
 
 
 .main {
+    height:100%;
     margin-top: -3px;
 }
 
@@ -292,7 +291,7 @@ h1,h2,h3,h4,h5,h6,p {
 
 .main .outer .row02 {
     width: 80%;
-    padding-bottom: 50px;  
+    padding-bottom: 0px;  
 }
 
 .main .outer .row02 .detail_div {
@@ -300,8 +299,10 @@ h1,h2,h3,h4,h5,h6,p {
     width: calc(100% - 340px - 10%);
     padding-top: 55px;
     padding-left: 1%;
-    padding-right: 1%;
+    padding-right: 1%; 
     color: #202124; 
+    padding-top: 20px;
+    padding-bottom: 50px;
 }
 
 
@@ -350,25 +351,24 @@ h1,h2,h3,h4,h5,h6,p {
 .main .outer .row02 .countdown_outer .other_link {
     width: 80%;
     margin: 0 auto;
-    padding-top: 15px;
-   
+    padding-top: 7px;
 }
 
 /*0304新增*//* 右側btn */
 .main .outer .row02 .countdown_outer .other_link .btn {
     border: 2px solid #13d474;
     display: block;
-    margin: 8px 0;
+    margin: 25px 0;
     color: #e50012;
     padding: 5px;
     text-align: center;
     font-size: 16px;
+    box-shadow: 0px 0px 16px -3px rgba(0,0,0,0.53);
 }
 
 /*0304新增*/
 .main .outer .row02 .countdown_outer .other_link .btn:hover {
     background:rgb(156, 240, 31);
-    box-shadow: 0px 0px 21px -3px rgba(0,0,0,0.54);
 }
 
 /*0304新增*/
@@ -388,7 +388,7 @@ h1,h2,h3,h4,h5,h6,p {
     text-align: center;
     font-size: 16px;
     background: rgba(174, 240, 76, 0.966);
-    box-shadow: 0px 0px 21px -3px rgba(0,0,0,0.45);
+    box-shadow: 0px 0px 16px -3px rgba(0,0,0,0.45);
 }
 
  .red {
@@ -492,10 +492,12 @@ body.nav_active #mobile_nav ul {
 
 @media screen and (max-width: 1480px) {
     .main .outer .row02 .detail_div {
+        
         width: calc(100% - 280px - 10%);
         padding-left: 5%;
         padding-right: 5%;
         border-right:solid 10px #13d474;
+        
     }
 
   
@@ -563,6 +565,10 @@ body.nav_active #mobile_nav ul {
 
     .main .outer .row01 {
         width: calc(20% - 5px);
+    }
+
+    .main .outer .row01 .navi_menu {
+        font-size:18px;
     }
 
     .main .outer .row02 {

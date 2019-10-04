@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>路跑報名</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
 
     <style>
@@ -58,6 +59,7 @@
 </head>
 
 <body>
+{{------------------------------------------Modal----------------------------------------------------}}
     <div id="checkRegex" class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content" style="background-color: yellow; border-radius: 0 25%;">
@@ -76,14 +78,15 @@
     </div>
 
     <div class="row">
+{{------------------------------------------Nav----------------------------------------------------}}
         <div class="col-md-12 navList">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="#" style="color: red">III Marathon</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                {{-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
+                </button> --}}
+                {{-- <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
                     <ul class="navbar-nav ">
                         <li class="nav-item active">
                             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
@@ -98,15 +101,18 @@
                             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                         </li>
                     </ul>
-                </div>
+                </div> --}}
             </nav>
         </div>
+{{------------------------------------------header圖片----------------------------------------------------}}
         <div class="col-md-12 header">
             <img src="{{ URL::asset("img/changhua202002.jpg") }}" class="img-fluid" alt="Responsive image">
         </div>
+{{------------------------------------------報名資料----------------------------------------------------}}
         <div class="col-md-10 content">
-            <form action="/memberAdmin" method="POST" name="memberForm">
-                @csrf
+                {{-- action="/memberAdmin" --}}
+            <form name="memberForm">
+                {{-- @csrf --}}
                 <div class="content">
                         <div class="row">
                             <div class="col-md-12 mb-3">
@@ -286,11 +292,11 @@
                                             </div>
                                         </div>
                                         <div class="btn-group d-flex justify-content-center myButton">
-                                            <div><a href="index.html"><input class="btn btn-primary" type="button"
+                                            <div><a href={{"/signup/{$city}/{$year}/{$month}/index"}}><input class="btn btn-primary" type="button"
                                                         value="報名首頁"></a>
                                             </div>
                                             <div><input class="btn btn-primary" type="button" value="送出資料"
-                                                    onclick="goGroup2();  processFormData(); check_data()"></div>
+                                                    onclick="goGroup2(); processFormData(); check_data();"></div>
                                         </div>
                                     </div>
                                     <div id="group2" style="display:none">
@@ -380,8 +386,8 @@
                                         <div class="btn-group d-flex justify-content-center myButton">
                                             <div><input class="btn btn-primary" type="button" value="報名資料" onclick="goGroup1()">
                                             </div>
-                                            <div><a href="/signup/{city}/{year}/{month}/finish"><input class="btn btn-primary" type="submit"
-                                                        value="確認訂單" ></a>
+                                            <div><a href={{"/signup/{$city}/{$year}/{$month}/finish"}}><input class="btn btn-primary" type="button"
+                                                        value="確認訂單" onclick="myData()"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -390,6 +396,7 @@
                     </div>
             </form>
         </div>
+{{------------------------------------------倒數計時----------------------------------------------------}}
         <div class="col-md-2 countDown">這是倒數計時</div>
     </div>
 
@@ -547,28 +554,52 @@
         var random_no = today.getTime() + random_no;
         console.log(random_no);
         $("#random").text(random_no);
-
-        // //data to serve
-        // function myData(){
-        //     $(document).ready(function() {
-        //         var name = $("#name").val();
-        //         $.ajax({
-        //             type: "POST",
-        //             url: "add.php",
-        //             data: {
-        //                 "name":name
-        //             }
-                  
-
-        //         });
-            
-        // });
-        // }
+        
+        //ajax
+        $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
+        function myData(){
+            $(document).ready(function() {
+                var name = $("#name").val();
+                var twId = $("#twId").val();
+                var sex = $("input[name=sex]:checked").val();
+                var year = $("#year").val();
+                var month = $("#month").val();
+                var day = $("#day").val();
+                var city = $("#city").val();
+                var town = $("#town").val();
+                var address = $("#address").val();
+                var email = $("#email").val();
+                var cellPhone = $("#cellPhone").val();
+                var emName = $("#emName").val();
+                var emRelationship = $("#emRelationship").val();
+                var emCellphone = $("#emCellphone").val(); 
+                $.ajax({
+                    type: "POST",
+                    url: "/memberAdmin",
+                    data: {
+                        name:name,
+                        twId:twId,
+                        sex:sex,
+                        year:year,
+                        month:month,
+                        day:day,
+                        city:city,
+                        town:town,
+                        address:address,
+                        email:email,
+                        cellPhone:cellPhone,
+                        emName:emName,
+                        emRelationship:emRelationship,
+                        emCellphone:emCellphone
+                    }
+                });    
+        });
+        }
     </script>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    {{-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
+    </script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
     </script>

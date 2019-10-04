@@ -42,7 +42,6 @@
         <div class="outer">
             <div class="site_logo">
                 <a href="/">
-                    {{-- <img src="{{ URL::asset('NewCSS/images/logo_zepro_w.png') }}"> --}}
                     <img src="/NewCSS/images/logo_zepro_w.png"></a>
                 </a>
                     
@@ -51,7 +50,7 @@
     </section>
 
     <section class="header_banner">
-        <a href="/">   
+        <a href="/event/{{$city}}/{{$year}}/{{$month}}">   
             <img src="{{ URL::asset("img/{$city}{$year}{$month}.jpg") }}" class="img-fluid">
         </a>
         {{-- <a href="https://www.ctrun.com.tw/page.aspx?CF_ActCode=AM200105&id=363">
@@ -82,44 +81,13 @@
                 <div class="countdown_div">
                     <div id="outerdiv" class="countdown_outer" style="display: block;">
 
-                        {{-- <div class="other_link">
-                            <div class="btn111" style="font-size: 1em;">
-                                <span id="remain_txt"><span>報名截止剩餘:</span></span>
-                                <span id="remain_time">Label</span>
-                            </div>
-
-                            <div style="text-align: center; width: 100%; height: 50px; font-size: 22px">
-                                <span id="name_txt">2020 ZEPRO RUN<br /> 全國半程馬拉松 - 宜蘭場</span>
-                            </div>
-                        </div>
-
-                        <div class="gray_bg">
-                            <div class="box">
-                                <div class="info">
-                                    <i class="fas fa-calendar-alt"></i>
-                                    <span id="date_txt"> 2020年01月05日 (星期日)</span><br />
-                                    <i class="fas fa-flag"></i>
-                                    <span id="km_txt"> 21K / 10K / 5K</span>
-                                    <br />
-                                    <i class="fas fa-map-marker-alt"></i><a
-                                        href="http://maps.google.com.tw/maps?q=宜蘭冬山河親水公園>">
-                                        <span id="place_txt"> 宜蘭冬山河親水公園</span></a><br />
-                                    <i class="fas fa-phone"></i>
-                                    <span id="Label1"> 0800-271-637(工作日9:00~18:00)</span>
-                                </div>
-                            </div>
-                        </div> --}}
 
                         <div class="other_link">
-                            <div class="btn111" style="font-size: 1em;">
-                                <span id="remain_txt"><span>報名截止剩餘:</span></span>
-                                <span id="remain_time">Label</span>
-                            </div>
-                            <div style="text-align: center; width: 100%; height: 50px; font-size: 22px">
+                            <div style="text-align: center; width: 100%; height: 50px;
+                                        font-size: 22px; margin-top:10px">
                                 <span id="name_txt">2020 ZEPRO RUN<br /> {{$list["location"]}}</span>
                             </div>
                         </div>
-
 
                         <div class="gray_bg">
                             <div class="box">
@@ -138,13 +106,19 @@
                             </div>
                         </div>
 
+                        <div class="other_link">
+                            <div class="btn111" style="font-size: 1em;">
+                                <span id="remain_txt"><span>報名截止剩餘:</span></span>
+                                <span id="remain_time">Label</span>
+                            </div>
+                        </div>
+
                         {{--以上為測試替換區--}}
                         <div class="other_link">
                             <a href="/signup/changhua/2020/02" id="SignTitle"
                                 class="btn active">我要報名／Signup</a>
                             <a href="SignQuery.aspx?CF_ActCode=AM200105#MobileStart" id="SignQuery"
                                 class="btn">報名查詢與修改／Query&Modify</a>
-                            <a href="#" id="PostURL" class="btn">參賽名單與包裹查詢</a>
                         </div>
 
                     </div>
@@ -172,10 +146,12 @@
                             crossorigin="anonymous"></script>
                         <div id="ContentPlaceHolder1_content">
                             <div class="Middle">
-                                <center>
+                                <h2 style="text-align: center;">
                                     <div class="titleCenter">報名與報到辦法</div>
                                     &nbsp;
-                                    
+                                </h2>
+
+                                <center>  
                                     <!--以下要能替換內容-->
                                     <div class="titleLeft">報名方式</div>
 
@@ -237,7 +213,9 @@
                                             class="red">恕不接受退費申請</span>，請於報名截止日前提出申請。<br />
                                         &bull; 退費申請將收取<span class="red">100元行政服務費</span>，於退費申請金額內扣除。<br />
                                         &bull; 一旦確認取消即喪失活動參與權、物資獎贈品所有權，亦無法重新報名。</div>
+                                    <!--以上要能替換內容-->
                                 </center>
+                               
 
                             </div>
                         </div>
@@ -256,11 +234,7 @@
                                         $(this).next('.fold').addClass('o').slideDown();
                                     }
                                 });
-                                // $('.close').click(function () {
-                                //     $(this).parent().prev('h3').find('i.fa').removeClass(
-                                //         'fa-chevron-down').addClass('fa-chevron-right');
-                                //     $(this).parent().removeClass('o').slideUp();
-                                // });
+                                
                             });
                         </script>
 
