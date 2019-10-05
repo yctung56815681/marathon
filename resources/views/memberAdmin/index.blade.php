@@ -7,20 +7,20 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
+
         <title>個人會員資料管理</title>
         <style>
             .Top {
                 width: auto;
                 height: 200px;
                 position: relative;
-    
+
                 background-image: url("/img/header.jpg");
                 background-size: cover;
             }
-    
+
             .Left {
-    
+
                 /* width: 25%; */
                 width: 200px;
                 height: auto;
@@ -28,21 +28,21 @@
                 background-color: yellow;
                 display: inline-block;
             }
-    
+
             .Right {
                 width: 85%;
                 height: auto;
                 position: absolute;
                 background-color:#F0F8FF;
                 display: inline-block;
-    
+
             }
-    
+
             .content {}
-    
+
         </style>
-    
-    
+
+
     </head>
 
 <body>
@@ -106,38 +106,6 @@
                     </div>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-header" id="headingThree">
-                    <h2 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                            data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                            賽事相片管理
-                        </button>
-                    </h2>
-                </div>
-                <div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                    <div class="card-body">
-                        <a class="dropdown-item" href="#">賽事相片新增</a>
-                        <a class="dropdown-item" href="#">賽事相片列表</a>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header" id="headingThree">
-                    <h2 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                            data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                            贊助商管理
-                        </button>
-                    </h2>
-                </div>
-                <div id="collapseFive" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                    <div class="card-body">
-                        <a class="dropdown-item" href="#">贊助商新增</a>
-                        <a class="dropdown-item" href="#">贊助商列表</a>
-                    </div>
-                </div>
-            </div>
         </div>
 
     </div>
@@ -172,8 +140,8 @@
             <td>{{$mem->created_at}}</td>
             <td>
                 <span class="pull-right">
-                    <form method="post" action="/memberAdmin/{{$mem->id}}"> 
-                        <a href="/memberAdmin/{{$mem->id}}/edit" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-pencil"></span> 修改</a> | 
+                    <form method="post" action="/memberAdmin/{{$mem->id}}">
+                        <a href="/memberAdmin/{{$mem->id}}/edit" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-pencil"></span> 修改</a> |
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span> 刪除</button>
@@ -182,9 +150,9 @@
             </td>
         </tr>
         @endforeach
-    
+
         </tbody>
-    
+
   </table>
 
     </div>

@@ -7,20 +7,20 @@
                 <meta http-equiv="X-UA-Compatible" content="ie=edge">
                 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
                     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-            
+
                 <title>個人會員資料管理</title>
                 <style>
                     .Top {
                         width: auto;
                         height: 200px;
                         position: relative;
-            
+
                         background-image: url("/img/header.jpg");
                         background-size: cover;
                     }
-            
+
                     .Left {
-            
+
                         /* width: 25%; */
                         width: 200px;
                         height: auto;
@@ -28,21 +28,21 @@
                         background-color: yellow;
                         display: inline-block;
                     }
-            
+
                     .Right {
                         width: 85%;
                         height: auto;
                         position: absolute;
                         background-color:#F0F8FF;
                         display: inline-block;
-            
+
                     }
-            
+
                     .content {}
-            
+
                 </style>
-            
-            
+
+
             </head>
 
 <body>
@@ -106,43 +106,11 @@
                     </div>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-header" id="headingThree">
-                    <h2 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                            data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                            賽事相片管理
-                        </button>
-                    </h2>
-                </div>
-                <div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                    <div class="card-body">
-                        <a class="dropdown-item" href="#">賽事相片新增</a>
-                        <a class="dropdown-item" href="#">賽事相片列表</a>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header" id="headingThree">
-                    <h2 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                            data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                            贊助商管理
-                        </button>
-                    </h2>
-                </div>
-                <div id="collapseFive" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                    <div class="card-body">
-                        <a class="dropdown-item" href="#">贊助商新增</a>
-                        <a class="dropdown-item" href="#">贊助商列表</a>
-                    </div>
-                </div>
-            </div>
         </div>
 
     </div>
     <div class="Right">
-       
+
  <form method="post" action="/memberAdmin" class="form-horizontal">
     @csrf
 <fieldset>
@@ -152,16 +120,16 @@
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="name">姓名:</label>  
+  <label class="col-md-4 control-label" for="name">姓名:</label>
   <div class="col-md-4">
   <input id="name" name="name" type="text" placeholder="" class="form-control input-md">
-    
+
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="twId">身分證字號:</label>  
+  <label class="col-md-4 control-label" for="twId">身分證字號:</label>
   <div class="col-md-4">
   <input id="twId" name="twId" type="text" placeholder="" class="form-control input-md">
   </div>
@@ -169,28 +137,28 @@
 
   <!-- Text input-->
 <div class="form-group">
-        <label class="col-md-4 control-label" for="sex">性別:</label>  
+        <label class="col-md-4 control-label" for="sex">性別:</label>
         <div class="col-md-4">
         <input id="sex" name="sex" type="text" placeholder="" class="form-control input-md">
   </div>
 </div>
   <!-- Text input-->
 <div class="form-group">
-        <label class="col-md-4 control-label" for="year">出生年:</label>  
+        <label class="col-md-4 control-label" for="year">出生年:</label>
         <div class="col-md-4">
         <input id="year" name="year" type="text" placeholder="" class="form-control input-md">
   </div>
 </div>
   <!-- Text input-->
 <div class="form-group">
-        <label class="col-md-4 control-label" for="month">月:</label>  
+        <label class="col-md-4 control-label" for="month">月:</label>
         <div class="col-md-4">
         <input id="month" name="month" type="text" placeholder="" class="form-control input-md">
   </div>
 </div>
   <!-- Text input-->
 <div class="form-group">
-        <label class="col-md-4 control-label" for="day">日期:</label>  
+        <label class="col-md-4 control-label" for="day">日期:</label>
         <div class="col-md-4">
         <input id="day" name="day" type="text" placeholder="" class="form-control input-md">
   </div>
@@ -198,14 +166,14 @@
 
   <!-- Text input-->
 <div class="form-group">
-        <label class="col-md-4 control-label" for="city">居住城市:</label>  
+        <label class="col-md-4 control-label" for="city">居住城市:</label>
         <div class="col-md-4">
         <input id="city" name="city" type="text" placeholder="" class="form-control input-md">
   </div>
 </div>
   <!-- Text input-->
 <div class="form-group">
-        <label class="col-md-4 control-label" for="town">鄉鎮市:</label>  
+        <label class="col-md-4 control-label" for="town">鄉鎮市:</label>
         <div class="col-md-4">
         <input id="town" name="town" type="text" placeholder="" class="form-control input-md">
   </div>
@@ -213,14 +181,14 @@
 
   <!-- Text input-->
 <div class="form-group">
-        <label class="col-md-4 control-label" for="address">地址:</label>  
+        <label class="col-md-4 control-label" for="address">地址:</label>
     <div class="col-md-4">
         <input id="address" name="address" type="text" placeholder="" class="form-control input-md">
   </div>
 </div>
   <!-- Text input-->
 <div class="form-group">
-        <label class="col-md-4 control-label" for="email">e-mail:</label>  
+        <label class="col-md-4 control-label" for="email">e-mail:</label>
         <div class="col-md-4">
         <input id="email" name="email" type="text" placeholder="" class="form-control input-md">
   </div>
@@ -228,28 +196,28 @@
 
   <!-- Text input-->
 <div class="form-group">
-        <label class="col-md-4 control-label" for="cellPhone">電話:</label>  
+        <label class="col-md-4 control-label" for="cellPhone">電話:</label>
         <div class="col-md-4">
         <input id="cellPhone" name="cellPhone" type="text" placeholder="" class="form-control input-md">
   </div>
 </div>
   <!-- Text input-->
 <div class="form-group">
-        <label class="col-md-4 control-label" for="emName">緊急聯絡人:</label>  
+        <label class="col-md-4 control-label" for="emName">緊急聯絡人:</label>
         <div class="col-md-4">
         <input id="emName" name="emName" type="text" placeholder="" class="form-control input-md">
   </div>
 </div>
   <!-- Text input-->
 <div class="form-group">
-        <label class="col-md-4 control-label" for="emRelationship">與緊急聯絡人關係:</label>  
+        <label class="col-md-4 control-label" for="emRelationship">與緊急聯絡人關係:</label>
         <div class="col-md-4">
         <input id="emRelationship" name="emRelationship" type="text" placeholder="" class="form-control input-md">
   </div>
 </div>
   <!-- Text input-->
 <div class="form-group">
-        <label class="col-md-4 control-label" for="emCellphone">緊急聯絡人電話:</label>  
+        <label class="col-md-4 control-label" for="emCellphone">緊急聯絡人電話:</label>
         <div class="col-md-4">
         <input id="emCellphone" name="emCellphone" type="text" placeholder="" class="form-control input-md">
   </div>

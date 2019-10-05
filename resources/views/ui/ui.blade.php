@@ -85,7 +85,7 @@
                 </div>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                     <div class="card-body">
-                        
+
                         <a class="dropdown-item" href="/eventManager">賽事列表</a>
                         {{-- <a class="dropdown-item" href="#">賽事編輯</a> --}}
                     </div>
@@ -104,38 +104,6 @@
                     <div class="card-body">
                         <a class="dropdown-item" href="#">個人訂單管理</a>
                         <a class="dropdown-item" href="#">團體訂單管理</a>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header" id="headingThree">
-                    <h2 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                            data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                            賽事相片管理
-                        </button>
-                    </h2>
-                </div>
-                <div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                    <div class="card-body">
-                        <a class="dropdown-item" href="#">賽事相片新增</a>
-                        <a class="dropdown-item" href="#">賽事相片列表</a>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header" id="headingThree">
-                    <h2 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                            data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                            贊助商管理
-                        </button>
-                    </h2>
-                </div>
-                <div id="collapseFive" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                    <div class="card-body">
-                        <a class="dropdown-item" href="#">贊助商新增</a>
-                        <a class="dropdown-item" href="#">贊助商列表</a>
                     </div>
                 </div>
             </div>
