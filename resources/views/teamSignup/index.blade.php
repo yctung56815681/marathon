@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>路跑報名</title>
+    <title>Document</title>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -14,10 +14,11 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link href="{{ URL::asset('signupCSS/signup.css') }}" rel="stylesheet" />
+
 </head>
 
 <body>
-    {{------------------------------------------Modal----------------------------------------------------}}
+    <!-- {{------------------------------------------Modal----------------------------------------------------}} -->
     <div id="checkRegex" class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content" style="background-color: yellow; border-radius: 0 25%;">
@@ -34,52 +35,52 @@
             </div>
         </div>
     </div>
-    <div class="container-fulid">
+
+    <div class="container-fluid">
         <div class="row" style="flex-direction:row-reverse">
-            {{------------------------------------------Nav----------------------------------------------------}}
+            <!-- {{------------------------------------------Nav----------------------------------------------------}} -->
             <div class="col-md-12 navList">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <a class="navbar-brand" href="#" style="color: red">III Marathon</a>
-                    {{-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                     <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav ">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                        </li>
-                    </ul>
-                </div> --}}
+                    <!-- {{-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button> --}} -->
+                    <!-- {{-- <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
+                                <ul class="navbar-nav ">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Features</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Pricing</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                                    </li>
+                                </ul>
+                            </div> --}} -->
                 </nav>
             </div>
-            {{------------------------------------------header圖片----------------------------------------------------}}
+
+            <!-- {{------------------------------------------header圖片----------------------------------------------------}} -->
             <div class="col-md-12 header">
                 <img src="{{ URL::asset("img/{$city}{$year}{$month}.jpg") }}" class="img-fluid" alt="Responsive image">
             </div>
-            {{------------------------------------------倒數計時----------------------------------------------------}}
+            <!-- {{------------------------------------------倒數計時----------------------------------------------------}} -->
             <div class="col-md-2 countDown">這是倒數計時</div>
-            {{------------------------------------------報名資料----------------------------------------------------}}
+            <!-- {{------------------------------------------報名資料----------------------------------------------------}} -->
             <div class="col-md-10 content">
-                {{-- action="/memberAdmin" --}}
                 <form name="memberForm">
-                    {{-- @csrf --}}
                     <div class="content">
                         <div class="row">
                             <div class="col-md-12 mb-3">
                                 <div id="group1">
                                     <div class="row d-flex justify-content-between schedule">
                                         <div>
-                                            <button class="action" disabled="disabled">個人資料</button>
+                                            <button class="action" disabled="disabled">團員資料</button>
                                         </div>
                                         <div>
                                             <button disabled="disabled">付款明細</button>
@@ -88,6 +89,26 @@
                                             <button disabled="disabled">完成報名</button>
                                         </div>
                                     </div>
+                                    <!-- 團隊明細 -->
+                                    <div id="title0" class="title"><i class="fas fa-dot-circle"></i>團隊明細
+                                        <hr>
+                                        <div id="teamArray" class="col-md-6 mb-3 " style="margin: 0 auto">
+
+                                        </div>
+
+                                    </div>
+                                    <div class="row d-flex justify-content-center">
+                                        <div>
+                                            <input type="text" class="myInput myButton" name="teamName" id="teamName"
+                                                placeholder="請輸入團隊名稱">
+                                        </div>
+                                        <div class="btn-group myButton">
+                                            <div><input class="btn-primary myInput" type="button" value="下一步取單"
+                                                    onclick="goGroup2(); teamFormData()">
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <!-- 個人資料輸入 -->
                                     <div id="title1" class="title"><i class="fas fa-dot-circle"></i>個人資料
                                         <hr>
@@ -95,14 +116,14 @@
                                     <div id="personalData">
                                         <div class="form-row">
                                             <div class="col-md-6 mb-3">
-                                                <label for="name">姓名</label>
-                                                <input type="text" class="form-control myInput" name="name" id="name"
-                                                    placeholder="請輸入姓名" required>
+                                                <label for="myName">姓名</label>
+                                                <input type="text" class="form-control myInput" name="myName"
+                                                    id="myName" placeholder="請輸入姓名">
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="name">身分證</label>
                                                 <input type="text" class="form-control myInput" name="twId" id="twId"
-                                                    placeholder="請輸入身分證" required>
+                                                    placeholder="請輸入身分證">
                                             </div>
                                         </div>
                                         <div class="form-row">
@@ -120,63 +141,63 @@
                                             <div class="col-md-2 mb-3">
                                                 <label for="year">年</label>
                                                 <input type="text" class="form-control myInput" name="year" id="year"
-                                                    placeholder="請輸入出生民國年分" required>
+                                                    placeholder="請輸入出生民國年分">
                                             </div>
                                             <div class="col-md-2 mb-3">
                                                 <label for="month">月</label>
                                                 <input type="text" class="form-control myInput" name="month" id="month"
-                                                    placeholder=" 請輸入出生月份" required>
+                                                    placeholder=" 請輸入出生月份">
                                             </div>
                                             <div class="col-md-2 mb-3">
                                                 <label for="day">日</label>
                                                 <div class="input-group">
                                                     <input type="text" class="form-control myInput" name="day" id="day"
-                                                        placeholder="請輸入出生日" required>
+                                                        placeholder="請輸入出生日">
                                                 </div>
                                             </div>
                                             <div class="col-md-3 mb-3">
                                                 <label for="email">信箱</label>
                                                 <input type="text" class="form-control myInput" name="email" id="email"
-                                                    placeholder="請輸入信箱" required>
+                                                    placeholder="請輸入信箱">
                                             </div>
                                             <div class="col-md-3 mb-3">
                                                 <label for="cellPhone">電話</label>
                                                 <input type="text" class="form-control myInput" name="cellPhone"
-                                                    id="cellPhone" placeholder="請輸入電話" required>
+                                                    id="cellPhone" placeholder="請輸入電話">
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="col-md-3 mb-3">
                                                 <label for="city">城市</label>
                                                 <input type="text" class="form-control myInput" name="city" id="city"
-                                                    placeholder="請輸入城市" required>
+                                                    placeholder="請輸入城市">
                                             </div>
                                             <div class="col-md-3 mb-3">
                                                 <label for="town">鄉鎮</label>
                                                 <input type="text" class="form-control myInput" name="town" id="town"
-                                                    placeholder="請輸入鄉鎮" required>
+                                                    placeholder="請輸入鄉鎮">
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="address">地址</label>
                                                 <input type="text" class="form-control myInput" name="address"
-                                                    id="address" placeholder="請輸入居住地址" required>
+                                                    id="address" placeholder="請輸入居住地址">
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="col-md-5 mb-3">
                                                 <label for="emName">姓名</label>
                                                 <input type="text" class="form-control myInput" name="emName"
-                                                    id="emName" placeholder="請輸入緊急聯絡人姓名" required>
+                                                    id="emName" placeholder="請輸入緊急聯絡人姓名">
                                             </div>
                                             <div class="col-md-5 mb-3">
                                                 <label for="emCellphone">電話</label>
                                                 <input type="text" class="form-control myInput" name="emCellphone"
-                                                    id="emCellphone" placeholder="請輸入緊急聯絡人電話" required>
+                                                    id="emCellphone" placeholder="請輸入緊急聯絡人電話">
                                             </div>
                                             <div class="col-md-2 mb-3">
                                                 <label for="emRelationship">關係</label>
                                                 <input type="text" class="form-control myInput" name="emRelationship"
-                                                    id="emRelationship" placeholder="請輸入關係" required>
+                                                    id="emRelationship" placeholder="請輸入關係">
                                             </div>
                                         </div>
 
@@ -257,16 +278,16 @@
                                     </div>
                                     <div class="btn-group d-flex justify-content-center myButton">
                                         <div><a href={{"/signup/{$city}/{$year}/{$month}/index"}}><input
-                                                    class="btn btn-primary" type="button" value="報名首頁"></a>
+                                                    class="btn btn-primary myInput" type="button" value="報名首頁"></a>
                                         </div>
-                                        <div><input class="btn btn-primary" type="button" value="送出資料"
-                                                onclick="goGroup2(); processFormData(); check_data();"></div>
+                                        <div><input class="btn btn-primary myInput" type="reset" value="新增團員"
+                                                onclick="person(); createPerson(); "></div>
                                     </div>
                                 </div>
                                 <div id="group2" style="display:none">
                                     <div class="row d-flex justify-content-between schedule">
                                         <div>
-                                            <button class="action" disabled="disabled">個人資料</button>
+                                            <button class="action" disabled="disabled">團員資料</button>
                                         </div>
                                         <div>
                                             <button class="action" disabled="disabled">付款明細</button>
@@ -280,28 +301,7 @@
                                     </div>
                                     <div id="signupDetails">
                                         <table class="table table-striped">
-                                            <tbody>
-                                                <tr>
-                                                    <th>姓名</th>
-                                                    <td id="addName"></td>
-                                                </tr>
-                                                <tr>
-                                                    <th>報名項目</th>
-                                                    <td id="addKm"></td>
-
-                                                </tr>
-                                                <tr>
-                                                    <th>身分證</th>
-                                                    <td id="addTwId"></td>
-                                                </tr>
-                                                <tr>
-                                                    <th>電話</th>
-                                                    <td id="addCellPhone"></td>
-                                                </tr>
-                                                <tr>
-                                                    <th>加購項目</th>
-                                                    <td id="addProduct"></td>
-                                                </tr>
+                                            <tbody id="teamMember">
                                             </tbody>
                                         </table>
 
@@ -352,12 +352,14 @@
                                         <div><input class="btn btn-primary" type="button" value="報名資料"
                                                 onclick="goGroup1()">
                                         </div>
-                                        <div><a href={{"/signup/{$city}/{$year}/{$month}/finish"}}><input
+                                        <div><a href={{"/teamSignup/{$city}/{$year}/{$month}/finish"}}><input
                                                     class="btn btn-primary" type="button" value="確認訂單"
                                                     onclick="myData()"></a>
                                         </div>
                                     </div>
                                 </div>
+
+
                             </div>
                         </div>
                     </div>
@@ -366,6 +368,7 @@
 
         </div>
     </div>
+
     <script>
         //欄位隱藏、展開
         document.getElementById("title1").addEventListener("click", function () {
@@ -386,7 +389,6 @@
         document.getElementById("title6").addEventListener("click", function () {
             $("#payMethod").toggle();
         })
-
         //換頁效果
         function goGroup1() {
             $("#group1").attr("style", "display:block");
@@ -397,7 +399,6 @@
             $("#group1").attr("style", "display:none");
             $("#group2").attr("style", "display:block");
         }
-
         //檢查個人資料輸入欄位
         function check_data() {
             var twIdRegex = new RegExp(/^[A-Za-z][12]\d{8}$/);
@@ -477,40 +478,9 @@
 
             // memberForm.submit();
         }
-        //取得個人報名資料
-        function processFormData() {
-            var name = $('input[name="name"]').val(); //姓名
-            var twId = $('input[name="twId"]').val(); //身分證
-            var cellPhone = $('input[name="cellPhone"]').val(); //電話
-            var km = $('input:radio:checked[name="km"]').val(); //賽事
-            $("#addName").text(name);
-            $("#addTwId").text(twId);
-            $("#addCellPhone").text(cellPhone);
-            $("#addKm").text(km);
-            // console.log(km);
-            //加購項目
-            var product = new Array();
-            $('input[name="product[]"]:checkbox:checked').each(function (i) {
-                product[i] = this.value;
-            });
-            $("#addProduct").empty();
-            if (product.length != 1) {
-                $("#addProduct").append("<td>");
-                $("#addProduct").each(function (i) {
-                    for (i = 0; i < product.length; i++) {
-                        $("#addProduct").append(product[i] + "<br>");
-                    }
-                    $("#addProduct").append("</td>");
-                })
-            } else {
-                // $("#addProduct").append("<td>");
-                $("#addProduct").text(product);
-                // $("#addProduct").append("</td>");
-            }
-            console.log(product);
-            // console.log(product.length);
-        }
+
         //根據時間產生訂單號
+
         var random_no = "";
         for (var i = 0; i < 4; i++) //j位隨機數，用以加在時間戳後面。
         {
@@ -521,6 +491,94 @@
         console.log(random_no);
         $("#random").text(random_no);
 
+
+        var teams = new Array();
+        var team = new Object();
+        //新增資料
+        function person() {
+            var product = [$('input:checkbox:checked[name="product[]"]').map(function () {
+                return $(this).val();
+            }).get()];
+            // console.log(product);
+            var teams = [
+                teamName = {
+                    "teamName": $("#teamName").val()
+                },
+                team = {
+                    "name": $("#myName").val(),
+                    "twid": $("#twId").val(),
+                    "sex": $("input[name=sex]:checked").val(),
+                    "year": $("#year").val(),
+                    "month": $("#month").val(),
+                    "day": $("#day").val(),
+                    "city": $("#city").val(),
+                    "town": $("#town").val(),
+                    "address": $("#address").val(),
+                    "email": $("#email").val(),
+                    "cellPhone": $("#cellPhone").val(),
+                    "emName": $("#emName").val(),
+                    "emRelationship": $("#emRelationship").val(),
+                    "emCellphone": $("#emCellphone").val(),
+                    "km": $("input[name=km]:checked").val(),
+                    "product": product
+                }
+            ];
+            console.log(teamName);
+            console.log(team);
+        }
+
+        //資料放入陣列
+        function createPerson() {
+            teams.push(team);
+            console.log(teams);
+            i = teams.length;
+            $("#teamArray").append('<div id=person' + i + ' class="row d-flex justify-content-between schedule "> ' +
+                '<button type="button">' + team.name +
+                '</button><button type="button" onclick="deletePerson(' + i +
+                ')"><i class="fas fa-trash-alt"></i></button></div>'
+            );
+        }
+
+        //取得團體報名資料
+        function teamFormData() {
+            $("#teamMember").empty();
+            for (i = 0; i < teams.length; i++) {
+                team = teams[i];
+                var myName = team.name;
+                var km = team.km;
+                var myProduct = team.product;
+                console.log(myName);
+                console.log(km);
+                console.log(myProduct);
+
+                $("#teamMember").append(
+                    '<tr class="d-flex justify-content-between">' +
+                    "<th> 姓名 </th>" +
+                    "<td>" + myName + "</td>" +
+                    "</tr>" +
+                    '<tr class="d-flex justify-content-between">' +
+                    "<th>報名項目</th>" +
+                    "<td>" + km + "</td>" +
+                    "</tr>" +
+                    '<tr class="d-flex justify-content-between">' +
+                    "<th>加購項目</th>" +
+                    "<td>" + myProduct + "</td>" +
+                    "</tr>"
+                );
+                console.log(myName);
+            }
+
+        }
+
+        //刪除個人資料
+        function deletePerson(i) {
+            $("#person" + i).remove();
+            teams.splice("team" + i, 1);
+            console.log(i);
+        }
+        //顯示個人資料
+        function showPerson(i) {}
+
         //ajax
         $.ajaxSetup({
             headers: {
@@ -530,48 +588,28 @@
 
         function myData() {
             $(document).ready(function () {
-                var name = $("#name").val();
-                var twId = $("#twId").val();
-                var sex = $("input[name=sex]:checked").val();
-                var year = $("#year").val();
-                var month = $("#month").val();
-                var day = $("#day").val();
-                var city = $("#city").val();
-                var town = $("#town").val();
-                var address = $("#address").val();
-                var email = $("#email").val();
-                var cellPhone = $("#cellPhone").val();
-                var emName = $("#emName").val();
-                var emRelationship = $("#emRelationship").val();
-                var emCellphone = $("#emCellphone").val();
-                $.ajax({
-                    type: "POST",
-                    url: "/memberAdmin",
-                    data: {
-                        name: name,
-                        twId: twId,
-                        sex: sex,
-                        year: year,
-                        month: month,
-                        day: day,
-                        city: city,
-                        town: town,
-                        address: address,
-                        email: email,
-                        cellPhone: cellPhone,
-                        emName: emName,
-                        emRelationship: emRelationship,
-                        emCellphone: emCellphone
-                    }
-                });
+                for (i = 0; i < teams.length; i++) {
+                    team = teams[i];
+                    var myName = team.name;
+                    console.log(myName);
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/memberAdmin",
+                        data: {
+                            name: myName,
+
+                        }
+                    });
+                }
             });
         }
 
     </script>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
+    <!-- {{-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script> --}} -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
     </script>

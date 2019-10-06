@@ -36,6 +36,9 @@ Route::resource('/memberAdmin', 'MemberAdminController');
 Route::get('/signup/{city}/{year}/{month}', "SignupController@index");
 Route::get('/signup/{city}/{year}/{month}/{action}', "SignupController@action");
 
+Route::get('/teamSignup/{city}/{year}/{month}', "TeamSignupController@index");
+Route::get('/teamSignup/{city}/{year}/{month}/{action}', "TeamSignupController@action");
+
 Route::get('/query/{city}/{year}/{month}', "QueryController@index");
 Route::resource('/eventManager', 'EventManagerController');
 
