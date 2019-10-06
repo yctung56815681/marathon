@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Members;
 
-class ManagementController extends Controller
+class IndexController extends Controller
 {
     public function index()
     {
-        return view("management.index");
+        
+        return view('index');
     }
 }
