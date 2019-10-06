@@ -45,6 +45,11 @@ h1,h2,h3,h4,h5,h6,p {
     padding: 0;
 }
 
+.body_detail{
+   height: auto;
+}
+
+
 .toggle_btn {
     display: none;
     border: none;
@@ -128,15 +133,18 @@ h1,h2,h3,h4,h5,h6,p {
 .header .site_logo a {
     display: flex;
     align-items: center;
+    font-size: 22px;
+    font-weight:bold;
+    color:whitesmoke;
 }
 
-.header .site_logo a img {
+/* .header .site_logo a img {
     height: 30px;
 }
 
 .header .site_logo.run a img:last-child {
     display: none;
-}
+} */
 
 
 .header .links {
@@ -189,7 +197,6 @@ h1,h2,h3,h4,h5,h6,p {
 }
 
 
-
 .header_banner {
     margin-top: 70px;
     position: relative;
@@ -203,7 +210,7 @@ h1,h2,h3,h4,h5,h6,p {
 
 
 .main {
-    height:100%;
+    /* height:auto; */
     margin-top: -3px;
 }
 
@@ -219,6 +226,7 @@ h1,h2,h3,h4,h5,h6,p {
 
 /* 左側區塊 */
 .main .outer .row01 { 
+    /* height: auto; */
     width: calc(20% - 15px);
     text-align: right;
     border-right: 10px solid #13d474;
@@ -290,6 +298,7 @@ h1,h2,h3,h4,h5,h6,p {
 }
 
 .main .outer .row02 {
+    /* height: auto; */
     width: 80%;
     padding-bottom: 0px;  
 }
@@ -297,12 +306,13 @@ h1,h2,h3,h4,h5,h6,p {
 .main .outer .row02 .detail_div {
     float: left;
     width: calc(100% - 340px - 10%);
-    padding-top: 55px;
+    padding-top: 75px;
+    padding-bottom: 160px;
+    
     padding-left: 1%;
     padding-right: 1%; 
     color: #202124; 
-    padding-top: 20px;
-    padding-bottom: 50px;
+    
 }
 
 
@@ -490,7 +500,24 @@ body.nav_active #mobile_nav ul {
 
 
 
-@media screen and (max-width: 1480px) {
+@media screen and (min-width: 1481px)  {
+
+    .main .outer .row02 .detail_div {     
+        width: calc(100% - 280px - 10%);
+        padding-left: 5%;
+        padding-right: 5%;
+        border-right:solid 10px #13d474;
+        
+    }
+
+    .main .outer .row01 .navi_menu {
+        padding-right: 20px;
+        width: calc(100% - 30px);
+    }
+
+}
+
+@media screen and (max-width: 1480px)  {
     .main .outer .row02 .detail_div {
         
         width: calc(100% - 280px - 10%);
@@ -500,16 +527,13 @@ body.nav_active #mobile_nav ul {
         
     }
 
-  
     .main .outer .row01 .navi_menu {
         padding-right: 20px;
         width: calc(100% - 30px);
     }
 
-   
 }
 
-/* @media screen and (max-width: 1300px) {} */
 
 @media screen and (max-width: 1240px) {
     .main .outer .row01 .navi_menu {

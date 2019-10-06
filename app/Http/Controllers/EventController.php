@@ -87,7 +87,10 @@ class EventController extends Controller
           "list"
        );
        return view($view, $viewModel);
-
     }
     
+
+    
+
+
 }

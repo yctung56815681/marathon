@@ -257,7 +257,23 @@ function set_carousel(){
 
 }
 
-  
+// $(function () {
+// 	 $('h3').click(function () {
+// 		  if ($(this).next('.fold').hasClass('o') == true) {
+// 			  $(this).find('i.fa').removeClass('fa-chevron-down')
+// 			         .addClass('fa-chevron-right');
+// 			  $(this).next('.fold').removeClass('o')
+// 			         .slideUp();
+// 		  } else {
+// 			  $(this).find('i.fa').removeClass('fa-chevron-right')
+// 			         .addClass('fa-chevron-down');
+// 			  $(this).next('.fold').addClass('o')
+// 			         .slideDown();
+// 		  }
+// 	 });
+//  });
+
+
 // if( $(window).width()>640 ){
 //  $("#mobile_nav").toggle();
 //   console.log("畫面");
