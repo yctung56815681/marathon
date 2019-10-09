@@ -1,0 +1,55 @@
+.action {
+    background-color: yellow;
+}
+
+.content {
+    background-color: bisque;
+    padding: 20px;
+}
+
+.countDown {
+    background-color: brown;
+}
+
+.schedule {
+    padding: 0 10px;
+}
+
+.title {
+    margin-top: 20px;
+}
+.myInput {
+    border-radius: 30px;
+}
+.myButton {
+    margin-top: 20px;
+}
+
+#signupOp,
+#addPurchase {
+    padding: 0 15px;
+}
+
+#addName,
+#addTwId,
+#addCellPhone,
+#addKm,
+#addProduct,
+#random {
+    text-align: right;
+}
+.detail {
+    border: 1px solid black;
+    padding: 30px;
+    font-size: 15px;
+}
+.detail2 {
+    border: 1px solid black;
+    margin-top: 10px;
+    padding: 20px;
+    font-size: 15px;
+    height: 500px;
+    font-size: 3em;
+    text-align: center;
+    line-height: 150px;
+}

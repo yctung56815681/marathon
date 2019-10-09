@@ -47,37 +47,12 @@
             </div>
             {{------------------------------------------查詢報名資料----------------------------------------------------}}
             <div class="col-md-12 content">
-                <form name="queryMember">
-                    <div class="form-row d-flex justify-content-center">
-                        <div class="col-md-6 mb-3 ">
-                            <div id="title1" class="title"><i class="fas fa-dot-circle"></i>資料查詢訂單
-                                <hr>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="query">
-                        <div class="col-md-12 mb-3 ">
-                            <div class="form-row d-flex justify-content-center">
-                                <div class="col-md-6 mb-3 ">
-                                    <label for="twId">身分證</label>
-                                    <input type="text" class="form-control myInput" name="twId" id="twId"
-                                        placeholder="請輸入身分證" required>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="btn-group d-flex justify-content-center myButton">
-                        <div><a href={{"/query/result"}}><input class="btn btn-primary" type="button" value="查詢資料"></a></div>
-                    </div>
-                </form>
             </div>
         </div>
     </div>
 
     <script>
-        document.getElementById("title1").addEventListener("click", function () {
-            $("#query").toggle();
-        })
+       
     </script>
 
     {{-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

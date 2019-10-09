@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class SignupController extends Controller
+class TeamSignupController extends Controller
 {
     //
     public function index(Request $request, $city, $year, $month)
@@ -14,12 +14,12 @@ class SignupController extends Controller
             "year",
             "month",
         );
-        return view("signup.index", $viewModel);
+        return view("teamSignup.index", $viewModel);
     }
     public function action(Request $request, $city, $year, $month, $action)
     {
        
-        $view = "signup.{$action}";
+        $view = "teamSignup.{$action}";
         $viewModel = compact(
             "city",
             "year",

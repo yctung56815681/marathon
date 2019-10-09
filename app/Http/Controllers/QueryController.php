@@ -12,4 +12,13 @@ class QueryController extends Controller
        
         return view("query.index");
     }
+    public function action(Request $request, $action)
+    {
+       
+        $view = "query.{$action}";
+        $viewModel = compact(
+            "action"
+        );
+        return view($view, $viewModel);
+    }
 }
