@@ -150,54 +150,54 @@
                             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
                             crossorigin="anonymous"></script>
                         <div id="ContentPlaceHolder1_content">
-                            <div class="Middle">
-                                <div class="Middle">
-                                    <h2 style="text-align: center;">
-                                        <div class="titleCenter">競賽獎勵</div>
-                                        &nbsp;
-                                    </h2>    
+                                
+                            <h2 style="text-align: center;">
+                                <span style="font-weight:800;">競賽獎勵</span>
+                            </h2>    
 
-                                    <!--以下要能替換內容-->
+                            <!--以下要能替換內容-->
                                     
-                                        <center>
-                                        <h3><div class="titleCenter">排名</div></h3>
-                                        </center>
+                            <center>
+                                <h3><div class="titleCenter">排名</div></h3>
+                            </center>
 
-                                        <div class="content">
-                                            ➤半馬組(21公里)錄取方式：<br />
-                                            第一名：獎金5,000元+獎盃乙座+雲豹跑鞋乙雙+ZEPRO排汗衣乙件<br />
-                                            第二名：獎金4,000元+獎盃乙座+雲豹跑鞋乙雙+ZEPRO排汗衣乙件<br />
-                                            第三名：獎金3,000元+獎盃乙座+雲豹跑鞋乙雙+ZEPRO排汗衣乙件<br />
-                                            第四名：獎金2,000元+獎盃乙座+雲豹跑鞋乙雙+ZEPRO排汗衣乙件<br />
-                                            第五名：獎金1,000元+獎盃乙座+雲豹跑鞋乙雙+ZEPRO排汗衣乙件<br />
+                            <div class="content">
+                            ➤半馬組(21公里)錄取方式：<br />
+                            第一名：獎金5,000元+獎盃乙座+雲豹跑鞋乙雙+ZEPRO排汗衣乙件<br />
+                            第二名：獎金4,000元+獎盃乙座+雲豹跑鞋乙雙+ZEPRO排汗衣乙件<br />
+                            第三名：獎金3,000元+獎盃乙座+雲豹跑鞋乙雙+ZEPRO排汗衣乙件<br />
+                            第四名：獎金2,000元+獎盃乙座+雲豹跑鞋乙雙+ZEPRO排汗衣乙件<br />
+                            第五名：獎金1,000元+獎盃乙座+雲豹跑鞋乙雙+ZEPRO排汗衣乙件<br />
                                             
-                                            <br />
-                                            ➤路跑組(10公里)錄取方式：<br />
-                                            第一名：獎金3,000元+獎盃乙座+ZEPRO排汗衣乙件<br />
-                                            第二名：獎金2,500元+獎盃乙座+ZEPRO排汗衣乙件<br />
-                                            第三名：獎金2,000元+獎盃乙座+ZEPRO排汗衣乙件<br />
-                                            第四名：獎金1,500元+獎盃乙座+ZEPRO排汗衣乙件<br />
-                                            第五名：獎金1,000元+獎盃乙座+ZEPRO排汗衣乙件<br />
-                                            
-                                        </div>
-
-                                        <center>
-                                        <h3><div class="titleCenter">敘獎辦法</div></h3>
-                                        </center>
-
-                                        <div class="content">&bull;領獎選手需提供證件，核對身份並簽章，獎項不得代領，需允許頒獎影像公佈於相關公開網路平台。<br />
-                                            &bull;獲得總成績獎勵者當日請攜帶身分證件(外籍選手請攜帶護照)至獎典組登記填寫資料，得獎者需配合繳交身份證影印作為申報依據。<br />
-                                            &bull;登記獎品之尺寸經寄出後不得更換,<span style="color:#e74c3c;">獎品於賽事結束後4週內統一寄出</span><br />
-                                            &bull;如有任何相關問題，請撥打客服專線:0800-271-637/聯絡時間：週一至週五(09:00~18:00)，逾期恕不接受辦理，郵寄費用得由選手自行支付。
-                                        </div>
-                                        <br><br>
-                                        <img src="https://www.ctrun.com.tw/image/AL191229/4634d86e89574c8893739643249eab5f.jpg"
-                                            style="max-width: 100%; width: 100%;" />
-                                    
-                                    <!--以上要能替換內容-->
-
-                                </div>
+                            <br />
+                            ➤路跑組(10公里)錄取方式：<br />
+                            第一名：獎金3,000元+獎盃乙座+ZEPRO排汗衣乙件<br />
+                            第二名：獎金2,500元+獎盃乙座+ZEPRO排汗衣乙件<br />
+                            第三名：獎金2,000元+獎盃乙座+ZEPRO排汗衣乙件<br />
+                            第四名：獎金1,500元+獎盃乙座+ZEPRO排汗衣乙件<br />
+                            第五名：獎金1,000元+獎盃乙座+ZEPRO排汗衣乙件<br />                 
                             </div>
+
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <center><img
+                                      src="{{ URL::asset("img/pt04.jpg") }}"
+                                      style="width: 100%; max-width: 100%;" />
+                            </center>
+                            <p>&nbsp;</p>
+
+                            <center>
+                            <h3><div class="titleCenter">敘獎辦法</div></h3>
+                            </center>
+
+                            <div class="content">&bull;領獎選手需提供證件，核對身份並簽章，獎項不得代領，需允許頒獎影像公佈於相關公開網路平台。<br />
+                                &bull;獲得總成績獎勵者當日請攜帶身分證件(外籍選手請攜帶護照)至獎典組登記填寫資料，得獎者需配合繳交身份證影印作為申報依據。<br />
+                                &bull;登記獎品之尺寸經寄出後不得更換,<span style="color:#e74c3c;">獎品於賽事結束後4週內統一寄出</span><br />
+                                &bull;如有任何相關問題，請撥打客服專線:0800-271-637/聯絡時間：週一至週五(09:00~18:00)，逾期恕不接受辦理，郵寄費用得由選手自行支付。
+                            </div>
+          
+                            <!--以上要能替換內容-->
+                           
                         </div>
 
 

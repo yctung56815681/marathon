@@ -147,7 +147,7 @@
                         <div id="ContentPlaceHolder1_content">
  
                             <h2 style="text-align: center;">
-                                <span style="color: #3335; font-weight:900;">活動規範</span>
+                                <span style="font-weight:800;">活動規範</span>
                             </h2>
                           
                             <!--以下要能替換內容-->
@@ -158,7 +158,6 @@
                             </center>
 
                             
-
                             <div class="fold o" style="display: block;">
                                 <p>&bull; 為維護活動品質，保障選手權益，凡於報名截止後異動組別或更名者皆取消敘獎資格</p>
 
@@ -176,8 +175,13 @@
                             </div>
 
                             <p>&nbsp;</p>
-
-                        
+                            <p>&nbsp;</p>
+                            <center><img
+                                src="{{ URL::asset("img/pt05.jpg") }}"
+                                style="width: 100%; max-width: 100%;" />
+                            </center>
+                            <p>&nbsp;</p>
+                           
                             <center>
                             <h3>活動違規罰責</h3>
                             </center>

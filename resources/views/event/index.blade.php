@@ -197,7 +197,8 @@
                         <div id="ContentPlaceHolder1_content">
 
                            <center>
-                             <h2 style="text-align:center">最新消息
+                             <h2 style="text-align:center">
+                                <span style="font-weight:800;">最新消息</span>
                              </h2>
                            </center>
 
@@ -213,11 +214,12 @@
                             </div>
 
                             <p>&nbsp;</p>
-
+                            <p>&nbsp;</p>
                             <center><img
                                 src="{{ URL::asset("img/pt02.jpg") }}"
                                 style="width: 100%; max-width: 100%;" />
                             </center>
+                            <p>&nbsp;</p>                     
 
                             <center>
                             <h3>招募志工夥伴</h3>
@@ -236,8 +238,16 @@
                             </div>
 
                             <p>&nbsp;</p>
-                         <!--以上要能替換內容-->   
-                            
+                         <!--以上要能替換內容-->
+
+                          {{-- <h5>{{ $event}}</h5> --}}
+                          {{-- <div>
+                             @foreach ( $eventC1 as $k=>$v  )
+                             <h5>{{ $k }}</h5>
+                             <h5>{{ $v }}</h5><hr/>
+                             @endforeach
+                          </div>    --}}
+                                                                                       
                         </div>
 
                         
@@ -347,6 +357,7 @@
     {{-- <div id="twzipcode" ></div>
     <script> $("#twzipcode").twzipcode();</script> --}}
 
+    
 </body>
 
 </html>

@@ -150,51 +150,48 @@
                             crossorigin="anonymous"></script>
 
                         <div id="ContentPlaceHolder1_content">
-                            <div class="Middle">
+                            
                                 <h2 style="text-align: center;">
-                                    <div class="titleCenter">報名與報到辦法</div>
-                                    &nbsp;
+                                    <span style="font-weight:800;">報名與報到辦法</span>              
                                 </h2>
 
                                 <center>  
                                     <!--以下要能替換內容-->
-                                   <h3><div class="titleLeft">報名方式</div></h3>
+                                <h3><div class="titleLeft">報名方式</div></h3>
                                 </center>
 
-                                   <div class="content">&bull; 本次活動僅採用網路報名，
-                                       <span class="red">不接受現場報名</span>。<br />
-                                        &bull; 繳費後<span class="red">增加團員方式</span>:進入報名查詢修改後，於付款頁面最下方按下「返回修改」按鈕即可新增團員，並取得新的
-                                       <span class="red">差額繳費單</span>。<br />
-                                        &bull; <span class="red">團報20人</span>以上如欲索取團報EXCEL檔案，請按此
-                                        <a href="https://www.ctrun.com.tw/image/Document/AM200105/da358160c1c644a9ae26f4d6b1dda6c1.xlsx">下載</a>並E-Mail到zeprorun@gmail.com。<br />
-                                        &bull; <span class="red">繳費方式</span>：7-11、全家便利商店繳費、信用卡線上繳費<br />
-                                        &bull; Ibon繳費流程：憑ibon代號至全省7-11超商門市&rarr;ibon機器螢幕首頁&rarr;點選【代碼輸入】&rarr;請輸入表格內的繳款碼&rarr;確認繳費項目&rarr;點選【確認，列印繳費單】&rarr;持繳費單<br />
-                                        到超商櫃檯繳費。(提醒您，ibon繳費需自付兩萬元以下每筆NT 30元手續費)<br />
-                                        &bull; 繳費完成後約30分鐘後將收到簡訊通知，也可到「報名查詢與修改」<span class="red">查詢繳費狀態</span>。<br />
-                                        &bull; 繳費代碼逾期未繳者，若已逾報名時間，視同放棄報名資格。<br />                   
-                                    </div>
+                                <div class="content">&bull; 本次活動僅採用網路報名，
+                                    <span class="red">不接受現場報名</span>。<br />
+                                    &bull; 繳費後<span class="red">增加團員方式</span>:進入報名查詢修改後，於付款頁面最下方按下「返回修改」按鈕即可新增團員，並取得新的
+                                    <span class="red">差額繳費單</span>。<br />
+                                    &bull; <span class="red">團報20人</span>以上如欲索取團報EXCEL檔案，請按此
+                                    <a href="https://www.ctrun.com.tw/image/Document/AM200105/da358160c1c644a9ae26f4d6b1dda6c1.xlsx">下載</a>並E-Mail到zeprorun@gmail.com。<br />
+                                    &bull; <span class="red">繳費方式</span>：7-11、全家便利商店繳費、信用卡線上繳費<br />
+                                    &bull; Ibon繳費流程：憑ibon代號至全省7-11超商門市&rarr;ibon機器螢幕首頁&rarr;點選【代碼輸入】&rarr;請輸入表格內的繳款碼&rarr;確認繳費項目&rarr;點選【確認，列印繳費單】&rarr;持繳費單<br />
+                                    到超商櫃檯繳費。(提醒您，ibon繳費需自付兩萬元以下每筆NT 30元手續費)<br />
+                                    &bull; 繳費完成後約30分鐘後將收到簡訊通知，也可到「報名查詢與修改」<span class="red">查詢繳費狀態</span>。<br />
+                                    &bull; 繳費代碼逾期未繳者，若已逾報名時間，視同放棄報名資格。<br />                   
+                                </div>
 
-
-                                    <center><img
-                                            src="https://www.ctrun.com.tw/image/AI191124/1bb7fcdbbe4b450babedf94271afcc31.png"
-                                            style="width: 100%; max-width: 100%;" />
-                                    </center>
-
+                                <p>&nbsp;</p>
+                                <p>&nbsp;</p>
+                                <center><img
+                                        src="{{ URL::asset("img/pt03.jpg") }}"
+                                        style="width: 100%; max-width: 100%;" />
+                                </center>
+                                <p>&nbsp;</p>
                                     
-                                    <center>
-                                      <h3><div class="titleLeft">退費辦法</div></h3>
-                                    </center>
+                                <center>
+                                <h3><div class="titleLeft">退費辦法</div></h3>
+                                </center>
 
-                                      <div class="content">&bull; 報名時間過後<span
-                                            class="red">恕不接受退費申請</span>，請於報名截止日前提出申請。<br />
-                                        &bull; 退費申請將收取<span class="red">100元行政服務費</span>，於退費申請金額內扣除。<br />
-                                        &bull; 一旦確認取消即喪失活動參與權、物資獎贈品所有權，亦無法重新報名。
-                                      </div>
+                                <div class="content">&bull; 報名時間過後<span
+                                     class="red">恕不接受退費申請</span>，請於報名截止日前提出申請。<br />
+                                     &bull; 退費申請將收取<span class="red">100元行政服務費</span>，於退費申請金額內扣除。<br />
+                                     &bull; 一旦確認取消即喪失活動參與權、物資獎贈品所有權，亦無法重新報名。
+                                </div>
                                     <!--以上要能替換內容-->
-                                
-                               
-
-                            </div>
+                                              
                         </div>
 
 
