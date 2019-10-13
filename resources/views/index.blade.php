@@ -54,6 +54,7 @@
         }
         #Search{
           
+          
          
           padding: 10px 50px;
           text-align: center;
@@ -64,7 +65,7 @@
           background-color: palevioletred;
         }
         .EventCard{
-          background-color: ;
+          background-color: wheat;
           width: 75%;          
           padding: 20px;
           text-align: center;
@@ -102,6 +103,9 @@
         #space{
           height: 60px;
         }
+        .cardBack{
+          background-color: white;
+        }
       
     
     
@@ -109,7 +113,7 @@
     </style>
 
 </head>
-<body>
+<body id="Allapp">
   <div>
   <!---------------------------------------------------------------------GoTop------------------------------------------------------------>
   
@@ -132,13 +136,13 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="img/changhua202002.jpg" class="d-block w-100" alt="...">
+          <img src="img/CWH202002.jpg" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
-          <img src="img/kaohsiung201912.jpg" class="d-block w-100" alt="...">
+          <img src="img/KHH201912.jpg" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
-          <img src="img/newtaipei201911.jpg" class="d-block w-100" alt="...">
+          <img src="img/TPH201911.jpg" class="d-block w-100" alt="...">
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -153,7 +157,7 @@
 </div>
   <br>
   <!-----------------------------------------------------------Search-------------------------------------------------------------->
-  <div class="col-xl-6 col-md-12 " id="Search">
+  <div class="col-xl-6 col-md-12 form-control " id="Search">
  
     <div id="searchBlock">
     <select style="height :25px; width :200px" class="col-4" name="" id="year" >
@@ -176,23 +180,24 @@
   <br>
   <!---------------------------------------------------------text_Evnet----------------------------------------------------------->
   <a name="raceEvent"></a>
+  
   <div class="text">
-    <h3 > <span style="font-family:fantasy;">Race/Event</span></h3>
+    <h3 > <span style="font-family:fantasy;">賽事活動</span></h3>
 
   </div>
   <!-----------------------------------------------------------Card---------------------------------------------------------------->
-  <div class=" EventCard " id="cardapp">
+  <div class=" EventCard  " id="cardapp">
     <div id="CARD">
-        <div v-for="(listitem,index) in list"  class= "CardPermutation" style="width: 18rem ;">
+        <div v-for="(listitem,index) in list"  class= "CardPermutation" style=" width: 18rem ;">
           <div id="cardSelect" >
             <img :src="list[index].imgname" class="card-img-top" :alt="list[index].imgname">
-            <div class="card-body">
+            <div class="cardBack card-body">
               <h5 class="card-title">@{{list[index].location}}</h5>
               <p class="card-text"> <img src="img/calendar.png" alt=""> @{{list[index].time}}</p>
               <p class="card-text"> <img src="img/flag.png" alt="">@{{list[index].distance}}</p>
               <p class="card-text"> <img src="img/placeholder-filled-point.png" alt="">@{{list[index].place}}</p>
               <a :href="list[index].add" class="btn btn-primary">Go somewhere</a>
-              <button >SHOWDATA</button>
+              
               
             </div>   
           </div>  
@@ -206,34 +211,7 @@
    </div>
    <br>
    <br>    
-    <div class="EventCard">
-        <div  class="2018 card CardPermutation" style="width: 18rem;">
-            <img src="img/changhua202002.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-              <button >SHOWDATA</button>
-            </div>
-          </div>
-          <div  class="2018 card CardPermutation" style="width: 18rem;">
-              <img src="img/changhua202002.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-            <div  class="2017 card CardPermutation" style="width: 18rem;">
-                <img src="img/changhua202002.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-  
-     </div>
+    
      <br>
      <br>
      <br>
@@ -243,40 +221,13 @@
      <!---------------------------------------------------------text_History----------------------------------------------------------->
      <a name="raceHistory"></a>
     <div class="text">
-      <h3 ><span style="font-family:fantasy;">Race/History</span></h3>
+      <h3 ><span style="font-family:fantasy;">歷史賽事</span></h3>
   
     </div>
     <!-----------------------------------------------------------Card---------------------------------------------------------------->
     
   
-      <div class="HistoryCard">
-          <div  class="2018 card CardPermutation" style="width: 18rem;">
-              <img src="img/changhua202002.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-            <div  class="2018 card CardPermutation" style="width: 18rem;">
-                <img src="img/changhua202002.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-              <div  class="2017 card CardPermutation" style="width: 18rem;">
-                  <img src="img/changhua202002.jpg" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-    
-       </div>
-    
+      
   
 
   
@@ -288,22 +239,11 @@
   </div>
   <br>
   <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
+
   <!-----------------------------------------------------------------------------footer---------------------------------------------------->
   <a name="footer"></a>
  <div id="footer">
-   <h1>ABOUT US</h1>
-   @{{_self.message}}
-   
-  
-   
-  
-  
-
+   <h1>關於我們</h1>
 
   </div>
 </div>
@@ -314,7 +254,7 @@
 </div>
 <div id="Navbar">      
     <nav class=" navbar navbar-expand-md navbar-light bg-dark justify-content-end">
-      <section id="titleImage"> <span style="color:red"><h2>III Marathon</h2></span>  </section>
+      <section id="titleImage"> <span style="color:red"><h2>AI運動報名網</h2></span>  </section>
         <nav class="navbar navbar-dark bg-dark ">
           <a class="navbar-brand" href="#raceEvent">賽事列表</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -340,6 +280,9 @@
     </nav>
        
 
+  </div>
+  <div>
+    
   </div>
   
  
@@ -387,15 +330,15 @@ var app = new Vue({
     message:"Hello",
     list:
       [
-        {location:"屏東",time:"2019年10月09日",distance:"21K-10K-5K",place:"屏東鎮",imgname:"img/pingtung201910.jpg",add:"event/pingtung/2019/10"},
-        {location:"彰化",time:"2020年02月09日",distance:"21K-10K-5K",place:"彰化鎮",imgname:"img/changhua202002.jpg",add:"event/changhua/2020/02"},
-        {location:"新北",time:"2019年11月09日",distance:"21K-10K-5K",place:"新北鎮",imgname:"img/newtaipei201911.jpg",add:"event/newtaipei/2019/11"},
-        {location:"高雄",time:"2019年12月09日",distance:"21K-10K-5K",place:"高雄鎮",imgname:"img/kaohsiung201912.jpg",add:"event/kaohsiung/2019/12"},
-        {location:"台南",time:"2019年10月09日",distance:"21K-10K-5K",place:"台南鎮",imgname:"img/tainan201910.jpg",add:"event/tainan/2019/10"},
-        {location:"桃園",time:"2019年11月09日",distance:"21K-10K-5K",place:"桃園鎮",imgname:"img/taoyuan201911.jpg",add:"event/taoyuan/2019/11"},
-        {location:"宜蘭",time:"2020年01月09日",distance:"21K-10K-5K",place:"宜蘭鎮",imgname:"img/yilan202001.jpg",add:"event/yilan/2020/01"},
-        {location:"員林",time:"2019年19月09日",distance:"21K-10K-5K",place:"員林鎮",imgname:"img/yunlin201909.jpg",add:"event/yunlin/2019/09"},
-        {location:"台中",time:"2019年12月09日",distance:"21K-10K-5K",place:"台中鎮",imgname:"img/taichung201912.jpg",add:"event/taichung/2019/12"}
+        {location:"屏東",time:"2019年10月09日",distance:"21K-10K-5K",place:"屏東鎮",imgname:"img/PCH201910.jpg",add:"event/pingtung/2019/10"},
+        {location:"彰化",time:"2020年02月09日",distance:"21K-10K-5K",place:"彰化鎮",imgname:"img/CWH202002.jpg",add:"event/changhua/2020/02"},
+        {location:"新北",time:"2019年11月09日",distance:"21K-10K-5K",place:"新北鎮",imgname:"img/TPH201911.jpg",add:"event/newtaipei/2019/11"},
+        {location:"高雄",time:"2019年12月09日",distance:"21K-10K-5K",place:"高雄鎮",imgname:"img/KHH201912.jpg",add:"event/kaohsiung/2019/12"},
+        {location:"台南",time:"2019年10月09日",distance:"21K-10K-5K",place:"台南鎮",imgname:"img/TNN201910.jpg",add:"event/tainan/2019/10"},
+        {location:"桃園",time:"2019年11月09日",distance:"21K-10K-5K",place:"桃園鎮",imgname:"img/TYC201911.jpg",add:"event/taoyuan/2019/11"},
+        {location:"宜蘭",time:"2020年01月09日",distance:"21K-10K-5K",place:"宜蘭鎮",imgname:"img/ILN202001.jpg",add:"event/yilan/2020/01"},
+        {location:"員林",time:"2019年19月09日",distance:"21K-10K-5K",place:"員林鎮",imgname:"img/YUN201909.jpg",add:"event/yunlin/2019/09"},
+        {location:"台中",time:"2019年12月09日",distance:"21K-10K-5K",place:"台中鎮",imgname:"img/TXG201912.jpg",add:"event/taichung/2019/12"}
 
       ]
   
@@ -433,22 +376,5 @@ var app = new Vue({
 
 
 </script>
-    {{-- <h1>/resources/views/index.blade.php</h1><hr>
-
-    <a href="/event/changhua/2020/02">changhua/2020/02</a><br>
-    <a href="/event/yilan/2020/01">yilan/2020/01</a><br>
-    <a href="/event/kaohsiung/2019/12">kaohsiung/2019/12</a><br>
-    <a href="/event/taichung/2019/12">taichung/2019/12</a><br>
-    <a href="/event/newtaipei/2019/11">newtaipei/2019/11</a><br>
-    <a href="/event/taoyuan/2019/11">taoyuan/2019/11</a><br>
-    <a href="/event/tainan/2019/10">tainan/2019/10</a><br>
-    <a href="/event/pingtung/2019/10">pingtung/2019/10</a><br>
-    <a href="/event/yunlin/2019/09">yunlin/2019/09</a><hr>
-
-    <a href="/management">management</a><hr>
-    <a href="/member">member</a><hr>
-    <a href="/simulate">simulate</a><hr>
-
-    <a href="/">Home</a> --}}
-</body>
+    
 </html>

@@ -22,15 +22,17 @@
             .Left {
 
                 /* width: 25%; */
-                width: 200px;
+                
                 height: auto;
                 position: relative;
                 background-color: yellow;
                 display: inline-block;
+                
             }
 
             .Right {
-                width: 85%;
+                font-size: 13px;
+                
                 height: auto;
                 position: absolute;
                 background-color:#F0F8FF;
@@ -54,7 +56,7 @@
     </div>
 
     <!--------------------------------------------------------------------------------------content-------------------------------------------------------------------------------------->
-    <div class="Left">
+    <div class="Left col-2">
         <div class="accordion" id="accordionExample">
             <div class="card">
                 <div class="card-header" id="headingOne">
@@ -85,7 +87,6 @@
                 </div>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                     <div class="card-body">
-
                         <a class="dropdown-item" href="/eventAdmin">賽事列表</a>
                         {{-- <a class="dropdown-item" href="#">賽事編輯</a> --}}
                     </div>
@@ -110,8 +111,72 @@
         </div>
 
     </div>
-    <div class="Right">
-        <h1>歡迎</h1>
+    <div class="Right col-10">
+        <h4>賽事活動列表 </h4>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>賽事活動編號</th>
+        <th>賽事活動名稱</th>
+        <th>賽事舉辦城市</th>
+        <th>賽事舉辦地點</th>
+        <th>活動報名開始時間</th>
+        <th>活動報名截止時間</th>
+        <th>賽事活動開始時間</th>
+        <th>賽事活動結束時間</th>
+        <th>賽事活動聯絡電話</th>
+        <th>創建時間</th>
+        <th>
+        <a href="/eventAdmin/create" class="btn btn-success pull-right">新增</a>
+        </th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+            @foreach ($eventsList as $eve)
+        <tr>
+            <td>{{$eve->id}}</td>
+            <td>{{$eve->eventTittle}}</td>
+            <td>{{$eve->cityid}}</td>
+            <td>{{$eve->eventAddr}}</td>
+            <td>{{$eve->eventSignupStartTime}}</td>
+            <td>{{$eve->eventSignupEndTime}}</td>
+            <td>{{$eve->eventRunStartTime}}</td>
+            <td>{{$eve->eventRunEndTime}}</td>
+            <td>{{$eve->eventTel}}</td>
+            <td>{{$eve->created_at}}</td>
+            
+            <td>
+                <span class="pull-right">
+                    <form method="post" action="/eventAdmin/{{$eve->id}}">
+                        <a href="/eventAdmin/{{$eve->eid}}/edit" class="btn btn-xs btn-info">修改</a>|
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span>刪除</button>
+                    </form>
+                </span>
+            </td>
+        </tr>
+        @endforeach
+        
+
+        </tbody>
+    
+
+  </table>
+  <div>
+    {{-- @foreach ($eventsList as $eve)
+        <li>
+        <a href="employeeDetails.html?id=1" data-ajax="false"> 
+            
+            <p>{{ $eve->eventTittle }}</p>
+            <p>{{ $eve->eventAddr }}</p>
+        </a>
+        </li>
+    @endforeach --}}
+    
+  </div>
+
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

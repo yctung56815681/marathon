@@ -40,7 +40,7 @@ Route::get('/teamSignup/{city}/{year}/{month}', "TeamSignupController@index");
 Route::get('/teamSignup/{city}/{year}/{month}/{action}', "TeamSignupController@action");
 
 Route::get('/query/{city}/{year}/{month}', "QueryController@index");
-Route::resource('/eventManager', 'EventManagerController');
+Route::resource('/eventAdmin', 'EventAdminController');
 
 
 //post
