@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>路跑報名</title>
+    <title>報名資料</title>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    {{------------------------------------------Modal----------------------------------------------------}}
+    {{------------------------------------------Modal1----------------------------------------------------}}
     <div id="checkRegex" class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content" style="background-color: yellow; border-radius: 0 25%;">
@@ -34,32 +34,35 @@
             </div>
         </div>
     </div>
+    {{------------------------------------------Modal2----------------------------------------------------}}
+    <div id="waiting" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="border-radius: 0 25%;">
+                <div class="modal-body" style="font-size: 2em; text-align: center">
+                    <p><i class="fas fa-spinner fa-pulse fa-6x"></i></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{------------------------------------------Modal3----------------------------------------------------}}
+    <div id="showImg" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="border-radius: 0 25%;">
+                <div class="modal-body" style="font-size: 2em; text-align: center">
+                    <p class="showImg"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container-fulid">
         <div class="row" style="flex-direction:row-reverse">
             {{------------------------------------------Nav----------------------------------------------------}}
             <div class="col-md-12 navList">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <a class="navbar-brand" href="#" style="color: red">III Marathon</a>
-                    {{-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                     <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav ">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                        </li>
-                    </ul>
-                </div> --}}
                 </nav>
             </div>
             {{------------------------------------------header圖片----------------------------------------------------}}
@@ -218,39 +221,44 @@
                                     </div>
                                     <div id="addPurchase">
                                         <div class="row d-flex justify-content-between">
-                                            <div><input type="checkbox" name="product[]" value="國旗競速路跑鞋-自由藍">國旗競速路跑鞋-自由藍
-                                            </div>
-                                            <div>NT$1580</div>
-                                        </div>
-                                        <div class="row d-flex justify-content-between">
-                                            <div><input type="checkbox" name="product[]" value="國旗競速路跑鞋-奔放紅">國旗競速路跑鞋-奔放紅
+                                            <div><input type="checkbox" name="product[]"
+                                                    value="國旗競速路跑鞋-自由藍"><span id="product1">國旗競速路跑鞋-自由藍</span> 
                                             </div>
                                             <div>NT$1580</div>
                                         </div>
                                         <div class="row d-flex justify-content-between">
                                             <div><input type="checkbox" name="product[]"
-                                                    value="男子減震慢跑麒麟鞋-雷電金">男子減震慢跑麒麟鞋-雷電金
+                                                    value="國旗競速路跑鞋-奔放紅"><span id="product2">國旗競速路跑鞋-奔放紅</span> 
                                             </div>
                                             <div>NT$1580</div>
                                         </div>
                                         <div class="row d-flex justify-content-between">
                                             <div><input type="checkbox" name="product[]"
-                                                    value="女子減震慢跑麒麟鞋-火焰紅">女子減震慢跑麒麟鞋-火焰紅
+                                                    value="男子減震慢跑麒麟鞋-雷電金"><span id="product3">男子減震慢跑麒麟鞋-雷電金</span> 
                                             </div>
                                             <div>NT$1580</div>
                                         </div>
                                         <div class="row d-flex justify-content-between">
-                                            <div><input type="checkbox" name="product[]" value="經典漸層雲豹排汗衫">經典漸層雲豹排汗衫
+                                            <div><input type="checkbox" name="product[]"
+                                                    value="女子減震慢跑麒麟鞋-火焰紅"><span id="product4">女子減震慢跑麒麟鞋-火焰紅</span> 
+                                            </div>
+                                            <div>NT$1580</div>
+                                        </div>
+                                        <div class="row d-flex justify-content-between">
+                                            <div><input type="checkbox" name="product[]"
+                                                    value="經典漸層雲豹排汗衫"><span id="product5">經典漸層雲豹排汗衫</span> 
                                             </div>
                                             <div>NT$590</div>
                                         </div>
                                         <div class="row d-flex justify-content-between">
-                                            <div><input type="checkbox" name="product[]" value="炫彩雲豹排汗衫">炫彩雲豹排汗衫
+                                            <div><input type="checkbox" name="product[]"
+                                                    value="炫彩雲豹排汗衫"><span id="product6">炫彩雲豹排汗衫</span> 
                                             </div>
                                             <div>NT$590</div>
                                         </div>
                                         <div class="row d-flex justify-content-between">
-                                            <div><input type="checkbox" name="product[]" value="男款排汗短袖紀念衣">男款排汗短袖紀念衣
+                                            <div><input type="checkbox" name="product[]"
+                                                    value="男款排汗短袖紀念衣"><span id="product7">男款排汗短袖紀念衣</span> 
                                             </div>
                                             <div>NT$390</div>
                                         </div>
@@ -314,7 +322,7 @@
                                             <tbody>
                                                 <tr>
                                                     <th>訂單編號</th>
-                                                    <td id="random"></td>
+                                                    <td id="orderNumber"></td>
                                                 </tr>
                                                 <tr>
                                                     <th>報名費</th>
@@ -354,7 +362,7 @@
                                         </div>
                                         <div><a href={{"/signup/{$city}/{$year}/{$month}/finish"}}><input
                                                     class="btn btn-primary" type="button" value="確認訂單"
-                                                    onclick="myData()"></a>
+                                                    onclick="waiting();"></a>
                                         </div>
                                     </div>
                                 </div>
@@ -511,16 +519,60 @@
             // console.log(product.length);
         }
         //根據時間產生訂單號
-        var random_no = "";
+        var  orderNumber = "";
         for (var i = 0; i < 4; i++) //j位隨機數，用以加在時間戳後面。
         {
-            random_no += Math.floor(Math.random() * 10);
+            orderNumber += Math.floor(Math.random() * 10);
         }
         var today = new Date();
-        var random_no = today.getTime() + random_no;
-        console.log(random_no);
-        $("#random").text(random_no);
+        var orderNumber = today.getTime() +  orderNumber;
+        console.log( orderNumber);
+        $("#random").text(orderNumber);
 
+        //確認訂單之後
+        function waiting() {
+            event.preventDefault();
+            var pay = $("input[name=pay]:checked").length;
+            if(pay == 0){
+                $('#checkRegex').modal('show');
+                $(".checkRegex").text("請選擇付款方式");
+                return goGroup2();
+            }else {
+            $('#waiting').modal('show');
+            setTimeout("window.location.assign('finish')", 3000);
+            }
+            myData();
+        }
+        //查看加購商品圖片
+        document.getElementById("product1").addEventListener("click",function(){
+            $('#showImg').modal('show');
+            $(".showImg").html("<img src='{{ URL::asset('img/product1.jpg') }}' class='img-fluid' alt='Responsive image'>");
+        })
+        document.getElementById("product2").addEventListener("click",function(){
+            $('#showImg').modal('show');
+            $(".showImg").html("<img src='{{ URL::asset('img/product2.jpg') }}' class='img-fluid' alt='Responsive image'>");
+        })
+        document.getElementById("product3").addEventListener("click",function(){
+            $('#showImg').modal('show');
+            $(".showImg").html("<img src='{{ URL::asset('img/product3.jpg') }}' class='img-fluid' alt='Responsive image'>");
+        })
+        document.getElementById("product4").addEventListener("click",function(){
+            $('#showImg').modal('show');
+            $(".showImg").html("<img src='{{ URL::asset('img/product4.jpg') }}' class='img-fluid' alt='Responsive image'>");
+        })
+        document.getElementById("product5").addEventListener("click",function(){
+            $('#showImg').modal('show');
+            $(".showImg").html("<img src='{{ URL::asset('img/product5.jpg') }}' class='img-fluid' alt='Responsive image'>");
+        })
+        document.getElementById("product6").addEventListener("click",function(){
+            $('#showImg').modal('show');
+            $(".showImg").html("<img src='{{ URL::asset('img/product6.jpg') }}' class='img-fluid' alt='Responsive image'>");
+        })
+        document.getElementById("product7").addEventListener("click",function(){
+            $('#showImg').modal('show');
+            $(".showImg").html("<img src='{{ URL::asset('img/product7.jpg') }}' class='img-fluid' alt='Responsive image'>");
+        })
+        
         //ajax
         $.ajaxSetup({
             headers: {
@@ -544,6 +596,11 @@
                 var emName = $("#emName").val();
                 var emRelationship = $("#emRelationship").val();
                 var emCellphone = $("#emCellphone").val();
+                var km = $('input:radio:checked[name="km"]').val();
+                var product = new Array();
+                $('input[name="product[]"]:checkbox:checked').each(function (i) {
+                    product[i] = this.value;
+                });
                 $.ajax({
                     type: "POST",
                     url: "/memberAdmin",
@@ -561,7 +618,10 @@
                         cellPhone: cellPhone,
                         emName: emName,
                         emRelationship: emRelationship,
-                        emCellphone: emCellphone
+                        emCellphone: emCellphone,
+                        km: km,
+                        propuct: product[i],
+                        orderNumber: orderNumber
                     }
                 });
             });
@@ -569,9 +629,9 @@
 
     </script>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    {{-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
+    </script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
     </script>

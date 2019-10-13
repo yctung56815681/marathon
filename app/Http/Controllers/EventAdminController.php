@@ -16,15 +16,7 @@ class EventAdminController extends Controller
 
     public function index()
     {
-        // return view("eventMangerAdmin.index");//
-        $eventsList = events::all();
-        foreach($eventsList as $v){
-            dd($$v);
-        }
-        exit;
         
-        $eventsList->
-        events::find($id);
         $eventsList = events::all();
         return view("eventAdmin.index", compact('eventsList'));
      

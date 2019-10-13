@@ -580,7 +580,8 @@ body.nav_active #mobile_nav ul {
     }
 
     .main {
-        margin-bottom: 80px;
+        /* margin-bottom: 80px; */
+        margin-bottom: 0px;
     }
 
     .main.gray_bg {
@@ -699,13 +700,13 @@ body.nav_active #mobile_nav ul {
         padding-top: 30px;
     }
   
-
 }
 
-/* @media screen and (min-width: 640px) {   
+/* 修正超過768px後漢堡選單仍存的BUG */
+@media screen and (min-width: 768px) {   
     #mobile_nav {
        display: none;
     }
-} */
+}
 
 
