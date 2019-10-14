@@ -14,8 +14,17 @@ class CreateOrdersTable extends Migration
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('idOrder');
+            $table->string('orderNo')->nullable();
+            $table->bigInteger('orderStatus')->unsigned()->nullable();
+            $table->bigInteger('orderRevoke')->unsigned()->nullable();
+            $table->bigInteger('orderGroupId')->unsigned()->nullable();
+            $table->bigInteger('memberId')->unsigned()->nullable();
+            $table->bigInteger('runId')->unsigned()->nullable();
             $table->timestamps();
+            $table->foreign('orderGroupId')->references('idOrderGroup')->on('order_groups');
+            $table->foreign('memberId')->references('idMember')->on('members');
+            $table->foreign('runId')->references('idRun')->on('runs');
         });
     }
 

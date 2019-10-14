@@ -14,8 +14,14 @@ class CreateOrderGroupsTable extends Migration
     public function up()
     {
         Schema::create('order_groups', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('idOrderGroup');
+            $table->string('orderGroupNo')->nullable();
+            $table->string('orderGroupName')->nullable();
+            $table->bigInteger('eventId')->unsigned()->nullable();
+            $table->string('orderGroupInvoiceLetterhead')->nullable();
+            $table->string('orderGroupInvoiceNumber')->nullable();
             $table->timestamps();
+            $table->foreign('eventId')->references('idEvent')->on('events');
         });
     }
 
