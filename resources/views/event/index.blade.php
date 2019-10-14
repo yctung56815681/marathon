@@ -240,13 +240,15 @@
                             <p>&nbsp;</p>
                          <!--以上要能替換內容-->
 
-                          {{-- <h5>{{ $event}}</h5> --}}
+
+                          {{-- <p>{!! $jsondata !!}</p> --}}
+                                         
                           {{-- <div>
-                             @foreach ( $eventC1 as $k=>$v  )
-                             <h5>{{ $k }}</h5>
-                             <h5>{{ $v }}</h5><hr/>
-                             @endforeach
-                          </div>    --}}
+                            @foreach ( $cityId2 as $k=>$v  )
+                            <h5>{!! $k !!}</h5>
+                            <h5>{!! $v !!}</h5><hr/>
+                            @endforeach                           
+                         </div>   --}}
                                                                                        
                         </div>
 

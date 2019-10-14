@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-// use DB;
+use Illuminate\Database\Eloquent\Model;
 use App\City;
 use App\Event;
 use App\EventContent;
@@ -63,20 +63,44 @@ class EventController extends Controller
            );
         $list=$lists[$city];
 
-        // 手動設ID連結表單+搜尋特定資料
-        // $cityId=City::all()->where('cityId', "TPE" )->first()->id;
-        // $eventId=Event::all()->where('cityId', $cityId )->first()->id;
+
+        // 手動設ID連結表單+搜尋特定資料:
+        $cityId=City::all()->where('cityId', "TNN" )->first()->id;
+        // $cityNameCh=City::all()->where('cityId', "城市代號" )->first()->cityNameCh;
+
+        $eventId=Event::all()->where('cityId', $cityId )->first()->id;
+        // $eventTel=Event::all()->where('cityId', $cityId )->first()->eventTel;
+        // $eventRunStartTime=Event::all()->where('cityId', $cityId )->first()->eventRunStartTime;
+        // $eventRunStartTimeF=date("Y年m月d日", strtotime($eventRunStartTime) );
+
         // $jsonContent1=EventContent::all()->where('eventId', $eventId )->first()->eventContentNews;
         // $eventContent1=json_decode($jsonContent1, true);
-        // $eventD1=Run::all()->where('eventId', $eventId )->find(1)->runName;
-        // $eventD2=Run::all()->where('eventId', $eventId )->find(2)->runName;
-        // $eventD3=Run::all()->where('eventId', $eventId )->find(3)->runName;
+
+        $runId=Run::all()->where('eventId', $eventId )->first()->id;     
+        // $eventD1=Run::all()->where('eventId', $eventId )->find($runId)->runName;
+        // $eventD2=Run::all()->where('eventId', $eventId )->find($runId+1)->runName;
+        // $eventD3=Run::all()->where('eventId', $eventId )->find($runId+2)->runName;
+
+
+        // 自動ID連結表單+搜尋特定資料(還在測試):
+        // $cityId1=City::all()->where('cityId', "TPE" )->first()->events->id;
+        // $jsondata=City::all()->where('cityId', "TPE" )->first()->event_contents[0]->eventContentNews;
+        // $cityId2=json_decode($jsondata, true);
+        // $cityId3=City::all()->where('cityId', "TPE" )->first()->runs[0]->id;
+
+        // $test="<img src='/img/pt02.jpg' style='width: 100%; max-width: 100%;' />";
+        // $test='<img src="/img/pt02.jpg" style="width: 100%; max-width: 100%;" />';
+        // 方法內測試""和''互換OK，但在MYSQK的JASON格式中連建立都不可-> (文章區塊與IMG標籤之'要加\)
+        
 
         $viewModel = compact(
             "city",
             "year",
             "month",
-            "list"
+            "list",
+            // "jsonContent1"
+            // "jsondata"
+            // "cityId2"
         );
         return view("event.index", $viewModel);
 
