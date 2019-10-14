@@ -54,6 +54,7 @@
         }
         #Search{
           
+          
          
           padding: 10px 50px;
           text-align: center;
@@ -64,7 +65,7 @@
           background-color: palevioletred;
         }
         .EventCard{
-          background-color: ;
+          background-color: wheat;
           width: 75%;          
           padding: 20px;
           text-align: center;
@@ -102,6 +103,9 @@
         #space{
           height: 60px;
         }
+        .cardBack{
+          background-color: white;
+        }
       
     
     
@@ -109,7 +113,7 @@
     </style>
 
 </head>
-<body>
+<body id="Allapp">
   <div>
   <!---------------------------------------------------------------------GoTop------------------------------------------------------------>
   
@@ -153,7 +157,7 @@
 </div>
   <br>
   <!-----------------------------------------------------------Search-------------------------------------------------------------->
-  <div class="col-xl-6 col-md-12 " id="Search">
+  <div class="col-xl-6 col-md-12 form-control " id="Search">
  
     <div id="searchBlock">
     <select style="height :25px; width :200px" class="col-4" name="" id="year" >
@@ -176,23 +180,24 @@
   <br>
   <!---------------------------------------------------------text_Evnet----------------------------------------------------------->
   <a name="raceEvent"></a>
+  
   <div class="text">
-    <h3 > <span style="font-family:fantasy;">Race/Event</span></h3>
+    <h3 > <span style="font-family:fantasy;">賽事活動</span></h3>
 
   </div>
   <!-----------------------------------------------------------Card---------------------------------------------------------------->
-  <div class=" EventCard " id="cardapp">
+  <div class=" EventCard  " id="cardapp">
     <div id="CARD">
-        <div v-for="(listitem,index) in list"  class= "CardPermutation" style="width: 18rem ;">
+        <div v-for="(listitem,index) in list"  class= "CardPermutation" style=" width: 18rem ;">
           <div id="cardSelect" >
             <img :src="list[index].imgname" class="card-img-top" :alt="list[index].imgname">
-            <div class="card-body">
+            <div class="cardBack card-body">
               <h5 class="card-title">@{{list[index].location}}</h5>
               <p class="card-text"> <img src="img/calendar.png" alt=""> @{{list[index].time}}</p>
               <p class="card-text"> <img src="img/flag.png" alt="">@{{list[index].distance}}</p>
               <p class="card-text"> <img src="img/placeholder-filled-point.png" alt="">@{{list[index].place}}</p>
               <a :href="list[index].add" class="btn btn-primary">Go somewhere</a>
-              <button >SHOWDATA</button>
+              
               
             </div>   
           </div>  
@@ -206,6 +211,7 @@
    </div>
    <br>
    <br>    
+<<<<<<< HEAD
     <div class="EventCard">
         <div  class="2018 card CardPermutation" style="width: 18rem;">
             <img src="img/CWH202002.jpg" class="card-img-top" alt="...">
@@ -234,6 +240,9 @@
               </div>
   
      </div>
+=======
+    
+>>>>>>> daacb32686d72174d2b912d0b99bcec46efbaa69
      <br>
      <br>
      <br>
@@ -243,12 +252,13 @@
      <!---------------------------------------------------------text_History----------------------------------------------------------->
      <a name="raceHistory"></a>
     <div class="text">
-      <h3 ><span style="font-family:fantasy;">Race/History</span></h3>
+      <h3 ><span style="font-family:fantasy;">歷史賽事</span></h3>
   
     </div>
     <!-----------------------------------------------------------Card---------------------------------------------------------------->
     
   
+<<<<<<< HEAD
       <div class="HistoryCard">
           <div  class="2018 card CardPermutation" style="width: 18rem;">
               <img src="img/CWH202002.jpg" class="card-img-top" alt="...">
@@ -277,6 +287,9 @@
     
        </div>
     
+=======
+      
+>>>>>>> daacb32686d72174d2b912d0b99bcec46efbaa69
   
 
   
@@ -288,22 +301,11 @@
   </div>
   <br>
   <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
+
   <!-----------------------------------------------------------------------------footer---------------------------------------------------->
   <a name="footer"></a>
  <div id="footer">
-   <h1>ABOUT US</h1>
-   @{{_self.message}}
-   
-  
-   
-  
-  
-
+   <h1>關於我們</h1>
 
   </div>
 </div>
@@ -314,7 +316,7 @@
 </div>
 <div id="Navbar">      
     <nav class=" navbar navbar-expand-md navbar-light bg-dark justify-content-end">
-      <section id="titleImage"> <span style="color:red"><h2>III Marathon</h2></span>  </section>
+      <section id="titleImage"> <span style="color:red"><h2>AI運動報名網</h2></span>  </section>
         <nav class="navbar navbar-dark bg-dark ">
           <a class="navbar-brand" href="#raceEvent">賽事列表</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -340,6 +342,9 @@
     </nav>
        
 
+  </div>
+  <div>
+    
   </div>
   
  
@@ -433,22 +438,5 @@ var app = new Vue({
 
 
 </script>
-    {{-- <h1>/resources/views/index.blade.php</h1><hr>
-
-    <a href="/event/changhua/2020/02">changhua/2020/02</a><br>
-    <a href="/event/yilan/2020/01">yilan/2020/01</a><br>
-    <a href="/event/kaohsiung/2019/12">kaohsiung/2019/12</a><br>
-    <a href="/event/taichung/2019/12">taichung/2019/12</a><br>
-    <a href="/event/newtaipei/2019/11">newtaipei/2019/11</a><br>
-    <a href="/event/taoyuan/2019/11">taoyuan/2019/11</a><br>
-    <a href="/event/tainan/2019/10">tainan/2019/10</a><br>
-    <a href="/event/pingtung/2019/10">pingtung/2019/10</a><br>
-    <a href="/event/yunlin/2019/09">yunlin/2019/09</a><hr>
-
-    <a href="/management">management</a><hr>
-    <a href="/member">member</a><hr>
-    <a href="/simulate">simulate</a><hr>
-
-    <a href="/">Home</a> --}}
-</body>
+    
 </html>
