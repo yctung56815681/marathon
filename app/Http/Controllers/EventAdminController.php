@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\events;
-use App\event_contents;
+use App\Event;
+use App\EventContent;
 use App\Run;
 
 class EventAdminController extends Controller
@@ -18,14 +18,15 @@ class EventAdminController extends Controller
     public function index()
     {
         
-        $eventsList = events::all();
+        $eventsList = Event::all();
         return view("eventAdmin.index", compact('eventsList'));
+        
      
     }
     public function store(Request $request)
     {
       
-        $eve = new events();
+        $eve = new Event();
         $eve->eventTittle = $request->eventTittle;
         $eve->cityid = $request->cityid;
         $eve->eventAddr = $request->eventAddr;
@@ -38,24 +39,24 @@ class EventAdminController extends Controller
         $eve->save();
 
         $runs = new Run();
-        $runs->eventId = $eve->id;        
-        $runs->runType = "L";
+        $runs->eventId = $eve->idEvent;        
+        $runs->runType = 1;
         $runs->runName = $request->runNameL;
         $runs->runNameLong = $request->runNameLongL;
         $runs->runPrice = $request->runPriceL;
         $runs->save();
 
         $runs = new Run();
-        $runs->eventId = $eve->id;        
-        $runs->runType = "M";
+        $runs->eventId = $eve->idEvent;        
+        $runs->runType = 2;
         $runs->runName = $request->runNameM;
         $runs->runNameLong = $request->runNameLongM;
         $runs->runPrice = $request->runPriceM;       
         $runs->save();
 
         $runs = new Run();
-        $runs->eventId = $eve->id;        
-        $runs->runType = "S";
+        $runs->eventId = $eve->idEvent;        
+        $runs->runType = 3;
         $runs->runName = $request->runNameS;
         $runs->runNameLong = $request->runNameLongS;
         $runs->runPrice = $request->runPriceS;        
@@ -85,8 +86,8 @@ class EventAdminController extends Controller
 
         // $evec->save();
 
-        $evec = new event_contents();
-        $evec->eventId = $eve->id;
+        $evec = new EventContent();
+        $evec->eventId = $eve->idEvent;
         $eventContentNewsToJSON = [
             "eventNewsImage"=>"$request->eventNewsImage",
             "eventNewstext1"=>"$request->eventNewstext1",
@@ -123,19 +124,20 @@ class EventAdminController extends Controller
         
         return redirect("/eventAdmin");   //
     }
-    public function edit($id)
+    public function edit($idEvent)
     {
-        $eve = events::find($id);
-        $runs = Run::where('eventId',$id)->get();
-        $evec = event_contents::where('eventId',$id)->get(); 
-        // dd($runs);       
+        $eve = Event::find($idEvent);
+        $runs = Run::where('eventId',$idEvent)->get();
+        $evec = EventContent::where('eventId',$idEvent)->get(); 
+        dd($evec[0]->eventContentNews);  
+         
         return view('eventAdmin.edit', compact('eve','runs','evec'));        //
     }
-    public function update(Request $request,$id)
+    public function update(Request $request,$idEvent)
     {
         
         
-        $eve = events::find($id);
+        $eve = Event::find($idEvent);
         // $eve->eventTittle = $request->eventTittle;
         // $eve->cityid = $request->cityid;
         // $eve->eventAddr = $request->eventAddr;
@@ -175,7 +177,7 @@ class EventAdminController extends Controller
         // $runs->save();
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        $evec = event_contents::where('eventId',$id);
+        $evec = EventContent::where('eventId',$idEvent);
         $cart = json_decode($evec->eventContentNews);
         $evec->eventContentNews="123" ;
         // $eventNewstext1="798";
@@ -214,9 +216,9 @@ class EventAdminController extends Controller
 
         return redirect("/eventAdmin");   //
     }
-    public function destroy($id)
+    public function destroy($idEvent)
     {
-        $eve = events::find($id);
+        $eve = Event::find($idEvent);
         $eve->delete();
         return redirect("/eventAdmin");        //
     }

@@ -143,7 +143,7 @@
     </div>
    
         <div class="Right col-10" id="rightFunction">
-            <form method="post" action="/eventAdmin/{{ $eve->id }}" class="form-horizontal">
+            <form method="post" action="/eventAdmin/{{ $eve->idEvent }}" class="form-horizontal">
                 @csrf
                 @method('PUT')
 
@@ -228,23 +228,23 @@
                     <hr>
                     <br>
                     最新消息-團體報名
-                    <textarea id="" name="eventNewstext1"  class="form-control col-8"  cols="30" rows="10">{{$evec->eventContentNews}}</textarea>                
+                    <textarea id="" name="eventNewstext1"  class="form-control col-8"  cols="30" rows="10">{{$eventNewstext1}}</textarea>                
                     <br>
                     最新消息-個人報名
-                    <textarea id="" name="eventNewstext2" class="form-control col-8"  cols="30" rows="10">{{$evec->eventContentNews}}</textarea>
+                    <textarea id="" name="eventNewstext2" class="form-control col-8"  cols="30" rows="10">{{$evec[0]->eventContentNews}}</textarea>
                     <hr>
                     <hr>
                     <br>
                     報名辦法-圖片 
                     <br>                   
-                    <input id="" name="eventMethodImage" " type="file">
+                    <input id="" name="eventMethodImage"  type="file">
                     <hr>
                     <br>
                     報名辦法-報名方式
-                    <textarea id="" name="eventMethodtext1" class="form-control col-8"  cols="30" rows="10">{{$evec->eventContentSignup}}</textarea>                
+                    <textarea id="" name="eventMethodtext1" class="form-control col-8"  cols="30" rows="10">{{$evec[0]->eventContentSignup}}</textarea>                
                     <br>
                     報名辦法-退費辦法
-                    <textarea id="" name="eventMethodtext2" class="form-control col-8"  cols="30" rows="10">{{$evec->eventContentSignup}}</textarea>
+                    <textarea id="" name="eventMethodtext2" class="form-control col-8"  cols="30" rows="10">{{$evec[0]->eventContentSignup}}</textarea>
                     <hr>
                     <hr>
                     <br>
@@ -319,9 +319,7 @@
             
     </script> --}}
     <script>
-        function (){
-            $text1=$eve->eventTittle;
-        };
+    
        
         
     </script>

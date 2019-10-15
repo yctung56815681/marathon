@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class City extends Model
 {
     protected $table = "cities";
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'idCity';
 
     public function events() {
         return $this->hasOne('App\Event', 'cityId','id');
