@@ -143,7 +143,7 @@
     </div>
    
         <div class="Right col-10" id="rightFunction">
-            <form method="post" action="/eventAdmin/{{ $eve->id }}" class="form-horizontal">
+            <form method="post" action="/eventAdmin/{{ $eve->idEvent }}" class="form-horizontal">
                 @csrf
                 @method('PUT')
 
@@ -185,11 +185,11 @@
                     <br>
                     <div >
                         <br>
-                        長程賽事名稱 : <input id="" name="" type="text"> -- 長程賽事里程 : <input id="" name="" style="text-align:right" type="text"> km -- 長程報名價格 : <input id="" name="" style="text-align:right" type="text"> 元
+                        長程賽事名稱 : <input id="" name="runNameL" value="{{$runs[0]->runName}}" type="text"> -- 長程賽事里程 : <input id="" name="runNameLongL" value="{{$runs[0]->runNameLong}}" style="text-align:right" type="text"> km -- 長程報名價格 : <input id="" value="{{$runs[0]->runPrice}}" name="runPriceL" style="text-align:right" type="text"> 元
                         <br>
-                        中程賽事名稱 : <input id="" name="" type="text"> -- 中程賽事里程 : <input id="" name="" style="text-align:right" type="text"> km -- 中程報名價格 : <input id="" name="" style="text-align:right" type="text"> 元
+                        中程賽事名稱 : <input id="" name="runNameM" value="{{$runs[1]->runName}}" type="text"> -- 中程賽事里程 : <input id="" name="runNameLongM" value="{{$runs[1]->runNameLong}}" style="text-align:right" type="text"> km -- 中程報名價格 : <input id="" value="{{$runs[1]->runPrice}}" name="runPriceM" style="text-align:right" type="text"> 元
                         <br>
-                        短程賽事名稱 : <input id="" name="" type="text"> -- 短程賽事里程 : <input id="" name="" style="text-align:right" type="text"> km -- 短程報名價格 : <input id="" name="" style="text-align:right" type="text"> 元
+                        短程賽事名稱 : <input id="" name="runNameS" value="{{$runs[2]->runName}}" type="text"> -- 短程賽事里程 : <input id="" name="runNameLongS" value="{{$runs[2]->runNameLong}}" style="text-align:right" type="text"> km -- 短程報名價格 : <input id="" value="{{$runs[2]->runPrice}}" name="runPriceS" style="text-align:right" type="text"> 元
                         <br>
                     </div>
                     <br>
@@ -228,23 +228,23 @@
                     <hr>
                     <br>
                     最新消息-團體報名
-                    <textarea id="" name="eventNewstext1"  class="form-control col-8"  cols="30" rows="10"></textarea>                
+                    <textarea id="" name="eventNewstext1"  class="form-control col-8"  cols="30" rows="10">{{$eventNewstext1}}</textarea>                
                     <br>
                     最新消息-個人報名
-                    <textarea id="" name="eventNewstext2" class="form-control col-8"  cols="30" rows="10"></textarea>
+                    <textarea id="" name="eventNewstext2" class="form-control col-8"  cols="30" rows="10">{{$evec[0]->eventContentNews}}</textarea>
                     <hr>
                     <hr>
                     <br>
                     報名辦法-圖片 
                     <br>                   
-                    <input id="" name="eventMethodImage" " type="file">
+                    <input id="" name="eventMethodImage"  type="file">
                     <hr>
                     <br>
                     報名辦法-報名方式
-                    <textarea id="" name="eventMethodtext1" class="form-control col-8"  cols="30" rows="10"></textarea>                
+                    <textarea id="" name="eventMethodtext1" class="form-control col-8"  cols="30" rows="10">{{$evec[0]->eventContentSignup}}</textarea>                
                     <br>
                     報名辦法-退費辦法
-                    <textarea id="" name="eventMethodtext2" class="form-control col-8"  cols="30" rows="10"></textarea>
+                    <textarea id="" name="eventMethodtext2" class="form-control col-8"  cols="30" rows="10">{{$evec[0]->eventContentSignup}}</textarea>
                     <hr>
                     <hr>
                     <br>
@@ -319,6 +319,8 @@
             
     </script> --}}
     <script>
+    
+       
         
     </script>
 

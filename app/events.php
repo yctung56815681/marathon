@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class events extends Model
 {
     protected $table = "events";
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'idEvent';
     // function event_contents() {
     //     return $this->hasMany(event_contents::class, 'eventId');
     // }
