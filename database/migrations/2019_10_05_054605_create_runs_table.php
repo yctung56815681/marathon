@@ -16,7 +16,7 @@ class CreateRunsTable extends Migration
         Schema::create('runs', function (Blueprint $table) {
             $table->bigIncrements('idRun');
             $table->bigInteger('eventId')->unsigned()->nullable();
-            $table->bigInteger('runType')->unsigned()->nullable();
+            $table->string('runType')->nullable();
             $table->string('runName')->nullable();
             $table->string('runNameLong')->nullable();
             $table->bigInteger('runPrice')->nullable();

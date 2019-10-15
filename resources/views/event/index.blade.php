@@ -201,9 +201,9 @@
                                 <span style="font-weight:800;">最新消息</span>
                              </h2>
                            </center>
-
+                           <p>&nbsp;</p>
                             <!--以下要能替換內容-->    
-                            <p>&nbsp;</p>
+                            
 
                             <center>
                             <h3>團體報名</h3>
@@ -237,18 +237,18 @@
                                     錄取者若未能依時間參加，請務必提前來電告知！以免系統備註異常，影響後續報名資格。</p>
                             </div>
 
-                            <p>&nbsp;</p>
+                            
                          <!--以上要能替換內容-->
-
+                         <p>&nbsp;</p>
 
                           {{-- <p>{!! $jsondata !!}</p> --}}
                                          
-                          {{-- <div>
-                            @foreach ( $cityId2 as $k=>$v  )
+                          <div>
+                            @foreach ( $eventContent1 as $k=>$v  )
                             <h5>{!! $k !!}</h5>
                             <h5>{!! $v !!}</h5><hr/>
                             @endforeach                           
-                         </div>   --}}
+                         </div>  
                                                                                        
                         </div>
 

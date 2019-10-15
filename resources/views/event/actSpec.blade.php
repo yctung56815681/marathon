@@ -149,9 +149,10 @@
                             <h2 style="text-align: center;">
                                 <span style="font-weight:800;">活動規範</span>
                             </h2>
-                          
+                           <p>&nbsp;</p>
+                           
                             <!--以下要能替換內容-->
-                            <p>&nbsp;</p>
+                            
 
                             <center>
                             <h3>活動規則限制</h3>

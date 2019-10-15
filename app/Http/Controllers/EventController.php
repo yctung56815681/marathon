@@ -65,18 +65,18 @@ class EventController extends Controller
 
 
         // 手動設ID連結表單+搜尋特定資料:
-        $cityId=City::all()->where('cityId', "TNN" )->first()->id;
+        $cityId=City::all()->where('cityNo', "TPH" )->first()->idCity;
         // $cityNameCh=City::all()->where('cityId', "城市代號" )->first()->cityNameCh;
 
-        $eventId=Event::all()->where('cityId', $cityId )->first()->id;
+        $idEvent=Event::all()->where('cityId', $cityId )->first()->idEvent;
         // $eventTel=Event::all()->where('cityId', $cityId )->first()->eventTel;
         // $eventRunStartTime=Event::all()->where('cityId', $cityId )->first()->eventRunStartTime;
         // $eventRunStartTimeF=date("Y年m月d日", strtotime($eventRunStartTime) );
 
-        // $jsonContent1=EventContent::all()->where('eventId', $eventId )->first()->eventContentNews;
-        // $eventContent1=json_decode($jsonContent1, true);
+        $jsonContent1=EventContent::all()->where('eventId', $idEvent )->first()->eventContentNews;
+        $eventContent1=json_decode($jsonContent1,true);
 
-        $runId=Run::all()->where('eventId', $eventId )->first()->id;     
+        $idRun=Run::all()->where('eventId', $idEvent )->first()->idRun;     
         // $eventD1=Run::all()->where('eventId', $eventId )->find($runId)->runName;
         // $eventD2=Run::all()->where('eventId', $eventId )->find($runId+1)->runName;
         // $eventD3=Run::all()->where('eventId', $eventId )->find($runId+2)->runName;
@@ -100,7 +100,7 @@ class EventController extends Controller
             "list",
             // "jsonContent1"
             // "jsondata"
-            // "cityId2"
+            "eventContent1"
         );
         return view("event.index", $viewModel);
 
