@@ -149,7 +149,7 @@
             <td>
                 <span class="pull-right">
                     <form method="post" action="/eventAdmin/{{$eve->id}}">
-                        <a href="/eventAdmin/{{$eve->eid}}/edit" class="btn btn-xs btn-info">修改</a>|
+                        <a href="/eventAdmin/{{$eve->id}}/edit" class="btn btn-xs btn-info">修改</a>|
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span>刪除</button>

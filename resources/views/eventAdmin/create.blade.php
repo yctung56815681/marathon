@@ -184,11 +184,11 @@
                     <br>
                     <div >
                         <br>
-                        長程賽事名稱 : <input id="" name="" type="text"> -- 長程賽事里程 : <input id="" name="" style="text-align:right" type="text"> km -- 長程報名價格 : <input id="" name="" style="text-align:right" type="text"> 元
+                        長程賽事名稱 : <input id="" name="runNameL" type="text"> -- 長程賽事里程 : <input id="" name="runNameLongL" style="text-align:right" type="text"> km -- 長程報名價格 : <input id="" name="runPriceL" style="text-align:right" type="text"> 元
                         <br>
-                        中程賽事名稱 : <input id="" name="" type="text"> -- 中程賽事里程 : <input id="" name="" style="text-align:right" type="text"> km -- 中程報名價格 : <input id="" name="" style="text-align:right" type="text"> 元
+                        中程賽事名稱 : <input id="" name="runNameM" type="text"> -- 中程賽事里程 : <input id="" name="runNameLongM" style="text-align:right" type="text"> km -- 中程報名價格 : <input id="" name="runPriceM" style="text-align:right" type="text"> 元
                         <br>
-                        短程賽事名稱 : <input id="" name="" type="text"> -- 短程賽事里程 : <input id="" name="" style="text-align:right" type="text"> km -- 短程報名價格 : <input id="" name="" style="text-align:right" type="text"> 元
+                        短程賽事名稱 : <input id="" name="runNameS" type="text"> -- 短程賽事里程 : <input id="" name="runNameLongS" style="text-align:right" type="text"> km -- 短程報名價格 : <input id="" name="runPriceS" style="text-align:right" type="text"> 元
                         <br>
                     </div>
                     <br>
