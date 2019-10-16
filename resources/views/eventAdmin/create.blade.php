@@ -196,7 +196,7 @@
                     賽事主視覺圖片
                     <br>
                     <hr>
-                    <input id="" name="eventImage" type="file">
+                <input id="" name="eventImage"  type="file">
                     <hr>
                    
 
@@ -236,7 +236,7 @@
                     <br>
                     報名辦法-圖片 
                     <br>                   
-                    <input id="" name="eventMethodImage" type="file">
+                    <input id="" name="eventMethodImage" value="" type="file">
                     <hr>
                     <br>
                     報名辦法-報名方式
@@ -271,6 +271,7 @@
                     <textarea id="" name="eventRuletext2" class="form-control col-8"  cols="30" rows="10"></textarea>
                     <br>
                     <hr>
+                    
                     
 
                     <hr>

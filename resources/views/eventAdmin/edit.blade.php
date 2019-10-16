@@ -154,8 +154,10 @@
                     <input id="" name="eventTittle" value="{{$eve->eventTittle}}" class="form-control col-8" type="text">
                     <br>
                     活動舉辦城市 
+                  
                     <br>
-                    <select id="" name="cityid" class="form-control col-8">                            
+                    {{$city[0]->cityNameCh}}
+                    {{-- <select id="" name="cityid" class="form-control col-8">                            
                             <option value="1">台北</option>
                             <option value="2">新北</option>
                             <option value="3">基隆</option>
@@ -176,7 +178,8 @@
                             <option value="18">澎湖</option>
                             <option value="19">金門</option>
                             <option value="20">連江</option>
-                            </select>
+                            </select> --}}
+                    <br>
                     <br>
                     賽事活動地點                
                     <input id="" name="eventAddr" value="{{$eve->eventAddr}}" class="form-control col-8" type="text">
@@ -196,25 +199,43 @@
                     <br>
                     賽事主視覺圖片
                     <br>
-                    <hr>
-                    <input id="" name="eventImage" value="{{$eve->eventImage}}" type="file">
+               
+                    {{-- <input id="" name="eventImage" value="{{$eve->eventImage}}" type="file"> --}}
+                    {{$eve->eventImage}}
                     <hr>
                    
 
                     <br>
 
-                    活動報名開始時間               
-                    <input name="eventSignupStartTime" value="{{$eve->eventSignupStartTime}}" class="form-control col-6" type="datetime-local">
+                    活動報名開始時間
+                    <br>
+                              
+                    {{-- <input name="eventSignupStartTime" value="{{$eve->eventSignupStartTime}}" class="form-control col-6" type="datetime-local"> --}}
+                    {{$eve->eventSignupStartTime}}
+                    <hr>  
                     {{-- <p id="eventSignupStartTimeparse" name="eventSignupStartTimeparse"></p> --}}
+                   
                     <br>
-                    活動報名截止時間               
-                    <input name="eventSignupEndTime" value="{{$eve->eventSignupEndTime}}" class="form-control col-6" type="datetime-local">
+                    活動報名截止時間 
+                    <br>                            
+                    {{-- <input name="eventSignupEndTime" value="{{$eve->eventSignupEndTime}}" class="form-control col-6" type="datetime-local"> --}}
+                    {{$eve->eventSignupEndTime}} 
+                    
+                    <hr> 
+                    <br>              
+                    賽事活動開始時間     
                     <br>
-                    賽事活動開始時間               
-                    <input name="eventRunStartTime" value="{{$eve->eventRunStartTime}}" class="form-control col-6" type="datetime-local">
+                          
+                    {{-- <input name="eventRunStartTime" value="{{$eve->eventRunStartTime}}" class="form-control col-6" type="datetime-local"> --}}
+                    {{$eve->eventRunStartTime}}
+                    <hr>
                     <br>
-                    賽事活動終止時間               
-                    <input name="eventRunEndTime" value="{{$eve->eventRunEndTime}}" class="form-control col-6" type="datetime-local">
+                    賽事活動終止時間      
+                    <br>
+                          
+                    {{-- <input name="eventRunEndTime" value="{{$eve->eventRunEndTime}}" class="form-control col-6" type="datetime-local"> --}}
+                    {{$eve->eventRunEndTime}}
+                    <hr>
                     
                     <br>
                     主辦連絡電話
@@ -224,52 +245,56 @@
                     <br>
                     最新消息-圖片
                     <br>                    
-                    <input id="" name="eventNewsImage"  type="file">
+                    {{-- <input id="" name="eventNewsImage"  type="file"> --}}
+                    {{$jsonNews->eventNewsImage}}
                     <hr>
                     <br>
                     最新消息-團體報名
-                    <textarea id="" name="eventNewstext1"  class="form-control col-8"  cols="30" rows="10">{{$eventNewstext1}}</textarea>                
+                    <textarea id="" name="eventNewstext1"  class="form-control col-8"  cols="30" rows="10">{{$jsonNews->eventNewstext1}}</textarea>                
                     <br>
                     最新消息-個人報名
-                    <textarea id="" name="eventNewstext2" class="form-control col-8"  cols="30" rows="10">{{$evec[0]->eventContentNews}}</textarea>
+                    <textarea id="" name="eventNewstext2" class="form-control col-8"  cols="30" rows="10">{{$jsonNews->eventNewstext2}}</textarea>
                     <hr>
                     <hr>
                     <br>
                     報名辦法-圖片 
                     <br>                   
-                    <input id="" name="eventMethodImage"  type="file">
+                    {{-- <input id="" name="eventMethodImage"  type="file"> --}}
+                    {{$jsonSignup->eventMethodImage}}
                     <hr>
                     <br>
                     報名辦法-報名方式
-                    <textarea id="" name="eventMethodtext1" class="form-control col-8"  cols="30" rows="10">{{$evec[0]->eventContentSignup}}</textarea>                
+                    <textarea id="" name="eventMethodtext1" class="form-control col-8"  cols="30" rows="10">{{$jsonSignup->eventMethodtext1}}</textarea>                
                     <br>
                     報名辦法-退費辦法
-                    <textarea id="" name="eventMethodtext2" class="form-control col-8"  cols="30" rows="10">{{$evec[0]->eventContentSignup}}</textarea>
+                    <textarea id="" name="eventMethodtext2" class="form-control col-8"  cols="30" rows="10">{{$jsonSignup->eventMethodtext1}}</textarea>
                     <hr>
                     <hr>
                     <br>
                     競賽獎勵-圖片 
                     <br>                  
-                    <input id="" name="eventRaceImage" value="" type="file">
+                    {{-- <input id="" name="eventRaceImage" value="" type="file"> --}}
+                    {{$jsonReward->eventRaceImage}}
                     <hr>
                     <br>
                     競賽獎勵-報名方式
-                    <textarea id="" name="eventRacetext1" class="form-control col-8"  cols="30" rows="10"></textarea>                
+                    <textarea id="" name="eventRacetext1" class="form-control col-8"  cols="30" rows="10">{{$jsonSignup->eventMethodtext1}}</textarea>                
                     <br>
                     競賽獎勵-退費辦法
-                    <textarea id="" name="eventRacetext2" class="form-control col-8"  cols="30" rows="10"></textarea>
+                    <textarea id="" name="eventRacetext2" class="form-control col-8"  cols="30" rows="10">{{$jsonReward->eventRacetext2}}</textarea>
                     <hr>
                     <hr>                
                     活動規範-圖片 
                     <br>                   
-                    <input id="" name="eventRuleImage" value="" type="file">
+                    {{-- <input id="" name="eventRuleImage" value="" type="file"> --}}
+                    {{$jsonActSpec->eventRuleImage}}
                     <hr>
                     <br>
                     活動規範-規則限制
-                    <textarea id="" name="eventRuletext1" class="form-control col-8"  cols="30" rows="10"></textarea>                
+                    <textarea id="" name="eventRuletext1" class="form-control col-8"  cols="30" rows="10">{{$jsonActSpec->eventRuletext1}}</textarea>                
                     <br>
                     活動規範-違規罰則
-                    <textarea id="" name="eventRuletext2" class="form-control col-8"  cols="30" rows="10"></textarea>
+                    <textarea id="" name="eventRuletext2" class="form-control col-8"  cols="30" rows="10">{{$jsonActSpec->eventRuletext2}}</textarea>
                     <br>
                     <hr>
                     
