@@ -18,9 +18,12 @@
 .title {
     margin-top: 20px;
 }
+
 .myInput {
     border-radius: 30px;
+    box-shadow: 1px 5px 5px #666;
 }
+
 .myButton {
     margin-top: 20px;
 }
@@ -35,14 +38,19 @@
 #addCellPhone,
 #addKm,
 #addProduct,
-#random {
+#orderNumber,
+#kmPrice,
+#productPrice,
+#total {
     text-align: right;
 }
+
 .detail {
     border: 1px solid black;
     padding: 30px;
     font-size: 15px;
 }
+
 .detail2 {
     border: 1px solid black;
     margin-top: 10px;
@@ -52,4 +60,29 @@
     font-size: 3em;
     text-align: center;
     line-height: 150px;
+}
+
+.myQuery {
+    border-radius: 30px;
+    background-color: azure;
+    height: 40px;
+    box-shadow: 1px 5px 5px #666;
+    font-family:"KaiTi";
+    font-weight:bold;
+    text-indent: 10px;
+    line-height: 40px;
+    
+}
+
+.myRadio {
+    background-color: white;  
+}
+
+.myText {
+    margin-right: 10px;
+    font-size: 25px;
+}
+
+.myTotal {
+    text-align:center;
 }

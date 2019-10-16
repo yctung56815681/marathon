@@ -7,18 +7,14 @@ use Illuminate\Http\Request;
 class QueryController extends Controller
 {
     //
-    public function index()
+    public function index(Request $request, $city, $year, $month)
     {
-       
-        return view("query.index");
-    }
-    public function action(Request $request, $action)
-    {
-       
-        $view = "query.{$action}";
         $viewModel = compact(
-            "action"
+            "city",
+            "year",
+            "month",
         );
-        return view($view, $viewModel);
+        return view("query.index", $viewModel);
     }
+   
 }
