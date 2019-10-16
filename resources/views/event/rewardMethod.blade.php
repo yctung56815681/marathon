@@ -1,4 +1,4 @@
-<script>Sid='2019/10/14 23:59:59';</script>
+<script>Sid='2019/11/10 23:59:59';</script>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -34,7 +34,6 @@
 <!--競賽獎勵-->
 <body class="body_detail">
 
-   
 
     <button class="toggle_btn">
         <span></span>
@@ -89,6 +88,7 @@
                         <div class="other_link">
                             <div style="text-align: center; width: 100%; height: 50px;
                                         font-size: 22px; margin-top:10px">
+                                {{-- <span id="name_txt">2020 ZEPRO RUN<br /> {{$list["location"]}}</span> --}}
                                 <span id="name_txt">2020 ZEPRO RUN<br /> {{$list["location"]}}</span>
                             </div>
                         </div>
@@ -98,14 +98,18 @@
                             <div class="box">
                                 <div class="info">
                                     <i class="fas fa-calendar-alt"></i>
+                                    {{-- <span id="date_txt">{{$list["time"]}}</span><br /> --}}
                                     <span id="date_txt">{{$list["time"]}}</span><br />
                                     <i class="fas fa-flag"></i>
+                                    {{-- <span id="km_txt">{{$list["distance"]}} </span> --}}
                                     <span id="km_txt">{{$list["distance"]}} </span>
                                     <br />
-                                    <i class="fas fa-map-marker-alt"></i><a
-                                        href="http://maps.google.com.tw/maps?q=宜蘭冬山河親水公園>">
-                                        <span id="place_txt">{{$list["place"]}} </span></a><br />
+                                    <i class="fas fa-map-marker-alt"></i>
+                                        {{-- <span id="place_txt">{{$list["place"]}} </span> --}}
+                                        <span id="place_txt">{{$list["place"]}} </span>
+                                        <br />
                                     <i class="fas fa-phone"></i>
+                                    {{-- <span id="Label1">{{$list["phone"]}} </span> --}}
                                     <span id="Label1">{{$list["phone"]}} </span>
                                 </div>
                             </div>
@@ -167,8 +171,7 @@
                             第二名：獎金4,000元+獎盃乙座+雲豹跑鞋乙雙+ZEPRO排汗衣乙件<br />
                             第三名：獎金3,000元+獎盃乙座+雲豹跑鞋乙雙+ZEPRO排汗衣乙件<br />
                             第四名：獎金2,000元+獎盃乙座+雲豹跑鞋乙雙+ZEPRO排汗衣乙件<br />
-                            第五名：獎金1,000元+獎盃乙座+雲豹跑鞋乙雙+ZEPRO排汗衣乙件<br />
-                                            
+                            第五名：獎金1,000元+獎盃乙座+雲豹跑鞋乙雙+ZEPRO排汗衣乙件<br />                                            
                             <br />
                             ➤路跑組(10公里)錄取方式：<br />
                             第一名：獎金3,000元+獎盃乙座+ZEPRO排汗衣乙件<br />
@@ -177,14 +180,16 @@
                             第四名：獎金1,500元+獎盃乙座+ZEPRO排汗衣乙件<br />
                             第五名：獎金1,000元+獎盃乙座+ZEPRO排汗衣乙件<br />                 
                             </div>
-
-                            <p>&nbsp;</p>
+                            {{-- <p>{!! $eventContent1 ->eventNewstext1!!}</p> --}}
+                          
+                            
                             <p>&nbsp;</p>
                             <center><img
                                       src="{{ URL::asset("img/pt04.jpg") }}"
                                       style="width: 100%; max-width: 100%;" />
                             </center>
                             <p>&nbsp;</p>
+                            {{-- <img src="/img/{{ $eventContent1 ->eventNewsImage }}" alt=""> --}}
 
                             <center>
                             <h3><div class="titleCenter">敘獎辦法</div></h3>
@@ -195,7 +200,8 @@
                                 &bull;登記獎品之尺寸經寄出後不得更換,<span style="color:#e74c3c;">獎品於賽事結束後4週內統一寄出</span><br />
                                 &bull;如有任何相關問題，請撥打客服專線:0800-271-637/聯絡時間：週一至週五(09:00~18:00)，逾期恕不接受辦理，郵寄費用得由選手自行支付。
                             </div>
-          
+                           {{-- <p>{!! $eventContent1 ->eventNewstext2!!}</p> --}}
+                            
                             <!--以上要能替換內容-->
                            
                         </div>

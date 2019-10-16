@@ -1,4 +1,4 @@
-<script>Sid='2019/10/14 23:59:59';</script>
+<script>Sid='2019/11/10 23:59:59';</script>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -89,14 +89,19 @@
                             <div class="box">
                                 <div class="info">
                                     <i class="fas fa-calendar-alt"></i>
-                                    <span id="date_txt">{{$list["time"]}}</span><br />
+                                    {{-- <span id="date_txt">{{$list["time"]}}</span> --}}
+                                    <span id="date_txt">{{$list["time"]}}</span>
+                                    <br />
                                     <i class="fas fa-flag"></i>
+                                    {{-- <span id="km_txt">{{$list["distance"]}} </span> --}}
                                     <span id="km_txt">{{$list["distance"]}} </span>
                                     <br />
-                                    <i class="fas fa-map-marker-alt"></i><a
-                                        href="http://maps.google.com.tw/maps?q=宜蘭冬山河親水公園>">
-                                        <span id="place_txt">{{$list["place"]}} </span></a><br />
+                                    <i class="fas fa-map-marker-alt"></i>
+                                        {{-- <span id="place_txt">{{$list["place"]}}</span> --}}
+                                        <span id="place_txt">{{$list["place"]}}</span>
+                                        <br />
                                     <i class="fas fa-phone"></i>
+                                    {{-- <span id="Label1">{{$list["phone"]}} </span> --}}
                                     <span id="Label1">{{$list["phone"]}} </span>
                                 </div>
                             </div>
@@ -161,45 +166,35 @@
                             
                             <div class="fold o" style="display: block;">
                                 <p>&bull; 為維護活動品質，保障選手權益，凡於報名截止後異動組別或更名者皆取消敘獎資格</p>
-
                                 <p>&bull; 活動當天請於鳴槍開始前至指定地點集合，選手檢錄以晶片地墊感應取代人工劃記，提早出發者成績無效。</p>
-
-
                                 <p>&bull; 出發點位於開放性道路，選手需準時出發，提早出發或出發未通過感應地墊者成績無效，遲到者為安全考量大會有權限制其出發及不予計算成績。</p>
-
                                 <p>&bull; 活動當日無號碼布者，將自動喪失活動資格，且不得進入活動路線，裁判有權終止無號碼布選手進行活動。</p>
-
                                 <p>&bull; 無受檢查點晶片感應或無持有信物者皆判定為失格，不得異議。</p>
-
                                 <p>&bull; 棄賽、賽種異動者皆判定為失格，不得異議。</p>
-
                             </div>
-
-                            <p>&nbsp;</p>
+                            {{-- <p>{!! $eventContent1 ->eventNewstext1!!}</p> --}}
+                            
                             <p>&nbsp;</p>
                             <center><img
                                 src="{{ URL::asset("img/pt05.jpg") }}"
                                 style="width: 100%; max-width: 100%;" />
                             </center>
                             <p>&nbsp;</p>
-                           
+                           {{-- <img src="/img/{{ $eventContent1 ->eventNewsImage }}" alt=""> --}}
+
                             <center>
                             <h3>活動違規罰責</h3>
                             </center>
 
                             <div class="fold o" style="display: block;">
                                 <p>&bull; 違反下列規定者，取消活動成績、並拒絕往後參與大會相關活動。</p>
-
                                 <p>&bull; 互換晶片、配帶他人號碼布或晶片、一人帶二個晶片等違反活動規則者皆判定失格，成績全部不予以計算。</p>
-
                                 <p>&bull; 不遵從裁判引導者。</p>
-
                                 <p>&bull; 活動途中借助車輛(含自行車)或人員陪同(如乘車、扶持&hellip;等)。</p>
-
                                 <p>&bull; 違反運動精神與道德者，如(打架、辱罵裁判或大會工作人員。不當行為或散播謠言或不實言論、行為足以影響大會聲譽者)。</p>
-
                                 <p>&bull;嚴禁非報名者取代報名者參加活動，或(私下轉售者)，代跑者及被代跑者一經查明屬實，由裁判宣佈成績無效外，另將於網路上公佈代跑者及被代跑者姓名(歡迎選手具體舉發)。</p>
                             </div>
+                          {{-- <p>{!! $eventContent1 ->eventNewstext2!!}</p> --}}
 
                             <p>&nbsp;</p>
                             <!--以上要能替換內容--> 

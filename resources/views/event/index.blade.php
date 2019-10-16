@@ -1,22 +1,12 @@
 {{-- <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
 
-    <h1>/resources/views/event/{{$city}}{{$year}}{{$month}}.blade.php</h1><hr>
-    <img src="{{ URL::asset("img/{$city}{$year}{$month}.jpg") }}" id="img"/><hr>
-    <a href="/login/{{ $city }}/{{ $year }}/{{$month}}">Sign Up</a><hr>
-
-    <a href="/">Home</a>
-</body>
 </html> --}}
 
-<script>Sid='2019/10/14 23:59:59';</script>
+<script>
+    Sid='2019/11/10 23:59:59';
+
+</script>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -55,8 +45,6 @@
     <!--引用彈出視窗sweetalert2檔-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 
-
-   
 </head>
 
 
@@ -131,6 +119,7 @@
                         <div class="other_link">
                             <div style="text-align: center; width: 100%; height: 50px; 
                                         font-size: 22px; margin-top:10px">
+                                {{-- <span id="name_txt">2020 ZEPRO RUN<br /> {{$list["location"]}}</span> --}}
                                 <span id="name_txt">2020 ZEPRO RUN<br /> {{$list["location"]}}</span>
                             </div>
                         </div>
@@ -139,14 +128,19 @@
                             <div class="box">
                                 <div class="info">
                                     <i class="fas fa-calendar-alt"></i>
-                                    <span id="date_txt">{{$list["time"]}}</span><br />
+                                    {{-- <span id="date_txt">{{$list["time"]}}</span> --}}
+                                    <span id="date_txt">{{$list["time"]}}</span>
+                                    <br />
                                     <i class="fas fa-flag"></i>
+                                    {{-- <span id="km_txt">{{$list["distance"]}} </span> --}}
                                     <span id="km_txt">{{$list["distance"]}} </span>
                                     <br />
-                                    <i class="fas fa-map-marker-alt"></i><a
-                                        href="http://maps.google.com.tw/maps?q=宜蘭冬山河親水公園>">
-                                        <span id="place_txt">{{$list["place"]}} </span></a><br />
+                                    <i class="fas fa-map-marker-alt"></i>
+                                        {{-- <span id="place_txt">{{$list["place"]}} </span> --}}
+                                        <span id="place_txt">{{$list["place"]}} </span>
+                                        <br />
                                     <i class="fas fa-phone"></i>
+                                    {{-- <span id="Label1">{{$list["phone"]}} </span> --}}
                                     <span id="Label1">{{$list["phone"]}} </span>
                                 </div>
                             </div>
@@ -212,14 +206,18 @@
                             <div class="fold o" style="display: block">團報20人以上如欲索取團報EXCEL檔案，請按此<a
                                     href="https://www.ctrun.com.tw/image/Document/AM200105/da358160c1c644a9ae26f4d6b1dda6c1.xlsx">下載</a>並E-Mail到zeprorun@gmail.com。
                             </div>
+                            {{-- <p>{!! $eventContent1 ->eventNewstext1!!}</p> --}}
 
-                            <p>&nbsp;</p>
+
+                            
                             <p>&nbsp;</p>
                             <center><img
                                 src="{{ URL::asset("img/pt02.jpg") }}"
                                 style="width: 100%; max-width: 100%;" />
                             </center>
                             <p>&nbsp;</p>                     
+                            {{-- <img src="/img/{{ $eventContent1 ->eventNewsImage }}" alt=""> --}}
+
 
                             <center>
                             <h3>招募志工夥伴</h3>
@@ -236,19 +234,21 @@
                                     錄取者，主辦單位會以電話或簡訊通知；未錄取則不另行通知。<br />
                                     錄取者若未能依時間參加，請務必提前來電告知！以免系統備註異常，影響後續報名資格。</p>
                             </div>
-
+                            {{-- <p>{!! $eventContent1 ->eventNewstext2!!}</p> --}}
                             
                          <!--以上要能替換內容-->
                          <p>&nbsp;</p>
 
-                          {{-- <p>{!! $jsondata !!}</p> --}}
-                                         
-                          <div>
+                          {{-- <p>{!! $eventContent1 ->eventNewstext1!!}</p> --}}
+                          {{-- <img src="/img/{{ $eventContent1 ->eventNewsImage }}" alt=""> --}}
+                          {{-- <p>{!! $eventContent1 ->eventNewstext2!!}</p> --}}
+                                                           
+                          {{-- <div>
                             @foreach ( $eventContent1 as $k=>$v  )
                             <h5>{!! $k !!}</h5>
                             <h5>{!! $v !!}</h5><hr/>
                             @endforeach                           
-                         </div>  
+                         </div>   --}}
                                                                                        
                         </div>
 

@@ -1,4 +1,4 @@
-<script>Sid='2019/10/14 23:59:59';</script>
+<script>Sid='2019/11/10 23:59:59';</script>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -88,6 +88,7 @@
                         <div class="other_link">
                             <div style="text-align: center; width: 100%; height: 50px;
                                         font-size: 22px; margin-top:10px">
+                                {{-- <span id="name_txt">2020 ZEPRO RUN<br /> {{$list["location"]}}</span> --}}
                                 <span id="name_txt">2020 ZEPRO RUN<br /> {{$list["location"]}}</span>
                             </div>
                         </div>
@@ -96,14 +97,18 @@
                             <div class="box">
                                 <div class="info">
                                     <i class="fas fa-calendar-alt"></i>
+                                    {{-- <span id="date_txt">{{$list["time"]}}</span><br /> --}}
                                     <span id="date_txt">{{$list["time"]}}</span><br />
                                     <i class="fas fa-flag"></i>
+                                    {{-- <span id="km_txt">{{$list["distance"]}} </span> --}}
                                     <span id="km_txt">{{$list["distance"]}} </span>
                                     <br />
-                                    <i class="fas fa-map-marker-alt"></i><a
-                                        href="http://maps.google.com.tw/maps?q=宜蘭冬山河親水公園>">
-                                        <span id="place_txt">{{$list["place"]}} </span></a><br />
+                                    <i class="fas fa-map-marker-alt"></i>
+                                        {{-- <span id="place_txt">{{$list["place"]}} </span> --}}
+                                        <span id="place_txt">{{$list["place"]}} </span>
+                                        <br />
                                     <i class="fas fa-phone"></i>
+                                    {{-- <span id="Label1">{{$list["phone"]}} </span> --}}
                                     <span id="Label1">{{$list["phone"]}} </span>
                                 </div>
                             </div>
@@ -172,15 +177,18 @@
                                     &bull; 繳費完成後約30分鐘後將收到簡訊通知，也可到「報名查詢與修改」<span class="red">查詢繳費狀態</span>。<br />
                                     &bull; 繳費代碼逾期未繳者，若已逾報名時間，視同放棄報名資格。<br />                   
                                 </div>
+                                {{-- <p>{!! $eventContent1 ->eventNewstext1!!}</p> --}}
+                                
 
-                                <p>&nbsp;</p>
                                 <p>&nbsp;</p>
                                 <center><img
                                         src="{{ URL::asset("img/pt03.jpg") }}"
                                         style="width: 100%; max-width: 100%;" />
                                 </center>
                                 <p>&nbsp;</p>
-                                    
+                                {{-- <img src="/img/{{ $eventContent1 ->eventNewsImage }}" alt=""> --}}
+
+
                                 <center>
                                 <h3><div class="titleLeft">退費辦法</div></h3>
                                 </center>
@@ -190,7 +198,9 @@
                                      &bull; 退費申請將收取<span class="red">100元行政服務費</span>，於退費申請金額內扣除。<br />
                                      &bull; 一旦確認取消即喪失活動參與權、物資獎贈品所有權，亦無法重新報名。
                                 </div>
-                                    <!--以上要能替換內容-->
+                                {{-- <p>{!! $eventContent1 ->eventNewstext2!!}</p> --}}
+
+                                <!--以上要能替換內容-->
                                               
                         </div>
 

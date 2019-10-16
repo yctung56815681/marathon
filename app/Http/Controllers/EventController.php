@@ -65,18 +65,22 @@ class EventController extends Controller
 
 
         // 手動設ID連結表單+搜尋特定資料:
-        $cityId=City::all()->where('cityNo', "TPH" )->first()->idCity;
+        // $cityId=City::all()->where('cityNo', "TXG" )->first()->idCity;
         // $cityNameCh=City::all()->where('cityId', "城市代號" )->first()->cityNameCh;
 
-        $idEvent=Event::all()->where('cityId', $cityId )->first()->idEvent;
+        // $idEvent=Event::all()->where('cityId', $cityId )->first()->idEvent;
         // $eventTel=Event::all()->where('cityId', $cityId )->first()->eventTel;
+        // $eventSignupStartTime=Event::all()->where('cityId', $cityId )->first()->eventSignupEndTime;
         // $eventRunStartTime=Event::all()->where('cityId', $cityId )->first()->eventRunStartTime;
         // $eventRunStartTimeF=date("Y年m月d日", strtotime($eventRunStartTime) );
+        
 
-        $jsonContent1=EventContent::all()->where('eventId', $idEvent )->first()->eventContentNews;
-        $eventContent1=json_decode($jsonContent1,true);
+        // $jsonContent1=EventContent::all()->where('eventId', $idEvent )->first()->eventContentNews;
+        
+        // $eventContent1=json_decode($jsonContent1);
+        // dd( $eventContent1->eventNewsImage);
 
-        $idRun=Run::all()->where('eventId', $idEvent )->first()->idRun;     
+        // $idRun=Run::all()->where('eventId', $idEvent )->first()->idRun;     
         // $eventD1=Run::all()->where('eventId', $eventId )->find($runId)->runName;
         // $eventD2=Run::all()->where('eventId', $eventId )->find($runId+1)->runName;
         // $eventD3=Run::all()->where('eventId', $eventId )->find($runId+2)->runName;
@@ -92,7 +96,6 @@ class EventController extends Controller
         // $test='<img src="/img/pt02.jpg" style="width: 100%; max-width: 100%;" />';
         // 方法內測試""和''互換OK，但在MYSQK的JASON格式中連建立都不可-> (文章區塊與IMG標籤之'要加\)
         
-
         $viewModel = compact(
             "city",
             "year",
@@ -100,7 +103,7 @@ class EventController extends Controller
             "list",
             // "jsonContent1"
             // "jsondata"
-            "eventContent1"
+            // "eventContent1"
         );
         return view("event.index", $viewModel);
 
@@ -123,7 +126,6 @@ class EventController extends Controller
         // );
         // return view($view, $viewModel);
 
-
        // 第三階段的測試
        $lists=array(
         "PCH"=>array("location"=>"屏東","time"=>"2019年10月09日",      "distance"=>"21K-10K-5K","place"=>"屏東鎮","phone"=>"0800-271-000(工作日9:00~18:00)"),
@@ -145,6 +147,9 @@ class EventController extends Controller
           "list"
        );
        return view($view, $viewModel);
+
+
+
 
     }
 
