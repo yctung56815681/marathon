@@ -117,8 +117,7 @@
     <thead>
       <tr>
         <th>賽事活動編號</th>
-        <th>賽事活動名稱</th>
-        <th>賽事舉辦城市</th>
+        <th>賽事活動名稱</th>        
         <th>賽事舉辦地點</th>
         <th>活動報名開始時間</th>
         <th>活動報名截止時間</th>
@@ -136,8 +135,7 @@
             @foreach ($eventsList as $eve)
         <tr>
             <td>{{$eve->idEvent}}</td>
-            <td>{{$eve->eventTittle}}</td>
-            <td>{{$eve->cityid}}</td>
+            <td>{{$eve->eventTittle}}</td>            
             <td>{{$eve->eventAddr}}</td>
             <td>{{$eve->eventSignupStartTime}}</td>
             <td>{{$eve->eventSignupEndTime}}</td>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Event;
 use App\EventContent;
 use App\Run;
+use App\City;
 
 class EventAdminController extends Controller
 {
@@ -16,7 +17,7 @@ class EventAdminController extends Controller
     }
 
     public function index()
-    {
+    {  
         
         $eventsList = Event::all();
         return view("eventAdmin.index", compact('eventsList'));
@@ -40,7 +41,7 @@ class EventAdminController extends Controller
 
         $runs = new Run();
         $runs->eventId = $eve->idEvent;        
-        $runs->runType = 1;
+        $runs->runType = "L";
         $runs->runName = $request->runNameL;
         $runs->runNameLong = $request->runNameLongL;
         $runs->runPrice = $request->runPriceL;
@@ -48,7 +49,7 @@ class EventAdminController extends Controller
 
         $runs = new Run();
         $runs->eventId = $eve->idEvent;        
-        $runs->runType = 2;
+        $runs->runType = "M";
         $runs->runName = $request->runNameM;
         $runs->runNameLong = $request->runNameLongM;
         $runs->runPrice = $request->runPriceM;       
@@ -56,7 +57,7 @@ class EventAdminController extends Controller
 
         $runs = new Run();
         $runs->eventId = $eve->idEvent;        
-        $runs->runType = 3;
+        $runs->runType = "S";
         $runs->runName = $request->runNameS;
         $runs->runNameLong = $request->runNameLongS;
         $runs->runPrice = $request->runPriceS;        
@@ -98,7 +99,7 @@ class EventAdminController extends Controller
         $eventContentSignupToJSON = [
             "eventMethodImage"=>"$request->eventMethodImage",
             "eventMethodtext1"=>"$request->eventMethodtext1",
-            "eventMethodtext1"=>"$request->eventMethodtext2"
+            "eventMethodtext2"=>"$request->eventMethodtext2"
         ];
         $evec->eventContentSignup = json_encode($eventContentSignupToJSON);
 
@@ -127,97 +128,119 @@ class EventAdminController extends Controller
     public function edit($idEvent)
     {
         $eve = Event::find($idEvent);
+        $city = City::where('idCity',$eve->cityId)->get();
+        // dd($city[0]->cityNameCh);
+        
         $runs = Run::where('eventId',$idEvent)->get();
-        $evec = EventContent::where('eventId',$idEvent)->get(); 
-        dd($evec[0]->eventContentNews);  
-         
-        return view('eventAdmin.edit', compact('eve','runs','evec'));        //
+        $evec = EventContent::where('eventId',$idEvent)->get();
+        $ContentNews= $evec[0]->eventContentNews;
+        $jsonNews = json_decode($ContentNews);
+
+        $ContentSignup= $evec[0]->eventContentSignup;
+        $jsonSignup = json_decode($ContentSignup);
+
+        $ContentReward= $evec[0]->eventContentReward;
+        $jsonReward = json_decode($ContentReward);
+
+        $ContentActSpec= $evec[0]->eventContentActSpec;
+        $jsonActSpec = json_decode($ContentActSpec);
+        // dd($jsonNews->eventNewstext1);  
+        //  
+        return view('eventAdmin.edit', compact('eve','runs','evec','city','jsonNews','jsonSignup','jsonReward','jsonActSpec'));        //
     }
     public function update(Request $request,$idEvent)
-    {
+    {   
         
         
         $eve = Event::find($idEvent);
-        // $eve->eventTittle = $request->eventTittle;
+        $eve->eventTittle = $request->eventTittle;
         // $eve->cityid = $request->cityid;
-        // $eve->eventAddr = $request->eventAddr;
+        $eve->eventAddr = $request->eventAddr;
         // $eve->eventSignupStartTime = $request->eventSignupStartTime;
         // $eve->eventSignupEndTime = $request->eventSignupEndTime;
         // $eve->eventRunStartTime = $request->eventRunStartTime;
         // $eve->eventRunEndTime = $request->eventRunEndTime;
-        // $eve->eventTel = $request->eventTel;
+        $eve->eventTel = $request->eventTel;
         // $eve->eventImage = $request->eventImage;      
                 
         $eve->save();
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        // $runs = Run::where('eventId',$id);
-        // $runs->eventId = $eve->id;
-        // $keep = $runs->id;        
-        // $runs->runType = "L";
-        // $runs->runName = $request->runNameL;
-        // $runs->runNameLong = $request->runNameLongL;
-        // $runs->runPrice = $request->runPriceL;
-        // $runs->save();
+        $runs = Run::Where('eventId',$idEvent)->get();
+        // dd($runs[0]->eventId);
+        // dd($runs); 
+        $runs[0]->eventId = $idEvent;                   
+        $runs[0]->runType = "L";
+        $runs[0]->runName = $request->runNameL;
+        $runs[0]->runNameLong = $request->runNameLongL;
+        $runs[0]->runPrice = $request->runPriceL;        
+        $runs[0]->save();
+        // dd($runs->runPrice);
        
-        // $runs = Run::where('eventId',$id);
-        // $runs->eventId = $eve->id;        
-        // $runs->runType = "M";
-        // $runs->runName = $request->runNameM;
-        // $runs->runNameLong = $request->runNameLongM;
-        // $runs->runPrice = $request->runPriceM;       
-        // $runs->save();
+        $runs = Run::Where('eventId',$idEvent)->get();
+        $runs[1]->eventId = $idEvent;        
+        $runs[1]->runType = "M";
+        $runs[1]->runName = $request->runNameM;
+        $runs[1]->runNameLong = $request->runNameLongM;
+        $runs[1]->runPrice = $request->runPriceM;       
+        $runs[1]->save();
 
-        // $runs = Run::find($eventId);
-        // $runs->eventId = $eve->id;        
-        // $runs->runType = "S";
-        // $runs->runName = $request->runNameS;
-        // $runs->runNameLong = $request->runNameLongS;
-        // $runs->runPrice = $request->runPriceS;        
-        // $runs->save();
+        $runs = Run::Where('eventId',$idEvent)->get();
+        $runs[2]->eventId = $idEvent;        
+        $runs[2]->runType = "S";
+        $runs[2]->runName = $request->runNameS;
+        $runs[2]->runNameLong = $request->runNameLongS;
+        $runs[2]->runPrice = $request->runPriceS;        
+        $runs[2]->save();
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        $evec = EventContent::where('eventId',$idEvent);
-        $cart = json_decode($evec->eventContentNews);
-        $evec->eventContentNews="123" ;
-        // $eventNewstext1="798";
-       
-        // $evec->eventId = $eve->id;
-        // $eventContentNewsToJSON = [
-        //     "eventNewsImage"=>"$request->eventNewsImage",
-        //     "eventNewstext1"=>"$request->eventNewstext1",
-        //     "eventNewstext2"=>"$request->eventNewstext2"
-        // ];
-        // $evec->eventContentNews1 = json_encode($eventContentNewsToJSON);
+        $evec = EventContent::find($idEvent);       
+        $evec->eventId = $idEvent;
+        $eventContentNewsToJSON = [
+            "eventNewsImage"=>"$request->eventNewsImage",
+            "eventNewstext1"=>"$request->eventNewstext1",
+            "eventNewstext2"=>"$request->eventNewstext2"
+        ];
+        $evec->eventContentNews = json_encode($eventContentNewsToJSON);
+        // dd($evec->eventContentNews1);
         // $json = json_decode($evec->eventContentNews1);
+        // dd($json);
         // $evec->eventContentNews = $json->eventNewstext1;
+        
+        $eventContentSignupToJSON = [
+            "eventMethodImage"=>"$request->eventMethodImage",
+            "eventMethodtext1"=>"$request->eventMethodtext1",
+            "eventMethodtext1"=>"$request->eventMethodtext2"
+        ];
+        $evec->eventContentSignup = json_encode($eventContentSignupToJSON);
 
-        // $eventContentSignupToJSON = [
-        //     "eventMethodImage"=>"$request->eventMethodImage",
-        //     "eventMethodtext1"=>"$request->eventMethodtext1",
-        //     "eventMethodtext1"=>"$request->eventMethodtext2"
-        // ];
-        // $evec->eventContentSignup = json_encode($eventContentSignupToJSON);
+        $eventContentRewardToJSON = [
+            "eventRaceImage"=>"$request->eventRaceImage",
+            "eventRacetext1"=>"$request->eventRacetext1",
+            "eventRacetext2"=>"$request->eventRacetext2"
+        ];
+        $evec->eventContentReward = json_encode($eventContentRewardToJSON);
 
-        // $eventContentRewardToJSON = [
-        //     "eventRaceImage"=>"$request->eventRaceImage",
-        //     "eventRacetext1"=>"$request->eventRacetext1",
-        //     "eventRacetext2"=>"$request->eventRacetext2"
-        // ];
-        // $evec->eventContentReward = json_encode($eventContentRewardToJSON);
-
-        // $eventContentActSpecToJSON = [
-        //     "eventRuleImage"=>"$request->eventRuleImage",
-        //     "eventRuletext1"=>"$request->eventRuletext1",
-        //     "eventRuletext2"=>"$request->eventRuletext2"
-        // ];
-        // $evec->eventContentActSpec = json_encode($eventContentActSpecToJSON);
+        $eventContentActSpecToJSON = [
+            "eventRuleImage"=>"$request->eventRuleImage",
+            "eventRuletext1"=>"$request->eventRuletext1",
+            "eventRuletext2"=>"$request->eventRuletext2"
+        ];
+        $evec->eventContentActSpec = json_encode($eventContentActSpecToJSON);
         $evec->save();
 
         return redirect("/eventAdmin");   //
     }
     public function destroy($idEvent)
-    {
+    {   
+        $evec = EventContent::find($idEvent);
+        $evec->delete();
+        $runs = Run::Where('eventId',$idEvent)->get();
+        $runs[0]->delete();
+        $runs = Run::Where('eventId',$idEvent)->get();
+        $runs[0]->delete();
+        $runs = Run::Where('eventId',$idEvent)->get();
+        $runs[0]->delete();
         $eve = Event::find($idEvent);
         $eve->delete();
         return redirect("/eventAdmin");        //
