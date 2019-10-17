@@ -142,7 +142,7 @@
           <img src="img/KHH201912.jpg" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
-          <img src="img/TPH201911.jpg" class="d-block w-100" alt="...">
+          <img src="img/TPH201912.jpg" class="d-block w-100" alt="...">
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -160,12 +160,12 @@
   <div class="col-xl-6 col-md-12 form-control " id="Search">
  
     <div id="searchBlock">
-    <select style="height :25px; width :200px" class="col-4" name="" id="year" >
+    {{-- <select style="height :25px; width :200px" class="col-4" name="" id="year" >
       <option value="YYYY">YYYY</option>
       <option value="2019">2019</option>
       <option value="2018">2018</option>
       <option value="2017">2017</option>
-    </select>
+    </select> --}}
   
 
  
@@ -199,7 +199,7 @@
             <p class="card-text"> <img src="img/flag.png" alt="">{{$City[$eve->cityId-1]->cityNameCh}}</p>
             <p class="card-text"> <img src="img/placeholder-filled-point.png" alt="">{{$eve->eventAddr}}</p>
             
-            <a href="event/{{$city[$key]}}/{{$year[$key]}}/{{$month[$key]}}" class="btn btn-primary">Go somewhere</a>
+            <a href="event/{{$city[$key]}}/{{$year[$key]}}/{{$month[$key]}}" class="btn btn-primary">賽事詳情</a>
            
               
             </div>   

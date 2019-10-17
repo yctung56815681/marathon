@@ -15,14 +15,14 @@ class EventsTableSeeder extends Seeder
 
             DB::table('events')->insert([
                 'cityId' => '2',
-                'eventSignupStartTime' => '2019-11-05 00:00:00',
-                'eventSignupEndTime' => '2019-11-20 00:00:00',
-                'eventRunStartTime' => '2019-12-02 00:00:00',
-                'eventRunEndTime' => '2019-12-05 00:00:00',
-                'eventTittle' => '新北場',
+                'eventSignupStartTime' => '2019-11-05 09:00:00',
+                'eventSignupEndTime' => '2019-11-20 07:00:00',
+                'eventRunStartTime' => '2019-12-02 09:00:00',
+                'eventRunEndTime' => '2019-12-05 07:00:00',
+                'eventTittle' => '2019新北場',
                 'eventImage' => 'TPH201912.jpg',
                 'eventTel' => '0800-333-444',
-                'eventAddr' => '新北市浮洲橋下',
+                'eventAddr' => '浮洲橋下',
             ]);
 
             DB::table('events')->insert([
@@ -31,10 +31,10 @@ class EventsTableSeeder extends Seeder
                 'eventSignupEndTime' => '2019-11-18 00:00:00',
                 'eventRunStartTime' => '2019-12-01 00:00:00',
                 'eventRunEndTime' => '2019-12-03 00:00:00',
-                'eventTittle' => '桃園場',
+                'eventTittle' => '2019桃園場',
                 'eventImage' => 'TYC201912.jpg',
                 'eventTel' => '0800-333-444',
-                'eventAddr' => '桃園永安漁港',
+                'eventAddr' => '永安漁港',
             ]);
 
             DB::table('events')->insert([
@@ -43,10 +43,10 @@ class EventsTableSeeder extends Seeder
                 'eventSignupEndTime' => '2019-11-17 00:00:00',
                 'eventRunStartTime' => '2019-12-01 00:00:00',
                 'eventRunEndTime' => '2019-12-03 00:00:00',
-                'eventTittle' => '台中場',
+                'eventTittle' => '2019台中場',
                 'eventImage' => 'TXG201912.jpg',
                 'eventTel' => '0800-555-666',
-                'eventAddr' => '台中市太平區運動場',
+                'eventAddr' => '太平區運動場',
             ]);
 
             DB::table('events')->insert([
@@ -55,7 +55,7 @@ class EventsTableSeeder extends Seeder
                 'eventSignupEndTime' => '2019-11-21 00:00:00',
                 'eventRunStartTime' => '2019-12-01 00:00:00',
                 'eventRunEndTime' => '2019-12-03 00:00:00',
-                'eventTittle' => '彰化場',
+                'eventTittle' => '2019彰化場',
                 'eventImage' => 'CWH202002.jpg',
                 'eventTel' => '0800-271-637',
                 'eventAddr' => '鹿港鎮運動場',
@@ -67,10 +67,10 @@ class EventsTableSeeder extends Seeder
                 'eventSignupEndTime' => '2019-11-18 00:00:00',
                 'eventRunStartTime' => '2019-12-01 00:00:00',
                 'eventRunEndTime' => '2019-12-03 00:00:00',
-                'eventTittle' => '雲林場',
+                'eventTittle' => '2019雲林場',
                 'eventImage' => 'YUN201909.jpg',
                 'eventTel' => '0800-777-888',
-                'eventAddr' => '雲林縣斗六市湖山水庫梅林公園',
+                'eventAddr' => '斗六市梅林公園',
             ]);
 
             DB::table('events')->insert([
@@ -79,10 +79,10 @@ class EventsTableSeeder extends Seeder
                 'eventSignupEndTime' => '2019-11-19 00:00:00',
                 'eventRunStartTime' => '2019-12-01 00:00:00',
                 'eventRunEndTime' => '2019-12-03 00:00:00',
-                'eventTittle' => '台南場',
+                'eventTittle' => '2019台南場',
                 'eventImage' => 'TNN201910.jpg',
                 'eventTel' => '0800-333-444',
-                'eventAddr' => '台南市安平戀愛廣場',
+                'eventAddr' => '安平戀愛廣場',
             ]);
 
             DB::table('events')->insert([
@@ -91,10 +91,10 @@ class EventsTableSeeder extends Seeder
                 'eventSignupEndTime' => '2019-11-30 23:59:59',
                 'eventRunStartTime' => '2019-12-01 07:00:00',
                 'eventRunEndTime' => '2019-12-01 11:00:00',
-                'eventTittle' => '高雄場',
+                'eventTittle' => '2019高雄場',
                 'eventImage' => 'KHH201912.jpg',
                 'eventTel' => '0800-333-444',
-                'eventAddr' => '高雄橋頭新市鎮',
+                'eventAddr' => '橋頭新市鎮',
             ]);
 
             DB::table('events')->insert([
@@ -103,10 +103,10 @@ class EventsTableSeeder extends Seeder
                 'eventSignupEndTime' => '2019-11-18 00:00:00',
                 'eventRunStartTime' => '2019-12-01 00:00:00',
                 'eventRunEndTime' => '2019-12-03 00:00:00',
-                'eventTittle' => '屏東場',
+                'eventTittle' => '2019屏東場',
                 'eventImage' => 'PCH202001.jpg',
                 'eventTel' => '0800-111-222',
-                'eventAddr' => '屏東縣潮州鎮林後四林平地森林園區',
+                'eventAddr' => '四林平地森林園區',
             ]);
 
             DB::table('events')->insert([
@@ -115,10 +115,10 @@ class EventsTableSeeder extends Seeder
                 'eventSignupEndTime' => '2019-11-22 00:00:00',
                 'eventRunStartTime' => '2019-12-06 00:00:00',
                 'eventRunEndTime' => '2019-12-08 00:00:00',
-                'eventTittle' => ' 宜蘭場',
+                'eventTittle' => ' 2019宜蘭場',
                 'eventImage' => 'ILN202001.jpg',
                 'eventTel' => '0800-111-222',
-                'eventAddr' => '宜蘭冬山河親水公園',
+                'eventAddr' => '冬山河親水公園',
             ]);
 
         }
