@@ -106,6 +106,10 @@
         .cardBack{
           background-color: white;
         }
+        .navbg {
+            background: #13d474;
+         
+        }
       
     
     
@@ -256,9 +260,9 @@
 
 </div>
 <div id="Navbar">      
-    <nav class=" navbar navbar-expand-md navbar-light bg-dark justify-content-end">
-      <section id="titleImage"> <span style="color:red"><h2>AI運動報名網</h2></span>  </section>
-        <nav class="navbar navbar-dark bg-dark ">
+    <nav class=" navbar navbar-expand-md navbar-light navbg justify-content-end">
+      <section id="titleImage"> <span style="color:white"><h2>AI運動報名網</h2></span>  </section>
+        <nav class="navbar navbar-dark navbg ">
           <a class="navbar-brand" href="#raceEvent">賽事列表</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -275,7 +279,7 @@
                 <a class="nav-link" href="#footer">關於我們</a>
               </li>
               <li class="nav-item">
-                <button type="button" class="btn btn-danger"> <img src="img/magnifier-tool.png" alt=""> </button>
+                
               </li>                
             </ul>
           </div>
