@@ -28,7 +28,7 @@
 
     <!-- Bootstrap CSS-->
     <link href="{{ URL::asset('NewCSS/css/style.css') }}" rel="stylesheet" />
-    
+
     <!--引用RWD table css-->
     <link href="{{ URL::asset('NewCSS/css/wdn_responsive-table.css') }}" rel="stylesheet" />
 
@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
 
-   
+
 
 </head>
 
@@ -53,16 +53,16 @@
         <div class="outer">
             <div class="site_logo">
                 <a href="/">
-                    AI運動報名網
+                    運動報名網
                     {{-- <img src="/NewCSS/images/logo_zepro_w.png">--}}
                 </a>
-                    
+
             </div>
         </div>
     </section>
 
     <section class="header_banner">
-        <a href="/event/{{$city}}/{{$year}}/{{$month}}">   
+        <a href="/event/{{$city}}/{{$year}}/{{$month}}">
             <img src="{{ URL::asset("img/{$city}{$year}{$month}.jpg") }}" class="img-fluid">
         </a>
         {{-- <a href="https://www.ctrun.com.tw/page.aspx?CF_ActCode=AM200105&id=363">
@@ -82,9 +82,9 @@
                         <li><a href="/event/{{$city}}/{{$year}}/{{$month}}">最新消息</a></li>
                         <li><a href="/event/{{$city}}/{{$year}}/{{$month}}/regMethod">
                             <i class="fas fa-hand-point-right"></i>&nbsp;報名辦法</a>
-                        </li> 
+                        </li>
                         <li><a href="/event/{{$city}}/{{$year}}/{{$month}}/rewardMethod">競賽獎勵</a></li>
-                        <li><a href="/event/{{$city}}/{{$year}}/{{$month}}/actSpec">活動規範</a></li> 
+                        <li><a href="/event/{{$city}}/{{$year}}/{{$month}}/actSpec">活動規範</a></li>
                         <li><a href="/signup/{{$city}}/{{$year}}/{{$month}}">我要報名</a></li>
                         <li><a href="/query/{{$city}}/{{$year}}/{{$month}}">報名查詢與修改</a></li>
                     <ul>
@@ -145,9 +145,9 @@
 
 
                 <form id="form1">
-                    
+
                     <div class="detail_div">
-                    
+
                         <link rel="stylesheet" href="{{ URL::asset('NewCSS/css/jquerycollapse.css') }}">
                         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
                             rel="stylesheet">
@@ -166,12 +166,12 @@
                             crossorigin="anonymous"></script>
 
                         <div id="ContentPlaceHolder1_content">
-                            
+
                                 <h2 style="text-align: center;">
-                                    <span style="font-weight:800;">報名與報到辦法</span>              
+                                    <span style="font-weight:800;">報名與報到辦法</span>
                                 </h2>
 
-                                <center>  
+                                <center>
                                     <!--以下要能替換內容-->
                                 <h3><div class="titleLeft">報名方式</div></h3>
                                 </center>
@@ -186,10 +186,10 @@
                                     &bull; Ibon繳費流程：憑ibon代號至全省7-11超商門市&rarr;ibon機器螢幕首頁&rarr;點選【代碼輸入】&rarr;請輸入表格內的繳款碼&rarr;確認繳費項目&rarr;點選【確認，列印繳費單】&rarr;持繳費單<br />
                                     到超商櫃檯繳費。(提醒您，ibon繳費需自付兩萬元以下每筆NT 30元手續費)<br />
                                     &bull; 繳費完成後約30分鐘後將收到簡訊通知，也可到「報名查詢與修改」<span class="red">查詢繳費狀態</span>。<br />
-                                    &bull; 繳費代碼逾期未繳者，若已逾報名時間，視同放棄報名資格。<br />                   
+                                    &bull; 繳費代碼逾期未繳者，若已逾報名時間，視同放棄報名資格。<br />
                                 </div> --}}
                                 <p>{!! $eventContentSignup ->eventMethodtext1 !!}</p>
-                                
+
 
                                 <p>&nbsp;</p>
                                 {{-- <center>
@@ -197,11 +197,11 @@
                                          style="width: 100%; max-width: 100%;" />
                                 </center> --}}
                                 <center>
-                                    <img src="/img/{{ $eventContentSignup ->eventMethodImage }}" 
+                                    <img src="/img/{{ $eventContentSignup ->eventMethodImage }}"
                                          style="width: 100%; max-width: 100%;" />
                                 </center>
                                 <p>&nbsp;</p>
-                                
+
 
 
                                 <center>
@@ -216,14 +216,14 @@
                                 <p>{!! $eventContentSignup ->eventMethodtext2 !!}</p>
 
                                 <!--以上要能替換內容-->
-                                              
+
                         </div>
 
 
 
                     </div>
                 </form>
-                
+
             </div>
         </div>
     </section>
@@ -232,7 +232,7 @@
 
     <section class="back_top">
       <i class="far fa-arrow-alt-circle-up "
-        style="font-size:50px; color:rgb(73, 175, 73); position: fixed; bottom:20px; right:20px;"></i>  
+        style="font-size:50px; color:rgb(73, 175, 73); position: fixed; bottom:20px; right:20px;"></i>
     </section>
 
 
@@ -244,7 +244,7 @@
                 <div style='width:100%' ;>
                     <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
                     </div>
-                </div><br /> 
+                </div><br />
 
                 <li><a href="/event/{{$city}}/{{$year}}/{{$month}}/regMethod">
                     <i class="fas fa-hand-point-right"></i>&nbsp;報名辦法</a>
@@ -252,7 +252,7 @@
                 <div style='width:100%' ;>
                     <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
                     </div>
-                </div><br /> 
+                </div><br />
 
                 <li><a href="/event/{{$city}}/{{$year}}/{{$month}}/rewardMethod">競賽獎勵</a></li>
                 <div style='width:100%' ;>
@@ -265,23 +265,23 @@
                     <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
                     </div>
                 </div><br />
-                
+
                 <li><a href="/signup/{{$city}}/{{$year}}/{{$month}}">我要報名</a></li>
                 <div style='width:100%' ;>
                     <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
                     </div>
                 </div><br />
-                
+
                 <li><a href="/query/{{$city}}/{{$year}}/{{$month}}">報名查詢與修改</a></li>
                 <div style='width:100%' ;>
                     <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
                     </div>
-                </div><br />               
+                </div><br />
         </div>
     </nav>
 
-  
-   
+
+
     <!-------JavaScript特定日期倒數計時 START-------->
     <script type="text/javascript">
 
@@ -315,7 +315,7 @@
 
     <div id="body_overly"></div>
 
-    <!-- Placed at the end of the document so the pages load faster -->  
+    <!-- Placed at the end of the document so the pages load faster -->
     <script src="{{ URL::asset('NewCSS/js/jquery.countdown.js') }}"></script>
     <script src="{{ URL::asset('NewCSS/js/script.js') }}"></script>
     <!--這行是驗證用，要放在jquery後面-->
@@ -323,7 +323,7 @@
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js">
     </script>
-   
+
 
 </body>
 

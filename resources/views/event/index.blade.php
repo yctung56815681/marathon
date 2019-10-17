@@ -48,7 +48,7 @@
     <!--引用縣市js檔-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script>
-   
+
 
     <!--引用彈出視窗sweetalert2檔-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
@@ -57,7 +57,7 @@
 
 
 <body class="body_detail">
-    
+
     {{-- 彈出視窗模組 --}}
     <script>
         Swal.fire({
@@ -83,10 +83,10 @@
     </button>
 
     <section class="header">
-        <div class="outer">          
+        <div class="outer">
             <div class="site_logo">
                 <a href="/">
-                    AI運動報名網
+                    運動報名網
                     {{-- <img src="/NewCSS/images/logo_zepro_w.png"> --}}
                 </a>
             </div>
@@ -94,7 +94,7 @@
     </section>
 
     <section class="header_banner">{{-- 更改大圖示 --}}
-        <a href="/event/{{$city}}/{{$year}}/{{$month}}">   
+        <a href="/event/{{$city}}/{{$year}}/{{$month}}">
             <img src="{{ URL::asset("img/{$city}{$year}{$month}.jpg") }}" class="img-fluid">
         </a>
     </section>
@@ -109,11 +109,11 @@
                         <li><a href="/event/{{$city}}/{{$year}}/{{$month}}">
                             <i class="fas fa-hand-point-right"></i>&nbsp;最新消息</a>
                         </li>
-                        <li><a href="/event/{{$city}}/{{$year}}/{{$month}}/regMethod">報名辦法</a></li> 
+                        <li><a href="/event/{{$city}}/{{$year}}/{{$month}}/regMethod">報名辦法</a></li>
                         <li><a href="/event/{{$city}}/{{$year}}/{{$month}}/rewardMethod">競賽獎勵</a></li>
-                        <li><a href="/event/{{$city}}/{{$year}}/{{$month}}/actSpec">活動規範</a></li> 
+                        <li><a href="/event/{{$city}}/{{$year}}/{{$month}}/actSpec">活動規範</a></li>
                         <li><a href="/signup/{{$city}}/{{$year}}/{{$month}}">我要報名</a></li>
-                        <li><a href="/query/{{$city}}/{{$year}}/{{$month}}">報名查詢與修改</a></li>    
+                        <li><a href="/query/{{$city}}/{{$year}}/{{$month}}">報名查詢與修改</a></li>
                     <ul>
                 </div>
             </div>
@@ -122,10 +122,10 @@
             <div class="row02">
                 <div class="countdown_div">
                     <div id="outerdiv" class="countdown_outer" style="display: block;">
-                        
+
 
                         <div class="other_link">
-                            <div style="text-align: center; width: 100%; height: 50px; 
+                            <div style="text-align: center; width: 100%; height: 50px;
                                         font-size: 22px; margin-top:10px">
                                 {{-- <span id="name_txt">2020 ZEPRO RUN<br /> {{$list["location"]}}</span> --}}
                                 <span id="name_txt">2019 ZEPRO RUN<br /> {{ $cityNameCh }}</span>
@@ -174,7 +174,7 @@
 
 
                 <form id="form1">
-                   
+
                     <div class="detail_div">
                      <!--中間可替換內容處-->
                         {{--要更改路徑格式--}}
@@ -195,7 +195,7 @@
                             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
                             crossorigin="anonymous">
                         </script>
-                        
+
                         <div id="ContentPlaceHolder1_content">
 
                            <center>
@@ -205,8 +205,8 @@
                            </center>
 
                            <p>&nbsp;</p>
-                            <!--以下要能替換內容-->    
-                            
+                            <!--以下要能替換內容-->
+
                             <center>
                             <h3>團體報名</h3>
                             </center>
@@ -217,7 +217,7 @@
                             <p>{!! $eventContentNews ->eventNewstext1!!}</p>
 
 
-                            
+
                             <p>&nbsp;</p>
                             {{-- <center><img
                                 src="{{ URL::asset("img/pt02.jpg") }}"
@@ -227,8 +227,8 @@
                                 <img src="/img/{{ $eventContentNews ->eventNewsImage }}"
                                      style="width: 100%; max-width: 100%;" />
                             </center>
-                            <p>&nbsp;</p>                     
-                            
+                            <p>&nbsp;</p>
+
 
 
                             <center>
@@ -247,26 +247,26 @@
                                     錄取者若未能依時間參加，請務必提前來電告知！以免系統備註異常，影響後續報名資格。</p>
                             </div> --}}
                             <p>{!! $eventContentNews ->eventNewstext2 !!}</p>
-                            
+
                          <!--以上要能替換內容-->
                          <p>&nbsp;</p>
 
                           {{-- <p>{!! $eventContentNews->eventNewstext1!!}</p> --}}
                           {{-- <img src="/img/{{ $eventContentNews ->eventNewsImage }}" alt=""> --}}
                           {{-- <p>{!! $eventContentNews ->eventNewstext2!!}</p> --}}
-                                                           
+
                           {{-- <div>
                             @foreach ( $eventContent1 as $k=>$v  )
                             <h5>{!! $k !!}</h5>
                             <h5>{!! $v !!}</h5><hr/>
-                            @endforeach                           
+                            @endforeach
                          </div>   --}}
-                                                                                       
+
                         </div>
 
-                        
+
                     </div>
-                    
+
 
                 </form>
 
@@ -282,10 +282,10 @@
     <section class="back_top">
         <a href="#">
           <i class="far fa-arrow-alt-circle-up "
-             style="font-size:50px; color:rgb(73, 175, 73); position: fixed; bottom:20px; right:20px;"></i>  
+             style="font-size:50px; color:rgb(73, 175, 73); position: fixed; bottom:20px; right:20px;"></i>
     </section>
 
-   
+
 
     <nav id="mobile_nav" class="mobile_nav">
         <div id="menu_div_mobile">
@@ -302,7 +302,7 @@
                 <div style='width:100%' ;>
                     <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
                     </div>
-                </div><br /> 
+                </div><br />
 
                 <li><a href="/event/{{$city}}/{{$year}}/{{$month}}/rewardMethod">競賽獎勵</a></li>
                 <div style='width:100%' ;>
@@ -329,7 +329,7 @@
         </div>
     </nav>
 
-   
+
 
 
     <!-------JavaScript特定日期倒數計時 START-------->
@@ -357,14 +357,14 @@
             }
             var mm = window.setInterval("Check_Time()", 1000);
         }
-        
+
     </script>
     <!-------JavaScript特定日期倒數計時 END-------->
-   
+
 
     <div id="body_overly"></div>
 
-    <!-- Placed at the end of the document so the pages load faster --> 
+    <!-- Placed at the end of the document so the pages load faster -->
     <script src="{{ URL::asset('NewCSS/js/jquery.countdown.js') }}"></script>
     <script src="{{ URL::asset('NewCSS/js/script.js') }}"></script>
     <!--這行是驗證用，要放在jquery後面-->
@@ -372,11 +372,11 @@
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js">
     </script>
-    
+
     {{-- <div id="twzipcode" ></div>
     <script> $("#twzipcode").twzipcode();</script> --}}
 
-    
+
 </body>
 
 </html>
