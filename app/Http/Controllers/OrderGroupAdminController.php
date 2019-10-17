@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Account;
@@ -14,9 +16,17 @@ use App\Product;
 use App\OrderGroup;
 use App\Order;
 use App\OrderDetail;
+
+use Session;
+
 class OrderGroupAdminController extends Controller
 {
     function index(REQUEST $request){
+        $userName = Session::get("userName", "Guest");
+        if ($userName == "Guest") {
+            return redirect("/login");
+        }
+
         $obj = array();
 
         $id = 0;
@@ -246,6 +256,11 @@ class OrderGroupAdminController extends Controller
      */
     public function create()
     {
+        $userName = Session::get("userName", "Guest");
+        if ($userName == "Guest") {
+            return redirect("/login");
+        }
+
         return view("orderGroupAdmin.create");//
     }
     /**
@@ -256,7 +271,10 @@ class OrderGroupAdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $userName = Session::get("userName", "Guest");
+        if ($userName == "Guest") {
+            return redirect("/login");
+        }
     }
     /**
      * Display the specified resource.
@@ -266,6 +284,11 @@ class OrderGroupAdminController extends Controller
      */
     public function show($id)
     {
+        $userName = Session::get("userName", "Guest");
+        if ($userName == "Guest") {
+            return redirect("/login");
+        }
+
         $obj = array();
 
         $num = DB::table("order_groups")->count();
@@ -311,6 +334,11 @@ class OrderGroupAdminController extends Controller
      */
     public function edit($id)
     {
+        $userName = Session::get("userName", "Guest");
+        if ($userName == "Guest") {
+            return redirect("/login");
+        }
+
         $obj = Order::find($id);
         return view ("orderGroupAdmin.edit", compact('obj'));
     }
@@ -323,7 +351,10 @@ class OrderGroupAdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $userName = Session::get("userName", "Guest");
+        if ($userName == "Guest") {
+            return redirect("/login");
+        }
     }
     /**
      * Remove the specified resource from storage.
@@ -333,6 +364,9 @@ class OrderGroupAdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $userName = Session::get("userName", "Guest");
+        if ($userName == "Guest") {
+            return redirect("/login");
+        }
     }
 }

@@ -17,11 +17,17 @@ use App\OrderGroup;
 use App\Order;
 use App\OrderDetail;
 
+use Session;
 
 class MemberTeamAdminController extends Controller
 {
     public function index()
     {
+        $userName = Session::get("userName", "Guest");
+        if ($userName == "Guest") {
+            return redirect("/login");
+        }
+
         return view("memberTeamAdmin.index");
     }
 }
