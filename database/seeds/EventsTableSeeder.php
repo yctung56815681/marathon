@@ -22,7 +22,7 @@ class EventsTableSeeder extends Seeder
                 'eventTittle' => '新北場',
                 'eventImage' => 'TPH201912.jpg',
                 'eventTel' => '0800-333-444',
-                'eventAddr' => '新北市浮洲橋下',
+                'eventAddr' => '浮洲橋下',
             ]);
 
             DB::table('events')->insert([
@@ -34,7 +34,7 @@ class EventsTableSeeder extends Seeder
                 'eventTittle' => '桃園場',
                 'eventImage' => 'TYC201912.jpg',
                 'eventTel' => '0800-333-444',
-                'eventAddr' => '桃園永安漁港',
+                'eventAddr' => '永安漁港',
             ]);
 
             DB::table('events')->insert([
@@ -46,7 +46,7 @@ class EventsTableSeeder extends Seeder
                 'eventTittle' => '台中場',
                 'eventImage' => 'TXG201912.jpg',
                 'eventTel' => '0800-555-666',
-                'eventAddr' => '台中市太平區運動場',
+                'eventAddr' => '太平區運動場',
             ]);
 
             DB::table('events')->insert([
@@ -70,7 +70,7 @@ class EventsTableSeeder extends Seeder
                 'eventTittle' => '雲林場',
                 'eventImage' => 'YUN201909.jpg',
                 'eventTel' => '0800-777-888',
-                'eventAddr' => '雲林縣斗六市湖山水庫梅林公園',
+                'eventAddr' => '斗六市梅林公園',
             ]);
 
             DB::table('events')->insert([
@@ -82,7 +82,7 @@ class EventsTableSeeder extends Seeder
                 'eventTittle' => '台南場',
                 'eventImage' => 'TNN201910.jpg',
                 'eventTel' => '0800-333-444',
-                'eventAddr' => '台南市安平戀愛廣場',
+                'eventAddr' => '安平戀愛廣場',
             ]);
 
             DB::table('events')->insert([
@@ -94,7 +94,7 @@ class EventsTableSeeder extends Seeder
                 'eventTittle' => '高雄場',
                 'eventImage' => 'KHH201912.jpg',
                 'eventTel' => '0800-333-444',
-                'eventAddr' => '高雄橋頭新市鎮',
+                'eventAddr' => '橋頭新市鎮',
             ]);
 
             DB::table('events')->insert([
@@ -106,7 +106,7 @@ class EventsTableSeeder extends Seeder
                 'eventTittle' => '屏東場',
                 'eventImage' => 'PCH202001.jpg',
                 'eventTel' => '0800-111-222',
-                'eventAddr' => '屏東縣潮州鎮林後四林平地森林園區',
+                'eventAddr' => '四林平地森林園區',
             ]);
 
             DB::table('events')->insert([
@@ -118,7 +118,7 @@ class EventsTableSeeder extends Seeder
                 'eventTittle' => ' 宜蘭場',
                 'eventImage' => 'ILN202001.jpg',
                 'eventTel' => '0800-111-222',
-                'eventAddr' => '宜蘭冬山河親水公園',
+                'eventAddr' => '冬山河親水公園',
             ]);
 
         }
