@@ -20,12 +20,12 @@
         <div class="row" style="flex-direction:row-reverse">
             <!-- {{------------------------------------------Nav----------------------------------------------------}} -->
             <div class="col-md-12 navList">
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <a class="navbar-brand" href="#" style="color: red">III Marathon</a>
+                <nav class="navbar navbar-expand-lg navbar-light navbg">
+                    <a class="navbar-brand" href="#" style="color: white">運動報名網</a>
                 </nav>
             </div>
             <!-- {{------------------------------------------header圖片----------------------------------------------------}} -->
-            <div class="col-md-12 header">
+            <div class="header">
                 <img src="{{ URL::asset("img/{$city}{$year}{$month}.jpg") }}" class="img-fluid" alt="Responsive image">
             </div>
 
