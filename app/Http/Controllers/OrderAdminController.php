@@ -28,7 +28,10 @@ class OrderAdminController extends Controller
      */
     public function index()
     {
-        //
+        $userName = Session::get("userName", "Guest");
+        if ($userName == "Guest") {
+            return redirect("/login");
+        }
     }
 
     /**
@@ -38,7 +41,10 @@ class OrderAdminController extends Controller
      */
     public function create()
     {
-        //
+        $userName = Session::get("userName", "Guest");
+        if ($userName == "Guest") {
+            return redirect("/login");
+        }
     }
 
     /**
@@ -49,7 +55,10 @@ class OrderAdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $userName = Session::get("userName", "Guest");
+        if ($userName == "Guest") {
+            return redirect("/login");
+        }
     }
 
     /**
@@ -60,6 +69,11 @@ class OrderAdminController extends Controller
      */
     public function show($id)
     {
+        $userName = Session::get("userName", "Guest");
+        if ($userName == "Guest") {
+            return redirect("/login");
+        }
+
         $obj = new \stdClass();
 
         $order = DB::table('orders')
@@ -120,7 +134,10 @@ class OrderAdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $userName = Session::get("userName", "Guest");
+        if ($userName == "Guest") {
+            return redirect("/login");
+        }
     }
 
     /**
@@ -132,7 +149,10 @@ class OrderAdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $userName = Session::get("userName", "Guest");
+        if ($userName == "Guest") {
+            return redirect("/login");
+        }
     }
 
     /**
@@ -143,6 +163,9 @@ class OrderAdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $userName = Session::get("userName", "Guest");
+        if ($userName == "Guest") {
+            return redirect("/login");
+        }
     }
 }

@@ -28,6 +28,11 @@ class MemberAdminController extends Controller
      */
     public function index()
     {
+        $userName = Session::get("userName", "Guest");
+        if ($userName == "Guest") {
+            return redirect("/login");
+        }
+
         // $memberList = Member::all();
         // return view('memberAdmin.index', compact('memberList'));
 
@@ -44,6 +49,11 @@ class MemberAdminController extends Controller
      */
     public function create()
     {
+        $userName = Session::get("userName", "Guest");
+        if ($userName == "Guest") {
+            return redirect("/login");
+        }
+
         return view("memberAdmin.create");
     }
 
@@ -55,6 +65,11 @@ class MemberAdminController extends Controller
      */
     public function store(Request $request)
     {
+        $userName = Session::get("userName", "Guest");
+        if ($userName == "Guest") {
+            return redirect("/login");
+        }
+
         $mem = new Member();
         $mem->memberName = $request->memberName;
         $mem->memberTwId = $request->memberTwId;
@@ -82,6 +97,11 @@ class MemberAdminController extends Controller
      */
     public function show($id)
     {
+        $userName = Session::get("userName", "Guest");
+        if ($userName == "Guest") {
+            return redirect("/login");
+        }
+
         // $mem = Member::find($id);
         // return view('memberAdmin.show', compact('mem'));
 
@@ -92,6 +112,11 @@ class MemberAdminController extends Controller
 
     public function idShow($id)
     {
+        $userName = Session::get("userName", "Guest");
+        if ($userName == "Guest") {
+            return redirect("/login");
+        }
+
         $mem = Member::find($id);
         return view('memberAdmin.idShow', compact('mem'));
     }
@@ -104,6 +129,11 @@ class MemberAdminController extends Controller
      */
     public function edit($id)
     {
+        $userName = Session::get("userName", "Guest");
+        if ($userName == "Guest") {
+            return redirect("/login");
+        }
+
         $mem = Member::find($id);
         return view('memberAdmin.edit', compact('mem'));
     }
@@ -117,6 +147,11 @@ class MemberAdminController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $userName = Session::get("userName", "Guest");
+        if ($userName == "Guest") {
+            return redirect("/login");
+        }
+
         $mem = Member::find($id);
         $mem->memberName = $request->memberName;
         $mem->memberTwId = $request->memberTwId;
@@ -144,6 +179,11 @@ class MemberAdminController extends Controller
      */
     public function destroy($id)
     {
+        $userName = Session::get("userName", "Guest");
+        if ($userName == "Guest") {
+            return redirect("/login");
+        }
+
         $mem = Member::find($id);
         $mem->delete();
         return redirect("/memberAdmin");
