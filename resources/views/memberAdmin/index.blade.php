@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
+<head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <title>會員列表</title>
 
-        <title>個人會員資料管理</title>
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+        <!-- Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+            integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
         <style>
             .Top {
                 width: auto;
-                height: 200px;
+                height: 50px;
                 position: relative;
 
-                background-image: url("/img/header.jpg");
-                background-size: cover;
+                /* background-image: url("/img/header.jpg");
+                background-size: cover; */
             }
 
             .Left {
@@ -33,7 +41,7 @@
                 width: 85%;
                 height: auto;
                 position: absolute;
-                background-color:#F0F8FF;
+                background-color: #F0F8FF;
                 display: inline-block;
 
             }
@@ -41,19 +49,26 @@
             .content {}
 
         </style>
-
-
     </head>
 
 <body>
     <!--------------------------------------------------------------------------------------TOP-------------------------------------------------------------------------------------->
-    <div class="Top">
-
-
-
+    <div class="Top bg-dark">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="/ui"><i class="fas fa-landmark fa-2x"></i>首頁</a>
+                </div>
+                <ul class="nav navbar-nav">
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <a href="/logout"><i class="fas fa-sign-out-alt fa-2x"></i>登出</a>
+                </ul>
+            </div>
+        </nav>
     </div>
 
-    <!--------------------------------------------------------------------------------------content-------------------------------------------------------------------------------------->
+    <!--------------------------------------------------------------------------------------Left-------------------------------------------------------------------------------------->
     <div class="Left">
         <div class="accordion" id="accordionExample">
             <div class="card">
@@ -61,7 +76,7 @@
                     <h2 class="mb-0">
                         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
                             aria-expanded="true" aria-controls="collapseOne">
-                            會員資料管理
+                            會員及訂單管理
                         </button>
                     </h2>
                 </div>
@@ -69,8 +84,8 @@
                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                     data-parent="#accordionExample">
                     <div class="card-body">
-                        <a class="dropdown-item" href="/memberAdmin">個人會員管理</a>
-                        <a class="dropdown-item" href="#">團體會員管理</a>
+                        <a class="dropdown-item" href="/memberAdmin">會員管理</a>
+                        <a class="dropdown-item" href="/orderGroupAdmin">訂單管理</a>
                     </div>
                 </div>
             </div>
@@ -85,12 +100,12 @@
                 </div>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                     <div class="card-body">
-                        <a class="dropdown-item" href="/eventAdmin">賽事列表</a>
+                        <a class="dropdown-item" href="#">賽事列表</a>
                         {{-- <a class="dropdown-item" href="#">賽事編輯</a> --}}
                     </div>
                 </div>
             </div>
-            <div class="card">
+            <!-- <div class="card">
                 <div class="card-header" id="headingThree">
                     <h2 class="mb-0">
                         <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
@@ -105,57 +120,126 @@
                         <a class="dropdown-item" href="#">團體訂單管理</a>
                     </div>
                 </div>
+            </div> -->
+            <div class="card">
+                <div class="card-header" id="headingFour">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                            data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            帳號管理
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <a class="dropdown-item" href="/accountAdmin"> 帳號列表</a>
+                    </div>
+                </div>
             </div>
         </div>
 
     </div>
+
+    <!--------------------------------------------------------------------------------------right-------------------------------------------------------------------------------------->
     <div class="Right">
-        <h4>個人會員列表 </h4>
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>姓名</th>
-        <th>身分證字號</th>
-        <th>性別</th>
-        <th>居住城市</th>
-        <th>電子信箱</th>
-        <th>聯絡方式</th>
-        <th>創建時間</th>
-        <th>
-        <a href="/memberAdmin/create" class="btn btn-success pull-right"><span class="glyphicon glyphicon-plus"></span> 新增會員資料</a>
-        </th>
-        <th>&nbsp;</th>
-      </tr>
-    </thead>
-    <tbody>
+        <div class="container">
+            {{-- <div class="row"> --}}
+            <div class="p-3 bg-secondary text-white text-center">會員管理</div>
+            <table class="table table-striped table-bordered table-hover">
+                <thead class="table-info">
+                    <tr>
+                        <th scope="col">姓名</th>
+                        <th scope="col">身分證字號</th>
+                        <th scope="col">性別</th>
+                        <th scope="col">居住城市</th>
+                        <th scope="col">電子信箱</th>
+                        <th scope="col">聯絡方式</th>
+                        <th scope="col">創建時間</th>
+                        <th scope="col">
+                            <a class="btn btn-sm btn-success" role="button" href="/memberAdmin/create"><i class="far fa-plus-square"></i> 新增</a>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($memberList as $mem)
+                    <tr>
+                        <td>{{$mem->memberName}}</td>
+                        <td>{{$mem->memberTwId}}</td>
+                        <td>{{$mem->memberGender}}</td>
+                        <td>{{$mem->memberCity}}</td>
+                        <td>{{$mem->memberEmail}}</td>
+                        <td>{{$mem->memberMobile}}</td>
+                        <td>{{$mem->created_at}}</td>
+                        <td>
+                            <span class="pull-right">
+                                <form method="post" action="/memberAdmin/{{$mem->idMember}}">
+                                <a class="btn btn-sm btn-info" role="button" href="/memberAdmin/{{$mem->idMember}}/edit"><i class="far fa-edit"></i> 編輯</a>
+                                    <!-- 刪除紐 -->
+                                    <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">刪除</button>
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                </div>
 
-        @foreach ($membersList as $mem)
-        <tr>
-            <td>{{$mem->name}}</td>
-            <td>{{$mem->twId}}</td>
-            <td>{{$mem->sex}}</td>
-            <td>{{$mem->city}}</td>
-            <td>{{$mem->email}}</td>
-            <td>{{$mem->cellPhone}}</td>
-            <td>{{$mem->created_at}}</td>
-            <td>
-                <span class="pull-right">
-                    <form method="post" action="/memberAdmin/{{$mem->id}}">
-                        <a href="/memberAdmin/{{$mem->id}}/edit" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-pencil"></span> 修改</a> |
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span> 刪除</button>
-                    </form>
-                </span>
-            </td>
-        </tr>
-        @endforeach
-
-        </tbody>
-
-  </table>
-
+                                                <div class="modal-body">
+                                                    <form>
+                                                        <div class="form-group">
+                                                            <label for="message-text" class="control-label">確定要刪除此筆會員資料？</label>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-info" data-dismiss="modal">返回操作</button>
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger glyphicon glyphicon-remove">確定刪除</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                </form>
+                            </span>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+                <caption id="pageList" class="text-center"></caption>
+            </table>
+        {{-- </div> --}}
+        </div>
     </div>
+
+    <script>
+        var numRow = 10;
+        var numPage = Math.ceil({{$num}} / numRow);
+        var page = Math.floor({{$id}} / numRow) + 1;
+
+        // if (page > 1)
+        //     $("#pageList").append("<a href='/memberAdmin/" + (page - 2) * 10 + "'>上一頁</a>");
+        // for (i = 1; i <= numPage; i++) {
+        //     if (i == page)
+        //         $("#pageList").append("&nbsp;&nbsp;&nbsp;" + i);
+        //     else
+        //         $("#pageList").append("&nbsp;&nbsp; <a href='/memberAdmin/" + (i - 1) * 10 + "'>" + i +
+        //             "</a>");
+        // }
+        // if (page < numPage)
+        //     $("#pageList").append("&nbsp;&nbsp; <a href='/memberAdmin/" + page * 10 + "'>下一頁</a>");
+
+        $("#pageList").append("<div class='btn-group btn-group-sm'>");
+        if (page > 1)
+            $("#pageList").append("<a class='btn btn-sm btn-secondary' role='button' href='/memberAdmin/" + (page - 2) * 10 + "'>上一頁</a>");
+        for (i = 1; i <= numPage; i++) {
+            if (i == page)
+                $("#pageList").append("<a class='btn btn-sm btn-outline-primary' role='button' href='#'>&nbsp;" + i + "&nbsp;</a>");
+            else
+                $("#pageList").append("<a class='btn btn-sm btn-primary' role='button' href='/memberAdmin/" + (i - 1) * 10 + "'>&nbsp;" + i + "&nbsp;</a>");
+        }
+        if (page < numPage)
+            $("#pageList").append("<a class='btn btn-sm btn-secondary' role='button' href='/memberAdmin/" + page * 10 + "'>下一頁</a>"); $("#pageList").append("</div>");
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">

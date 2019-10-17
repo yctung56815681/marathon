@@ -5,20 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>管理者系統</title>
+    <title>管理系統</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
+    <!-- Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
     <style>
         .bd-placeholder-img {
@@ -85,30 +82,43 @@
             border-top-left-radius: 0;
             border-top-right-radius: 0;
         }
+
     </style>
 </head>
 
 <body>
-    <body class="text-center">
-        <form class="form-signin" method="post" action="/login">
-            @csrf
-            <img class="mb-4" src="img/iiilogo.png" alt="" width="72" height="72">
-            <h1 class="h3 mb-3 font-weight-normal">管理者系統</h1>
-            <label for="inputEmail" class="sr-only">帳號</label>
-            {{-- <input type="email" id="inputEmail" class="form-control" placeholder="帳號" required autofocus> --}}
-            <input type="text" id="inputEmail" class="form-control" name="username" placeholder="帳號" required autofocus>
-            <label for="inputPassword" class="sr-only">密碼</label>
-            <input type="password" id="inputPassword" class="form-control" name="password" placeholder="密碼" required>
-            <div class="checkbox mb-3">
+    <div class="container">
+        <div class="text-center">
+            <form class="form-signin" method="post" action="/login">
+                @csrf
+                {{-- <img class="mb-4" src="img/iiilogo.png" alt="" width="72" height="72"> --}}
+                <p><i class="fas fa-landmark fa-4x text-info"></i></p>
+                <h1 class="h3 mb-3 font-weight-normal text-info">管理系統</h1>
+
+                <div class="form-group row">
+                    <label for="inputEmail">帳號</label>
+                    {{-- <input type="email" id="inputEmail" class="form-control" placeholder="帳號" required autofocus> --}}
+                    <input type="text" id="inputEmail" class="form-control" name="username" placeholder="帳號" required
+                        autofocus>
+                </div>
+
+                <div class="form-group row">
+                    <label for="inputPassword">密碼</label>
+                    <input type="password" id="inputPassword" class="form-control" name="password" placeholder="密碼"
+                        required>
+                </div>
+
+                {{-- <div class="checkbox mb-3">
                 <label>
                     <input type="checkbox" value="remember-me">記住我
                 </label>
-            </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">登入</button>
-            <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
-        </form>
-    </body>
-    
+                </div> --}}
+
+                <button class="btn btn-lg btn-info btn-block" type="submit">登入</button>
+                <p class="mt-5 mb-3 text-muted">&copy; 2019-2100</p>
+            </form>
+        </div>
+    </div>
 </body>
 
 </html>
