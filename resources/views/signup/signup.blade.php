@@ -17,6 +17,9 @@
 </head>
 
 <body>
+    <div id="GoTop">
+        <img src="{{ URL::asset("img/up-arrow.png")}}">
+    </div>
     {{------------------------------------------Modal1----------------------------------------------------}}
     <div id="checkRegex" class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
@@ -62,7 +65,7 @@
             {{------------------------------------------Nav----------------------------------------------------}}
             <div class="col-md-12 navList">
                 <nav class="navbar navbar-expand-lg navbar-light navbg">
-                    <a class="navbar-brand" href="#" style="color: white; font-size: 22px">運動報名網</a>
+                    <a class="navbar-brand" href="/" style="color: white; font-size: 22px">運動報名網</a>
                 </nav>
             </div>
             {{------------------------------------------header圖片----------------------------------------------------}}
@@ -310,6 +313,20 @@
         </div>
     </div>
     <script>
+        $(function () {
+            $('#GoTop').click(function () {
+                $('html,body').animate({
+                    scrollTop: 0
+                }, 333);
+            });
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 300) {
+                    $('#GoTop').fadeIn(222);
+                } else {
+                    $('#GoTop').stop().fadeOut(222);
+                }
+            }).scroll();
+        });
         //欄位隱藏、展開
         document.getElementById("title1").addEventListener("click", function () {
             $("#personalData").toggle();
@@ -604,6 +621,7 @@
                                 productId: product.toString(),
                                 orderNo: orderNumber,
                                 orderStatus: "1",
+                                orderRevoke: "1",
                                 orderGroupId: groupId,
                             }
                         });

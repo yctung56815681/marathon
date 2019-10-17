@@ -13,24 +13,24 @@ class ProductsTableSeeder extends Seeder
     {
         if (DB::table('products')->get()->count() == 0) {
             DB::table('products')->insert([
-                'productNo' => '產品編號1',
-                'productName' => '產品名稱1',
-                'productPrice' => '1000',
+                'productNo' => 'shoes01',
+                'productName' => '國旗競速路跑鞋-自由藍',
+                'productPrice' => '1580',
             ]);
             DB::table('products')->insert([
-                'productNo' => '產品編號2',
-                'productName' => '產品名稱2',
-                'productPrice' => '2000',
+                'productNo' => 'shoes02',
+                'productName' => '國旗競速路跑鞋-雷電金',
+                'productPrice' => '1580',
             ]);
             DB::table('products')->insert([
-                'productNo' => '產品編號3',
-                'productName' => '產品名稱3',
-                'productPrice' => '3000',
+                'productNo' => 'clothes01',
+                'productName' => '炫彩雲豹排汗衫',
+                'productPrice' => '590',
             ]);
             DB::table('products')->insert([
-                'productNo' => '產品編號4',
-                'productName' => '產品名稱4',
-                'productPrice' => '4000',
+                'productNo' => 'clothes02',
+                'productName' => '男款排汗短袖紀念衣',
+                'productPrice' => '390',
             ]);
         }
     }
