@@ -26,12 +26,12 @@
             </div>
             {{-- ------------------------------------------header圖片---------------------------------------------------- --}}
             <div class="col-md-12 header">
-                <img src="{{ URL::asset("img/changhua202002.jpg") }}" class="img-fluid" alt="Responsive image">
+                <img src="{{ URL::asset("img/{$city}{$year}{$month}.jpg") }}" class="img-fluid" alt="Responsive image">
             </div>
             {{-- ------------------------------------------倒數計時---------------------------------------------------- --}}
-            <div class="col-md-2 countDown">這是倒數計時</div>
+            {{-- <div class="col-md-2 countDown">這是倒數計時</div> --}}
             {{-- -----------------------------------------完成報名---------------------------------------------------- --}}
-            <div class="col-md-10 content">
+            <div class="col-md-12 content">
                 <div class="content">
                     <div class="row">
                         <div class="col-md-12 mb-3">

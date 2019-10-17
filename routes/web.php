@@ -40,12 +40,14 @@ Route::get('/teamSignup/{city}/{year}/{month}', "TeamSignupController@index");
 Route::get('/teamSignup/{city}/{year}/{month}/{action}', "TeamSignupController@action");
 
 Route::get('/query/{city}/{year}/{month}', "QueryController@index");
-Route::get('/query', "QueryController@index");
-Route::get('/query/{action}', "QueryController@action");
 
 Route::resource('/eventAdmin', 'EventAdminController');
 
-
+Route::get('/api/member/show', "MemberApiController@show");
+Route::post('/api/member/teamAdd', "MemberApiController@teamAdd");
+Route::post('/api/member/add', "MemberApiController@add");
+Route::get('/api/member/addProduct', "MemberApiController@addProduct");
+Route::get('/api/member/runEvent', "MemberApiController@runEvent");
 
 
 //post

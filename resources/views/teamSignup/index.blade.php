@@ -60,7 +60,7 @@
     </div>
 
     <div class="container-fluid">
-        <div class="row" style="flex-direction:row-reverse">
+        <div class="row" >
             <!-- {{------------------------------------------Nav----------------------------------------------------}} -->
             <div class="col-md-12 navList">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -73,9 +73,9 @@
                 <img src="{{ URL::asset("img/{$city}{$year}{$month}.jpg") }}" class="img-fluid" alt="Responsive image">
             </div>
             <!-- {{------------------------------------------倒數計時----------------------------------------------------}} -->
-            <div class="col-md-2 countDown">這是倒數計時</div>
+            {{-- <div class="col-md-2 countDown">這是倒數計時</div> --}}
             <!-- {{------------------------------------------報名資料----------------------------------------------------}} -->
-            <div class="col-md-10 content">
+            <div class="col-md-12 content">
                 <form name="memberForm">
                     <div class="content">
                         <div class="row">
@@ -130,11 +130,11 @@
                                         <div class="form-row">
                                             <div class="col-md-3 mb-3">
                                                 <label for="name">性別</label>
-                                                <div class="d-flex justify-content-start">
-                                                    <input type="radio" class="form-control myInput" name="sex"
-                                                        value="male">男
-                                                    <input type="radio" class="form-control myInput" name="sex"
-                                                        value="female">女
+                                                <div class="d-flex justify-content-start myInput myRadio">
+                                                    <input type="radio" class="form-control" name="sex"
+                                                        value="male"><span class="myText">男</span>
+                                                    <input type="radio" class="form-control" name="sex"
+                                                        value="female"><span class="myText">女</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -207,30 +207,30 @@
                                         <hr>
                                     </div>
                                     <div id="signupOp">
-                                        <div class="row radio d-flex justify-content-between">
-                                            <div class=""><input type="radio" name="km" value="5K超值健康組">5K超值健康組</div>
+                                        {{-- <div class="row radio d-flex justify-content-between">
+                                            <div class=""><input type="radio" name="km" value="1">5K超值健康組</div>
                                             <div class="">NT$800</div>
                                         </div>
                                         <div class="row radio d-flex justify-content-between">
-                                            <div class=""><input type="radio" name="km" value="5K豪華健康組">5K豪華健康組</div>
+                                            <div class=""><input type="radio" name="km" value="2">5K豪華健康組</div>
                                             <div class="">NT$1400</div>
                                         </div>
                                         <div class="row radio d-flex justify-content-between">
-                                            <div class=""><input type="radio" name="km" value="10K超值路跑組">10K超值路跑組</div>
+                                            <div class=""><input type="radio" name="km" value="3">10K超值路跑組</div>
                                             <div class="">NT$900</div>
                                         </div>
                                         <div class="row radio d-flex justify-content-between">
-                                            <div class=""><input type="radio" name="km" value="10K豪華路跑組">10K豪華路跑組</div>
+                                            <div class=""><input type="radio" name="km" value="4">10K豪華路跑組</div>
                                             <div class="">NT$1500</div>
                                         </div>
                                         <div class="row radio d-flex justify-content-between">
-                                            <div class=""><input type="radio" name="km" value="21K超值半馬組">21K超值半馬組</div>
+                                            <div class=""><input type="radio" name="km" value="5">21K超值半馬組</div>
                                             <div class="">NT$1000</div>
                                         </div>
                                         <div class="row radio d-flex justify-content-between">
-                                            <div class=""><input type="radio" name="km" value="21K豪華半馬組">21K豪華半馬組</div>
+                                            <div class=""><input type="radio" name="km" value="6">21K豪華半馬組</div>
                                             <div class="">NT$1600</div>
-                                        </div>
+                                        </div> --}}
                                     </div>
 
                                     <!-- 加購項目 -->
@@ -238,55 +238,55 @@
                                         <hr>
                                     </div>
                                     <div id="addPurchase">
-                                        <div class="row d-flex justify-content-between">
-                                            <div><input type="checkbox" name="product[]" value="國旗競速路跑鞋-自由藍"><span
+                                        {{-- <div class="row d-flex justify-content-between">
+                                            <div><input type="checkbox" name="product[]" value="1"><span
                                                     id="product1">國旗競速路跑鞋-自由藍</span>
                                             </div>
                                             <div>NT$1580</div>
                                         </div>
                                         <div class="row d-flex justify-content-between">
-                                            <div><input type="checkbox" name="product[]" value="國旗競速路跑鞋-奔放紅"><span
+                                            <div><input type="checkbox" name="product[]" value="2"><span
                                                     id="product2">國旗競速路跑鞋-奔放紅</span>
                                             </div>
                                             <div>NT$1580</div>
                                         </div>
                                         <div class="row d-flex justify-content-between">
-                                            <div><input type="checkbox" name="product[]" value="男子減震慢跑麒麟鞋-雷電金"><span
+                                            <div><input type="checkbox" name="product[]" value="3"><span
                                                     id="product3">男子減震慢跑麒麟鞋-雷電金</span>
                                             </div>
                                             <div>NT$1580</div>
                                         </div>
                                         <div class="row d-flex justify-content-between">
-                                            <div><input type="checkbox" name="product[]" value="女子減震慢跑麒麟鞋-火焰紅"><span
+                                            <div><input type="checkbox" name="product[]" value="4"><span
                                                     id="product4">女子減震慢跑麒麟鞋-火焰紅</span>
                                             </div>
                                             <div>NT$1580</div>
                                         </div>
                                         <div class="row d-flex justify-content-between">
-                                            <div><input type="checkbox" name="product[]" value="經典漸層雲豹排汗衫"><span
+                                            <div><input type="checkbox" name="product[]" value="5"><span
                                                     id="product5">經典漸層雲豹排汗衫</span>
                                             </div>
                                             <div>NT$590</div>
                                         </div>
                                         <div class="row d-flex justify-content-between">
-                                            <div><input type="checkbox" name="product[]" value="炫彩雲豹排汗衫"><span
+                                            <div><input type="checkbox" name="product[]" value="6"><span
                                                     id="product6">炫彩雲豹排汗衫</span>
                                             </div>
                                             <div>NT$590</div>
                                         </div>
                                         <div class="row d-flex justify-content-between">
-                                            <div><input type="checkbox" name="product[]" value="男款排汗短袖紀念衣"><span
+                                            <div><input type="checkbox" name="product[]" value="7"><span
                                                     id="product7">男款排汗短袖紀念衣</span>
                                             </div>
                                             <div>NT$390</div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                     <div class="btn-group d-flex justify-content-center myButton">
                                         <div><a href={{"/signup/{$city}/{$year}/{$month}/index"}}><input
                                                     class="btn btn-primary myInput" type="button" value="報名首頁"></a>
                                         </div>
                                         <div><input class="btn btn-primary myInput" type="button" value="新增團員"
-                                                onclick="check_data();"></div>
+                                                onclick="personOrderNo(); check_data(); "></div>
                                     </div>
                                 </div>
                                 <div id="group2" style="display:none">
@@ -412,6 +412,7 @@
         //------------------------------------建立資料--------------------------------------------------------
         var teams = new Array();
         var team = new Object();
+        var personOrderNo1 = "";
 
         function person() {
             var product = [$('input:checkbox:checked[name="product[]"]').map(function () {
@@ -438,7 +439,8 @@
                     "emRelationship": $("#emRelationship").val(),
                     "emCellphone": $("#emCellphone").val(),
                     "km": $("input[name=km]:checked").val(),
-                    "product": product
+                    "product": product,
+                    "orderNo": personOrderNo1
                 }
             ];
             console.log(team);
@@ -538,10 +540,10 @@
             );
         }
 
-         //刪除個人資料
-         function deletePerson(i) {
+        //刪除個人資料
+        function deletePerson(i) {
             $("#person" + i).remove();
-            teams.splice(i-1, 1);
+            teams.splice(i - 1, 1);
             console.log(i);
             console.log(teams);
         }
@@ -579,14 +581,27 @@
         }
         //---------------------------------根據時間產生訂單號--------------------------------------------------------
         var orderNumber = "";
-        for (var i = 0; i < 4; i++) //j位隨機數，用以加在時間戳後面。
+        for (var i = 0; i < 2; i++) //j位隨機數，用以加在時間戳後面。
         {
             orderNumber += Math.floor(Math.random() * 10);
         }
         var today = new Date();
-        var orderNumber = today.getTime() + orderNumber;
+        var orderNumber = "G" + today.getTime() + orderNumber;
         console.log(orderNumber);
-        $("#orderNimber").text(orderNumber);
+        $("#orderNumber").text(orderNumber);
+
+
+        function personOrderNo() {
+            var personOrderNo2 = "";
+            for (var i = 0; i < 2; i++) //j位隨機數，用以加在時間戳後面。
+            {
+                personOrderNo2 += Math.floor(Math.random() * 10);
+            }
+            var today = new Date();
+            personOrderNo1 = "P" + today.getTime() + personOrderNo2;
+            console.log(personOrderNo1);
+
+        }
 
         //-----------------------------------------確認訂單之後-----------------------------------------------
         function waiting() {
@@ -604,41 +619,41 @@
         }
 
         //--------------------查看加購商品圖片-----------------------------------
-        document.getElementById("product1").addEventListener("click", function () {
-            $('#showImg').modal('show');
-            $(".showImg").html(
-                "<img src='{{ URL::asset('img/product1.jpg') }}' class='img-fluid' alt='Responsive image'>");
-        })
-        document.getElementById("product2").addEventListener("click", function () {
-            $('#showImg').modal('show');
-            $(".showImg").html(
-                "<img src='{{ URL::asset('img/product2.jpg') }}' class='img-fluid' alt='Responsive image'>");
-        })
-        document.getElementById("product3").addEventListener("click", function () {
-            $('#showImg').modal('show');
-            $(".showImg").html(
-                "<img src='{{ URL::asset('img/product3.jpg') }}' class='img-fluid' alt='Responsive image'>");
-        })
-        document.getElementById("product4").addEventListener("click", function () {
-            $('#showImg').modal('show');
-            $(".showImg").html(
-                "<img src='{{ URL::asset('img/product4.jpg') }}' class='img-fluid' alt='Responsive image'>");
-        })
-        document.getElementById("product5").addEventListener("click", function () {
-            $('#showImg').modal('show');
-            $(".showImg").html(
-                "<img src='{{ URL::asset('img/product5.jpg') }}' class='img-fluid' alt='Responsive image'>");
-        })
-        document.getElementById("product6").addEventListener("click", function () {
-            $('#showImg').modal('show');
-            $(".showImg").html(
-                "<img src='{{ URL::asset('img/product6.jpg') }}' class='img-fluid' alt='Responsive image'>");
-        })
-        document.getElementById("product7").addEventListener("click", function () {
-            $('#showImg').modal('show');
-            $(".showImg").html(
-                "<img src='{{ URL::asset('img/product7.jpg') }}' class='img-fluid' alt='Responsive image'>");
-        })
+        // document.getElementById("product1").addEventListener("click", function () {
+        //     $('#showImg').modal('show');
+        //     $(".showImg").html(
+        //         "<img src='{{ URL::asset('img/product1.jpg') }}' class='img-fluid' alt='Responsive image'>");
+        // })
+        // document.getElementById("product2").addEventListener("click", function () {
+        //     $('#showImg').modal('show');
+        //     $(".showImg").html(
+        //         "<img src='{{ URL::asset('img/product2.jpg') }}' class='img-fluid' alt='Responsive image'>");
+        // })
+        // document.getElementById("product3").addEventListener("click", function () {
+        //     $('#showImg').modal('show');
+        //     $(".showImg").html(
+        //         "<img src='{{ URL::asset('img/product3.jpg') }}' class='img-fluid' alt='Responsive image'>");
+        // })
+        // document.getElementById("product4").addEventListener("click", function () {
+        //     $('#showImg').modal('show');
+        //     $(".showImg").html(
+        //         "<img src='{{ URL::asset('img/product4.jpg') }}' class='img-fluid' alt='Responsive image'>");
+        // })
+        // document.getElementById("product5").addEventListener("click", function () {
+        //     $('#showImg').modal('show');
+        //     $(".showImg").html(
+        //         "<img src='{{ URL::asset('img/product5.jpg') }}' class='img-fluid' alt='Responsive image'>");
+        // })
+        // document.getElementById("product6").addEventListener("click", function () {
+        //     $('#showImg').modal('show');
+        //     $(".showImg").html(
+        //         "<img src='{{ URL::asset('img/product6.jpg') }}' class='img-fluid' alt='Responsive image'>");
+        // })
+        // document.getElementById("product7").addEventListener("click", function () {
+        //     $('#showImg').modal('show');
+        //     $(".showImg").html(
+        //         "<img src='{{ URL::asset('img/product7.jpg') }}' class='img-fluid' alt='Responsive image'>");
+        // })
 
         //ajax
         $.ajaxSetup({
@@ -649,58 +664,99 @@
 
         function myData() {
             $(document).ready(function () {
-                // var teamName = $("#teamName").val();
-                // $.ajax({
-                //         type: "POST",
-                //         url: "/memberAdmin",
-                //         data: {
-                //            teamName:teamName,
-                //            orderNumber: orderNumber
-                //         }
-                //     });
-                for (i = 0; i < teams.length; i++) {
-                    team = teams[i];
-                    var myName = team.name;
-                    var twId = team.twId;
-                    var sex = team.sex;
-                    var year = team.year;
-                    var month = team.month;
-                    var day = team.day;
-                    var email = team.email;
-                    var cellPhone = team.cellPhone;
-                    var city = team.city;
-                    var town = team.town;
-                    var address = team.address;
-                    var emName = team.emName;
-                    var emCellphone = team.emCellphone;
-                    var emRelationship = team.emRelationship;
-                    var km = team.km;
-                    var product = team.product;
-                    $.ajax({
-                        type: "POST",
-                        url: "/memberAdmin",
-                        data: {
-                            name: myName,
-                            twId: twId,
-                            sex: sex,
-                            year: year,
-                            month: month,
-                            day: day,
-                            city: city,
-                            town: town,
-                            address: address,
-                            email: email,
-                            cellPhone: cellPhone,
-                            emName: emName,
-                            emRelationship: emRelationship,
-                            emCellphone: emCellphone,
-                            km: km,
-                            product: product
-                        }
-                    });
-                }
+                var teamName = $("#teamName").val();
+                var groupId;
+                $.ajax({
+                    type: "POST",
+                    url: "/api/member/teamAdd",
+                    data: {
+                        orderGroupName: teamName,
+                        orderGroupNo: orderNumber
+                    }
+                }).done(function (data) {
+                    groupId = data;
+                    for (i = 0; i < teams.length; i++) {
+                        team = teams[i];
+                        var myName = team.name;
+                        var twId = team.twId;
+                        var sex = team.sex;
+                        var year = team.year;
+                        var month = team.month;
+                        var day = team.day;
+                        var email = team.email;
+                        var cellPhone = team.cellPhone;
+                        var city = team.city;
+                        var town = team.town;
+                        var address = team.address;
+                        var emName = team.emName;
+                        var emCellphone = team.emCellphone;
+                        var emRelationship = team.emRelationship;
+                        var km = team.km;
+                        var product = team.product;
+                        $.ajax({
+                            type: "POST",
+                            url: "/api/member/add",
+                            data: {
+                                memberName: myName,
+                                memberTwId: twId,
+                                memberGender: sex,
+                                memberYear: year,
+                                memberMonth: month,
+                                memberDay: day,
+                                memberCity: city,
+                                memberTown: town,
+                                memberAddr: address,
+                                memberEmail: email,
+                                memberMobile: cellPhone,
+                                memberEmergencyContact: emName,
+                                memberEmergencyRelationship: emRelationship,
+                                memberEmergencyMobile: emCellphone,
+                                runId: km,
+                                productId: product.toString(),
+                                orderNo: personOrderNo1,
+                                orderGroupId: groupId
+                            }
+                        });
+                    }
+                });
             });
         }
+
+        //撈賽事
+        var runs;
+        $(document).ready(function () {
+            $.ajax({
+                type: "GET",
+                url: "/api/member/runEvent",
+            }).done(function (data) {
+                runs = data;
+                for (var i = 0; i < data.length; i++) {
+                    $("#signupOp").append(
+                        "<div class='row radio d-flex justify-content-between'><div><input type='radio' name='km' value='" +
+                        data[i].idRun + "'>" + data[i].runNameLong + "</div><div>NT$" + data[i]
+                        .runPrice + "</div></div>");
+                }
+                console.log(data);
+            });
+        });
+
+        //撈商品
+        var products;
+        $(document).ready(function () {
+            $.ajax({
+                type: "GET",
+                url: "/api/member/addProduct",
+            }).done(function (data) {
+                products = data;
+                for (var i = 0; i < data.length; i++) {
+                    $("#addPurchase").append(
+                        "<div class='row d-flex justify-content-between'><div><input type='checkbox' name='product[]' value='" +
+                        data[i].idProduct + "'>" + data[i].productName + "</div><div>NT" + data[i]
+                        .productPrice + "</div></div>");
+                }
+                console.log(data);
+            });
+        })
 
     </script>
 

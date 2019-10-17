@@ -47,9 +47,9 @@
                 <img src="{{ URL::asset("img/{$city}{$year}{$month}.jpg") }}" class="img-fluid" alt="Responsive image">
             </div>
             {{------------------------------------------倒數計時----------------------------------------------------}}
-            <div class="col-md-2 countDown">這是倒數計時</div>
+            {{-- <div class="col-md-2 countDown">這是倒數計時</div> --}}
             {{------------------------------------------活動聲明----------------------------------------------------}}
-            <div class="col-md-10 content">
+            <div class="col-md-12 content">
                 <div class="content">
                     <div class="row">
                         <div class="col-md-12 mb-3">
@@ -81,7 +81,7 @@
 
                                 <p>
                                     <input type="checkbox" name="confirm[]" class="form-check-input"
-                                        required>已詳細閱讀、瞭解並同意全統運動報名網《活動聲明》
+                                        required>已詳細閱讀、瞭解並同意運動報名網《活動聲明》
                                 </p>
                                 <br>
                                 <br>
