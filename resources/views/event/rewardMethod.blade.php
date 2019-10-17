@@ -29,7 +29,6 @@
     
     <!-- Bootstrap CSS-->
     <link href="{{ URL::asset('NewCSS/css/style.css') }}" rel="stylesheet" />
-
    
     <!--引用RWD table css-->
     <link href="{{ URL::asset('NewCSS/css/wdn_responsive-table.css') }}" rel="stylesheet" />
@@ -100,7 +99,7 @@
                             <div style="text-align: center; width: 100%; height: 50px;
                                         font-size: 22px; margin-top:10px">
                                 {{-- <span id="name_txt">2020 ZEPRO RUN<br /> {{$list["location"]}}</span> --}}
-                                <span id="name_txt">2019 ZEPRO RUN<br /> {{$list["location"]}}</span>
+                                <span id="name_txt">2019 ZEPRO RUN<br /> {{ $cityNameCh }} </span>
                             </div>
                         </div>
 
@@ -110,18 +109,18 @@
                                 <div class="info">
                                     <i class="fas fa-calendar-alt"></i>
                                     {{-- <span id="date_txt">{{$list["time"]}}</span><br /> --}}
-                                    <span id="date_txt">{{$list["time"]}}</span><br />
+                                    <span id="date_txt">{{ $eventRunStartTimeF }}</span><br />
                                     <i class="fas fa-flag"></i>
                                     {{-- <span id="km_txt">{{$list["distance"]}} </span> --}}
-                                    <span id="km_txt">{{$list["distance"]}} </span>
+                                    <span id="km_txt">{{$eventDL }}~{{$eventDM }}~{{$eventDS }}</span>
                                     <br />
                                     <i class="fas fa-map-marker-alt"></i>
                                         {{-- <span id="place_txt">{{$list["place"]}} </span> --}}
-                                        <span id="place_txt">{{$list["place"]}} </span>
+                                        <span id="place_txt">{{ $eventAddr }}</span>
                                         <br />
                                     <i class="fas fa-phone"></i>
                                     {{-- <span id="Label1">{{$list["phone"]}} </span> --}}
-                                    <span id="Label1">{{$list["phone"]}} </span>
+                                    <span id="Label1">{{ $eventTel }} </span>
                                 </div>
                             </div>
                         </div>

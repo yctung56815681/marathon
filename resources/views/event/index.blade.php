@@ -141,7 +141,7 @@
                                     <br />
                                     <i class="fas fa-flag"></i>
                                     {{-- <span id="km_txt">{{$list["distance"]}} </span> --}}
-                                    <span id="km_txt">{{$eventDL }}/{{$eventDM }}/{{$eventDS }} </span>
+                                    <span id="km_txt">{{$eventDL }}~{{$eventDM }}~{{$eventDS }} </span>
                                     <br />
                                     <i class="fas fa-map-marker-alt"></i>
                                         {{-- <span id="place_txt">{{$list["place"]}} </span> --}}

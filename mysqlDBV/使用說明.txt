@@ -1,0 +1,5 @@
+  1.先以 php artisan migrate 建立所有欄位(如果已有就跳過)
+
+  2.再於MYSQL的marathon資料庫中匯入該檔(匯入前先確定cities/events/event_contents/runs之值為空)
+
+  3.如果2.有問題，請於後輸入 php artisan db:seed

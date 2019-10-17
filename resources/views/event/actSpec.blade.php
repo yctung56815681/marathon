@@ -92,7 +92,7 @@
                         <div class="other_link">
                             <div style="text-align: center; width: 100%; height: 50px;
                                         font-size: 22px; margin-top:10px">
-                                <span id="name_txt">2019 ZEPRO RUN<br /> {{$list["location"]}}</span>
+                                <span id="name_txt">2019 ZEPRO RUN<br /> {{ $cityNameCh }}</span>
                             </div>
                         </div>
 
@@ -101,19 +101,19 @@
                                 <div class="info">
                                     <i class="fas fa-calendar-alt"></i>
                                     {{-- <span id="date_txt">{{$list["time"]}}</span> --}}
-                                    <span id="date_txt">{{$list["time"]}}</span>
+                                    <span id="date_txt">{{ $eventRunStartTimeF }}</span>
                                     <br />
                                     <i class="fas fa-flag"></i>
                                     {{-- <span id="km_txt">{{$list["distance"]}} </span> --}}
-                                    <span id="km_txt">{{$list["distance"]}} </span>
+                                    <span id="km_txt">{{$eventDL }}~{{$eventDM }}~{{$eventDS }}</span>
                                     <br />
                                     <i class="fas fa-map-marker-alt"></i>
                                         {{-- <span id="place_txt">{{$list["place"]}}</span> --}}
-                                        <span id="place_txt">{{$list["place"]}}</span>
+                                        <span id="place_txt">{{ $eventAddr }}</span>
                                         <br />
                                     <i class="fas fa-phone"></i>
                                     {{-- <span id="Label1">{{$list["phone"]}} </span> --}}
-                                    <span id="Label1">{{$list["phone"]}} </span>
+                                    <span id="Label1">{{ $eventTel }}</span>
                                 </div>
                             </div>
                         </div>
@@ -284,7 +284,6 @@
 
 
     <!-------JavaScript特定日期倒數計時 START-------->
-
     <script type="text/javascript">
         if (Sid == "") {
             remain_time.innerHTML = "";
