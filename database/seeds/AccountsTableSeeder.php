@@ -18,7 +18,7 @@ class AccountsTableSeeder extends Seeder
                 'password' => bcrypt('passwd'),
             ]);
 
-            for ($i = 0; $i < 100; $i++) {
+            for ($i = 0; $i < 50; $i++) {
                 $username = "u" . ($i + 1) . "__" . Str::random(30);
                 // $password = "p" . ($i + 1) . "__" . Str::random(64);
                 $password = "p" . ($i + 1);
