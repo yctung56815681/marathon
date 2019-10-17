@@ -7,17 +7,26 @@ use App\Event;
 use App\EventContent;
 use App\Run;
 use App\City;
+use Session;
 
 class EventAdminController extends Controller
 {
     public function create()
     {
+        $userName = Session::get("userName", "Guest");
+        if ($userName == "Guest") {
+            return redirect("/login");
+        }
         return view("eventAdmin.create");
     
     }
 
     public function index()
     {  
+        $userName = Session::get("userName", "Guest");
+        if ($userName == "Guest") {
+            return redirect("/login");
+        }
         
         $eventsList = Event::all();
         return view("eventAdmin.index", compact('eventsList'));
@@ -26,6 +35,10 @@ class EventAdminController extends Controller
     }
     public function store(Request $request)
     {
+        $userName = Session::get("userName", "Guest");
+        if ($userName == "Guest") {
+            return redirect("/login");
+        }
       
         $eve = new Event();
         $eve->eventTittle = $request->eventTittle;
@@ -131,6 +144,11 @@ class EventAdminController extends Controller
     }
     public function edit($idEvent)
     {
+        $userName = Session::get("userName", "Guest");
+        if ($userName == "Guest") {
+            return redirect("/login");
+        }
+
         $eve = Event::find($idEvent);
         $city = City::where('idCity',$eve->cityId)->get();
         // dd($city[0]->cityNameCh);
@@ -154,6 +172,10 @@ class EventAdminController extends Controller
     }
     public function update(Request $request,$idEvent)
     {   
+        $userName = Session::get("userName", "Guest");
+        if ($userName == "Guest") {
+            return redirect("/login");
+        }
         
         
         $eve = Event::find($idEvent);
@@ -237,6 +259,11 @@ class EventAdminController extends Controller
     }
     public function destroy($idEvent)
     {   
+        $userName = Session::get("userName", "Guest");
+        if ($userName == "Guest") {
+            return redirect("/login");
+        }
+        
         $evec = EventContent::find($idEvent);
         $evec->delete();
         $runs = Run::Where('eventId',$idEvent)->get();

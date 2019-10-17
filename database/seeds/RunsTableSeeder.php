@@ -104,22 +104,22 @@ class RunsTableSeeder extends Seeder
             DB::table('runs')->insert([
                 'eventId' => '5',
                 'runType' => 'L',
-                'runName' => '23K',
-                'runNameLong' => '23K 豪華組',
+                'runName' => '21K',
+                'runNameLong' => '21K 豪華組',
                 'runPrice' => '2300',
             ]);
             DB::table('runs')->insert([
                 'eventId' => '5',
                 'runType' => 'M',
-                'runName' => '16K',
-                'runNameLong' => '16K 豪華組',
+                'runName' => '10K',
+                'runNameLong' => '10K 豪華組',
                 'runPrice' => '1600',
             ]);
             DB::table('runs')->insert([
                 'eventId' => '5',
                 'runType' => 'S',
-                'runName' => '8K',
-                'runNameLong' => '8K 豪華組',
+                'runName' => '5K',
+                'runNameLong' => '5K 豪華組',
                 'runPrice' => '800',
             ]);
             // ==========

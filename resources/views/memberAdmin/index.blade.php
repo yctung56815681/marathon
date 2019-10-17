@@ -149,9 +149,9 @@
                 <thead class="table-info">
                     <tr>
                         <th scope="col">姓名</th>
-                        <th scope="col">身分證字號</th>
-                        <th scope="col">性別</th>
-                        <th scope="col">居住城市</th>
+                        <th scope="col" style="width:115px;">身分證字號</th>
+                        <th scope="col" style="width:60px;">性別</th>
+                        <th scope="col" style="width:95px;">居住城市</th>
                         <th scope="col">電子信箱</th>
                         <th scope="col">聯絡方式</th>
                         <th scope="col">創建時間</th>

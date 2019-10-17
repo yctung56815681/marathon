@@ -5,112 +5,143 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-        <title>個人會員資料管理</title>
+        <title>首頁</title>
+    
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+        <!-- Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+            integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    
         <style>
             .Top {
                 width: auto;
-                height: 200px;
+                /* height: 200px; */
+                height: 50px;
                 position: relative;
-
-                background-image: url("/img/header.jpg");
-                background-size: cover;
+    
+                /* background-image: url("/img/header.jpg"); */
+                /* background-size: cover; */
             }
-
+    
             .Left {
-
+    
                 /* width: 25%; */
-                
+                width: 200px;
                 height: auto;
                 position: relative;
                 background-color: yellow;
                 display: inline-block;
-                
             }
-
+    
             .Right {
-                font-size: 13px;
-                
+                width: 85%;
                 height: auto;
                 position: absolute;
-                background-color:#F0F8FF;
+                background-color: #F0F8FF;
                 display: inline-block;
-
+    
             }
-
+    
             .content {}
-
+    
         </style>
-
-
     </head>
 
 <body>
     <!--------------------------------------------------------------------------------------TOP-------------------------------------------------------------------------------------->
-    <div class="Top">
-
-
-
+    <div class="Top bg-dark">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="/ui"><i class="fas fa-landmark fa-2x"></i>首頁</a>
+                </div>
+                <ul class="nav navbar-nav">
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <a href="/logout"><i class="fas fa-sign-out-alt fa-2x"></i>登出</a>
+                </ul>
+            </div>
+        </nav>
     </div>
 
     <!--------------------------------------------------------------------------------------content-------------------------------------------------------------------------------------->
-    <div class="Left col-2">
-        <div class="accordion" id="accordionExample">
-            <div class="card">
-                <div class="card-header" id="headingOne">
-                    <h2 class="mb-0">
-                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
-                            aria-expanded="true" aria-controls="collapseOne">
-                            會員資料管理
-                        </button>
-                    </h2>
-                </div>
-
-                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                    data-parent="#accordionExample">
-                    <div class="card-body">
-                        <a class="dropdown-item" href="/memberAdmin">個人會員管理</a>
-                        <a class="dropdown-item" href="#">團體會員管理</a>
+   
+        <div class="Left">
+            <div class="accordion" id="accordionExample">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+                                aria-expanded="true" aria-controls="collapseOne">
+                                會員及訂單管理
+                            </button>
+                        </h2>
+                    </div>
+    
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                        data-parent="#accordionExample">
+                        <div class="card-body">
+                            <a class="dropdown-item" href="/memberAdmin">會員管理</a>
+                            <a class="dropdown-item" href="/orderGroupAdmin">訂單管理</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="card-header" id="headingTwo">
-                    <h2 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                            data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            賽事管理
-                        </button>
-                    </h2>
-                </div>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                    <div class="card-body">
-                        <a class="dropdown-item" href="/eventAdmin">賽事列表</a>
-                        {{-- <a class="dropdown-item" href="#">賽事編輯</a> --}}
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                賽事管理
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <a class="dropdown-item" href="/eventAdmin">賽事列表</a>
+                            {{-- <a class="dropdown-item" href="#">賽事編輯</a> --}}
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="card-header" id="headingThree">
-                    <h2 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                            data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            訂單管理
-                        </button>
-                    </h2>
-                </div>
-                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                    <div class="card-body">
-                        <a class="dropdown-item" href="#">個人訂單管理</a>
-                        <a class="dropdown-item" href="#">團體訂單管理</a>
+                <!-- <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                訂單管理
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <a class="dropdown-item" href="#">個人訂單管理</a>
+                            <a class="dropdown-item" href="#">團體訂單管理</a>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="card">
+                    <div class="card-header" id="headingFour">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                帳號管理
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <a class="dropdown-item" href="/accountAdmin"> 帳號列表</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-    </div>
+    
     <div class="Right col-10">
         <h4>賽事活動列表 </h4>
   <table class="table table-hover">
@@ -126,7 +157,8 @@
         <th>賽事活動聯絡電話</th>
         <th>創建時間</th>
         <th>
-        <a href="/eventAdmin/create" class="btn btn-success pull-right">新增</a>
+        <a class="btn btn-sm btn-success" role="button" href="/eventAdmin/create"><i class="far fa-plus-square"></i> 新增</a>
+        {{-- <a href="/eventAdmin/create" class="btn btn-success pull-right">新增</a> --}}
         </th>
         <th>&nbsp;</th>
       </tr>
@@ -147,10 +179,13 @@
             <td>
                 <span class="pull-right">
                     <form method="post" action="/eventAdmin/{{$eve->idEvent}}">
-                        <a href="/eventAdmin/{{$eve->idEvent}}/edit" class="btn btn-xs btn-info">修改</a>|
+                        <a class="btn btn-sm btn-info" role="button" href="/eventAdmin/{{$eve->idEvent}}/edit"><i class="far fa-edit"></i> 編輯</a>
+                        {{-- <a href="/eventAdmin/{{$eve->idEvent}}/edit" class="btn btn-xs btn-info">修改</a>| --}}
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span>刪除</button>
+                        <button type="submit" class="btn btn-sm btn-danger"><i
+                            class="far fa-edit"></i> 刪除</button>
+                        {{-- <button type="submit" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span>刪除</button> --}}
                     </form>
                 </span>
             </td>
