@@ -12,8 +12,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  
-    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    Qs：<script src="https://cdn.bootcss.com/qs/6.5.1/qs.min.js"></script>
     
     <style>
     
@@ -187,22 +187,24 @@
   </div>
   <!-----------------------------------------------------------Card---------------------------------------------------------------->
   <div class=" EventCard  " id="cardapp">
+    @foreach ($Event as $eve)
     <div id="CARD">
-        <div v-for="(listitem,index) in list"  class= "CardPermutation" style=" width: 18rem ;">
+        <div  class= "CardPermutation" style=" width: 18rem ;">
           <div id="cardSelect" >
-            <img :src="list[index].imgname" class="card-img-top" :alt="list[index].imgname">
+            <img src="img/{{$eve->eventImage}}" class="card-img-top" :alt="">
             <div class="cardBack card-body">
-              <h5 class="card-title">@{{list[index].location}}</h5>
-              <p class="card-text"> <img src="img/calendar.png" alt=""> @{{list[index].time}}</p>
-              <p class="card-text"> <img src="img/flag.png" alt="">@{{list[index].distance}}</p>
-              <p class="card-text"> <img src="img/placeholder-filled-point.png" alt="">@{{list[index].place}}</p>
-              <a :href="list[index].add" class="btn btn-primary">Go somewhere</a>
+            <h5 class="card-title">{{$eve->eventTittle}}</h5>
+              <p class="card-text"> <img src="img/calendar.png" alt="">{{$eve->eventRunStartTime}}</p>
+            <p class="card-text"> <img src="img/flag.png" alt="">{{$City[$eve->cityId-1]->cityNameCh}}</p>
+            <p class="card-text"> <img src="img/placeholder-filled-point.png" alt="">{{$eve->eventAddr}}</p>
+            <a href="event/{{$city}}/{{$year}}/{{$month}}" class="btn btn-primary">Go somewhere</a>
               
               
             </div>   
           </div>  
         </div>
     </div>
+    @endforeach
         
         
      
@@ -211,38 +213,11 @@
    </div>
    <br>
    <br>    
-<<<<<<< HEAD
-    <div class="EventCard">
-        <div  class="2018 card CardPermutation" style="width: 18rem;">
-            <img src="img/CWH202002.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-              <button >SHOWDATA</button>
-            </div>
-          </div>
-          <div  class="2018 card CardPermutation" style="width: 18rem;">
-              <img src="img/CWH202002.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-            <div  class="2017 card CardPermutation" style="width: 18rem;">
-                <img src="img/CWH202002.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-  
-     </div>
-=======
+   <div id="test">
+
+   </div>
+
     
->>>>>>> daacb32686d72174d2b912d0b99bcec46efbaa69
      <br>
      <br>
      <br>
@@ -251,45 +226,8 @@
 
      <!---------------------------------------------------------text_History----------------------------------------------------------->
      <a name="raceHistory"></a>
-    <div class="text">
-      <h3 ><span style="font-family:fantasy;">歷史賽事</span></h3>
-  
-    </div>
-    <!-----------------------------------------------------------Card---------------------------------------------------------------->
     
-  
-<<<<<<< HEAD
-      <div class="HistoryCard">
-          <div  class="2018 card CardPermutation" style="width: 18rem;">
-              <img src="img/CWH202002.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-            <div  class="2018 card CardPermutation" style="width: 18rem;">
-                <img src="img/CWH202002.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-              <div  class="2017 card CardPermutation" style="width: 18rem;">
-                  <img src="img/CWH202002.jpg" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-    
-       </div>
-    
-=======
       
->>>>>>> daacb32686d72174d2b912d0b99bcec46efbaa69
   
 
   
@@ -386,50 +324,69 @@
 	}).scroll();
 });
 
-var app = new Vue({
-  el: '#cardapp',
-  data: {
-    message:"Hello",
-    list:
-      [
-        {location:"屏東",time:"2019年10月09日",distance:"21K-10K-5K",place:"屏東鎮",imgname:"img/PCH201910.jpg",add:"event/PCH/2019/10"},
-        {location:"彰化",time:"2020年02月09日",distance:"21K-10K-5K",place:"彰化鎮",imgname:"img/CWH202002.jpg",add:"event/CWH/2020/02"},
-        {location:"新北",time:"2019年11月09日",distance:"21K-10K-5K",place:"新北鎮",imgname:"img/TPH201911.jpg",add:"event/TPH/2019/11"},
-        {location:"高雄",time:"2019年12月09日",distance:"21K-10K-5K",place:"高雄鎮",imgname:"img/KHH201912.jpg",add:"event/KHH/2019/12"},
-        {location:"台南",time:"2019年10月09日",distance:"21K-10K-5K",place:"台南鎮",imgname:"img/TNN201910.jpg",add:"event/TNN/2019/10"},
-        {location:"桃園",time:"2019年11月09日",distance:"21K-10K-5K",place:"桃園鎮",imgname:"img/TYC201911.jpg",add:"event/TYC/2019/11"},
-        {location:"宜蘭",time:"2020年01月09日",distance:"21K-10K-5K",place:"宜蘭鎮",imgname:"img/ILN202001.jpg",add:"event/ILN/2020/01"},
-        {location:"員林",time:"2019年19月09日",distance:"21K-10K-5K",place:"員林鎮",imgname:"img/YUN201909.jpg",add:"event/YUN/2019/09"},
-        {location:"台中",time:"2019年12月09日",distance:"21K-10K-5K",place:"台中鎮",imgname:"img/TXG201912.jpg",add:"event/TXG/2019/12"}
-
-      ]
-  
-  },
-  methods: {
+// var app = new Vue({
+//   el: '#cardapp',
+//   data: {
+//     dataAll:[
+//       {eventsList:[],eventsContentsList:[],runsList:[],eventsList:[],eventsList:[],eventsList:[]}
+//     ],
     
+//     message:"Hello",
+//     list:
+//       [                                                                                                     
+//         {location:"屏東",time:"2019年10月09日",distance:"21K-10K-5K",place:"屏東鎮",imgname:"img/PCH201910.jpg",add:"event/PCH/2019/10"},
+//         {location:"彰化",time:"2020年02月09日",distance:"21K-10K-5K",place:"彰化鎮",imgname:"img/CWH202002.jpg",add:"event/CWH/2020/02"},
+//         {location:"新北",time:"2019年11月09日",distance:"21K-10K-5K",place:"新北鎮",imgname:"img/TPH201911.jpg",add:"event/TPH/2019/11"},
+//         {location:"高雄",time:"2019年12月09日",distance:"21K-10K-5K",place:"高雄鎮",imgname:"img/KHH201912.jpg",add:"event/KHH/2019/12"},
+//         {location:"台南",time:"2019年10月09日",distance:"21K-10K-5K",place:"台南鎮",imgname:"img/TNN201910.jpg",add:"event/TNN/2019/10"},
+//         {location:"桃園",time:"2019年11月09日",distance:"21K-10K-5K",place:"桃園鎮",imgname:"img/TYC201911.jpg",add:"event/TYC/2019/11"},
+//         {location:"宜蘭",time:"2020年01月09日",distance:"21K-10K-5K",place:"宜蘭鎮",imgname:"img/ILN202001.jpg",add:"event/ILN/2020/01"},
+//         {location:"員林",time:"2019年19月09日",distance:"21K-10K-5K",place:"員林鎮",imgname:"img/YUN201909.jpg",add:"event/YUN/2019/09"},
+//         {location:"台中",time:"2019年12月09日",distance:"21K-10K-5K",place:"台中鎮",imgname:"img/TXG201912.jpg",add:"event/TXG/2019/12"}
+
+//       ]
   
-      
-    
-  },
-  mounted:function() 
-    {
-      console.log('444');
-      $.ajax({
-      type: 'GET',
-      
-      url: '/memberAdmin',
-      success:function(data) {          
-        message = JSON.stringify(data);
-        console.log(typeof(message));
-      },
-      error: function(){
-        console.log("try again");
-      }
-      });
-    } 
+//   }
+//   ,methods:{
+//     init: function () {
+//             let self = this;
+//             axios.get('/api/eventsList')
+//             .then(function (response) {
+//                 self.eventsList  = response.data;
+//                 console.log(self.eventsList);
+//             })
+//             axios.get('/api/citiesList')
+//             .then(function (response) {
+//                 self.citiesList  = response.data;
+//                 console.log(self.citiesList);
+//             })
+//             axios.get('/api/eventsContentsList')
+//             .then(function (response) {
+//                 self.eventsContentsList  = response.data;
+//                 console.log(self.eventsContentsList);
+//             })
+//             axios.get('/api/runsList')
+//             .then(function (response) {
+//                 self.runsList  = response.data;
+//                 console.log(self.runsListt);
+//             })
+//             .catch(function (response) {
+//                 console.log(response);
+//             })
+//   }
+  
   
 
-})
+  
+  
+
+// },
+//   mounted: function () {
+//         this.init();
+       
+//     }
+// });
+
 
 
 
