@@ -3,7 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Members;
+use Illuminate\Support\Facades\DB;
+use App\Account;
+use App\City;
+use App\Event;
+use App\Runs;
+use App\EventContent;
+use App\Organizer;
+use App\Coorganizer;
+use App\Member;
+use App\Product;
+use App\OrderGroup;
+use App\Order;
+use App\OrderDetail;
+
+use Session;
 
 class MemberAdminController extends Controller
 {
@@ -14,8 +28,13 @@ class MemberAdminController extends Controller
      */
     public function index()
     {
-        $membersList = Members::all();
-        return view('memberAdmin.index', compact('membersList'));//
+        // $memberList = Member::all();
+        // return view('memberAdmin.index', compact('memberList'));
+
+        $id = 0;
+        $num = DB::table("members")->count();
+        $memberList = DB::table("members")->offset($id)->limit(10)->get();
+        return view("memberAdmin.index", compact("memberList", "num", "id"));
     }
 
     /**
@@ -25,7 +44,7 @@ class MemberAdminController extends Controller
      */
     public function create()
     {
-        return view("memberAdmin.create");//
+        return view("memberAdmin.create");
     }
 
     /**
@@ -36,23 +55,23 @@ class MemberAdminController extends Controller
      */
     public function store(Request $request)
     {
-        $mem = new Members();
-        $mem->name = $request->name;
-        $mem->twId = $request->twId;
-        $mem->sex = $request->sex;
-        $mem->year = $request->year;
-        $mem->month = $request->month;
-        $mem->day = $request->day;
-        $mem->city = $request->city;
-        $mem->town = $request->town;
-        $mem->address = $request->address;
-        $mem->email = $request->email;
-        $mem->cellPhone = $request->cellPhone;
-        $mem->emName = $request->emName;
-        $mem->emRelationship = $request->emRelationship;
-        $mem->emCellphone = $request->emCellphone;
+        $mem = new Member();
+        $mem->memberName = $request->memberName;
+        $mem->memberTwId = $request->memberTwId;
+        $mem->memberGender = $request->memberGender;
+        $mem->memberYear = $request->memberYear;
+        $mem->memberMonth = $request->memberMonth;
+        $mem->memberDay = $request->memberDay;
+        $mem->memberCity = $request->memberCity;
+        $mem->memberTown = $request->memberTown;
+        $mem->memberAddr = $request->memberAddr;
+        $mem->memberEmail = $request->memberEmail;
+        $mem->memberMobile = $request->memberMobile;
+        $mem->memberEmergencyContact = $request->memberEmergencyContact;
+        $mem->memberEmergencyRelationship = $request->memberEmergencyRelationship;
+        $mem->memberEmergencyMobile = $request->memberEmergencyMobile;
         $mem->save();
-        return redirect("/memberAdmin");   //
+        return redirect("/memberAdmin");
     }
 
     /**
@@ -63,7 +82,18 @@ class MemberAdminController extends Controller
      */
     public function show($id)
     {
-        //
+        // $mem = Member::find($id);
+        // return view('memberAdmin.show', compact('mem'));
+
+        $num = DB::table("members")->count();
+        $memberList = DB::table("members")->offset($id)->limit(10)->get();
+        return view("memberAdmin.index", compact("memberList", "num", "id"));
+    }
+
+    public function idShow($id)
+    {
+        $mem = Member::find($id);
+        return view('memberAdmin.idShow', compact('mem'));
     }
 
     /**
@@ -74,8 +104,8 @@ class MemberAdminController extends Controller
      */
     public function edit($id)
     {
-        $mem = Members::find($id);
-        return view('memberAdmin.edit', compact('mem'));        //
+        $mem = Member::find($id);
+        return view('memberAdmin.edit', compact('mem'));
     }
 
     /**
@@ -87,23 +117,23 @@ class MemberAdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $mem = Members::find($id);
-        $mem->name = $request->name;
-        $mem->twId = $request->twId;
-        $mem->sex = $request->sex;
-        $mem->year = $request->year;
-        $mem->month = $request->month;
-        $mem->day = $request->day;
-        $mem->city = $request->city;
-        $mem->town = $request->town;
-        $mem->address = $request->address;
-        $mem->email = $request->email;
-        $mem->cellPhone = $request->cellPhone;
-        $mem->emName = $request->emName;
-        $mem->emRelationship = $request->emRelationship;
-        $mem->emCellphone = $request->emCellphone;
+        $mem = Member::find($id);
+        $mem->memberName = $request->memberName;
+        $mem->memberTwId = $request->memberTwId;
+        $mem->memberGender = $request->memberGender;
+        $mem->memberYear = $request->memberYear;
+        $mem->memberMonth = $request->memberMonth;
+        $mem->memberDay = $request->memberDay;
+        $mem->memberCity = $request->memberCity;
+        $mem->memberTown = $request->memberTown;
+        $mem->memberAddr = $request->memberAddr;
+        $mem->memberEmail = $request->memberEmail;
+        $mem->memberMobile = $request->memberMobile;
+        $mem->memberEmergencyContact = $request->memberEmergencyContact;
+        $mem->memberEmergencyRelationship = $request->memberEmergencyRelationship;
+        $mem->memberEmergencyMobile = $request->memberEmergencyMobile;
         $mem->save();
-        return redirect("/memberAdmin");        //
+        return redirect("/memberAdmin");
     }
 
     /**
@@ -114,8 +144,8 @@ class MemberAdminController extends Controller
      */
     public function destroy($id)
     {
-        $emp = Members::find($id);
-        $emp->delete();
-        return redirect("/memberAdmin");        //
+        $mem = Member::find($id);
+        $mem->delete();
+        return redirect("/memberAdmin");
     }
 }

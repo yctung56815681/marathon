@@ -2,57 +2,58 @@
 <html lang="en">
 
 <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>會員列表</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>帳號列表</title>
 
-        <!-- Bootstrap -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-        <!-- Awesome -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-            integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <!-- Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
-        <style>
-            .Top {
-                width: auto;
-                height: 50px;
-                position: relative;
+    <style>
+        .Top {
+            width: auto;
+            /* height: 200px; */
+            height: 50px;
+            position: relative;
 
-                /* background-image: url("/img/header.jpg");
-                background-size: cover; */
-            }
+            /* background-image: url("/img/header.jpg"); */
+            /* background-size: cover; */
+        }
 
-            .Left {
+        .Left {
 
-                /* width: 25%; */
-                width: 200px;
-                height: auto;
-                position: relative;
-                background-color: yellow;
-                display: inline-block;
-            }
+            /* width: 25%; */
+            width: 200px;
+            height: auto;
+            position: relative;
+            background-color: yellow;
+            display: inline-block;
+        }
 
-            .Right {
-                width: 85%;
-                height: auto;
-                position: absolute;
-                background-color: #F0F8FF;
-                display: inline-block;
+        .Right {
+            width: 85%;
+            height: auto;
+            position: absolute;
+            background-color: #F0F8FF;
+            display: inline-block;
 
-            }
+        }
 
-            .content {}
+        .content {}
 
-        </style>
-    </head>
+    </style>
+</head>
 
 <body>
-    <!--------------------------------------------------------------------------------------TOP-------------------------------------------------------------------------------------->
+    <!--------------------------------------------------------------------------------------Top-------------------------------------------------------------------------------------->
     <div class="Top bg-dark">
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
@@ -137,77 +138,80 @@
                 </div>
             </div>
         </div>
-
     </div>
 
     <!--------------------------------------------------------------------------------------right-------------------------------------------------------------------------------------->
     <div class="Right">
         <div class="container">
             {{-- <div class="row"> --}}
-            <div class="p-3 bg-secondary text-white text-center">會員管理</div>
+            <div class="p-3 bg-secondary text-white text-center">帳號列表</div>
+            {{-- <div class="pt-2 text-center">
+                <h5>帳號列表</h5>
+            </div> --}}
+
             <table class="table table-striped table-bordered table-hover">
                 <thead class="table-info">
                     <tr>
-                        <th scope="col">姓名</th>
-                        <th scope="col">身分證字號</th>
-                        <th scope="col">性別</th>
-                        <th scope="col">居住城市</th>
-                        <th scope="col">電子信箱</th>
-                        <th scope="col">聯絡方式</th>
-                        <th scope="col">創建時間</th>
-                        <th scope="col">
-                            <a class="btn btn-sm btn-success" role="button" href="/memberAdmin/create"><i class="far fa-plus-square"></i> 新增</a>
-                        </th>
+                        <th scope="col" class="text-nowrap">帳號</th>
+                        {{-- <th scope="col" class="text-nowrap">密碼</th> --}}
+                        <th><a class="btn btn-sm btn-success" role="button" href="/accountAdmin/create"><i class="far fa-plus-square"></i> 新增</a></th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($memberList as $mem)
+                    @foreach ($account as $item)
                     <tr>
-                        <td>{{$mem->memberName}}</td>
-                        <td>{{$mem->memberTwId}}</td>
-                        <td>{{$mem->memberGender}}</td>
-                        <td>{{$mem->memberCity}}</td>
-                        <td>{{$mem->memberEmail}}</td>
-                        <td>{{$mem->memberMobile}}</td>
-                        <td>{{$mem->created_at}}</td>
+                        <td>{{$item->username}}</td>
+                        {{-- <td>{{$item->password}}</td> --}}
                         <td>
-                            <span class="pull-right">
-                                <form method="post" action="/memberAdmin/{{$mem->idMember}}">
-                                <a class="btn btn-sm btn-info" role="button" href="/memberAdmin/{{$mem->idMember}}/edit"><i class="far fa-edit"></i> 編輯</a>
-                                    <!-- 刪除紐 -->
-                                    <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">刪除</button>
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
+                            <div class="pull-right">
+                                {{-- <form method="post" action="/accountAdmin/{{$item->idAccount}}">
+                                    @csrf --}}
+                                    <a class="btn btn-sm btn-info" role="button" href="/accountAdmin/{{$item->idAccount}}/edit"><i class="far fa-edit"></i> 編輯</a>
+                                    {{-- @method("DELETE")
+                                    <button type="submit" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i> 刪除</button> --}}
+                                    <button type="button" class="btn btn-sm btn-danger" onclick="$('#myModal{{$item->idAccount}}').modal('show');"><i class="far fa-trash-alt"></i> 刪除</button>
+
+                                    <!-- The Modal -->
+                                    <div class="modal fade" id="myModal{{$item->idAccount}}">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content" style="background-color: lightyellow">
+
+                                                <!-- Modal Header -->
                                                 <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                    <span class="modal-title text-warning font-weight-bolder"
+                                                        style="font-size: 1.3rem">提示訊息</span>
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                 </div>
 
+                                                <!-- Modal body -->
                                                 <div class="modal-body">
-                                                    <form>
-                                                        <div class="form-group">
-                                                            <label for="message-text" class="control-label">確定要刪除此筆會員資料？</label>
-                                                        </div>
-                                                    </form>
+                                                    <div class="alert alert-warning">
+                                                        確定要刪除帳號？
+                                                    </div>
                                                 </div>
+
+                                                <!-- Modal footer -->
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-info" data-dismiss="modal">返回操作</button>
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger glyphicon glyphicon-remove">確定刪除</button>
+                                                    <form method="post" action="/accountAdmin/{{$item->idAccount}}">
+                                                        @csrf
+                                                        @method("DELETE")
+                                                        <button type="submit" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i> 刪除</button>
+                                                        <button type="button" class="btn btn-sm btn-info" data-dismiss="modal">返回</button>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div> -->
+                                    </div>
+                                    <!-- The Modal -->
                                 </form>
-                            </span>
+                            </div>
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
                 <caption id="pageList" class="text-center"></caption>
             </table>
-        {{-- </div> --}}
+            {{-- </div> --}}
         </div>
     </div>
 
@@ -217,38 +221,28 @@
         var page = Math.floor({{$id}} / numRow) + 1;
 
         // if (page > 1)
-        //     $("#pageList").append("<a href='/memberAdmin/" + (page - 2) * 10 + "'>上一頁</a>");
+        //     $("#pageList").append("<a href='/accountAdmin/" + (page - 2) * 10 + "'>上一頁</a>");
         // for (i = 1; i <= numPage; i++) {
         //     if (i == page)
         //         $("#pageList").append("&nbsp;&nbsp;&nbsp;" + i);
         //     else
-        //         $("#pageList").append("&nbsp;&nbsp; <a href='/memberAdmin/" + (i - 1) * 10 + "'>" + i +
+        //         $("#pageList").append("&nbsp;&nbsp; <a href='/accountAdmin/" + (i - 1) * 10 + "'>" + i +
         //             "</a>");
         // }
         // if (page < numPage)
-        //     $("#pageList").append("&nbsp;&nbsp; <a href='/memberAdmin/" + page * 10 + "'>下一頁</a>");
+        //     $("#pageList").append("&nbsp;&nbsp; <a href='/accountAdmin/" + page * 10 + "'>下一頁</a>");
 
         $("#pageList").append("<div class='btn-group btn-group-sm'>");
         if (page > 1)
-            $("#pageList").append("<a class='btn btn-sm btn-secondary' role='button' href='/memberAdmin/" + (page - 2) * 10 + "'>上一頁</a>");
+            $("#pageList").append("<a class='btn btn-sm btn-secondary' role='button' href='/accountAdmin/" + (page - 2) * 10 + "'>上一頁</a>");
         for (i = 1; i <= numPage; i++) {
             if (i == page)
                 $("#pageList").append("<a class='btn btn-sm btn-outline-primary' role='button' href='#'>&nbsp;" + i + "&nbsp;</a>");
             else
-                $("#pageList").append("<a class='btn btn-sm btn-primary' role='button' href='/memberAdmin/" + (i - 1) * 10 + "'>&nbsp;" + i + "&nbsp;</a>");
+                $("#pageList").append("<a class='btn btn-sm btn-primary' role='button' href='/accountAdmin/" + (i - 1) * 10 + "'>&nbsp;" + i + "&nbsp;</a>");
         }
         if (page < numPage)
-            $("#pageList").append("<a class='btn btn-sm btn-secondary' role='button' href='/memberAdmin/" + page * 10 + "'>下一頁</a>"); $("#pageList").append("</div>");
-    </script>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+            $("#pageList").append("<a class='btn btn-sm btn-secondary' role='button' href='/accountAdmin/" + page * 10 + "'>下一頁</a>"); $("#pageList").append("</div>");
     </script>
 </body>
 

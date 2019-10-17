@@ -46,6 +46,7 @@ class MemberApiController extends Controller
         $orders = DB::table("orders")->insertGetId(
             [
                 "orderNo" => $request->orderNo,
+                "orderStatus" => $request->orderStatus,
                 "runId" => $request->runId,
                 "memberId" =>  $members,
                 "orderGroupId" => $request->orderGroupId
@@ -76,7 +77,7 @@ class MemberApiController extends Controller
             [
                 "orderGroupNo" => $request->orderGroupNo,
                 "orderGroupName" => $request->orderGroupName,
-                // "eventId" =>  $events
+                "eventId" =>  $request->eventId
             ]
         );
         return $order_groups;

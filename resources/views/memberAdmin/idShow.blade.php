@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>首頁</title>
+    <title>會員資料</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -20,12 +20,11 @@
     <style>
         .Top {
             width: auto;
-            /* height: 200px; */
             height: 50px;
             position: relative;
 
-            /* background-image: url("/img/header.jpg"); */
-            /* background-size: cover; */
+            /* background-image: url("/img/header.jpg");
+                background-size: cover; */
         }
 
         .Left {
@@ -53,7 +52,7 @@
 </head>
 
 <body>
-    <!--------------------------------------------------------------------------------------Top-------------------------------------------------------------------------------------->
+    <!--------------------------------------------------------------------------------------TOP-------------------------------------------------------------------------------------->
     <div class="Top bg-dark">
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
@@ -68,8 +67,7 @@
             </div>
         </nav>
     </div>
-
-    <!--------------------------------------------------------------------------------------Left-------------------------------------------------------------------------------------->
+    <!--------------------------------------------------------------------------------------content-------------------------------------------------------------------------------------->
     <div class="Left">
         <div class="accordion" id="accordionExample">
             <div class="card">
@@ -138,19 +136,72 @@
                 </div>
             </div>
         </div>
+
     </div>
 
     <!--------------------------------------------------------------------------------------right-------------------------------------------------------------------------------------->
     <div class="Right">
         <div class="container">
-            {{-- <div class="row"> --}}
-            <div class="pt-2">
-                <div class="alert alert-info text-center">
-                    <h5>歡迎&nbsp;&nbsp; {{$userName}} &nbsp;&nbsp;登入管理系統</h5>
-                </div>
-            </div>
-            {{-- </div> --}}
+            <div class="p-3 bg-secondary text-white text-center">會員資料</div>
+
+            <table class="table table-striped table-bordered table-hover">
+                <tr>
+                    <th>身分證字號:</th>
+                    <td>{{$mem->memberTwId}}</td>
+                    <th>姓名:</th>
+                    <td>{{$mem->memberName}}</td>
+                </tr>
+                <tr>
+                    <th>性別:</th>
+                    <td>{{$mem->memberGender}}</td>
+                    <th>出生日期:</th>
+                    <td>{{$mem->memberYear}}/{{$mem->memberMonth}}/{{$mem->memberDay}}</td>
+                </tr>
+                <tr>
+                    <th>居住城市:</th>
+                    <td>{{$mem->memberCity}}</td>
+                    <th>鄉鎮市:</th>
+                    <td>{{$mem->memberTown}}</td>
+                </tr>
+                <tr>
+                    <th>地址:</th>
+                    <td>{{$mem->memberAddr}}</td>
+                    <th>e-mail:</th>
+                    <td>{{$mem->memberEmail}}</td>
+                </tr>
+                <tr>
+                    <th>電話:</th>
+                    <td>{{$mem->memberMobile}}</td>
+                    <th>緊急聯絡人:</th>
+                    <td>{{$mem->memberEmergencyContact}}</td>
+                </tr>
+                <tr>
+                    <th>與緊急聯絡人關係:</th>
+                    <td>{{$mem->memberEmergencyRelationship}}</td>
+                    <th>緊急聯絡人電話:</th>
+                    <td>{{$mem->memberEmergencyMobile}}</td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    <a  class="btn btn-sm btn-success " role="button" onclick="history.go(-1)"><i class="far fa-plus-square"></i> 返回操作</a>
+                    <a class="btn btn-sm btn-info" role="button" href="/memberAdmin/{{$mem->idMember}}/edit"><i class="far fa-edit"></i> 編輯資料</a>
+                    </td>
+                </tr>
+            </table>
         </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script>
     </div>
 </body>
 

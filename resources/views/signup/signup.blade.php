@@ -113,10 +113,10 @@
                                             <div class="col-md-3 mb-3">
                                                 <label for="name">性別</label>
                                                 <div class="d-flex justify-content-start myInput myRadio">
-                                                    <input type="radio" class="form-control" name="sex"
-                                                        value="男"><span class="myText">男</span>
-                                                    <input type="radio" class="form-control" name="sex"
-                                                        value="女"><span class="myText">女</span>
+                                                    <input type="radio" class="form-control" name="sex" value="男"><span
+                                                        class="myText">男</span>
+                                                    <input type="radio" class="form-control" name="sex" value="女"><span
+                                                        class="myText">女</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -541,70 +541,8 @@
 
         function myData() {
             $(document).ready(function () {
-                    var teamName = $("#name").val();
-                    var groupId;
-                    // var event;
-                    $.ajax({
-                        type: "POST",
-                        url: "/api/member/teamAdd",
-                        data: {
-                            orderGroupName: teamName,
-                            orderGroupNo: orderNumber,
-                            // cityNo: eventCity,
-                            // eventId: event
-                        }
-                    }).done(function (data) {
-                        groupId = data;
-                            var name = $("#name").val();
-                            var twId = $("#twId").val();
-                            var sex = $("input[name=sex]:checked").val();
-                            var year = $("#year").val();
-                            var month = $("#month").val();
-                            var day = $("#day").val();
-                            var city = $("#city").val();
-                            var town = $("#town").val();
-                            var address = $("#address").val();
-                            var email = $("#email").val();
-                            var cellPhone = $("#cellPhone").val();
-                            var emName = $("#emName").val();
-                            var emRelationship = $("#emRelationship").val();
-                            var emCellphone = $("#emCellphone").val();
-                            var km = $('input:radio:checked[name="km"]').val();
-                            var product = [$('input:checkbox:checked[name="product[]"]').map(function () {
-                                return $(this).val();
-                            }).get()];
-                            $.ajax({
-                                type: "POST",
-                                url: "/api/member/add",
-                                data: {
-                                    memberTwId: twId,
-                                    memberName: name,
-                                    memberGender: sex,
-                                    memberYear: year,
-                                    memberMonth: month,
-                                    memberDay: day,
-                                    memberCity: city,
-                                    memberTown: town,
-                                    memberAddr: address,
-                                    memberEmail: email,
-                                    memberMobile: cellPhone,
-                                    memberEmergencyMobile: emCellphone,
-                                    memberEmergencyContact: emName,
-                                    memberEmergencyRelationship: emRelationship,
-                                    runId: km,
-                                    productId: product.toString(),
-                                    orderNo: orderNumber,
-                                    orderGroupId: groupId,
-                                }
-                            });
-                        });
-                    });
-            }
-
-            //撈賽事
-            var runs;
-            $(document).ready(function () {
                 var eventCity = $("#eventCity").val();
+                var event;
                 $.ajax({
                     type: "GET",
                     url: "/api/member/runEvent",
@@ -612,37 +550,111 @@
                         cityNo: eventCity
                     }
                 }).done(function (data) {
-                    runs = data;
-                    // event = data[0].eventId;
-                    // console.log(data[0].eventId);
-                    for (var i = 0; i < data.length; i++) {
-                        $("#signupOp").append(
-                            "<div class='row radio d-flex justify-content-between'><div><input type='radio' name='km' value='" +
-                            data[i].idRun + "'>" + data[i].runNameLong + "</div><div>NT$" + data[i]
-                            .runPrice + "</div></div>");
-                    }
-                    console.log(data);
-                });
-            });
+                    event = data[0].eventId;
+                    var teamName = $("#name").val();
+                    var groupId;
+                    $.ajax({
+                        type: "POST",
+                        url: "/api/member/teamAdd",
+                        data: {
+                            orderGroupName: teamName,
+                            orderGroupNo: orderNumber,
+                            eventId: event
+                        }
+                    }).done(function (data) {
+                        groupId = data;
+                        var name = $("#name").val();
+                        var twId = $("#twId").val();
+                        var sex = $("input[name=sex]:checked").val();
+                        var year = $("#year").val();
+                        var month = $("#month").val();
+                        var day = $("#day").val();
+                        var city = $("#city").val();
+                        var town = $("#town").val();
+                        var address = $("#address").val();
+                        var email = $("#email").val();
+                        var cellPhone = $("#cellPhone").val();
+                        var emName = $("#emName").val();
+                        var emRelationship = $("#emRelationship").val();
+                        var emCellphone = $("#emCellphone").val();
+                        var km = $('input:radio:checked[name="km"]').val();
+                        var product = [$('input:checkbox:checked[name="product[]"]').map(
+                            function () {
+                                return $(this).val();
+                            }).get()];
+                        $.ajax({
+                            type: "POST",
+                            url: "/api/member/add",
+                            data: {
+                                memberTwId: twId,
+                                memberName: name,
+                                memberGender: sex,
+                                memberYear: year,
+                                memberMonth: month,
+                                memberDay: day,
+                                memberCity: city,
+                                memberTown: town,
+                                memberAddr: address,
+                                memberEmail: email,
+                                memberMobile: cellPhone,
+                                memberEmergencyMobile: emCellphone,
+                                memberEmergencyContact: emName,
+                                memberEmergencyRelationship: emRelationship,
+                                runId: km,
+                                productId: product.toString(),
+                                orderNo: orderNumber,
+                                orderStatus: "1",
+                                orderGroupId: groupId,
+                            }
+                        });
+                    });
+                })
 
-            //撈商品
-            var products;
-            $(document).ready(function () {
-                $.ajax({
-                    type: "GET",
-                    url: "/api/member/addProduct",
-                }).done(function (data) {
-                    products = data;
-                    for (var i = 0; i < data.length; i++) {
-                        $("#addPurchase").append(
-                            "<div class='row d-flex justify-content-between'><div><input type='checkbox' name='product[]' value='" +
-                            data[i].idProduct + "'>" + data[i].productName + "</div><div>NT" + data[
-                                i]
-                            .productPrice + "</div></div>");
-                    }
-                    console.log(data);
-                });
-            })
+            });
+        }
+
+        //撈賽事
+        var runs;
+        $(document).ready(function () {
+            var eventCity = $("#eventCity").val();
+            $.ajax({
+                type: "GET",
+                url: "/api/member/runEvent",
+                data: {
+                    cityNo: eventCity
+                }
+            }).done(function (data) {
+                runs = data;
+                // event = data[0].eventId;
+                // console.log(data[0].eventId);
+                for (var i = 0; i < data.length; i++) {
+                    $("#signupOp").append(
+                        "<div class='row radio d-flex justify-content-between'><div><input type='radio' name='km' value='" +
+                        data[i].idRun + "'>" + data[i].runNameLong + "</div><div>NT$" + data[i]
+                        .runPrice + "</div></div>");
+                }
+                console.log(data);
+            });
+        });
+
+        //撈商品
+        var products;
+        $(document).ready(function () {
+            $.ajax({
+                type: "GET",
+                url: "/api/member/addProduct",
+            }).done(function (data) {
+                products = data;
+                for (var i = 0; i < data.length; i++) {
+                    $("#addPurchase").append(
+                        "<div class='row d-flex justify-content-between'><div><input type='checkbox' name='product[]' value='" +
+                        data[i].idProduct + "'>" + data[i].productName + "</div><div>NT" + data[
+                            i]
+                        .productPrice + "</div></div>");
+                }
+                console.log(data);
+            });
+        })
 
     </script>
 

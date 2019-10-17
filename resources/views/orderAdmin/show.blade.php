@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>會員新增</title>
+        <title>訂單資料</title>
 
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -139,152 +139,118 @@
         </div>
 
     </div>
+
+    {{-- ------------------------------------------------------------------------------------------------ --}}
     <div class="Right">
+        <div class="container">
+            <form method="post" action="/orderAdmin/{{$obj->order->idOrder}}" class="form-horizontal">
+                @csrf
+            <div class="p-3 bg-secondary text-white text-center ">訂單資料</div>
+            <table class="table table-striped table-hover table-bordered">
+                <tr>
+                    <th>訂單編號 : </th>
+                    <td class="text-success">{{$obj->order->orderNo}}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <!-- 個人資料 model跳出 -->
+
+                    <a class="btn btn-sm btn-warning" role="button" href="/memberAdmin/{{$obj->order->memberId}}/show"><i class="fas fa-user"></i>會員資料</button>
+                    </td>
+                </tr>
+                <tr>
+                    <th>身分證字號 : </th>
+                    <td class="text-success">{{$obj->member->memberTwId}}</td>
+                    <th>姓名 : </th>
+                    <td class="text-success">{{$obj->member->memberName}}</td></td>
+                    <th>電話 : </th>
+                    <td class="text-success">{{$obj->member->memberMobile}}</td></td>
+                </tr>
+                <tr>
+                    <th>參與賽事 : </th>
+                    <td class="text-success">{{$obj->event->eventTittle}}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>報名組別 : </th>
+                    <td class="text-success">{{$obj->run->runNameLong}}(${{$obj->run->runPrice}})</td>
+                    <th>加購商品 : </th>
+                    <td colspan="3">
+                        @foreach ($obj->product as $product)
+                            {{$product->productName}}(${{$product->productPrice}})<br>
+                        @endforeach
+                    </td>
+                </tr>
+                <tr>
+                    <th>訂單時間 : </th>
+                    <td class="text-danger">2019-09-06-09:00:02</td>
+                    <th>交易狀態 : </th>
+                    <td class="text-danger">已付款</td>
+                    <th>訂單總額 : </th>
+                    <td class="text-danger">{{$obj->totalPrice}}元</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td >
+                    <button type ="button" class="btn-sm btn-success pull-right"onclick="history.go(-1)"><i class="far fa-plus-square"></i>返回操作</button>
+                    <button type="button" class="btn-sm btn-danger pull-right" data-toggle="modal" data-target="#exampleModal"data-whatever="@mdo"><i class="far fa-trash-alt"></i>撤銷訂單
+                    </button>
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script>
 
 
 
-<!-- Form Name -->
-<div class="p-3 mb-1 bg-secondary text-white text-center ">新增會員資料</div>
-
-<div class="container">
-<form method="post" action="/memberAdmin" class="form-horizontal">
-  @csrf
-
-<fieldset>
-
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="memberName">姓名:</label>
-  <div class="col-md-4">
-  <input id="memberName" name="memberName" type="text" placeholder="" class="form-control input-md">
-
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="memberTwId">身分證字號:</label>
-  <div class="col-md-4">
-  <input id="memberTwId" name="memberTwId" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberGender">性別:</label>
-        <div class="col-md-4">
-        <input id="memberGender" name="memberGender" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberYear">出生年:</label>
-        <div class="col-md-4">
-        <input id="memberYear" name="memberYear" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberMonth">月:</label>
-        <div class="col-md-4">
-        <input id="memberMonth" name="memberMonth" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberDay">日期:</label>
-        <div class="col-md-4">
-        <input id="memberDay" name="memberDay" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberCity">居住城市:</label>
-        <div class="col-md-4">
-        <input id="memberCity" name="memberCity" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberTown">鄉鎮市:</label>
-        <div class="col-md-4">
-        <input id="memberTown" name="memberTown" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberAddr">地址:</label>
-    <div class="col-md-4">
-        <input id="memberAddr" name="memberAddr" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberEmail">e-mail:</label>
-        <div class="col-md-4">
-        <input id="memberEmail" name="memberEmail" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberMobile">電話:</label>
-        <div class="col-md-4">
-        <input id="memberMobile" name="memberMobile" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberEmergencyContact">緊急聯絡人:</label>
-        <div class="col-md-4">
-        <input id="memberEmergencyContact" name="memberEmergencyContact" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberEmergencyRelationship">與緊急聯絡人關係:</label>
-        <div class="col-md-4">
-        <input id="memberEmergencyRelationship" name="memberEmergencyRelationship" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberEmergencyMobile">緊急聯絡人電話:</label>
-        <div class="col-md-4">
-        <input id="memberEmergencyMobile" name="memberEmergencyMobile" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-
-
-<!-- Button (Double) -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="okOrCancel"></label>
-  <div class="col-md-8">
-  <button type="submit" id="okOrCancel" name="okOrCancel" class="btn-sm btn-success"><i class="far fa-plus-square"></i> 確認新增</button>
-  <button type="button" onclick="window.history.back(-1)" id="okOrCancel" name="okOrCancel" class="btn-sm btn-warning"><i class="fas fa-ban"></i>取消新增</button>
-  </div>
-</div>
-
-
-
-</fieldset>
-</form>
-
-
-</div>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="card  col-md-9 text-center" style="margin: 0 auto;">

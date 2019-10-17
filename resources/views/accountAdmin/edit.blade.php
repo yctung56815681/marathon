@@ -5,13 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>首頁</title>
+    <title>帳號編輯</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> --}}
+
 
     <!-- Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
@@ -144,14 +148,98 @@
     <div class="Right">
         <div class="container">
             {{-- <div class="row"> --}}
-            <div class="pt-2">
-                <div class="alert alert-info text-center">
-                    <h5>歡迎&nbsp;&nbsp; {{$userName}} &nbsp;&nbsp;登入管理系統</h5>
+            <div class="p-3 bg-secondary text-white text-center">帳號編輯</div>
+            {{-- <div class="pt-2 text-center">
+                <h5>帳號編輯</h5>
+            </div> --}}
+
+            <form method="post" action="/accountAdmin/{{$id}}" onsubmit="return checkPassword()">
+                @csrf
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text bg-success"><i class="far fa-user"></i></span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="帳號" id="username" name="username"
+                        value="{{$account[0]->username}}" disabled>
+                    <div class="input-group-append">
+
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text bg-success"><i class="fas fa-key"></i></span>
+                    </div>
+                    <input type="password" class="form-control" placeholder="新密碼" id="password" name="password" value=""
+                        required>
+                    <div class="input-group-append">
+
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text bg-success"><i class="fas fa-key"></i></span>
+                    </div>
+                    <input type="password" class="form-control" placeholder="確認密碼" id="password2" name="password2"
+                        value="" required>
+                    <div class="input-group-append">
+
+                    </div>
+                </div>
+
+                @method("PUT")
+                <button type="submit" class="btn btn-sm btn-info"><i class="far fa-check-square"></i> 確認</button>
+                <button type="reset" class="btn btn-sm btn-warning"><i class="far fa-window-close"></i> 重置</button>
+            </form>
+            {{-- </div> --}}
+
+            <!-- Button to Open the Modal -->
+            {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                Open modal
+            </button> --}}
+
+            <!-- The Modal -->
+            <div class="modal fade" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content" style="background-color: lightpink">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <span class="modal-title text-danger font-weight-bolder"
+                                style="font-size: 1.3rem">錯誤訊息</span>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <div class="alert alert-danger">
+                                "新密碼" 與" 確認密碼" 不符
+                            </div>
+                        </div>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">關閉</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            {{-- </div> --}}
+            <!-- The Modal -->
         </div>
     </div>
+
+    <script>
+        function checkPassword() {
+            if ($("#password").val() != $("#password2").val()) {
+                $('#myModal').modal('show');
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+    </script>
 </body>
 
 </html>
