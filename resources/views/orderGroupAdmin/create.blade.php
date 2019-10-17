@@ -7,24 +7,24 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>新增訂單</title>
-    
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    
+
         <style>
             .Top {
                 width: auto;
                 height: 50px;
                 position: relative;
-    
+
                 /* background-image: url("/img/header.jpg");
                 background-size: cover; */
             }
-    
+
             .Left {
-    
+
                 /* width: 25%; */
                 width: 200px;
                 height: auto;
@@ -32,18 +32,18 @@
                 background-color: yellow;
                 display: inline-block;
             }
-    
+
             .Right {
                 width: 85%;
                 height: auto;
                 position: absolute;
                 background-color: #F0F8FF;
                 display: inline-block;
-    
+
             }
-    
+
             .content {}
-    
+
         </style>
     </head>
 
@@ -112,7 +112,7 @@
                 </div>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                     <div class="card-body">
-                        <a class="dropdown-item" href="#">賽事列表</a>
+                        <a class="dropdown-item" href="/eventAdmin">賽事列表</a>
                         {{-- <a class="dropdown-item" href="#">賽事編輯</a> --}}
                     </div>
                 </div>
@@ -154,7 +154,7 @@
 
 {{-- ------------------------------------------------------------------------------------------------ --}}
 <div class="Right">
-<div class="p-3 mb-1 bg-secondary text-white text-center ">新增訂單</div>  
+<div class="p-3 mb-1 bg-secondary text-white text-center ">新增訂單</div>
 <div class="container">
  {{------------------------------------------報名資料----------------------------------------------------}}
  <div class="col-md-12 content">
@@ -281,7 +281,7 @@
                         {{-- <div class="btn-group d-flex justify-content-center myButton">
                             <div><a href=""><input
                                         class="btn btn-primary" type="button" value="報名首頁"></a>
-                            </div> 
+                            </div>
                             <div><input class="btn btn-primary" type="button" value="新增訂單資料"
                                     onclick=""></div>
                         </div>
@@ -665,9 +665,9 @@ $(document).ready(function () {
                 orderNo: orderNumber
                 // eventTitle: event
             }
-            
+
     });
-    
+
 });
 }
 
@@ -710,7 +710,7 @@ $.ajax({
 })
 
 </script>
-       
+
 <div>&nbsp;</div>
 <div>&nbsp;</div>
 
@@ -729,29 +729,3 @@ integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07j
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

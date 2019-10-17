@@ -101,7 +101,7 @@
                 </div>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                     <div class="card-body">
-                        <a class="dropdown-item" href="#">賽事列表</a>
+                        <a class="dropdown-item" href="/eventAdmin">賽事列表</a>
                         {{-- <a class="dropdown-item" href="#">賽事編輯</a> --}}
                     </div>
                 </div>
