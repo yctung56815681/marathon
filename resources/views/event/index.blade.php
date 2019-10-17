@@ -1,19 +1,13 @@
-{{-- <!DOCTYPE html>
-<html lang="en">
-
-</html> --}}
 
 <script>
     // Sid='2019/11/10 23:59:59';
-    Sid='{{ $eventSignupStartTime }}'
-    // var SignupStartTime=new Date('{{ $eventSignupStartTime }}');
-    // var nowTime=new Date();
-    // var deadline= SignupStartTime - nowTime;
-    // if(deadline == 0){
-    //   Sid="{{ $eventRunStartTime }}";
-    // }else{
-    //   Sid='{{ $eventSignupStartTime }}';
-    // }
+
+    if(Date.parse('{{ $eventSignupEndTime }}').valueOf() <=  Date.now()  ){
+        //  console.log("SUCCESS");
+         Sid='{{ $eventRunStartTime }}';
+    }else{
+         Sid='{{ $eventSignupEndTime }}';
+    }   
 </script>
 
 <!DOCTYPE html>
@@ -27,7 +21,7 @@
     <meta name="description" />
     <meta name="author" />
     <title>
-        2019 ZEPRO RUN 全國半程馬拉松 - {{ $cityNameCh }}
+        {{$year}} ZEPRO RUN 全國半程馬拉松 - {{ $cityNameCh }}
     </title>
 
     <!--CIS ico-->
@@ -129,7 +123,7 @@
                             <div style="text-align: center; width: 100%; height: 50px;
                                         font-size: 22px; margin-top:10px">
                                 {{-- <span id="name_txt">2020 ZEPRO RUN<br /> {{$list["location"]}}</span> --}}
-                                <span id="name_txt">2019 ZEPRO RUN<br /> {{ $cityNameCh }}</span>
+                                <span id="name_txt">{{$year}} ZEPRO RUN<br /> {{ $cityNameCh }}</span>
                             </div>
                         </div>
 
@@ -339,23 +333,33 @@
         if (Sid == "") {
             remain_time.innerHTML = "";
         } else {
-
-            if(Sid=="{{ $eventRunStartTime }}"){
-               remain_txt.innerHTML = "<span>路跑開始剩餘:</span>";
+            
+            if( Sid=='{{ $eventSignupEndTime }}' ){
+                remain_txt.innerHTML = "<span>報名結束剩:</span>";
+            }else if(Sid=='{{ $eventRunStartTime }}' ){
+                remain_txt.innerHTML = "<span>路跑開始剩:</span>";
             }
 
             var Target_date = new Date(Sid);
-
             function Check_Time() {
                 var Time_now = new Date();
                 var Date_C = new Date(Target_date - Time_now);
-                var Cal_Day = Math.floor(Date_C.getTime() / (24 * 60 * 60 * 1000))-16;
+                var Cal_Day = Math.floor(Date_C.getTime() / (24 * 60 * 60 * 1000));
                 var Cal_Hour = Date_C.getUTCHours();
                 var Cal_Minute = Date_C.getUTCMinutes();
                 var Cal_Second = Date_C.getUTCSeconds();
 
-                remain_time.innerHTML = Cal_Day + "天" + Cal_Hour + "時" + Cal_Minute + "分" + Cal_Second + "秒";
+                if(Date.parse('{{ $eventRunStartTime }}').valueOf() <=  Date.now()  ){         
+                    remain_txt.innerHTML = "<span>路跑已經開始</span>";
+                    remain_time.innerHTML = "<span></span>";
+                }else{
+                    remain_time.innerHTML = Cal_Day + "天" + Cal_Hour + "時" + Cal_Minute + "分" + Cal_Second + "秒";
+                }  
+                
+                // remain_time.innerHTML = Cal_Day + "天" + Cal_Hour + "時" + Cal_Minute + "分" + Cal_Second + "秒";
+             
             }
+
             var mm = window.setInterval("Check_Time()", 1000);
         }
 
