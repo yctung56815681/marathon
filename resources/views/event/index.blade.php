@@ -5,14 +5,15 @@
 
 <script>
     // Sid='2019/11/10 23:59:59';
-    var SignupStartTime=new Date('{{ $eventSignupStartTime }}');
-    var nowTime=new Date();
-    var deadline= SignupStartTime - nowTime;
-    if(deadline == 0){
-      Sid="{{ $eventRunStartTime }}";
-    }else{
-      Sid='{{ $eventSignupStartTime }}';
-    }
+    Sid='{{ $eventSignupStartTime }}'
+    // var SignupStartTime=new Date('{{ $eventSignupStartTime }}');
+    // var nowTime=new Date();
+    // var deadline= SignupStartTime - nowTime;
+    // if(deadline == 0){
+    //   Sid="{{ $eventRunStartTime }}";
+    // }else{
+    //   Sid='{{ $eventSignupStartTime }}';
+    // }
 </script>
 
 <!DOCTYPE html>
@@ -348,7 +349,7 @@
             function Check_Time() {
                 var Time_now = new Date();
                 var Date_C = new Date(Target_date - Time_now);
-                var Cal_Day = Math.floor(Date_C.getTime() / (24 * 60 * 60 * 1000));
+                var Cal_Day = Math.floor(Date_C.getTime() / (24 * 60 * 60 * 1000))-16;
                 var Cal_Hour = Date_C.getUTCHours();
                 var Cal_Minute = Date_C.getUTCMinutes();
                 var Cal_Second = Date_C.getUTCSeconds();
