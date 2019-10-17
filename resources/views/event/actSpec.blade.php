@@ -29,7 +29,7 @@
     <!-- Bootstrap CSS-->
     <link href="{{ URL::asset('NewCSS/css/style.css') }}" rel="stylesheet" />
 
-    
+
     <!--引用RWD table css-->
     <link href="{{ URL::asset('NewCSS/css/wdn_responsive-table.css') }}" rel="stylesheet" />
 
@@ -51,7 +51,7 @@
         <div class="outer">
             <div class="site_logo">
                 <a href="/">
-                    AI運動報名網
+                    運動報名網
                     {{-- <img src="/NewCSS/images/logo_zepro_w.png"> --}}
                 </a>
             </div>
@@ -59,7 +59,7 @@
     </section>
 
     <section class="header_banner">
-        <a href="/event/{{$city}}/{{$year}}/{{$month}}">   
+        <a href="/event/{{$city}}/{{$year}}/{{$month}}">
             <img src="{{ URL::asset("img/{$city}{$year}{$month}.jpg") }}" class="img-fluid">
         </a>
     </section>
@@ -72,11 +72,11 @@
                 <div id="menu_div" class="navi_outer">
                     <ul class='navi_menu'>
                         <li><a href="/event/{{$city}}/{{$year}}/{{$month}}">最新消息</a></li>
-                        <li><a href="/event/{{$city}}/{{$year}}/{{$month}}/regMethod">報名辦法</a></li> 
+                        <li><a href="/event/{{$city}}/{{$year}}/{{$month}}/regMethod">報名辦法</a></li>
                         <li><a href="/event/{{$city}}/{{$year}}/{{$month}}/rewardMethod">競賽獎勵</a></li>
                         <li><a href="/event/{{$city}}/{{$year}}/{{$month}}/actSpec">
                             <i class="fas fa-hand-point-right"></i>&nbsp;活動規範</a>
-                        </li> 
+                        </li>
                         <li><a href="/signup/{{$city}}/{{$year}}/{{$month}}">我要報名</a></li>
                         <li><a href="/query/{{$city}}/{{$year}}/{{$month}}">報名查詢與修改</a></li>
                     <ul>
@@ -139,9 +139,9 @@
 
 
                 <form id="form1">
-                   
+
                     <div class="detail_div">
-                        
+
                         <link rel="stylesheet" href="{{ URL::asset('NewCSS/css/jquerycollapse.css') }}">
                         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
                             rel="stylesheet">
@@ -161,19 +161,19 @@
                         </script>
 
                         <div id="ContentPlaceHolder1_content">
- 
+
                             <h2 style="text-align: center;">
                                 <span style="font-weight:800;">活動規範</span>
                             </h2>
                            <p>&nbsp;</p>
-                           
+
                             <!--以下要能替換內容-->
-                            
+
 
                             <center>
                             <h3>活動規則限制</h3>
                             </center>
-                           
+
                             {{-- <div class="fold o" style="display: block;">
                                 <p>&bull; 為維護活動品質，保障選手權益，凡於報名截止後異動組別或更名者皆取消敘獎資格</p>
                                 <p>&bull; 活動當天請於鳴槍開始前至指定地點集合，選手檢錄以晶片地墊感應取代人工劃記，提早出發者成績無效。</p>
@@ -183,19 +183,19 @@
                                 <p>&bull; 棄賽、賽種異動者皆判定為失格，不得異議。</p>
                             </div> --}}
                             <p>{!! $eventContentActSpecs ->eventRuletext1!!}</p>
-                            
+
 
                             <p>&nbsp;</p>
                             {{-- <center>
                                <img src="{{ URL::asset("img/pt05.jpg") }}"
-                                    style="width: 100%; max-width: 100%;" />              
+                                    style="width: 100%; max-width: 100%;" />
                             </center> --}}
                             <center>
                               <img src="/img/{{ $eventContentActSpecs ->eventRuleImage }}"
                                    style="width: 100%; max-width: 100%;" />
                             </center>
                             <p>&nbsp;</p>
-                          
+
 
                             <center>
                             <h3>活動違規罰責</h3>
@@ -212,9 +212,9 @@
                           <p>{!! $eventContentActSpecs ->eventRuletext2!!}</p>
 
                             <p>&nbsp;</p>
-                            <!--以上要能替換內容--> 
+                            <!--以上要能替換內容-->
 
-                            
+
                         </div>
 
 
@@ -235,7 +235,7 @@
 
     <section class="back_top">
       <i class="far fa-arrow-alt-circle-up "
-         style="font-size:50px; color:rgb(73, 175, 73); position: fixed; bottom:20px; right:20px;"></i>  
+         style="font-size:50px; color:rgb(73, 175, 73); position: fixed; bottom:20px; right:20px;"></i>
     </section>
 
 
@@ -246,20 +246,20 @@
                 <div style='width:100%' ;>
                     <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
                     </div>
-                </div><br /> 
+                </div><br />
 
                 <li><a href="/event/{{$city}}/{{$year}}/{{$month}}/regMethod">報名辦法</a></li>
                 <div style='width:100%' ;>
                     <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
                     </div>
-                </div><br /> 
+                </div><br />
 
                 <li><a href="/event/{{$city}}/{{$year}}/{{$month}}/rewardMethod">競賽獎勵</a></li>
                 <div style='width:100%' ;>
                     <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
                     </div>
                 </div><br />
-                
+
                 <li><a href="/event/{{$city}}/{{$year}}/{{$month}}/actSpec">
                     <i class="fas fa-hand-point-right"></i>&nbsp;活動規範</a>
                 </li>
@@ -267,13 +267,13 @@
                     <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
                     </div>
                 </div><br />
-                
+
                 <li><a href="/signup/{{$city}}/{{$year}}/{{$month}}">我要報名</a></li>
                 <div style='width:100%' ;>
                     <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
                     </div>
                 </div><br />
-                
+
                 <li><a href="/query/{{$city}}/{{$year}}/{{$month}}">報名查詢與修改</a></li>
                 <div style='width:100%' ;>
                     <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
@@ -313,9 +313,9 @@
     </script>
     <!-------JavaScript特定日期倒數計時 END-------->
 
-    
+
     <div id="body_overly"></div>
-    
+
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="{{ URL::asset('NewCSS/js/jquery.countdown.js') }}"></script>
     <script src="{{ URL::asset('NewCSS/js/script.js') }}"></script>
@@ -324,7 +324,7 @@
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js">
     </script>
-    
+
 
 </body>
 

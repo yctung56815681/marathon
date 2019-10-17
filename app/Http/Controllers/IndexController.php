@@ -13,23 +13,58 @@ class IndexController extends Controller
 {
     public function index()
     {
-        $Event = Event::all();     
+        $Event = Event::all();
+        // dd($Event[0]->eventTittle);
+        // $array = [];
         
-        $slipt = $Event[0]->eventImage;        
-        // dd($slipt);
-        // dd( substr_replace ( $slipt , "" , 3 , 10 ));
-        $city = substr_replace ( $slipt , "" , 3 , 10 );
-        // dd($city);
-        $yearStr = substr_replace ( $slipt , "" , 0 , 3 );        
-        $year = substr_replace ( $yearStr , "" , 4 , 6 );
-        // dd($year);
-        $monthStr = substr_replace ( $yearStr , "" , 0 , 4 );
-        $month = substr_replace ( $monthStr , "" , 2 , 4 );
-        // dd($month);
-       
+        // dd($array);   
+        foreach($Event as $k=>$eve){
+            
+            // dd($eve->idEvent);
+            
+            // dd ($k);
+            $slipt = $eve->eventImage;
+            // echo($slipt);
+            $city[$k] = substr_replace ( $slipt , "" , 3 , 10 );
+            //  dd($city);
+            $yearStr = substr_replace ( $slipt , "" , 0 , 3 );        
+            $year[$k] = substr_replace ( $yearStr , "" , 4 , 6 );
+            // dd($year);
+            $monthStr = substr_replace ( $yearStr , "" , 0 , 4 );
+            $month[$k] = substr_replace ( $monthStr , "" , 2 , 4 );
+
+            // dd($month);
+            // dd($city."/".$year."/".$month);
+            // $URL = $city."/".$year."/".$month;
+            // dd($URL); 
+            
+            // dd(slipt)
+         
+            // $array=[$city,$year,$month];
+
+
+           
+            
+           
+        };
+        // 
         $EventContent = EventContent::all();        
         $Run = Run::all();
         $City = City::all();
+        
+        // dd($City);
+            
+        
+        // dd($array);
+     
+        // dd($Run);
+         
+        // dd($slipt );       
+        // dd($slipt);
+        // dd( substr_replace ( $slipt , "" , 3 , 10 ));
+        
+       
+       
           
         return view('index', compact('Event','EventContent','Run','City','city','year','month'));
     }

@@ -39,7 +39,7 @@
             {{------------------------------------------Nav----------------------------------------------------}}
             <div class="col-md-12 navList">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <a class="navbar-brand" href="#" style="color: red">III Marathon</a>
+                    <a class="navbar-brand" href="#" style="color: red; background: #13d474;">運動報名網</a>
                 </nav>
             </div>
             {{------------------------------------------header圖片----------------------------------------------------}}
@@ -207,7 +207,7 @@
                             "<div class='row'><div class='col-md-10 myQuery'>" + data[i].productName + "</div>" + "<div class='col-md-2 myQuery myTotal'>" + data[i].productPrice + "元" + "</div></div><br>"
                         );
                     };
-                   
+
                     $("#resultPrice").append(
                         "<div class='row d-flex justify-content-end'><div class='col-md-2 myQuery myTotal'>" + totalPrice + "元" + "</div></div>"
                     );
