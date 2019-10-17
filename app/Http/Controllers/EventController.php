@@ -65,25 +65,27 @@ class EventController extends Controller
 
 
         // 手動設ID連結表單+搜尋特定資料:
-        // $cityId=City::all()->where('cityNo', "TXG" )->first()->idCity;
-        // $cityNameCh=City::all()->where('cityId', "城市代號" )->first()->cityNameCh;
+        $idCity=City::all()->where('cityNo', $city )->first()->idCity;
+        $cityNameCh=City::all()->where('cityNo', $city )->first()->cityNameCh;
 
-        // $idEvent=Event::all()->where('cityId', $cityId )->first()->idEvent;
-        // $eventTel=Event::all()->where('cityId', $cityId )->first()->eventTel;
-        // $eventSignupStartTime=Event::all()->where('cityId', $cityId )->first()->eventSignupEndTime;
-        // $eventRunStartTime=Event::all()->where('cityId', $cityId )->first()->eventRunStartTime;
-        // $eventRunStartTimeF=date("Y年m月d日", strtotime($eventRunStartTime) );
+        $idEvent=Event::all()->where('cityId', $idCity )->first()->idEvent;
+
+        $eventAddr=Event::all()->where('cityId', $idCity )->first()->eventAddr;
+        $eventTel=Event::all()->where('cityId', $idCity )->first()->eventTel;
+        
+        $eventSignupStartTime=Event::all()->where('cityId', $idCity )->first()->eventSignupEndTime;
+        $eventRunStartTime=Event::all()->where('cityId', $idCity )->first()->eventRunStartTime;
+        $eventRunStartTimeF=date("Y年m月d日", strtotime($eventRunStartTime) );
         
 
-        // $jsonContent1=EventContent::all()->where('eventId', $idEvent )->first()->eventContentNews;
-        
-        // $eventContent1=json_decode($jsonContent1);
+        $jsonContent1=EventContent::all()->where('eventId', $idEvent )->first()->eventContentNews;
+        $eventContentNews=json_decode($jsonContent1);
         // dd( $eventContent1->eventNewsImage);
 
-        // $idRun=Run::all()->where('eventId', $idEvent )->first()->idRun;     
-        // $eventD1=Run::all()->where('eventId', $eventId )->find($runId)->runName;
-        // $eventD2=Run::all()->where('eventId', $eventId )->find($runId+1)->runName;
-        // $eventD3=Run::all()->where('eventId', $eventId )->find($runId+2)->runName;
+        $idRun=Run::all()->where('eventId', $idEvent )->first()->idRun;     
+        $eventDL=Run::all()->where('eventId', $idEvent  )->find($idRun)->runName;
+        $eventDM=Run::all()->where('eventId', $idEvent  )->find($idRun+1)->runName;
+        $eventDS=Run::all()->where('eventId', $idEvent  )->find($idRun+2)->runName;
 
 
         // 自動ID連結表單+搜尋特定資料(還在測試):
@@ -102,8 +104,16 @@ class EventController extends Controller
             "month",
             "list",
             // "jsonContent1"
-            // "jsondata"
-            // "eventContent1"
+            "cityNameCh",                   
+            "eventSignupStartTime",
+            "eventRunStartTime",
+            "eventRunStartTimeF",
+            "eventDL",
+            "eventDM",
+            "eventDS",
+            "eventAddr",
+            "eventTel",
+            "eventContentNews"
         );
         return view("event.index", $viewModel);
 
@@ -126,29 +136,92 @@ class EventController extends Controller
         // );
         // return view($view, $viewModel);
 
-       // 第三階段的測試
-       $lists=array(
-        "PCH"=>array("location"=>"屏東","time"=>"2019年10月09日",      "distance"=>"21K-10K-5K","place"=>"屏東鎮","phone"=>"0800-271-000(工作日9:00~18:00)"),
-        "CWH"=>array("location"=>"彰化","time"=>"2020年02月09日","distance"=>"21K-10K-5K","place"=>"彰化鎮","phone"=>"0800-272-000(工作日9:00~18:00)"),
-        "TPH"=>array("location"=>"新北","time"=>"2019年11月09日","distance"=>"21K-10K-5K","place"=>"新北鎮","phone"=>"0800-273-000(工作日9:00~18:00)"),
-        "KHH"=>array("location"=>"高雄","time"=>"2019年12月09日","distance"=>"21K-10K-5K","place"=>"高雄鎮","phone"=>"0800-274-000(工作日9:00~18:00)"),
-        "TNN"=>array("location"=>"台南","time"=>"2019年10月09日","distance"=>"21K-10K-5K","place"=>"台南鎮","phone"=>"0800-275-000(工作日9:00~18:00)"),
-        "TYC"=>array("location"=>"桃園","time"=>"2019年11月09日","distance"=>"21K-10K-5K","place"=>"桃園鎮","phone"=>"0800-276-000(工作日9:00~18:00)"),
-        "ILN"=>array("location"=>"宜蘭","time"=>"2020年01月09日","distance"=>"21K-10K-5K","place"=>"宜蘭鎮","phone"=>"0800-277-000(工作日9:00~18:00)"),
-        "YUN"=>array("location"=>"員林","time"=>"2019年9月09日","distance"=>"21K-10K-5K","place"=>"員林鎮","phone"=>"0800-278-000(工作日9:00~18:00)"),
-        "TXG"=>array("location"=>"台中","time"=>"2019年12月09日","distance"=>"21K-10K-5K","place"=>"台中鎮","phone"=>"0800-279-000(工作日9:00~18:00)")
-       );
-       $list=$lists[$city];
-       $view = "event.{$page}"; 
-       $viewModel = compact(
-          "city",
-          "year",
-          "month",
-          "list"
-       );
-       return view($view, $viewModel);
+        // 第三階段的測試
+        // $lists=array(
+        //   "PCH"=>array("location"=>"屏東","time"=>"2019年10月09日",      "distance"=>"21K-10K-5K","place"=>"屏東鎮","phone"=>"0800-271-000(工作日9:00~18:00)"),
+        //   "CWH"=>array("location"=>"彰化","time"=>"2020年02月09日","distance"=>"21K-10K-5K","place"=>"彰化鎮","phone"=>"0800-272-000(工作日9:00~18:00)"),
+        //   "TPH"=>array("location"=>"新北","time"=>"2019年11月09日","distance"=>"21K-10K-5K","place"=>"新北鎮","phone"=>"0800-273-000(工作日9:00~18:00)"),
+        //   "KHH"=>array("location"=>"高雄","time"=>"2019年12月09日","distance"=>"21K-10K-5K","place"=>"高雄鎮","phone"=>"0800-274-000(工作日9:00~18:00)"),
+        //   "TNN"=>array("location"=>"台南","time"=>"2019年10月09日","distance"=>"21K-10K-5K","place"=>"台南鎮","phone"=>"0800-275-000(工作日9:00~18:00)"),
+        //   "TYC"=>array("location"=>"桃園","time"=>"2019年11月09日","distance"=>"21K-10K-5K","place"=>"桃園鎮","phone"=>"0800-276-000(工作日9:00~18:00)"),
+        //   "ILN"=>array("location"=>"宜蘭","time"=>"2020年01月09日","distance"=>"21K-10K-5K","place"=>"宜蘭鎮","phone"=>"0800-277-000(工作日9:00~18:00)"),
+        //   "YUN"=>array("location"=>"員林","time"=>"2019年9月09日","distance"=>"21K-10K-5K","place"=>"員林鎮","phone"=>"0800-278-000(工作日9:00~18:00)"),
+        //   "TXG"=>array("location"=>"台中","time"=>"2019年12月09日","distance"=>"21K-10K-5K","place"=>"台中鎮","phone"=>"0800-279-000(工作日9:00~18:00)")
+        // );
+        // $list=$lists[$city];
+        // $view = "event.{$page}"; 
+        // $viewModel = compact(
+        //       "city",
+        //       "year",
+        //       "month",
+        //       "list"
+        // );
+        // return view($view, $viewModel);
 
 
+        // 第四階段的測試
+        $lists=array(
+            "PCH"=>array("location"=>"屏東","time"=>"2019年10月09日","distance"=>"21K-10K-5K","place"=>"屏東鎮","phone"=>"0800-271-000(工作日9:00~18:00)"),
+            "CWH"=>array("location"=>"彰化","time"=>"2020年02月09日","distance"=>"21K-10K-5K","place"=>"彰化鎮","phone"=>"0800-272-000(工作日9:00~18:00)"),
+            "TPH"=>array("location"=>"新北","time"=>"2019年11月09日","distance"=>"21K-10K-5K","place"=>"新北鎮","phone"=>"0800-273-000(工作日9:00~18:00)"),
+            "KHH"=>array("location"=>"高雄","time"=>"2019年12月09日","distance"=>"21K-10K-5K","place"=>"高雄鎮","phone"=>"0800-274-000(工作日9:00~18:00)"),
+            "TNN"=>array("location"=>"台南","time"=>"2019年10月09日","distance"=>"21K-10K-5K","place"=>"台南鎮","phone"=>"0800-275-000(工作日9:00~18:00)"),
+            "TYC"=>array("location"=>"桃園","time"=>"2019年11月09日","distance"=>"21K-10K-5K","place"=>"桃園鎮","phone"=>"0800-276-000(工作日9:00~18:00)"),
+            "ILN"=>array("location"=>"宜蘭","time"=>"2020年01月09日","distance"=>"21K-10K-5K","place"=>"宜蘭鎮","phone"=>"0800-277-000(工作日9:00~18:00)"),
+            "YUN"=>array("location"=>"員林","time"=>"2019年9月09日","distance"=>"21K-10K-5K","place"=>"員林鎮","phone"=>"0800-278-000(工作日9:00~18:00)"),
+            "TXG"=>array("location"=>"台中","time"=>"2019年12月09日","distance"=>"21K-10K-5K","place"=>"台中鎮","phone"=>"0800-279-000(工作日9:00~18:00)")
+           );
+        $list=$lists[$city];
+
+        // 手動設ID連結表單+搜尋特定資料:
+        $idCity=City::all()->where('cityNo', $city )->first()->idCity;
+        $cityNameCh=City::all()->where('cityNo', $city )->first()->cityNameCh;
+
+        $idEvent=Event::all()->where('cityId', $idCity )->first()->idEvent;
+
+        $eventAddr=Event::all()->where('cityId', $idCity )->first()->eventAddr;
+        $eventTel=Event::all()->where('cityId', $idCity )->first()->eventTel;
+        
+        $eventSignupStartTime=Event::all()->where('cityId', $idCity )->first()->eventSignupEndTime;
+        $eventRunStartTime=Event::all()->where('cityId', $idCity )->first()->eventRunStartTime;
+        $eventRunStartTimeF=date("Y年m月d日", strtotime($eventRunStartTime) );
+        
+
+        $jsonContent1=EventContent::all()->where('eventId', $idEvent )->first()->eventContentSignup;
+        $eventContentSignup=json_decode($jsonContent1);
+        $jsonContent2=EventContent::all()->where('eventId', $idEvent )->first()->eventContentReward;
+        $eventContentReward=json_decode($jsonContent2);
+        $jsonContent3=EventContent::all()->where('eventId', $idEvent )->first()->eventContentActSpec;
+        $eventContentActSpecs=json_decode($jsonContent3);
+        // dd( $eventContent1->eventNewsImage);
+
+        $idRun=Run::all()->where('eventId', $idEvent )->first()->idRun;     
+        $eventDL=Run::all()->where('eventId', $idEvent  )->find($idRun)->runName;
+        $eventDM=Run::all()->where('eventId', $idEvent  )->find($idRun+1)->runName;
+        $eventDS=Run::all()->where('eventId', $idEvent  )->find($idRun+2)->runName;
+
+        $view = "event.{$page}";
+        
+        $viewModel = compact(
+            "city",
+            "year",
+            "month",
+            "list",
+            // "jsonContent1"
+            "cityNameCh",                   
+            "eventSignupStartTime",
+            "eventRunStartTime",
+            "eventRunStartTimeF",
+            "eventDL",
+            "eventDM",
+            "eventDS",
+            "eventAddr",
+            "eventTel",
+            "eventContentSignup",
+            "eventContentReward",
+            "eventContentActSpecs",
+        );
+        return view( $view, $viewModel);
 
 
     }

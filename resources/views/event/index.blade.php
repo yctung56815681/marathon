@@ -4,9 +4,17 @@
 </html> --}}
 
 <script>
-    Sid='2019/11/10 23:59:59';
-
+    // Sid='2019/11/10 23:59:59';
+    var SignupStartTime=new Date('{{ $eventSignupStartTime }}');
+    var nowTime=new Date();
+    var deadline= SignupStartTime - nowTime;
+    if(deadline == 0){
+      Sid="{{ $eventRunStartTime }}";
+    }else{
+      Sid='{{ $eventSignupStartTime }}';
+    }
 </script>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -18,7 +26,7 @@
     <meta name="description" />
     <meta name="author" />
     <title>
-        2020 ZEPRO RUN 全國半程馬拉松 - 宜蘭場
+        2019 ZEPRO RUN 全國半程馬拉松 - {{ $cityNameCh }}
     </title>
 
     <!--CIS ico-->
@@ -120,7 +128,7 @@
                             <div style="text-align: center; width: 100%; height: 50px; 
                                         font-size: 22px; margin-top:10px">
                                 {{-- <span id="name_txt">2020 ZEPRO RUN<br /> {{$list["location"]}}</span> --}}
-                                <span id="name_txt">2020 ZEPRO RUN<br /> {{$list["location"]}}</span>
+                                <span id="name_txt">2019 ZEPRO RUN<br /> {{ $cityNameCh }}</span>
                             </div>
                         </div>
 
@@ -129,19 +137,19 @@
                                 <div class="info">
                                     <i class="fas fa-calendar-alt"></i>
                                     {{-- <span id="date_txt">{{$list["time"]}}</span> --}}
-                                    <span id="date_txt">{{$list["time"]}}</span>
+                                    <span id="date_txt">{{ $eventRunStartTimeF }}</span>
                                     <br />
                                     <i class="fas fa-flag"></i>
                                     {{-- <span id="km_txt">{{$list["distance"]}} </span> --}}
-                                    <span id="km_txt">{{$list["distance"]}} </span>
+                                    <span id="km_txt">{{$eventDL }}/{{$eventDM }}/{{$eventDS }} </span>
                                     <br />
                                     <i class="fas fa-map-marker-alt"></i>
                                         {{-- <span id="place_txt">{{$list["place"]}} </span> --}}
-                                        <span id="place_txt">{{$list["place"]}} </span>
+                                        <span id="place_txt">{{ $eventAddr }} </span>
                                         <br />
                                     <i class="fas fa-phone"></i>
                                     {{-- <span id="Label1">{{$list["phone"]}} </span> --}}
-                                    <span id="Label1">{{$list["phone"]}} </span>
+                                    <span id="Label1">{{ $eventTel }} </span>
                                 </div>
                             </div>
                         </div>
@@ -195,35 +203,39 @@
                                 <span style="font-weight:800;">最新消息</span>
                              </h2>
                            </center>
+
                            <p>&nbsp;</p>
                             <!--以下要能替換內容-->    
                             
-
                             <center>
                             <h3>團體報名</h3>
                             </center>
 
-                            <div class="fold o" style="display: block">團報20人以上如欲索取團報EXCEL檔案，請按此<a
+                            {{-- <div class="fold o" style="display: block">團報20人以上如欲索取團報EXCEL檔案，請按此<a
                                     href="https://www.ctrun.com.tw/image/Document/AM200105/da358160c1c644a9ae26f4d6b1dda6c1.xlsx">下載</a>並E-Mail到zeprorun@gmail.com。
-                            </div>
-                            {{-- <p>{!! $eventContent1 ->eventNewstext1!!}</p> --}}
+                            </div> --}}
+                            <p>{!! $eventContentNews ->eventNewstext1!!}</p>
 
 
                             
                             <p>&nbsp;</p>
-                            <center><img
+                            {{-- <center><img
                                 src="{{ URL::asset("img/pt02.jpg") }}"
                                 style="width: 100%; max-width: 100%;" />
+                            </center> --}}
+                            <center>
+                                <img src="/img/{{ $eventContentNews ->eventNewsImage }}"
+                                     style="width: 100%; max-width: 100%;" />
                             </center>
                             <p>&nbsp;</p>                     
-                            {{-- <img src="/img/{{ $eventContent1 ->eventNewsImage }}" alt=""> --}}
+                            
 
 
                             <center>
                             <h3>招募志工夥伴</h3>
                             </center>
 
-                            <div class="fold o" style="display: block">
+                            {{-- <div class="fold o" style="display: block">
                                 <p>一起來感受ZEPRO路跑的熱情活力，歡迎喜愛陽光運動的夥伴一同熱情參與，期待有您的加入<br />
                                     我們急需熱情的你，一起來為跑者加油！<br/>
                                   報名連結：<a href="https://reurl.cc/GkZApA"
@@ -233,15 +245,15 @@
                                 ⚠注意事項：<br />
                                     錄取者，主辦單位會以電話或簡訊通知；未錄取則不另行通知。<br />
                                     錄取者若未能依時間參加，請務必提前來電告知！以免系統備註異常，影響後續報名資格。</p>
-                            </div>
-                            {{-- <p>{!! $eventContent1 ->eventNewstext2!!}</p> --}}
+                            </div> --}}
+                            <p>{!! $eventContentNews ->eventNewstext2 !!}</p>
                             
                          <!--以上要能替換內容-->
                          <p>&nbsp;</p>
 
-                          {{-- <p>{!! $eventContent1 ->eventNewstext1!!}</p> --}}
-                          {{-- <img src="/img/{{ $eventContent1 ->eventNewsImage }}" alt=""> --}}
-                          {{-- <p>{!! $eventContent1 ->eventNewstext2!!}</p> --}}
+                          {{-- <p>{!! $eventContentNews->eventNewstext1!!}</p> --}}
+                          {{-- <img src="/img/{{ $eventContentNews ->eventNewsImage }}" alt=""> --}}
+                          {{-- <p>{!! $eventContentNews ->eventNewstext2!!}</p> --}}
                                                            
                           {{-- <div>
                             @foreach ( $eventContent1 as $k=>$v  )
@@ -322,15 +334,19 @@
 
     <!-------JavaScript特定日期倒數計時 START-------->
     <script type="text/javascript">
+
         if (Sid == "") {
             remain_time.innerHTML = "";
         } else {
+
+            if(Sid=="{{ $eventRunStartTime }}"){
+               remain_txt.innerHTML = "<span>路跑開始剩餘:</span>";
+            }
+
             var Target_date = new Date(Sid);
 
             function Check_Time() {
-
                 var Time_now = new Date();
-
                 var Date_C = new Date(Target_date - Time_now);
                 var Cal_Day = Math.floor(Date_C.getTime() / (24 * 60 * 60 * 1000));
                 var Cal_Hour = Date_C.getUTCHours();
@@ -341,6 +357,7 @@
             }
             var mm = window.setInterval("Check_Time()", 1000);
         }
+        
     </script>
     <!-------JavaScript特定日期倒數計時 END-------->
    

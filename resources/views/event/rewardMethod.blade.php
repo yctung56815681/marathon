@@ -1,4 +1,15 @@
-<script>Sid='2019/11/10 23:59:59';</script>
+<script>
+    // Sid='2019/11/10 23:59:59';
+    var SignupStartTime=new Date('{{ $eventSignupStartTime }}');
+    var nowTime=new Date();
+    var deadline= SignupStartTime - nowTime;
+    if(deadline == 0){
+      Sid="{{ $eventRunStartTime }}";
+    }else{
+      Sid='{{ $eventSignupStartTime }}';
+    }
+</script>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -12,7 +23,7 @@
     <meta name="author" />
 
     <title>
-        2020 ZEPRO RUN 全國半程馬拉松 - 宜蘭場
+        2019 ZEPRO RUN 全國半程馬拉松 - {{ $cityNameCh }}
     </title>
 
     
@@ -89,7 +100,7 @@
                             <div style="text-align: center; width: 100%; height: 50px;
                                         font-size: 22px; margin-top:10px">
                                 {{-- <span id="name_txt">2020 ZEPRO RUN<br /> {{$list["location"]}}</span> --}}
-                                <span id="name_txt">2020 ZEPRO RUN<br /> {{$list["location"]}}</span>
+                                <span id="name_txt">2019 ZEPRO RUN<br /> {{$list["location"]}}</span>
                             </div>
                         </div>
 
@@ -165,7 +176,7 @@
                                 <h3><div class="titleCenter">排名</div></h3>
                             </center>
 
-                            <div class="content">
+                            {{-- <div class="content">
                             ➤半馬組(21公里)錄取方式：<br />
                             第一名：獎金5,000元+獎盃乙座+雲豹跑鞋乙雙+ZEPRO排汗衣乙件<br />
                             第二名：獎金4,000元+獎盃乙座+雲豹跑鞋乙雙+ZEPRO排汗衣乙件<br />
@@ -179,28 +190,33 @@
                             第三名：獎金2,000元+獎盃乙座+ZEPRO排汗衣乙件<br />
                             第四名：獎金1,500元+獎盃乙座+ZEPRO排汗衣乙件<br />
                             第五名：獎金1,000元+獎盃乙座+ZEPRO排汗衣乙件<br />                 
-                            </div>
-                            {{-- <p>{!! $eventContent1 ->eventNewstext1!!}</p> --}}
+                            </div> --}}
+                            <p>{!! $eventContentReward ->eventRacetext1 !!}</p>
                           
                             
                             <p>&nbsp;</p>
-                            <center><img
-                                      src="{{ URL::asset("img/pt04.jpg") }}"
-                                      style="width: 100%; max-width: 100%;" />
+                            {{-- <center>
+                                <img src="{{ URL::asset("img/pt04.jpg") }}"
+                                     style="width: 100%; max-width: 100%;" />
+                            </center> --}}
+                            <center>
+                                <img src="/img/{{ $eventContentReward ->eventRaceImage }}" 
+                                     style="width: 100%; max-width: 100%;" />
                             </center>
                             <p>&nbsp;</p>
-                            {{-- <img src="/img/{{ $eventContent1 ->eventNewsImage }}" alt=""> --}}
+                            {{-- <img src="/img/{{ $eventContentReward ->eventNewsImage }}" alt=""> --}}
+
 
                             <center>
                             <h3><div class="titleCenter">敘獎辦法</div></h3>
                             </center>
 
-                            <div class="content">&bull;領獎選手需提供證件，核對身份並簽章，獎項不得代領，需允許頒獎影像公佈於相關公開網路平台。<br />
+                            {{-- <div class="content">&bull;領獎選手需提供證件，核對身份並簽章，獎項不得代領，需允許頒獎影像公佈於相關公開網路平台。<br />
                                 &bull;獲得總成績獎勵者當日請攜帶身分證件(外籍選手請攜帶護照)至獎典組登記填寫資料，得獎者需配合繳交身份證影印作為申報依據。<br />
                                 &bull;登記獎品之尺寸經寄出後不得更換,<span style="color:#e74c3c;">獎品於賽事結束後4週內統一寄出</span><br />
                                 &bull;如有任何相關問題，請撥打客服專線:0800-271-637/聯絡時間：週一至週五(09:00~18:00)，逾期恕不接受辦理，郵寄費用得由選手自行支付。
-                            </div>
-                           {{-- <p>{!! $eventContent1 ->eventNewstext2!!}</p> --}}
+                            </div> --}}
+                           <p>{!! $eventContentReward ->eventRacetext2!!}</p>
                             
                             <!--以上要能替換內容-->
                            
@@ -273,6 +289,11 @@
         if (Sid == "") {
             remain_time.innerHTML = "";
         } else {
+
+            if(Sid=="{{ $eventRunStartTime }}"){
+               remain_txt.innerHTML = "<span>路跑開始剩餘:</span>";
+            }
+
             var Target_date = new Date(Sid);
 
             function Check_Time() {
@@ -293,17 +314,6 @@
     </script>
     <!-------JavaScript特定日期倒數計時 END-------->
 
-
-    <!--SweetAlert2-->
-    <script type="text/javascript">
-        function successalert(t1, t2) {
-            swal({
-                title: t1,
-                text: t2,
-                type: 'success'
-            });
-        }
-    </script>
 
     <div id="body_overly"></div>
 

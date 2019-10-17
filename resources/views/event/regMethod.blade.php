@@ -1,4 +1,15 @@
-<script>Sid='2019/11/10 23:59:59';</script>
+<script>
+    // Sid='2019/11/10 23:59:59';
+    var SignupStartTime=new Date('{{ $eventSignupStartTime }}');
+    var nowTime=new Date();
+    var deadline= SignupStartTime - nowTime;
+    if(deadline == 0){
+      Sid="{{ $eventRunStartTime }}";
+    }else{
+      Sid='{{ $eventSignupStartTime }}';
+    }
+</script>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -11,7 +22,7 @@
     <meta name="description" />
     <meta name="author" />
     <title>
-        2020 ZEPRO RUN 全國半程馬拉松 - 宜蘭場
+        2019 ZEPRO RUN 全國半程馬拉松 - {{ $cityNameCh }}
     </title>
 
 
@@ -89,7 +100,7 @@
                             <div style="text-align: center; width: 100%; height: 50px;
                                         font-size: 22px; margin-top:10px">
                                 {{-- <span id="name_txt">2020 ZEPRO RUN<br /> {{$list["location"]}}</span> --}}
-                                <span id="name_txt">2020 ZEPRO RUN<br /> {{$list["location"]}}</span>
+                                <span id="name_txt">2019 ZEPRO RUN<br /> {{ $cityNameCh }}</span>
                             </div>
                         </div>
 
@@ -98,18 +109,18 @@
                                 <div class="info">
                                     <i class="fas fa-calendar-alt"></i>
                                     {{-- <span id="date_txt">{{$list["time"]}}</span><br /> --}}
-                                    <span id="date_txt">{{$list["time"]}}</span><br />
+                                    <span id="date_txt">{{ $eventRunStartTimeF }}</span><br />
                                     <i class="fas fa-flag"></i>
                                     {{-- <span id="km_txt">{{$list["distance"]}} </span> --}}
-                                    <span id="km_txt">{{$list["distance"]}} </span>
+                                    <span id="km_txt">{{$eventDL }}/{{$eventDM }}/{{$eventDS }}</span>
                                     <br />
                                     <i class="fas fa-map-marker-alt"></i>
                                         {{-- <span id="place_txt">{{$list["place"]}} </span> --}}
-                                        <span id="place_txt">{{$list["place"]}} </span>
+                                        <span id="place_txt">{{ $eventAddr }}</span>
                                         <br />
                                     <i class="fas fa-phone"></i>
                                     {{-- <span id="Label1">{{$list["phone"]}} </span> --}}
-                                    <span id="Label1">{{$list["phone"]}} </span>
+                                    <span id="Label1">{{ $eventTel }} </span>
                                 </div>
                             </div>
                         </div>
@@ -165,7 +176,7 @@
                                 <h3><div class="titleLeft">報名方式</div></h3>
                                 </center>
 
-                                <div class="content">&bull; 本次活動僅採用網路報名，
+                                {{-- <div class="content">&bull; 本次活動僅採用網路報名，
                                     <span class="red">不接受現場報名</span>。<br />
                                     &bull; 繳費後<span class="red">增加團員方式</span>:進入報名查詢修改後，於付款頁面最下方按下「返回修改」按鈕即可新增團員，並取得新的
                                     <span class="red">差額繳費單</span>。<br />
@@ -176,29 +187,33 @@
                                     到超商櫃檯繳費。(提醒您，ibon繳費需自付兩萬元以下每筆NT 30元手續費)<br />
                                     &bull; 繳費完成後約30分鐘後將收到簡訊通知，也可到「報名查詢與修改」<span class="red">查詢繳費狀態</span>。<br />
                                     &bull; 繳費代碼逾期未繳者，若已逾報名時間，視同放棄報名資格。<br />                   
-                                </div>
-                                {{-- <p>{!! $eventContent1 ->eventNewstext1!!}</p> --}}
+                                </div> --}}
+                                <p>{!! $eventContentSignup ->eventMethodtext1 !!}</p>
                                 
 
                                 <p>&nbsp;</p>
-                                <center><img
-                                        src="{{ URL::asset("img/pt03.jpg") }}"
-                                        style="width: 100%; max-width: 100%;" />
+                                {{-- <center>
+                                    <img src="{{ URL::asset("img/pt03.jpg") }}"
+                                         style="width: 100%; max-width: 100%;" />
+                                </center> --}}
+                                <center>
+                                    <img src="/img/{{ $eventContentSignup ->eventMethodImage }}" 
+                                         style="width: 100%; max-width: 100%;" />
                                 </center>
                                 <p>&nbsp;</p>
-                                {{-- <img src="/img/{{ $eventContent1 ->eventNewsImage }}" alt=""> --}}
+                                
 
 
                                 <center>
                                 <h3><div class="titleLeft">退費辦法</div></h3>
                                 </center>
 
-                                <div class="content">&bull; 報名時間過後<span
+                                {{-- <div class="content">&bull; 報名時間過後<span
                                      class="red">恕不接受退費申請</span>，請於報名截止日前提出申請。<br />
                                      &bull; 退費申請將收取<span class="red">100元行政服務費</span>，於退費申請金額內扣除。<br />
                                      &bull; 一旦確認取消即喪失活動參與權、物資獎贈品所有權，亦無法重新報名。
-                                </div>
-                                {{-- <p>{!! $eventContent1 ->eventNewstext2!!}</p> --}}
+                                </div> --}}
+                                <p>{!! $eventContentSignup ->eventMethodtext2 !!}</p>
 
                                 <!--以上要能替換內容-->
                                               
@@ -273,6 +288,11 @@
         if (Sid == "") {
             remain_time.innerHTML = "";
         } else {
+
+            if(Sid=="{{ $eventRunStartTime }}"){
+               remain_txt.innerHTML = "<span>路跑開始剩餘:</span>";
+            }
+
             var Target_date = new Date(Sid);
 
             function Check_Time() {
@@ -292,17 +312,6 @@
         }
     </script>
     <!-------JavaScript特定日期倒數計時 END-------->
-
-    <!--SweetAlert2-->
-    <script type="text/javascript">
-        function successalert(t1, t2) {
-            swal({
-                title: t1,
-                text: t2,
-                type: 'success'
-            });
-        }
-    </script>
 
     <div id="body_overly"></div>
 
