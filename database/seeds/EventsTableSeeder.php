@@ -20,7 +20,7 @@ class EventsTableSeeder extends Seeder
                 'eventRunStartTime' => '2019-12-02 00:00:00',
                 'eventRunEndTime' => '2019-12-05 00:00:00',
                 'eventTittle' => '新北場',
-                'eventImage' => '/img/TPH201912.jpg',
+                'eventImage' => 'TPH201912.jpg',
                 'eventTel' => '0800-333-444',
                 'eventAddr' => '新北市浮洲橋下',
             ]);
@@ -32,7 +32,7 @@ class EventsTableSeeder extends Seeder
                 'eventRunStartTime' => '2019-12-01 00:00:00',
                 'eventRunEndTime' => '2019-12-03 00:00:00',
                 'eventTittle' => '桃園場',
-                'eventImage' => '/img/TYC201912.jpg',
+                'eventImage' => 'TYC201912.jpg',
                 'eventTel' => '0800-333-444',
                 'eventAddr' => '桃園永安漁港',
             ]);
@@ -44,7 +44,7 @@ class EventsTableSeeder extends Seeder
                 'eventRunStartTime' => '2019-12-01 00:00:00',
                 'eventRunEndTime' => '2019-12-03 00:00:00',
                 'eventTittle' => '台中場',
-                'eventImage' => '/img/TXG201912.jpg',
+                'eventImage' => 'TXG201912.jpg',
                 'eventTel' => '0800-555-666',
                 'eventAddr' => '台中市太平區運動場',
             ]);
