@@ -187,8 +187,9 @@
   </div>
   <!-----------------------------------------------------------Card---------------------------------------------------------------->
   <div class=" EventCard  " id="cardapp">
-    @foreach ($Event as $eve)
+    
     <div id="CARD">
+        @foreach ($Event as $key=>$eve)
         <div  class= "CardPermutation" style=" width: 18rem ;">
           <div id="cardSelect" >
             <img src="img/{{$eve->eventImage}}" class="card-img-top" :alt="">
@@ -197,14 +198,16 @@
               <p class="card-text"> <img src="img/calendar.png" alt="">{{$eve->eventRunStartTime}}</p>
             <p class="card-text"> <img src="img/flag.png" alt="">{{$City[$eve->cityId-1]->cityNameCh}}</p>
             <p class="card-text"> <img src="img/placeholder-filled-point.png" alt="">{{$eve->eventAddr}}</p>
-            <a href="event/{{$city}}/{{$year}}/{{$month}}" class="btn btn-primary">Go somewhere</a>
-              
+            
+            <a href="event/{{$city[$key]}}/{{$year[$key]}}/{{$month[$key]}}" class="btn btn-primary">Go somewhere</a>
+           
               
             </div>   
           </div>  
         </div>
+        @endforeach
     </div>
-    @endforeach
+    
         
         
      
@@ -333,7 +336,7 @@
     
 //     message:"Hello",
 //     list:
-//       [                                                                                                     
+//       [                                                                                                             event/CWH/2020/02
 //         {location:"屏東",time:"2019年10月09日",distance:"21K-10K-5K",place:"屏東鎮",imgname:"img/PCH201910.jpg",add:"event/PCH/2019/10"},
 //         {location:"彰化",time:"2020年02月09日",distance:"21K-10K-5K",place:"彰化鎮",imgname:"img/CWH202002.jpg",add:"event/CWH/2020/02"},
 //         {location:"新北",time:"2019年11月09日",distance:"21K-10K-5K",place:"新北鎮",imgname:"img/TPH201911.jpg",add:"event/TPH/2019/11"},

@@ -37,6 +37,10 @@ class EventAdminController extends Controller
         $eve->eventRunEndTime = $request->eventRunEndTime;
         $eve->eventTel = $request->eventTel;
         $eve->eventImage = $request->eventImage;
+        // $url= $request->eventImage;
+        // dd();
+        // $eve->eventImage = substr_replace ( $url , "" , 9 , 4 );
+        // dd($eve->eventImage);
         $eve->save();
 
         $runs = new Run();
