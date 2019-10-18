@@ -1,13 +1,16 @@
-
 <script>
-    // Sid='2019/11/10 23:59:59';
-
-    if(Date.parse('{{ $eventSignupEndTime }}').valueOf() <=  Date.now()  ){
+    // Sid='2019/11/10 23:59:59';   
+    Sid='';
+    if(Date.parse('{{ $eventSignupStartTime }}') > Date.now() ){
         //  console.log("SUCCESS");
-         Sid='{{ $eventRunStartTime }}';
-    }else{
-         Sid='{{ $eventSignupEndTime }}';
-    }   
+        Sid='{{ $eventSignupStartTime }}';
+    }
+    if(Date.parse('{{ $eventSignupStartTime }}') <= Date.now()){
+        Sid='{{ $eventSignupEndTime }}'; 
+    }
+    if( Date.parse('{{ $eventSignupEndTime }}') <= Date.now()){
+        Sid='{{ $eventRunStartTime }}';
+    } 
 </script>
 
 <!DOCTYPE html>
@@ -334,10 +337,12 @@
             remain_time.innerHTML = "";
         } else {
             
-            if( Sid=='{{ $eventSignupEndTime }}' ){
-                remain_txt.innerHTML = "<span>報名結束剩:</span>";
+            if( Sid=='{{ $eventSignupStartTime }}'){
+                remain_txt.innerHTML = "<span>離報名開始剩:</span>";
+            }else if( Sid=='{{ $eventSignupEndTime }}' ){
+                remain_txt.innerHTML = "<span>離報名結束剩:</span>";
             }else if(Sid=='{{ $eventRunStartTime }}' ){
-                remain_txt.innerHTML = "<span>路跑開始剩:</span>";
+                remain_txt.innerHTML = "<span>離路跑開始剩:</span>";
             }
 
             var Target_date = new Date(Sid);
@@ -350,7 +355,7 @@
                 var Cal_Second = Date_C.getUTCSeconds();
 
                 if(Date.parse('{{ $eventRunStartTime }}').valueOf() <=  Date.now()  ){         
-                    remain_txt.innerHTML = "<span>路跑已經開始</span>";
+                    remain_txt.innerHTML = "<span>路跑已經結束</span>";
                     remain_time.innerHTML = "<span></span>";
                 }else{
                     remain_time.innerHTML = Cal_Day + "天" + Cal_Hour + "時" + Cal_Minute + "分" + Cal_Second + "秒";
