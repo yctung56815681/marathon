@@ -264,14 +264,15 @@ class EventAdminController extends Controller
             return redirect("/login");
         }
         
+        
+        $runs = Run::Where('eventId',$idEvent)->get();
+        $runs[0]->delete();
+        $runs = Run::Where('eventId',$idEvent)->get();
+        $runs[0]->delete();
+        $runs = Run::Where('eventId',$idEvent)->get();
+        $runs[0]->delete();
         $evec = EventContent::find($idEvent);
         $evec->delete();
-        $runs = Run::Where('eventId',$idEvent)->get();
-        $runs[0]->delete();
-        $runs = Run::Where('eventId',$idEvent)->get();
-        $runs[0]->delete();
-        $runs = Run::Where('eventId',$idEvent)->get();
-        $runs[0]->delete();
         $eve = Event::find($idEvent);
         $eve->delete();
         return redirect("/eventAdmin");        //

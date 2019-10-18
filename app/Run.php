@@ -12,5 +12,8 @@ class Run extends Model
     // function no() {
     //     return $this->hasOne('', '', '');
     // }
+    public function event() {
+        return $this->hasOne(Event::class , "idEvent");
+    }
 }
 

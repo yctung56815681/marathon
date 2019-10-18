@@ -9,8 +9,8 @@ class EventContent extends Model
     protected $table = "event_contents";
     protected $primaryKey = 'idEventContent';
 
-    // function no() {
-    //     return $this->hasOne('', '', '');
-    // }
+    public function event() {
+        return $this->hasOne(Event::class , "idEvent");
+    }
 }
 

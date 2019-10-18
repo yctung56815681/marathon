@@ -13,7 +13,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    Qs：<script src="https://cdn.bootcss.com/qs/6.5.1/qs.min.js"></script>
+    <script src="https://cdn.bootcss.com/qs/6.5.1/qs.min.js"></script>
 
     <style>
 
@@ -46,6 +46,7 @@
           top: 0px;
           position: fixed;
           width: 100%;
+          height: 20px;
         }
         #Image{
 
@@ -269,12 +270,7 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ">
-              <li class="nav-item">
-                <a class="nav-link" href="#raceHistory">歷屆賽事 <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">新聞</a>
-              </li>
+              
               <li class="nav-item">
                 <a class="nav-link" href="#footer">關於我們</a>
               </li>

@@ -12,8 +12,14 @@ class Event extends Model
     // function event_contents() {
     //     return $this->hasOne( 'App\EventContent', 'id','cityId');
     // }
-   // function runs() {
-    //     return $this->hasOne( 'App\Run', 'id','cityId');
-    // }
+//    function runs() {
+//         return $this->hasOne( 'App\Run', 'id','cityId');
+//     }
+    public function EventContent() {
+        return $this->hasMany(Event::class , "eventId","idEvent");
+    }
+    public function Run() {
+        return $this->hasMany(Run::class , "eventId","idEvent");
+    }
 }
 
