@@ -153,8 +153,8 @@ class MemberAdminController extends Controller
         }
 
         $mem = Member::find($id);
-        $mem->memberName = $request->memberName;
-        $mem->memberTwId = $request->memberTwId;
+        // $mem->memberName = $request->memberName;
+        // $mem->memberTwId = $request->memberTwId;
         $mem->memberGender = $request->memberGender;
         $mem->memberYear = $request->memberYear;
         $mem->memberMonth = $request->memberMonth;

@@ -136,142 +136,88 @@
                 </div>
             </div>
         </div>
-
     </div>
-
-
-    <div class="Right">
- <div class=" p-3 mb-1 bg-secondary text-white text-center ">修改會員資料</div>
-
-<div class="container">
-
-<form method="post" action="/memberAdmin/{{ $mem->idMember }}" class="form-horizontal">
-@csrf
-@method('PUT')
-<fieldset>
-
-<!-- Form Name -->
-
-
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="memberName">姓名:</label>
-  <div class="col-md-4">
-  <input id="memberName" type="text" class="form-control"name="memberName" value="{{ $mem->memberName }}" type="text" placeholder="" class="form-control input-md">
-
+<!-----------------------------------------------------修改會員資料------------------------------------------------------------------------------------------------->
+<div class="Right">
+  <div class=" p-3 mb-1 bg-secondary text-white text-center ">修改會員資料</div>
+    <div class="container">
+        <form method="post" action="/memberAdmin/{{ $mem->idMember }}" class="form-horizontal">
+            @csrf
+            @method('PUT')
+          <fieldset>
+            <table class="table table-striped table-bordered table-hover">
+                <tr>
+                    <th width="20%">身分證字號:</th>
+                    <td width="25%"><input id="memberTwId" name="memberTwId" value="{{ $mem->memberTwId }}" type="text" disabled="disabled" class="form-control input-md">
+                        <small><a class="text-danger text-sm">(*此欄位無法修改)</a></small>
+                    </td>
+                    <th width="15%">姓名:</th>
+                    <td width="40%"><input id="memberName" name="memberName" value="{{ $mem->memberName }}" type="text" disabled="disabled" class="form-control input-md">
+                        <small><a class="text-danger text-sm">(*此欄位無法修改)</a></small>
+                    </td>
+                </tr>
+                <tr>
+                    <th>性別:</th>
+                    <td><input id="memberGender" name="memberGender" value="{{ $mem->memberGender }}" type="text" placeholder="" class="form-control input-md"></td>
+                    <th>出生日期:</th>
+                    <td>
+                      <div class="form-row">
+                        <div class="col-2 ">
+                            <input  class="form-control "  id="memberYear" name="memberYear" value="{{ $mem->memberYear }}" type="text">
+                        </div>
+                        <div>_</div>
+                        <div class="col-2 ">
+                            <input  class="form-control "  id="memberMonth" name="memberMonth" value="{{ $mem->memberMonth }}" type="text">
+                        </div>
+                        <div>_</div>
+                        <div class="col-2 ">
+                            <input  class="form-control "  id="memberDay" name="memberDay" value="{{ $mem->memberDay }}" type="text">
+                        </div>
+                      </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>居住城市:</th>
+                    <td><input id="memberCity" name="memberCity" value="{{ $mem->memberCity }}" type="text" placeholder="" class="form-control input-md"></td>
+                    <th>鄉鎮市:</th>
+                    <td><input id="memberTown" name="memberTown" value="{{ $mem->memberTown }}" type="text" placeholder="" class="form-control input-md"></td>
+                </tr>
+                <tr>
+                    <th>地址:</th>
+                    <td><input id="memberAddr" name="memberAddr" value="{{ $mem->memberAddr }}" type="text" placeholder="" class="form-control input-md"></td>
+                    <th>e-mail:</th>
+                    <td><input id="memberEmail" name="memberEmail" value="{{ $mem->memberEmail }}" type="text" placeholder="" class="form-control input-md"></td>
+                </tr>
+                <tr>
+                    <th>電話:</th>
+                    <td><input id="memberMobile" name="memberMobile" value="{{ $mem->memberMobile }}" type="text" placeholder="" class="form-control input-md"></td>
+                    <th>緊急聯絡人:</th>
+                    <td><input id="memberEmergencyContact" name="memberEmergencyContact" value="{{ $mem->memberEmergencyContact }}"type="text" placeholder="" class="form-control input-md"></td>
+                </tr>
+                <tr>
+                    <th>與緊急聯絡人關係:</th>
+                    <td><input id="memberEmergencyRelationship" name="memberEmergencyRelationship" value="{{ $mem->memberEmergencyRelationship }}" type="text" placeholder="" class="form-control input-md"></td>
+                    <th>緊急聯絡人電話:</th>
+                    <td><input id="memberEmergencyMobile" name="memberEmergencyMobile" value="{{ $mem->memberEmergencyMobile }}" type="text" placeholder="" class="form-control input-md"></td>
+                </tr>
+                <tr>
+                <div class="form-group">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    <div class="col-8 float-right">
+                        <button type="button" onclick="window.history.back(-1)" id="okOrCancel" name="okOrCancel" class="btn-sm btn-warning float-right"><i class="fas fa-ban"></i>取消</button>
+                        <button type="submit" id="okOrCancel" name="okOrCancel" class="btn-sm btn-success float-right"><i class="far fa-plus-square"></i> 確認</button>
+                    </div>
+                    </td>
+                </tr>
+            </table>
+          </fieldset>
+          </form>
+          </div>
+      </div>
   </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="memberTwId">身分證字號:</label>
-  <div class="col-md-4">
-  <input id="memberTwId" name="memberTwId" value="{{ $mem->memberTwId }}" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberGender">性別:</label>
-        <div class="col-md-4">
-        <input id="memberGender" name="memberGender" value="{{ $mem->memberGender }}" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberYear">出生年:</label>
-        <div class="col-md-4">
-        <input id="memberYear" name="memberYear" value="{{ $mem->memberYear }}" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberMonth">月:</label>
-        <div class="col-md-4">
-        <input id="memberMonth" name="memberMonth" value="{{ $mem->memberMonth }}" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberDay">日期:</label>
-        <div class="col-md-4">
-        <input id="memberDay" name="memberDay" value="{{ $mem->memberDay }}" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberCity">居住城市:</label>
-        <div class="col-md-4">
-        <input id="memberCity" name="memberCity" value="{{ $mem->memberCity }}" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberTown">鄉鎮市:</label>
-        <div class="col-md-4">
-        <input id="memberTown" name="memberTown" value="{{ $mem->memberTown }}" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberAddr">地址:</label>
-    <div class="col-md-4">
-        <input id="memberAddr" name="memberAddr" value="{{ $mem->memberAddr }}" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberEmail">e-mail:</label>
-        <div class="col-md-4">
-        <input id="memberEmail" name="memberEmail" value="{{ $mem->memberEmail }}" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberMobile">電話:</label>
-        <div class="col-md-4">
-        <input id="memberMobile" name="memberMobile" value="{{ $mem->memberMobile }}" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberEmergencyContact">緊急聯絡人:</label>
-        <div class="col-md-4">
-        <input id="memberEmergencyContact" name="memberEmergencyContact" value="{{ $mem->memberEmergencyContact }}"type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberEmergencyRelationship">與緊急聯絡人關係:</label>
-        <div class="col-md-4">
-        <input id="memberEmergencyRelationship" name="memberEmergencyRelationship" value="{{ $mem->memberEmergencyRelationship }}" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberEmergencyMobile">緊急聯絡人電話:</label>
-        <div class="col-md-4">
-        <input id="memberEmergencyMobile" name="memberEmergencyMobile" value="{{ $mem->memberEmergencyMobile }}" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-
-<!-- Button (Double) -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="okOrCancel"></label>
-  <div class="col-md-8">
-    <button type="submit" id="okOrCancel" name="okOrCancel" class="btn-sm btn-success"><i class="far fa-plus-square"></i> 確認修改</button>
-
-    <button type="button" onclick="window.history.back(-1)" id="okOrCancel" name="okOrCancel" class="btn-sm btn-warning"><i class="fas fa-ban"></i>取消修改</button>
-  </div>
-</div>
-</fieldset>
-</form>
-
-    </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">

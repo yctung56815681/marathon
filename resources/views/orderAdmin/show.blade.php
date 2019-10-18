@@ -154,8 +154,6 @@
                     <td></td>
                     <td></td>
                     <td>
-                        <!-- 個人資料 model跳出 -->
-
                     <a class="btn btn-sm btn-warning" role="button" href="/memberAdmin/{{$obj->order->memberId}}/show"><i class="fas fa-user"></i>會員資料</button>
                     </td>
                 </tr>
@@ -188,8 +186,8 @@
                 <tr>
                     <th>訂單時間 : </th>
                     <td class="text-danger">2019-09-06-09:00:02</td>
-                    <th>交易狀態 : </th>
-                    <td class="text-danger">已付款</td>
+                    <th>訂單狀態 : </th>
+                    <td class="text-danger">正常</td>
                     <th>訂單總額 : </th>
                     <td class="text-danger">{{$obj->totalPrice}}元</td>
                 </tr>
@@ -200,11 +198,41 @@
                     <td></td>
                     <td></td>
                     <td >
-                    <button type ="button" class="btn-sm btn-success pull-right"onclick="history.go(-1)"><i class="far fa-plus-square"></i>返回操作</button>
-                    <button type="button" class="btn-sm btn-danger pull-right" data-toggle="modal" data-target="#exampleModal"data-whatever="@mdo"><i class="far fa-trash-alt"></i>撤銷訂單
+                    <button type ="button" class="btn-sm btn-success pull-right"onclick="history.go(-1)"><i class="far fa-plus-square"></i>返回</button>
+                    <button type="button" class="btn-sm btn-danger pull-right" data-toggle="modal" data-target="#exampleModal{{$obj->order->idOrder}}"data-whatever="@mdo"><i class="far fa-trash-alt"></i>撤銷
                     </button>
                     </td>
 
+                    <!-- 撤銷 model跳出 -->
+                    <div class="modal fade" id="exampleModal{{$obj->order->idOrder}}" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <span class="modal-title text-danger ">提示訊息</span>
+                                        <button type="button" class="close" data-dismiss="modal"
+                                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                            <div class="form-group">
+                                                <label for="message-text"
+                                                    class="control-label">確定要撤銷此筆資料嗎？</label>
+                                            </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                    <form method="post" action="/orderAdmin/{{$obj->order->idOrder}}">
+                                        <button type="button" class="btn-sm btn-info" data-dismiss="modal"><i
+                                                class="far fa-plus-square"></i> 返回</button>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button  type="submit" class="btn-sm btn-danger"><i
+                                                class="far fa-trash-alt"></i> 撤銷</button>
+                                    </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- model結束 -->
                 </tr>
             </table>
         </div>

@@ -137,7 +137,7 @@
                 </div>
             </div>
         </div>
-
+<!-- -----------------------------------------------------------------新增會員資料--------------------------------------------------------------------- -->
     </div>
     <div class="Right">
 
@@ -145,131 +145,81 @@
 
 <!-- Form Name -->
 <div class="p-3 mb-1 bg-secondary text-white text-center ">新增會員資料</div>
-
 <div class="container">
 <form method="post" action="/memberAdmin" class="form-horizontal">
   @csrf
-
 <fieldset>
-
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="memberName">姓名:</label>
-  <div class="col-md-4">
-  <input id="memberName" name="memberName" type="text" placeholder="" class="form-control input-md">
-
+            <table class="table table-striped table-bordered table-hover">
+                <tr>
+                    <th width="20%">身分證字號:</th>
+                    <td width="25%"><input id="memberTwId" name="memberTwId" type="text" placeholder="" class="form-control input-md" required>
+                    </td>
+                    <th width="15%">姓名:</th>
+                    <td width="40%"><input id="memberName" name="memberName" type="text" placeholder="" class="form-control input-md" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>性別:</th>
+                    <td><input id="memberGender" name="memberGender" type="text" placeholder="" class="form-control input-md"></td>
+                    <th>出生日期:</th>
+                    <td>
+                      <div class="form-row">
+                        <div class="col-2 ">
+                            <input  class="form-control "  id="memberYear" name="memberYear" type="text">
+                        </div>
+                        <div>_</div>
+                        <div class="col-2 ">
+                            <input  class="form-control "  id="memberMonth" name="memberMonth"  type="text">
+                        </div>
+                        <div>_</div>
+                        <div class="col-2 ">
+                            <input  class="form-control "  id="memberDay" name="memberDay"  type="text">
+                        </div>
+                      </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>居住城市:</th>
+                    <td><input id="memberCity" name="memberCity"  type="text" placeholder="" class="form-control input-md"></td>
+                    <th>鄉鎮市:</th>
+                    <td><input id="memberTown" name="memberTown"  type="text" placeholder="" class="form-control input-md"></td>
+                </tr>
+                <tr>
+                    <th>地址:</th>
+                    <td><input id="memberAddr" name="memberAddr" type="text" placeholder="" class="form-control input-md"></td>
+                    <th>e-mail:</th>
+                    <td><input id="memberEmail" name="memberEmail"  type="text" placeholder="" class="form-control input-md"></td>
+                </tr>
+                <tr>
+                    <th>電話:</th>
+                    <td><input id="memberMobile" name="memberMobile" type="text" placeholder="" class="form-control input-md"></td>
+                    <th>緊急聯絡人:</th>
+                    <td><input id="memberEmergencyContact" name="memberEmergencyContact" type="text" placeholder="" class="form-control input-md"></td>
+                </tr>
+                <tr>
+                    <th>與緊急聯絡人關係:</th>
+                    <td><input id="memberEmergencyRelationship" name="memberEmergencyRelationship" type="text" placeholder="" class="form-control input-md"></td>
+                    <th>緊急聯絡人電話:</th>
+                    <td><input id="memberEmergencyMobile" name="memberEmergencyMobile"  type="text" placeholder="" class="form-control input-md"></td>
+                </tr>
+                <tr>
+                <div class="form-group">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    <div class="col-8 float-right">
+                        <button type="button" onclick="window.history.back(-1)" id="okOrCancel" name="okOrCancel" class="btn-sm btn-warning float-right"><i class="fas fa-ban"></i>取消</button>
+                        <button type="submit" id="okOrCancel" name="okOrCancel" class="btn-sm btn-success float-right"><i class="far fa-plus-square"></i> 確認</button>
+                    </div>
+                    </td>
+                </tr>
+            </table>
+          </fieldset>
+          </form>
+          </div>
+      </div>
   </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="memberTwId">身分證字號:</label>
-  <div class="col-md-4">
-  <input id="memberTwId" name="memberTwId" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberGender">性別:</label>
-        <div class="col-md-4">
-        <input id="memberGender" name="memberGender" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberYear">出生年:</label>
-        <div class="col-md-4">
-        <input id="memberYear" name="memberYear" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberMonth">月:</label>
-        <div class="col-md-4">
-        <input id="memberMonth" name="memberMonth" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberDay">日期:</label>
-        <div class="col-md-4">
-        <input id="memberDay" name="memberDay" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberCity">居住城市:</label>
-        <div class="col-md-4">
-        <input id="memberCity" name="memberCity" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberTown">鄉鎮市:</label>
-        <div class="col-md-4">
-        <input id="memberTown" name="memberTown" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberAddr">地址:</label>
-    <div class="col-md-4">
-        <input id="memberAddr" name="memberAddr" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberEmail">e-mail:</label>
-        <div class="col-md-4">
-        <input id="memberEmail" name="memberEmail" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberMobile">電話:</label>
-        <div class="col-md-4">
-        <input id="memberMobile" name="memberMobile" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberEmergencyContact">緊急聯絡人:</label>
-        <div class="col-md-4">
-        <input id="memberEmergencyContact" name="memberEmergencyContact" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberEmergencyRelationship">與緊急聯絡人關係:</label>
-        <div class="col-md-4">
-        <input id="memberEmergencyRelationship" name="memberEmergencyRelationship" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-  <!-- Text input-->
-<div class="form-group">
-        <label class="col-md-4 control-label" for="memberEmergencyMobile">緊急聯絡人電話:</label>
-        <div class="col-md-4">
-        <input id="memberEmergencyMobile" name="memberEmergencyMobile" type="text" placeholder="" class="form-control input-md">
-  </div>
-</div>
-
-
-<!-- Button (Double) -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="okOrCancel"></label>
-  <div class="col-md-8">
-  <button type="submit" id="okOrCancel" name="okOrCancel" class="btn-sm btn-success"><i class="far fa-plus-square"></i> 確認新增</button>
-  <button type="button" onclick="window.history.back(-1)" id="okOrCancel" name="okOrCancel" class="btn-sm btn-warning"><i class="fas fa-ban"></i>取消新增</button>
-  </div>
-</div>
-
-
-
 </fieldset>
 </form>
 

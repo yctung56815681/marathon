@@ -167,5 +167,8 @@ class OrderAdminController extends Controller
         if ($userName == "Guest") {
             return redirect("/login");
         }
+        DB::table('orders')->where('orders.idOrder',"=" ,$id)
+        ->update(['orderRevoke'=> 2]);
+        return redirect("/orderGroupAdmin");
     }
 }

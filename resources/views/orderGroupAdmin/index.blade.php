@@ -143,173 +143,76 @@
     <!--------------------------------------------------------------------------------------right-------------------------------------------------------------------------------------->
     <div class="Right">
         <div class="container">
-            {{-- <div class="row"> --}}
-                <div class="p-3 bg-secondary text-white text-center">群組管理</div>
-            {{-- <div class="pt-2 text-center">
-                <h5>帳號列表</h5>
-            </div> --}}
-
-            <table class="table table-striped table-bordered table-hover">
-                <thead class="table-info">
-                    <tr>
-                        <th width="15%" class="text-center" scope="col">群組編號</th>
-                        <th width="15%" class="text-center" scope="col">群組名稱</th>
-                        <th width="55%" class="text-center" scope="col">會員姓名 / 身分證字號</th>
-                        <td width="15%">
-                            <a href="/orderGroupAdmin/create" class="btn btn-sm btn-success"><i class="far fa-plus-square"> </i> 新增</a>
-                        </td>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($obj as $item)
-                    <tr>
-                        <td class=" text-black text-center">
-                        {{$item->orderGroupNo}}
-                        </td>
-                        <td class=" text-black text-center">
-                            {{$item->orderGroupName}}
+            <div class="p-3 bg-secondary text-white text-center">群組管理</div>
+                <table class="table table-striped table-bordered table-hover">
+                    <thead class="table-info">
+                        <tr>
+                            <th width="70px" class="text-center" scope="col">群組編號</th>
+                            <th width="70px" class="text-center" scope="col">群組名稱</th>
+                            <th width="65px" class="text-center" scope="col">群組狀態</th>
+                            <th width="300px" class="text-center" scope="col">身分證字號 / 會員姓名</th>
+                            <td width="40px">
+                                <a href="/orderGroupAdmin/create" class="btn btn-sm btn-success"><i class="far fa-plus-square"> </i> 新增</a>
                             </td>
-                        <td>
-                        @foreach($item->order as $item2)
-                            <a href="/orderAdmin/{{$item2->idOrder}}" class="btn btn-outline-primary">{{$item2->memberTwId}} / {{$item2->memberName}}</a>
-                        @endforeach
-                        </td>
-                        <td>
-                            <button type="button" class="btn-sm btn-danger" data-toggle="modal"
-                                data-target="#exampleModal"><i class="far fa-trash-alt"></i> 撤銷</button>
-                        </td>
-                    </tr>
-                    @endforeach
-                    <!-- 撤銷 model跳出 -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModalLabel">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal"
-                                    aria-label="Close"><span aria-hidden="true">×</span></button>
-                                </div>
-                                <div class="modal-body">
-                                    <form>
-                                        <div class="form-group">
-                                            <label for="message-text"
-                                                class="control-label">確定要撤銷群組資料？</label>
-                                        </div>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            @foreach ($obj as $item)
+                        <tr>
+                            <td class=" text-black text-center">
+                            {{$item->orderGroupNo}}
+                            </td>
+                            <td class=" text-black text-center">
+                                {{$item->orderGroupName}}
+                            </td>
+                            <td class=" text-black text-center">
+                                <a class="text-danger">{{$item->orderGroupRevoke}}</a>
+                            </td>
+                            <td>
+                            @foreach($item->order as $item2)
+                                <a href="/orderAdmin/{{$item2->idOrder}}" class="btn btn-outline-primary">{{$item2->memberTwId}} / {{$item2->memberName}}</a>
+                            @endforeach
+                            </td>
+                            <td>
+                                <button type="button" class="btn-sm btn-danger" data-toggle="modal"
+                                    data-target="#exampleModal{{$item->idOrderGroup}}"><i class="far fa-trash-alt"></i> 撤銷</button>
+                            </td>
+                        </tr>
+                        <!-- 撤銷 model跳出 -->
+                        <div class="modal fade" id="exampleModal{{$item->idOrderGroup}}" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <span class="modal-title text-danger ">提示訊息</span>
+                                        <button type="button" class="close" data-dismiss="modal"
+                                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                            <div class="form-group">
+                                                <label for="message-text"
+                                                    class="control-label">確定要撤銷群組資料？</label>
+                                            </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                    <form method="post" action="/orderGroupAdmin/{{$item->idOrderGroup}}">
+                                        <button type="button" class="btn-sm btn-info" data-dismiss="modal"><i
+                                                class="far fa-plus-square"></i> 返回</button>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button  type="submit" class="btn-sm btn-danger"><i
+                                                class="far fa-trash-alt"></i> 撤銷</button>
                                     </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn-sm btn-info" data-dismiss="modal"><i
-                                            class="far fa-plus-square"></i> 返回</button>
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn-sm btn-danger"><i
-                                            class="far fa-trash-alt"></i> 撤銷</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- model結束 -->
-                    {{-- <tr>
-                        <td width="15%" class=" text-black text-center">55412365456321456</td>
-                        <td width="70%">
-                            <a href="/orderGroupAdmin/edit" class="btn btn-outline-primary">蔡阿福/ A123456789</a>
-                        </td>
-                        <td width="15%">
-                            <!-- 撤銷 model跳出 -->
-                            <button type="button" class="btn-sm btn-danger" data-toggle="modal"
-                                data-target="#exampleModal" data-whatever="@mdo"><i class="far fa-trash-alt"></i>
-                                撤銷訂單</button>
-                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                                aria-labelledby="exampleModalLabel">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close"><span aria-hidden="true">×</span></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form>
-                                                <div class="form-group">
-                                                    <label for="message-text"
-                                                        class="control-label">確定要撤銷此筆群組會員資料？</label>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn-sm btn-info" data-dismiss="modal"><i
-                                                    class="far fa-plus-square"></i> 返回操作</button>
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn-sm btn-danger"><i
-                                                    class="far fa-trash-alt"></i>確定撤銷</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- model結束 -->
-                        </td>
-                    </tr> --}}
-                    {{-- <tr>
-                        <td widh="15%" class=" text-black text-center">55412365456321456</th>
-                        <td width="70%">
-                            <a href="/orderGroupAdmin/edit" class="btn btn-outline-primary">蔡阿福/ A123456789</a>
-                            <a href="/orderGroupAdmin/edit" class="btn btn-outline-primary">蔡阿福/ A123456789</a>
-                            <a href="/orderGroupAdmin/edit" class="btn btn-outline-primary">蔡阿福/ A123456789</a>
-                            <a href="/orderGroupAdmin/edit" class="btn btn-outline-primary">蔡阿福/ A123456789</a>
-                            <a href="/orderGroupAdmin/edit" class="btn btn-outline-primary">蔡阿福/ A123456789</a>
-                            <a href="/orderGroupAdmin/edit" class="btn btn-outline-primary">蔡阿福/ A123456789</a>
-                            <a href="/orderGroupAdmin/edit" class="btn btn-outline-primary">蔡阿福/ A123456789</a>
-                            <a href="/orderGroupAdmin/edit" class="btn btn-outline-primary">蔡阿福/ A123456789</a>
-                            <a href="/orderGroupAdmin/edit" class="btn btn-outline-primary">蔡阿福/ A123456789</a>
-                            <a href="/orderGroupAdmin/edit" class="btn btn-outline-primary">蔡阿福/ A123456789</a>
-                            <a href="/orderGroupAdmin/edit" class="btn btn-outline-primary">蔡阿福/ A123456789</a>
-                            <a href="/orderGroupAdmin/edit" class="btn btn-outline-primary">蔡阿福/ A123456789</a>
-                            <a href="/orderGroupAdmin/edit" class="btn btn-outline-primary">蔡阿福/ A123456789</a>
-                            <a href="/orderGroupAdmin/edit" class="btn btn-outline-primary">蔡阿福/ A123456789</a>
-                            <a href="/orderGroupAdmin/edit" class="btn btn-outline-primary">蔡阿福/ A123456789</a>
-                        </td>
-                        <td width="15%">
-                            <!-- 撤銷 model跳出 -->
-                            <button type="button" class="btn-sm btn-danger" data-toggle="modal"
-                                data-target="#exampleModal" data-whatever="@mdo"><i class="far fa-trash-alt"></i>
-                                撤銷訂單</button>
-                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                                aria-labelledby="exampleModalLabel">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close"><span aria-hidden="true">×</span></button>
-                                        </div>
-
-                                        <div class="modal-body">
-                                            <form>
-                                                <div class="form-group">
-                                                    <label for="message-text"
-                                                        class="control-label">確定要撤銷此筆群組會員資料？</label>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn-sm btn-info" data-dismiss="modal"><i
-                                                    class="far fa-plus-square"></i> 返回操作</button>
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn-sm btn-danger"><i
-                                                    class="far fa-trash-alt"></i>確定撤銷</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- model結束 -->
-                        </td>
-                    </tr>  --}}
-                </tbody>
-                <caption id="pageList" class="text-center"></caption>
-            </table>
-            {{-- </div> --}}
-        </div>
+                        <!-- model結束 -->
+                        @endforeach
+                    </tbody>   
+                </table> 
+            </div>
+        </div>    
     </div>
 
     <script>

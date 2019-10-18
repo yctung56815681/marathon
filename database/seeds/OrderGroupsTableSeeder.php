@@ -14,6 +14,8 @@ class OrderGroupsTableSeeder extends Seeder
         if (DB::table('order_groups')->get()->count() == 0) {
             DB::table('order_groups')->insert([
                 'orderGroupNo' => '訂單群組編號1',
+                'orderGroupStatus' => '1',
+                'orderGroupRevoke' => '1',
                 'orderGroupName' => '訂單群組名稱1',
                 'eventId' => '1',
                 'orderGroupInvoiceLetterhead' => '公司抬頭1',
@@ -21,6 +23,8 @@ class OrderGroupsTableSeeder extends Seeder
             ]);
             DB::table('order_groups')->insert([
                 'orderGroupNo' => '訂單群組編號2',
+                'orderGroupStatus' => '1',
+                'orderGroupRevoke' => '1',
                 'orderGroupName' => '訂單群組名稱2',
                 'eventId' => '1',
                 'orderGroupInvoiceLetterhead' => '公司抬頭2',
@@ -28,6 +32,8 @@ class OrderGroupsTableSeeder extends Seeder
             ]);
             DB::table('order_groups')->insert([
                 'orderGroupNo' => '訂單群組編號3',
+                'orderGroupStatus' => '1',
+                'orderGroupRevoke' => '1',
                 'orderGroupName' => '訂單群組名稱3',
                 'eventId' => '2',
                 'orderGroupInvoiceLetterhead' => '公司抬頭3',
@@ -35,6 +41,8 @@ class OrderGroupsTableSeeder extends Seeder
             ]);
             DB::table('order_groups')->insert([
                 'orderGroupNo' => '訂單群組編號4',
+                'orderGroupStatus' => '1',
+                'orderGroupRevoke' => '1',
                 'orderGroupName' => '訂單群組名稱4',
                 'eventId' => '2',
                 'orderGroupInvoiceLetterhead' => '公司抬頭4',
@@ -42,6 +50,8 @@ class OrderGroupsTableSeeder extends Seeder
             ]);
             DB::table('order_groups')->insert([
                 'orderGroupNo' => '訂單群組編號5',
+                'orderGroupStatus' => '1',
+                'orderGroupRevoke' => '1',
                 'orderGroupName' => '訂單群組名稱5',
                 'eventId' => '3',
                 'orderGroupInvoiceLetterhead' => '公司抬頭5',
@@ -49,6 +59,8 @@ class OrderGroupsTableSeeder extends Seeder
             ]);
             DB::table('order_groups')->insert([
                 'orderGroupNo' => '訂單群組編號6',
+                'orderGroupStatus' => '1',
+                'orderGroupRevoke' => '1',
                 'orderGroupName' => '訂單群組名稱6',
                 'eventId' => '3',
                 'orderGroupInvoiceLetterhead' => '公司抬頭6',
@@ -56,6 +68,8 @@ class OrderGroupsTableSeeder extends Seeder
             ]);
             DB::table('order_groups')->insert([
                 'orderGroupNo' => '訂單群組編號7',
+                'orderGroupStatus' => '1',
+                'orderGroupRevoke' => '1',
                 'orderGroupName' => '訂單群組名稱7',
                 'eventId' => '4',
                 'orderGroupInvoiceLetterhead' => '公司抬頭7',
@@ -63,6 +77,8 @@ class OrderGroupsTableSeeder extends Seeder
             ]);
             DB::table('order_groups')->insert([
                 'orderGroupNo' => '訂單群組編號8',
+                'orderGroupStatus' => '1',
+                'orderGroupRevoke' => '1',
                 'orderGroupName' => '訂單群組名稱8',
                 'eventId' => '4',
                 'orderGroupInvoiceLetterhead' => '公司抬頭8',
@@ -70,6 +86,8 @@ class OrderGroupsTableSeeder extends Seeder
             ]);
             DB::table('order_groups')->insert([
                 'orderGroupNo' => '訂單群組編號9',
+                'orderGroupStatus' => '1',
+                'orderGroupRevoke' => '1',
                 'orderGroupName' => '訂單群組名稱9',
                 'eventId' => '5',
                 'orderGroupInvoiceLetterhead' => '公司抬頭9',
@@ -77,6 +95,8 @@ class OrderGroupsTableSeeder extends Seeder
                 ]);
             DB::table('order_groups')->insert([
                 'orderGroupNo' => '訂單群組編號10',
+                'orderGroupStatus' => '1',
+                'orderGroupRevoke' => '1',
                 'orderGroupName' => '訂單群組名稱10',
                 'eventId' => '5',
                 'orderGroupInvoiceLetterhead' => '公司抬頭10',
@@ -84,6 +104,8 @@ class OrderGroupsTableSeeder extends Seeder
             ]);
             DB::table('order_groups')->insert([
                 'orderGroupNo' => '訂單群組編號11',
+                'orderGroupStatus' => '1',
+                'orderGroupRevoke' => '1',
                 'orderGroupName' => '訂單群組名稱11',
                 'eventId' => '5',
                 'orderGroupInvoiceLetterhead' => '公司抬頭11',
@@ -91,6 +113,8 @@ class OrderGroupsTableSeeder extends Seeder
             ]);
             DB::table('order_groups')->insert([
                 'orderGroupNo' => '訂單群組編號12',
+                'orderGroupStatus' => '1',
+                'orderGroupRevoke' => '1',
                 'orderGroupName' => '訂單群組名稱12',
                 'eventId' => '5',
                 'orderGroupInvoiceLetterhead' => '公司抬頭12',
@@ -98,6 +122,8 @@ class OrderGroupsTableSeeder extends Seeder
             ]);
             DB::table('order_groups')->insert([
                 'orderGroupNo' => '訂單群組編號13',
+                'orderGroupStatus' => '1',
+                'orderGroupRevoke' => '1',
                 'orderGroupName' => '訂單群組名稱13',
                 'eventId' => '2',
                 'orderGroupInvoiceLetterhead' => '公司抬頭13',
@@ -105,6 +131,8 @@ class OrderGroupsTableSeeder extends Seeder
             ]);
             DB::table('order_groups')->insert([
                 'orderGroupNo' => '訂單群組編號14',
+                'orderGroupStatus' => '1',
+                'orderGroupRevoke' => '1',
                 'orderGroupName' => '訂單群組名稱14',
                 'eventId' => '2',
                 'orderGroupInvoiceLetterhead' => '公司抬頭14',
@@ -112,6 +140,8 @@ class OrderGroupsTableSeeder extends Seeder
             ]);
             DB::table('order_groups')->insert([
                 'orderGroupNo' => '訂單群組編號15',
+                'orderGroupStatus' => '1',
+                'orderGroupRevoke' => '1',
                 'orderGroupName' => '訂單群組名稱15',
                 'eventId' => '3',
                 'orderGroupInvoiceLetterhead' => '公司抬頭15',
@@ -119,6 +149,8 @@ class OrderGroupsTableSeeder extends Seeder
             ]);
             DB::table('order_groups')->insert([
                 'orderGroupNo' => '訂單群組編號16',
+                'orderGroupStatus' => '1',
+                'orderGroupRevoke' => '1',
                 'orderGroupName' => '訂單群組名稱16',
                 'eventId' => '3',
                 'orderGroupInvoiceLetterhead' => '公司抬頭16',
@@ -126,6 +158,8 @@ class OrderGroupsTableSeeder extends Seeder
             ]);
             DB::table('order_groups')->insert([
                 'orderGroupNo' => '訂單群組編號17',
+                'orderGroupStatus' => '1',
+                'orderGroupRevoke' => '1',
                 'orderGroupName' => '訂單群組名稱17',
                 'eventId' => '4',
                 'orderGroupInvoiceLetterhead' => '公司抬頭17',
@@ -133,6 +167,8 @@ class OrderGroupsTableSeeder extends Seeder
             ]);
             DB::table('order_groups')->insert([
                 'orderGroupNo' => '訂單群組編號18',
+                'orderGroupStatus' => '1',
+                'orderGroupRevoke' => '1',
                 'orderGroupName' => '訂單群組名稱18',
                 'eventId' => '4',
                 'orderGroupInvoiceLetterhead' => '公司抬頭18',
@@ -140,6 +176,8 @@ class OrderGroupsTableSeeder extends Seeder
             ]);
             DB::table('order_groups')->insert([
                 'orderGroupNo' => '訂單群組編號19',
+                'orderGroupStatus' => '1',
+                'orderGroupRevoke' => '1',
                 'orderGroupName' => '訂單群組名稱19',
                 'eventId' => '5',
                 'orderGroupInvoiceLetterhead' => '公司抬頭19',
@@ -147,6 +185,8 @@ class OrderGroupsTableSeeder extends Seeder
                 ]);
             DB::table('order_groups')->insert([
                 'orderGroupNo' => '訂單群組編號20',
+                'orderGroupStatus' => '1',
+                'orderGroupRevoke' => '1',
                 'orderGroupName' => '訂單群組名稱20',
                 'eventId' => '5',
                 'orderGroupInvoiceLetterhead' => '公司抬頭20',
@@ -154,6 +194,8 @@ class OrderGroupsTableSeeder extends Seeder
             ]);
             DB::table('order_groups')->insert([
                 'orderGroupNo' => '訂單群組編號21',
+                'orderGroupStatus' => '1',
+                'orderGroupRevoke' => '1',
                 'orderGroupName' => '訂單群組名稱21',
                 'eventId' => '5',
                 'orderGroupInvoiceLetterhead' => '公司抬頭21',
@@ -161,6 +203,8 @@ class OrderGroupsTableSeeder extends Seeder
             ]);
             DB::table('order_groups')->insert([
                 'orderGroupNo' => '訂單群組編號22',
+                'orderGroupStatus' => '1',
+                'orderGroupRevoke' => '1',
                 'orderGroupName' => '訂單群組名稱22',
                 'eventId' => '5',
                 'orderGroupInvoiceLetterhead' => '公司抬頭22',
