@@ -389,15 +389,14 @@ h1,h2,h3,h4,h5,h6,p {
 
 /*0304新增*/
 .main .outer .row02 .countdown_outer .other_link .btn111 {
-    border: 2px solid #13d474;
-    border-radius: 5px;
+    border-radius: 60px;
     display: block;
-    margin: 8px 0;
+    margin: 10px 0;
+    padding: 10px;
+    /* font-size: 16px; */
     color: #e50012;
-    padding: 5px;
     text-align: center;
-    font-size: 16px;
-    background: rgba(174, 240, 76, 0.966);
+    /* background: rgba(174, 240, 76, 0.966); */
     box-shadow: 0px 0px 16px -3px rgba(0,0,0,0.45);
 }
 

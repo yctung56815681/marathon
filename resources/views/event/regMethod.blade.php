@@ -1,17 +1,17 @@
 <script>
     // Sid='2019/11/10 23:59:59';
     Sid='';
-    if(Date.parse('{{ $eventSignupStartTime }}') > Date.now() ){
-        //  console.log("SUCCESS");
+    if(Date.parse('{{ $eventSignupStartTime }}')> Date.now() ){
         Sid='{{ $eventSignupStartTime }}';
     }
     if(Date.parse('{{ $eventSignupStartTime }}') <= Date.now()){
         Sid='{{ $eventSignupEndTime }}'; 
-        console.log("SUCCESS2");
     }
-    if( Date.parse('{{ $eventSignupEndTime }}') <= Date.now()){
+    if( Date.parse('{{ $eventSignupEndTime }}')<= Date.now()){
         Sid='{{ $eventRunStartTime }}';
-        console.log("SUCCESS2");
+    }
+    if( Date.parse('{{ $eventRunStartTime }}') <= Date.now()){
+        Sid='{{ $eventRunEndTime }}';
     } 
 </script>
 
@@ -131,7 +131,7 @@
                         </div>
 
                         <div class="other_link">
-                            <div class="btn111" style="font-size: 1em;">
+                            <div class="btn111" style="font-size: 1.2em;">
                                 <span id="remain_txt"><span>報名截止剩餘:</span></span>
                                 <span id="remain_time">Label</span>
                             </div>
@@ -300,6 +300,10 @@
                 remain_txt.innerHTML = "<span>離報名結束剩:</span>";
             }else if(Sid=='{{ $eventRunStartTime }}' ){
                 remain_txt.innerHTML = "<span>離路跑開始剩:</span>";
+                SignTitle.style.display = "none";
+            }else if(Sid=='{{ $eventRunEndTime }}' ){
+                remain_txt.innerHTML = "<span>離路跑結束剩</span>";
+                SignTitle.style.display = "none";
             }
 
             var Target_date = new Date(Sid);
@@ -314,7 +318,7 @@
                 var Cal_Minute = Date_C.getUTCMinutes();
                 var Cal_Second = Date_C.getUTCSeconds();
 
-                if(Date.parse('{{ $eventRunStartTime }}').valueOf() <=  Date.now()  ){         
+                if(Date.parse('{{ $eventRunStartTime }}') <=  Date.now()  ){         
                     remain_txt.innerHTML = "<span>路跑已經結束</span>";
                     remain_time.innerHTML = "<span></span>";
                 }else{
