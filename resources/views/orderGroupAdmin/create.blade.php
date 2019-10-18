@@ -411,9 +411,9 @@
 // })
 
 // //換頁效果
-function goGroup() {
-$("#group").attr("style", "display:block");
-}
+// function goGroup() {
+// $("#group").attr("style", "display:block");
+// }
 
 // function goGroup2() {
 // $("#group1").attr("style", "display:none");

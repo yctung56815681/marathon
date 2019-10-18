@@ -155,7 +155,7 @@
                     <th>性別:</th>
                     <td>{{$mem->memberGender}}</td>
                     <th>出生日期:</th>
-                    <td>{{$mem->memberYear}}/{{$mem->memberMonth}}/{{$mem->memberDay}}</td>
+                    <td>{{$mem->memberYear}}-{{$mem->memberMonth}}-{{$mem->memberDay}}</td>
                 </tr>
                 <tr>
                     <th>居住城市:</th>
@@ -186,8 +186,8 @@
                     <td></td>
                     <td></td>
                     <td>
-                    <a  class="btn btn-sm btn-success " role="button" onclick="history.go(-1)"><i class="far fa-plus-square"></i> 返回操作</a>
-                    <a class="btn btn-sm btn-info" role="button" href="/memberAdmin/{{$mem->idMember}}/edit"><i class="far fa-edit"></i> 編輯資料</a>
+                    <a  class="btn btn-sm btn-success " role="button" onclick="history.go(-1)"><i class="far fa-plus-square"></i> 返回</a>
+                    <a class="btn btn-sm btn-info" role="button" href="/memberAdmin/{{$mem->idMember}}/edit"><i class="far fa-edit"></i> 編輯</a>
                     </td>
                 </tr>
             </table>
