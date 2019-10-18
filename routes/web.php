@@ -44,6 +44,7 @@ Route::get('/query/{city}/{year}/{month}', "QueryController@index");
 
 Route::resource('/eventAdmin', 'EventAdminController');
 
+Route::get('/accountAdmin/duplicateAccount', "AccountAdminController@duplicateAccount");
 Route::resource('/accountAdmin', 'AccountAdminController');
 
 Route::get('/api/member/show', "MemberApiController@show");
