@@ -209,10 +209,11 @@
                         </div>
                         <!-- model結束 -->
                         @endforeach
-                    </tbody>   
-                </table> 
+                    </tbody>
+                    <caption id="pageList" class="text-center"></caption>
+                </table>
             </div>
-        </div>    
+        </div>
     </div>
 
     <script>

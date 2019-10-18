@@ -38,12 +38,10 @@ class OrderGroupAdminController extends Controller
             $obj2->idOrderGroup = $ogi->idOrderGroup;
             $obj2->orderGroupNo = $ogi->orderGroupNo;
             $obj2->orderGroupName = $ogi->orderGroupName;
-            $obj2->orderGroupRevoke = $ogi->orderGroupRevoke;
             if ($ogi->orderGroupRevoke == 1)
                 $obj2->orderGroupRevoke = "正常";
-            else 
+            else
                 $obj2->orderGroupRevoke = "撤銷";
-
 
             $o = DB::table('orders')
             ->join('order_groups', 'orders.orderGroupId', '=', 'order_groups.idOrderGroup')
@@ -305,6 +303,10 @@ class OrderGroupAdminController extends Controller
             $obj2->idOrderGroup = $ogi->idOrderGroup;
             $obj2->orderGroupNo = $ogi->orderGroupNo;
             $obj2->orderGroupName = $ogi->orderGroupName;
+            if ($ogi->orderGroupRevoke == 1)
+                $obj2->orderGroupRevoke = "正常";
+            else
+                $obj2->orderGroupRevoke = "撤銷";
 
             $o = DB::table('orders')
             ->join('order_groups', 'orders.orderGroupId', '=', 'order_groups.idOrderGroup')
@@ -374,14 +376,14 @@ class OrderGroupAdminController extends Controller
         if ($userName == "Guest") {
             return redirect("/login");
         }
-        
-       
+
+
         // dd("============================================================");
         // $obj = OrderGroup::all();
         DB::table('order_groups')->where('order_groups.idOrderGroup',"=" ,$id)
         ->update(['orderGroupRevoke'=> 2]);
 
-    //     if ($order_groups[$orderGroupRevoke]->level === 2) 
+    //     if ($order_groups[$orderGroupRevoke]->level === 2)
     //     $order_groups[$orderGroupRevoke]->level = '撤銷';
     // else if ($order_groups[$orderGroupRevoke]->level === 1)
     //     $order_groups[$orderGroupRevoke]->level = '正常';
@@ -389,6 +391,6 @@ class OrderGroupAdminController extends Controller
         // $obj->save();
         return redirect("/orderGroupAdmin");
 
-     
+
     }
 }
