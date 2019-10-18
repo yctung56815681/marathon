@@ -21,7 +21,7 @@
             {{-- ------------------------------------------Nav---------------------------------------------------- --}}
             <div class="col-md-12 navList">
                 <nav class="navbar navbar-expand-lg navbar-light navbg">
-                    <a class="navbar-brand" href="#" style="color: white; font-size:22px">運動報名網</a>
+                    <a class="navbar-brand" href="/" style="color: white; font-size:22px">運動報名網</a>
                 </nav>
             </div>
             {{-- ------------------------------------------header圖片---------------------------------------------------- --}}

@@ -73,7 +73,7 @@ class EventController extends Controller
         $eventAddr=Event::all()->where('cityId', $idCity )->first()->eventAddr;
         $eventTel=Event::all()->where('cityId', $idCity )->first()->eventTel;
         
-        $eventSignupStartTime=Event::all()->where('cityId', $idCity )->first()->eventSignupEndTime;
+        $eventSignupEndTime=Event::all()->where('cityId', $idCity )->first()->eventSignupEndTime;
         $eventRunStartTime=Event::all()->where('cityId', $idCity )->first()->eventRunStartTime;
         $eventRunStartTimeF=date("Y年m月d日", strtotime($eventRunStartTime) );
         
@@ -105,7 +105,7 @@ class EventController extends Controller
             "list",
             // "jsonContent1"
             "cityNameCh",                   
-            "eventSignupStartTime",
+            "eventSignupEndTime",
             "eventRunStartTime",
             "eventRunStartTimeF",
             "eventDL",
@@ -182,7 +182,7 @@ class EventController extends Controller
         $eventAddr=Event::all()->where('cityId', $idCity )->first()->eventAddr;
         $eventTel=Event::all()->where('cityId', $idCity )->first()->eventTel;
         
-        $eventSignupStartTime=Event::all()->where('cityId', $idCity )->first()->eventSignupEndTime;
+        $eventSignupEndTime=Event::all()->where('cityId', $idCity )->first()->eventSignupEndTime;
         $eventRunStartTime=Event::all()->where('cityId', $idCity )->first()->eventRunStartTime;
         $eventRunStartTimeF=date("Y年m月d日", strtotime($eventRunStartTime) );
         
@@ -209,7 +209,7 @@ class EventController extends Controller
             "list",
             // "jsonContent1"
             "cityNameCh",                   
-            "eventSignupStartTime",
+            "eventSignupEndTime",
             "eventRunStartTime",
             "eventRunStartTimeF",
             "eventDL",
