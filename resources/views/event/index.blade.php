@@ -352,6 +352,7 @@
             }else if(Sid=='{{ $eventRunEndTime }}' ){
                 remain_txt.innerHTML = "<span>離路跑結束剩</span>";
                 SignTitle.style.display = "none";
+                SignQuery.style.display = "none";
             }
 
             var Target_date = new Date(Sid);
