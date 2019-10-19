@@ -387,10 +387,7 @@ class OrderGroupAdminController extends Controller
     //     $order_groups[$orderGroupRevoke]->level = '撤銷';
     // else if ($order_groups[$orderGroupRevoke]->level === 1)
     //     $order_groups[$orderGroupRevoke]->level = '正常';
-
         // $obj->save();
         return redirect("/orderGroupAdmin");
-
-
     }
 }

@@ -48,39 +48,43 @@
     </head>
 
 <body>
-        {{------------------------------------------Modal1----------------------------------------------------}}
-        <div id="checkRegex" class="modal" tabindex="-1" role="dialog">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content" style="background-color: yellow; border-radius: 0 25%;">
-                        <div class="modal-header">
-                            <h5 class="modal-title"></h5><i class="fas fa-exclamation-circle fa-8x" style="margin: 0 auto"></i>
-                            </h5>
-                        </div>
-                        <div class="modal-body" style="font-size: 2em; text-align: center">
-                            <p class="checkRegex"></p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div id="checkRegex"class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">提示訊息</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <p class="checkRegex"></p>
+      </div>
+      <div class="modal-footer">
+       
+      <button type="button" class="btn-sm btn-info" data-dismiss="modal"><i
+                                                class="far fa-plus-square"></i> 返回</button>
+      </div>
+    </div>
+  </div>
+</div>
+        <!-- {{------------------------------------------Modal1----------------------------------------------------}} -->
+        
     <!--------------------------------------------------------------------------------------TOP-------------------------------------------------------------------------------------->
     <div class="Top bg-dark">
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a href="/ui" class="text-warning"><i class="fas fa-landmark fa-2x text-warning"></i>首頁</a>
+                    <a href="/ui"><i class="fas fa-landmark fa-2x"></i>首頁</a>
                 </div>
                 <ul class="nav navbar-nav">
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <a href="/logout" class="text-warning"><i class="fas fa-sign-out-alt fa-2x text-warning"></i>登出</a>
+                    <a href="/logout"><i class="fas fa-sign-out-alt fa-2x"></i>登出</a>
                 </ul>
             </div>
         </nav>
     </div>
-
     <!--------------------------------------------------------------------------------------content-------------------------------------------------------------------------------------->
     <div class="Left">
         <div class="accordion" id="accordionExample">
@@ -150,7 +154,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
 {{-- ------------------------------------------------------------------------------------------------ --}}
@@ -158,20 +161,27 @@
 <div class="p-3 mb-1 bg-secondary text-white text-center ">新增訂單</div>
 <div class="container">
  {{------------------------------------------報名資料----------------------------------------------------}}
- <div class="col-md-12 content">
-    {{-- action="/memberAdmin" --}}
-    <form name="memberForm">
-        {{-- @csrf --}}
-        <div class="content">
-            <div class="row">
-                <div class="col-md-12 mb-3">
-                    <div id="group">
-                        {{-- <form method="post" action="/orderGroupAdmin" class="form-horizontal">
-                        @csrf --}}
-                        <form name="memberForm">
+<div class="col-md-12 content">
+    <div class="content">
+        <div class="row">
+            <div class="col-md-12 mb-3">
+                <div id="group">
+                    <form name="memberForm">
                         <fieldset>
                         <!-- 賽事選擇 -->
                         <div id="title0" class="title"><i class="fas fa-dot-circle"></i>賽事選擇
+                            <select class="custom-select my-1 mr-sm-2" id="eventCity" onchange="changeCity()">
+                                <option >請選擇賽事</option>
+                                <option value="TPH">新北場</option>
+                                <option value="TYC">桃園場</option>
+                                <option value="TXG">台中場</option>
+                                <option value="CWH">彰化場</option>
+                                <option value="YUN">雲林場</option>
+                                <option value="TNN">台南場</option>
+                                <option value="KHH">高雄場</option>
+                                <option value="PCH">屏東場</option>
+                                <option value="ILN">宜蘭場</option>
+                            </select>
                             <hr>
                         </div>
                         <div id="title1" class="title"><i class="fas fa-dot-circle"></i>個人資料
@@ -265,7 +275,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <!-- 報名項目選擇 -->
                         <div id="title2" class="title"><i class="fas fa-dot-circle"></i>報名項目
                             <hr>
@@ -278,149 +287,26 @@
                         </div>
                         <div id="addPurchase">
                         </div>
-
-                        {{-- <div class="btn-group d-flex justify-content-center myButton">
-                            <div><a href=""><input
-                                        class="btn btn-primary" type="button" value="報名首頁"></a>
-                            </div>
-                            <div><input class="btn btn-primary" type="button" value="新增訂單資料"
-                                    onclick=""></div>
-                        </div>
-                    </div> --}}
-                    {{-- <div id="group2" style="display:none">
-                        <div class="row d-flex justify-content-between schedule">
-                            <div>
-                                <button class="action" disabled="disabled">個人資料</button>
-                            </div>
-                            <div>
-                                <button class="action" disabled="disabled">付款明細</button>
-                            </div>
-                            <div>
-                                <button disabled="disabled">完成報名</button>
-                            </div>
-                        </div>
-                        <div id="title4" class="title"><i class="fas fa-dot-circle"></i>報名明細
-                            <hr>
-                        </div>
-                        <div id="signupDetails">
-                            <table class="table table-striped">
-                                <tbody>
-                                    <tr>
-                                        <th>姓名</th>
-                                        <td id="addName"></td>
-                                    </tr>
-                                    <tr>
-                                        <th>報名項目</th>
-                                        <td id="addKm"></td>
-
-                                    </tr>
-                                    <tr>
-                                        <th>身分證</th>
-                                        <td id="addTwId"></td>
-                                    </tr>
-                                    <tr>
-                                        <th>電話</th>
-                                        <td id="addCellPhone"></td>
-                                    </tr>
-                                    <tr>
-                                        <th>加購項目</th>
-                                        <td id="addProduct"></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                        </div>
-                        <div id="title5" class="title"><i class="fas fa-dot-circle"></i>費用明細
-                            <hr>
-                        </div>
-                        <div id="moneyDetails">
-                            <table class="table table-striped">
-                                <tbody>
-                                    <tr>
-                                        <th>訂單編號</th>
-                                        <td id="orderNumber"></td>
-                                    </tr>
-                                    <tr>
-                                        <th>報名費</th>
-                                        <td id="kmPrice"></td>
-
-                                    </tr>
-                                    <tr>
-                                        <th>加購</th>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <th>總計</th>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                        </div>
-                        <div id="title6" class="title"><i class="fas fa-dot-circle"></i>繳費方式
-                            <hr>
-                        </div>
-                        <div id="payMethod">
-                            <div class="row">
-                                <div class="col-md-12 mb-3">
-                                    <div class="d-flex justify-content-between">
-                                        <div><input type="radio" name="pay" value="711">7-11/ibon</div>
-                                        <div><input type="radio" name="pay" value="famiPort">全家/FamiPort
-                                        </div>
-                                        <div><input type="radio" name="pay" value="atm">ATM轉帳</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
-                        {{-- <div class="btn-group d-flex justify-content-center myButton">
-                            <div><input class="btn btn-primary" type="button" value="報名資料"
-                                    onclick="goGroup()">
-                            </div> --}}
-                            <div><a href=""><input
-                                        class="btn btn-primary" type="button" value="確認訂單"
-                                        onclick="check_data(); myData()"></a>
-                            </div>
-                        {{-- </div> --}}
-                    {{-- </div> --}}
+                    <input class="btn btn-primary" type="button" value="確認訂單" onclick=" group2();check_data(); ">
+                    </form>
+                </div>
+                <div id="group2" style="display:none">
+                <p>已成功新增一筆訂單資料</p>
                 </div>
             </div>
         </div>
-    </form>
+    </div>
 </div>
 
-</div>
-</div>
 <script>
-//欄位隱藏、展開
-// document.getElementById("title1").addEventListener("click", function () {
-// $("#personalData").toggle();
-// })
-// document.getElementById("title2").addEventListener("click", function () {
-// $("#signupOp").toggle();
-// })
-// document.getElementById("title3").addEventListener("click", function () {
-// $("#addPurchase").toggle();
-// })
-// document.getElementById("title4").addEventListener("click", function () {
-// $("#signupDetails").toggle();
-// })
-// document.getElementById("title5").addEventListener("click", function () {
-// $("#moneyDetails").toggle();
-// })
-// document.getElementById("title6").addEventListener("click", function () {
-// $("#payMethod").toggle();
-// })
-
-// //換頁效果
-// function goGroup() {
-// $("#group").attr("style", "display:block");
-// }
-
-// function goGroup2() {
-// $("#group1").attr("style", "display:none");
-// $("#group2").attr("style", "display:block");
-// }
-
+function group1() {
+    $("#group").attr("style","display:block");
+    $("#group2").attr("style","display:none");
+}
+function group2() {
+    $("#group").attr("style","display:none");
+    $("#group2").attr("style","display:block");
+}
 //檢查個人資料輸入欄位
 function check_data() {
 var twIdRegex = new RegExp(/^[A-Za-z][12]\d{8}$/);
@@ -428,128 +314,78 @@ var phoneRegex = new RegExp(/^09[0-9]{8}$/);
 if (document.memberForm.name.value.length == 0) {
     $('#checkRegex').modal('show');
     $(".checkRegex").text("請輸入姓名");
-    return goGroup();
+    return group1();
 }
 if (document.memberForm.twId.value != document.memberForm.twId.value.match(twIdRegex)) {
     $('#checkRegex').modal('show');
     $(".checkRegex").text("請輸入正確的身分證格式");
-    return goGroup();
+    return group1();
 }
 var sex = $("input[name=sex]:checked").length;
 if (sex == 0) {
     $('#checkRegex').modal('show');
     $(".checkRegex").text("請選擇您的性別");
-    return goGroup();
+    return group1();
 }
 if (document.memberForm.year.value.length == 0 | document.memberForm.year.value.length > 3 | document
     .memberForm.year.value > 108) {
     $('#checkRegex').modal('show');
     $(".checkRegex").text("請輸入正確的年份");
-    return goGroup();
+    return group1();
 }
 if (document.memberForm.month.value > 12 | document.memberForm.month.value < 1) {
     $('#checkRegex').modal('show');
     $(".checkRegex").text("請輸入正確的月份");
-    return goGroup();
+    return group1();
 }
 if (document.memberForm.day.value == 2 & document.memberForm.day.value > 29) {
     $('#checkRegex').modal('show');
     $(".checkRegex").text("二月最多29天");
-    return goGroup();
+    return group1();
 }
 if (document.memberForm.month.value == 4 | document.memberForm.month.value == 6 | document.memberForm.month
     .value == 9 | document.memberForm.month.value == 11) {
     if (document.memberForm.day.value > 30) {
         $('#checkRegex').modal('show');
         $(".checkRegex").text("4月、六月、9月、11月只有30天");
-        return goGroup();
+        return group1();
     }
 } else {
     if (document.memberForm.day.value > 31) {
         $('#checkRegex').modal('show');
         $(".checkRegex").text("1月、3月、5月、7月、8月、10月、12月只有31天");
-        return goGroup();
+        return group1();
     }
 }
 if (document.memberForm.day.value > 31 | document.memberForm.day.value < 1) {
     $('#checkRegex').modal('show');
     $(".checkRegex").text("請輸入正確的出生日");
-    return goGroup();
+    return group1();
 }
 if (document.memberForm.cellPhone.value != document.memberForm.cellPhone.value.match(phoneRegex)) {
     $('#checkRegex').modal('show');
     $(".checkRegex").text("請輸入臺灣的手機號碼");
-    return goGroup();
+    return group1();
 }
 if (document.memberForm.emName.value.length == 0) {
     $('#checkRegex').modal('show');
     $(".checkRegex").text("請輸入緊急聯絡人姓名");
-    return goGroup();
+    return group1();
 }
 if (document.memberForm.emCellphone.value != document.memberForm.emCellphone.value.match(phoneRegex)) {
     $('#checkRegex').modal('show');
     $(".checkRegex").text("請輸入臺灣的手機號碼");
-    return goGroup();
+    return group1();
 }
 var km = $("input[name=km]:checked").length;
 if (km == 0) {
     $('#checkRegex').modal('show');
     $(".checkRegex").text("請選擇要報名的賽事");
-    return goGroup();
+    return group1();
 }
-memberForm.submit();
+// memberForm.submit();
+myData();
 }
-//取得個人報名資料
-// function processFormData() {
-// var name = $('input[name="name"]').val(); //姓名
-// $("#addName").text(name);
-// var twId = $('input[name="twId"]').val(); //身分證
-// $("#addTwId").text(twId);
-// var cellPhone = $('input[name="cellPhone"]').val(); //電話
-// $("#addCellPhone").text(cellPhone);
-//賽事
-// var km = $('input:radio:checked[name="km"]').val();
-// runs.forEach(function (run) {
-//     if (run.idRun == km) {
-//         $("#addKm").text(run.runNameLong);
-//         $("#kmPrice").text(run.runPrice);
-//     }
-// })
-//加購項目
-// var product = [$('input:checkbox:checked[name="product[]"]').map(function () {
-//     return $(this).val();
-// }).get()];
-// console.log(product);
-// console.log(product.length);
-// console.log(Object.keys(product).length);
-// $("#addProduct").empty();
-// products.forEach(function (add) {
-//     if ( product.includes(add.idProduct)){
-//         $("#addProduct").append("<td>");
-//         for (i = 0; i < product.length; i++) {
-//             $("#addProduct").append(add.productName + "<br>");
-//         }
-//         $("#addProduct").append("</td>");
-//     }
-// })
-
-// if (product.length != 1) {
-//     $("#addProduct").append("<td>");
-//     $("#addProduct").each(function (i) {
-//         for (i = 0; i < product.length; i++) {
-//             $("#addProduct").append(product[i] + "<br>");
-//         }
-//         $("#addProduct").append("</td>");
-//     })
-// } else {
-//     // $("#addProduct").append("<td>");
-//     $("#addProduct").text(product);
-//     // $("#addProduct").append("</td>");
-// }
-// console.log(product.toString());
-
-// console.log(pro.productName);
-// }
 //根據時間產生訂單號
 var orderNumber = "";
 for (var i = 0; i < 2; i++) //j位隨機數，用以加在時間戳後面。
@@ -560,124 +396,99 @@ var today = new Date();
 var orderNumber = "P" + today.getTime() + orderNumber;
 console.log(orderNumber);
 $("#orderNumber").text(orderNumber);
-
-//確認訂單之後
-// function waiting() {
-// event.preventDefault();
-// var pay = $("input[name=pay]:checked").length;
-// if (pay == 0) {
-//     $('#checkRegex').modal('show');
-//     $(".checkRegex").text("請選擇付款方式");
-//     return goGroup2();
-// } else {
-//     $('#waiting').modal('show');
-//     setTimeout("window.location.assign('finish')", 3000);
-// }
-// myData();
-// }
-//查看加購商品圖片
-// var el = document.getElementById("product0");
-// if(el) {
-//     el.addEventListener("click", function () {
-//     $('#showImg').modal('show');
-//     $(".showImg").html(
-//         "<img src='{{ URL::asset('img/product1.jpg') }}' class='img-fluid' alt='Responsive image'>");
-// })
-// }
-// document.getElementById("product1").addEventListener("click", function () {
-//     $('#showImg').modal('show');
-//     $(".showImg").html(
-//         "<img src='{{ URL::asset('img/product2.jpg') }}' class='img-fluid' alt='Responsive image'>");
-// })
-// document.getElementById("product2").addEventListener("click", function () {
-//     $('#showImg').modal('show');
-//     $(".showImg").html(
-//         "<img src='{{ URL::asset('img/product3.jpg') }}' class='img-fluid' alt='Responsive image'>");
-// })
-// document.getElementById("product3").addEventListener("click", function () {
-//     $('#showImg').modal('show');
-//     $(".showImg").html(
-//         "<img src='{{ URL::asset('img/product4.jpg') }}' class='img-fluid' alt='Responsive image'>");
-// })
-// document.getElementById("product5").addEventListener("click", function () {
-//     $('#showImg').modal('show');
-//     $(".showImg").html(
-//         "<img src='{{ URL::asset('img/product5.jpg') }}' class='img-fluid' alt='Responsive image'>");
-// })
-// document.getElementById("product6").addEventListener("click", function () {
-//     $('#showImg').modal('show');
-//     $(".showImg").html(
-//         "<img src='{{ URL::asset('img/product6.jpg') }}' class='img-fluid' alt='Responsive image'>");
-// })
-// document.getElementById("product7").addEventListener("click", function () {
-//     $('#showImg').modal('show');
-//     $(".showImg").html(
-//         "<img src='{{ URL::asset('img/product7.jpg') }}' class='img-fluid' alt='Responsive image'>");
-// })
-
 //ajax
 $.ajaxSetup({
 headers: {
     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 }
 });
-
 function myData() {
-$(document).ready(function () {
-    // var event = $('input:radio:checked[name="event"]').val();
-    var name = $("#name").val();
-    var twId = $("#twId").val();
-    var sex = $("input[name=sex]:checked").val();
-    var year = $("#year").val();
-    var month = $("#month").val();
-    var day = $("#day").val();
-    var city = $("#city").val();
-    var town = $("#town").val();
-    var address = $("#address").val();
-    var email = $("#email").val();
-    var cellPhone = $("#cellPhone").val();
-    var emName = $("#emName").val();
-    var emRelationship = $("#emRelationship").val();
-    var emCellphone = $("#emCellphone").val();
-    var km = $('input:radio:checked[name="km"]').val();
-    var product = [$('input:checkbox:checked[name="product[]"]').map(function () {
-        return $(this).val();
-    }).get()];
-    $.ajax({
-        type: "POST",
-        url: "/api/member/add",
-        data:{
-                memberTwId: twId,
-                memberName: name,
-                memberGender: sex,
-                memberYear: year,
-                memberMonth: month,
-                memberDay: day,
-                memberCity: city,
-                memberTown: town,
-                memberAddr: address,
-                memberEmail: email,
-                memberMobile: cellPhone,
-                memberEmergencyMobile: emCellphone,
-                memberEmergencyContact: emName,
-                memberEmergencyRelationship: emRelationship,
-                runId: km,
-                productId: product.toString(),
-                orderNo: orderNumber
-                // eventTitle: event
-            }
-
-    });
-
-});
-}
-
+            $(document).ready(function () {
+                var eventCity = $("#eventCity").val();
+                var event;
+                $.ajax({
+                    type: "GET",
+                    url: "/api/member/runEvent",
+                    data: {
+                        cityNo: eventCity
+                    }
+                }).done(function (data) {
+                    event = data[0].eventId;
+                    var teamName = $("#name").val();
+                    var groupId;
+                    $.ajax({
+                        type: "POST",
+                        url: "/api/member/teamAdd",
+                        data: {
+                            orderGroupName: teamName,
+                            orderGroupNo: orderNumber,
+                            orderGroupRevoke: "1",
+                            orderGroupStatus: "1",
+                            eventId: event
+                        }
+                    }).done(function (data) {
+                        groupId = data;
+                        var name = $("#name").val();
+                        var twId = $("#twId").val();
+                        var sex = $("input[name=sex]:checked").val();
+                        var year = $("#year").val();
+                        var month = $("#month").val();
+                        var day = $("#day").val();
+                        var city = $("#city").val();
+                        var town = $("#town").val();
+                        var address = $("#address").val();
+                        var email = $("#email").val();
+                        var cellPhone = $("#cellPhone").val();
+                        var emName = $("#emName").val();
+                        var emRelationship = $("#emRelationship").val();
+                        var emCellphone = $("#emCellphone").val();
+                        var km = $('input:radio:checked[name="km"]').val();
+                        var product = [$('input:checkbox:checked[name="product[]"]').map(
+                            function () {
+                                return $(this).val();
+                            }).get()];
+                        $.ajax({
+                            type: "POST",
+                            url: "/api/member/add",
+                            data: {
+                                memberTwId: twId,
+                                memberName: name,
+                                memberGender: sex,
+                                memberYear: year,
+                                memberMonth: month,
+                                memberDay: day,
+                                memberCity: city,
+                                memberTown: town,
+                                memberAddr: address,
+                                memberEmail: email,
+                                memberMobile: cellPhone,
+                                memberEmergencyMobile: emCellphone,
+                                memberEmergencyContact: emName,
+                                memberEmergencyRelationship: emRelationship,
+                                runId: km,
+                                productId: product.toString(),
+                                orderNo: orderNumber,
+                                orderStatus: "1",
+                                orderRevoke: "1",
+                                orderGroupId: groupId,
+                            }
+                        });
+                    });
+                })
+            });
+        }
 //撈賽事
 var runs;
-$(document).ready(function () {
+function changeCity() {
+    $("#signupOp").empty();
+    $(document).ready(function () {
+    var eventCity = $("#eventCity").val();
 $.ajax({
     type: "GET",
-    url: "/api/member/run",
+    url: "/api/member/runEvent",
+    data: {
+        cityNo: eventCity
+    }
 }).done(function (data) {
     runs = data;
     for (var i = 0; i < data.length; i++) {
@@ -689,13 +500,15 @@ $.ajax({
     console.log(data);
 });
 });
+}
+
 
 //撈商品
 var products;
 $(document).ready(function () {
 $.ajax({
     type: "GET",
-    url: "/api/member/product",
+    url: "/api/member/addProduct",
 }).done(function (data) {
     products = data;
     for (var i = 0; i < data.length; i++) {

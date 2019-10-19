@@ -57,12 +57,12 @@
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a href="/ui" class="text-warning"><i class="fas fa-landmark fa-2x text-warning"></i>首頁</a>
+                    <a href="/ui"><i class="fas fa-landmark fa-2x"></i>首頁</a>
                 </div>
                 <ul class="nav navbar-nav">
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <a href="/logout" class="text-warning"><i class="fas fa-sign-out-alt fa-2x text-warning"></i>登出</a>
+                    <a href="/logout"><i class="fas fa-sign-out-alt fa-2x"></i>登出</a>
                 </ul>
             </div>
         </nav>
@@ -137,7 +137,7 @@
                 </div>
             </div>
         </div>
-
+        <form name="form1" action="" method="get" onsubmit="checksubmit();"></form>
     </div>
 
     <!--------------------------------------------------------------------------------------right-------------------------------------------------------------------------------------->
@@ -170,12 +170,24 @@
                             </td>
                             <td>
                             @foreach($item->order as $item2)
-                                <a href="/orderAdmin/{{$item2->idOrder}}" class="btn btn-outline-primary">{{$item2->memberTwId}} / {{$item2->memberName}}</a>
+                                @if ($item->orderGroupRevoke == "撤銷")
+                                    <a id="{{$item->orderGroupRevoke}}"  name="btn" class="btn btn-outline-secondary">{{$item2->memberTwId}} / {{$item2->memberName}} (x)</a>
+                                @else
+                                    <a id="{{$item->orderGroupRevoke}}" name="btn" href="/orderAdmin/{{$item2->idOrder}}" class="btn btn-outline-primary">{{$item2->memberTwId}} / {{$item2->memberName}}</a>
+                                @endif
                             @endforeach
                             </td>
                             <td>
-                                <button type="button" class="btn-sm btn-danger" data-toggle="modal"
+                            @if ($item->orderGroupRevoke == "撤銷")
+                            <button  id="{{$item->orderGroupRevoke}}" disabled="disabled"  class="btn-sm btn-seconddark" ><i class="fas fa-minus-circle"></i> 禁用</button>
+                            
+                            @else
+                            <button  id="{{$item->orderGroupRevoke}}" type="button"  class="btn-sm btn-danger" data-toggle="modal"
                                     data-target="#exampleModal{{$item->idOrderGroup}}"><i class="far fa-trash-alt"></i> 撤銷</button>
+                            @endif
+                                <!-- <button  id="" type="button"  class="btn-sm btn-danger" data-toggle="modal"
+                                    data-target="#exampleModal{{$item->idOrderGroup}}"><i class="far fa-trash-alt"></i> 撤銷</button> -->
+                                    
                             </td>
                         </tr>
                         <!-- 撤銷 model跳出 -->
@@ -200,8 +212,8 @@
                                                 class="far fa-plus-square"></i> 返回</button>
                                         @csrf
                                         @method('DELETE')
-                                        <button  type="submit" class="btn-sm btn-danger"><i
-                                                class="far fa-trash-alt"></i> 撤銷</button>
+                                        <button id="btn" class="btn-sm btn-danger">
+                                        <i class="far fa-trash-alt"></i> 撤銷</button>
                                     </form>
                                     </div>
                                 </div>
@@ -216,7 +228,10 @@
         </div>
     </div>
 
-    <script>
+<script>
+
+
+// 換頁效果
         var numRow = 10;
         var numPage = Math.ceil({{$num}} / numRow);
         var page = Math.floor({{$id}} / numRow) + 1;

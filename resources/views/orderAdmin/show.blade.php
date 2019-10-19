@@ -57,12 +57,12 @@
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a href="/ui" class="text-warning"><i class="fas fa-landmark fa-2x text-warning"></i>首頁</a>
+                    <a href="/ui"><i class="fas fa-landmark fa-2x"></i>首頁</a>
                 </div>
                 <ul class="nav navbar-nav">
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <a href="/logout" class="text-warning"><i class="fas fa-sign-out-alt fa-2x text-warning"></i>登出</a>
+                    <a href="/logout"><i class="fas fa-sign-out-alt fa-2x"></i>登出</a>
                 </ul>
             </div>
         </nav>
@@ -187,7 +187,7 @@
                     <th>訂單時間 : </th>
                     <td class="text-danger">2019-09-06-09:00:02</td>
                     <th>訂單狀態 : </th>
-                    <td class="text-danger">正常</td>
+                    <td class="text-danger">{{$obj->order->orderRevoke}}</td>
                     <th>訂單總額 : </th>
                     <td class="text-danger">{{$obj->totalPrice}}元</td>
                 </tr>
@@ -199,8 +199,14 @@
                     <td></td>
                     <td >
                     <button type ="button" class="btn-sm btn-success pull-right"onclick="history.go(-1)"><i class="far fa-plus-square"></i>返回</button>
-                    <button type="button" class="btn-sm btn-danger pull-right" data-toggle="modal" data-target="#exampleModal{{$obj->order->idOrder}}"data-whatever="@mdo"><i class="far fa-trash-alt"></i>撤銷
+
+                    @if ($obj->order->orderRevoke == "撤銷")
+                    <button id="{{$obj->orderGroup->orderGroupRevoke}}" name="btn" disabled="disabled" class="btn-sm btn-seconddark pull-right"><i class="fas fa-minus-circle"></i> 禁用
                     </button>
+                    @else
+                    <button id="{{$obj->orderGroup->orderGroupRevoke}}" name="btn" type="button" class="btn-sm btn-danger pull-right" data-toggle="modal" data-target="#exampleModal{{$obj->order->idOrder}}"data-whatever="@mdo"><i class="far fa-trash-alt"></i>撤銷
+                    </button>
+                    @endif
                     </td>
 
                     <!-- 撤銷 model跳出 -->

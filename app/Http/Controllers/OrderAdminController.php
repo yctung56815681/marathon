@@ -81,6 +81,12 @@ class OrderAdminController extends Controller
         ->get()->first();
         $obj->order = $order;
 
+         // $obj->order->orderRevoke = $order->orderRevoke;
+         if ($order->orderRevoke == 1)
+         $order->orderRevoke = "正常";
+         else
+         $order->orderRevoke = "撤銷";
+
         $member = DB::table('members')
         ->where('members.idMember', '=', $order->memberId)
         ->get()->first();
