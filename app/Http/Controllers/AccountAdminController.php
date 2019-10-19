@@ -67,6 +67,10 @@ class AccountAdminController extends Controller
             return redirect("/login");
         }
 
+        $num = DB::table("accounts")->where("username", "=", $request->username)->count();
+        if ($num != 0)
+            return redirect("/accountAdmin/duplicateAccount");
+
         // DB::table("accounts")->insert(["username" => $request->username, "password" => $request->password]);
         $password = $request->password;
         $password = password_hash($password, PASSWORD_DEFAULT);
@@ -75,7 +79,6 @@ class AccountAdminController extends Controller
         $id = floor(($num - 1) / 10) * 10;
         $account = DB::table("accounts")->offset($id)->limit(10)->get();
         return view("accountAdmin.index", compact("account", "num", "id"));
-        return redirect("/accountAdmin");
     }
 
     /**
@@ -167,5 +170,15 @@ class AccountAdminController extends Controller
         $url = "/accountAdmin/" . $idNew;
         // dd($num, $account->count(), $idNew);
         return redirect($url);
+    }
+
+    public function duplicateAccount()
+    {
+        $userName = Session::get("userName", "Guest");
+        if ($userName == "Guest") {
+            return redirect("/login");
+        }
+
+        return view("accountAdmin.duplicateAccount");
     }
 }

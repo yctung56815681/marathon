@@ -17,11 +17,15 @@ class AccountsTableSeeder extends Seeder
                 // 'password' => 'passwd',
                 'password' => bcrypt('passwd'),
             ]);
-
+            DB::table('accounts')->insert([
+                'username' => 'iii',
+                // 'password' => 'iii',
+                'password' => bcrypt('iii'),
+            ]);
             for ($i = 0; $i < 50; $i++) {
-                $username = "u" . ($i + 1) . "__" . Str::random(30);
-                // $password = "p" . ($i + 1) . "__" . Str::random(64);
-                $password = "p" . ($i + 1);
+                $username = "u" . ($i + 2) . "__" . Str::random(30);
+                // $password = "p" . ($i + 2) . "__" . Str::random(64);
+                $password = "p" . ($i + 2);
                 $password = bcrypt($password);
                 DB::table('accounts')->insert([
                     'username' => $username,
