@@ -45,22 +45,9 @@
             </div>
         </div>
     </div>
-    {{------------------------------------------Modal3----------------------------------------------------}}
-    <div id="showImg" class="modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content" style="border-radius: 0 25%;">
-                <div class="modal-body" style="font-size: 2em; text-align: center">
-                    <p class="showImg"></p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div class="container-fluid">
-        <div class="row" >
+        <div class="row">
             <!-- {{------------------------------------------Nav----------------------------------------------------}} -->
             <div class="col-md-12 navList">
                 <nav class="navbar navbar-expand-lg navbar-light navbg">
@@ -115,6 +102,7 @@
                                         <hr>
                                     </div>
                                     <div id="personalData">
+                                        <input type="hidden" name="eventCity" id="eventCity" value="{{$city}}">
                                         <div class="form-row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="myName">姓名</label>
@@ -207,30 +195,7 @@
                                         <hr>
                                     </div>
                                     <div id="signupOp">
-                                        {{-- <div class="row radio d-flex justify-content-between">
-                                            <div class=""><input type="radio" name="km" value="1">5K超值健康組</div>
-                                            <div class="">NT$800</div>
-                                        </div>
-                                        <div class="row radio d-flex justify-content-between">
-                                            <div class=""><input type="radio" name="km" value="2">5K豪華健康組</div>
-                                            <div class="">NT$1400</div>
-                                        </div>
-                                        <div class="row radio d-flex justify-content-between">
-                                            <div class=""><input type="radio" name="km" value="3">10K超值路跑組</div>
-                                            <div class="">NT$900</div>
-                                        </div>
-                                        <div class="row radio d-flex justify-content-between">
-                                            <div class=""><input type="radio" name="km" value="4">10K豪華路跑組</div>
-                                            <div class="">NT$1500</div>
-                                        </div>
-                                        <div class="row radio d-flex justify-content-between">
-                                            <div class=""><input type="radio" name="km" value="5">21K超值半馬組</div>
-                                            <div class="">NT$1000</div>
-                                        </div>
-                                        <div class="row radio d-flex justify-content-between">
-                                            <div class=""><input type="radio" name="km" value="6">21K豪華半馬組</div>
-                                            <div class="">NT$1600</div>
-                                        </div> --}}
+
                                     </div>
 
                                     <!-- 加購項目 -->
@@ -238,48 +203,7 @@
                                         <hr>
                                     </div>
                                     <div id="addPurchase">
-                                        {{-- <div class="row d-flex justify-content-between">
-                                            <div><input type="checkbox" name="product[]" value="1"><span
-                                                    id="product1">國旗競速路跑鞋-自由藍</span>
-                                            </div>
-                                            <div>NT$1580</div>
-                                        </div>
-                                        <div class="row d-flex justify-content-between">
-                                            <div><input type="checkbox" name="product[]" value="2"><span
-                                                    id="product2">國旗競速路跑鞋-奔放紅</span>
-                                            </div>
-                                            <div>NT$1580</div>
-                                        </div>
-                                        <div class="row d-flex justify-content-between">
-                                            <div><input type="checkbox" name="product[]" value="3"><span
-                                                    id="product3">男子減震慢跑麒麟鞋-雷電金</span>
-                                            </div>
-                                            <div>NT$1580</div>
-                                        </div>
-                                        <div class="row d-flex justify-content-between">
-                                            <div><input type="checkbox" name="product[]" value="4"><span
-                                                    id="product4">女子減震慢跑麒麟鞋-火焰紅</span>
-                                            </div>
-                                            <div>NT$1580</div>
-                                        </div>
-                                        <div class="row d-flex justify-content-between">
-                                            <div><input type="checkbox" name="product[]" value="5"><span
-                                                    id="product5">經典漸層雲豹排汗衫</span>
-                                            </div>
-                                            <div>NT$590</div>
-                                        </div>
-                                        <div class="row d-flex justify-content-between">
-                                            <div><input type="checkbox" name="product[]" value="6"><span
-                                                    id="product6">炫彩雲豹排汗衫</span>
-                                            </div>
-                                            <div>NT$590</div>
-                                        </div>
-                                        <div class="row d-flex justify-content-between">
-                                            <div><input type="checkbox" name="product[]" value="7"><span
-                                                    id="product7">男款排汗短袖紀念衣</span>
-                                            </div>
-                                            <div>NT$390</div>
-                                        </div> --}}
+
                                     </div>
                                     <div class="btn-group d-flex justify-content-center myButton">
                                         <div><a href={{"/signup/{$city}/{$year}/{$month}/index"}}><input
@@ -322,16 +246,16 @@
                                                 </tr>
                                                 <tr>
                                                     <th>報名費</th>
-                                                    <td></td>
+                                                    <td id="kmPrice"></td>
 
                                                 </tr>
                                                 <tr>
                                                     <th>加購</th>
-                                                    <td></td>
+                                                    <td id="productPrice"></td>
                                                 </tr>
                                                 <tr>
                                                     <th>總計</th>
-                                                    <td></td>
+                                                    <td id="total"></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -534,7 +458,7 @@
             console.log(teams);
             i = teams.length;
             $("#teamArray").append('<div id=person' + i + ' class="row d-flex justify-content-between schedule "> ' +
-                '<button type="button">' + team.name +
+                '<button disabled="disabled" type="button">' + team.name +
                 '</button><button type="button" onclick="deletePerson(' + i +
                 ')"><i class="fas fa-trash-alt"></i></button></div>'
             );
@@ -551,16 +475,52 @@
         function showPerson(i) {}
         //-------------------------取得團體報名資料--------------------------------------------------
         function teamFormData() {
+            var totalRunMoney = 0;
+            var totalproductMoney = 0;
+            var totalMoney = 0;
             $("#teamMember").empty();
             for (i = 0; i < teams.length; i++) {
                 team = teams[i];
                 var myName = team.name;
+                //賽事
+                var runMoney = 0;
                 var km = team.km;
-                var myProduct = team.product;
-                console.log(myName);
-                console.log(km);
-                console.log(myProduct);
+                var strKm = String(km);
+                console.log(strKm);
+                runs.forEach(function (run) {
+                    if (run.idRun == strKm) {
+                        runMoney = run.runPrice;
+                        myRun = run.runNameLong;
+                    }
+                })
+                totalRunMoney += runMoney;
+                console.log(totalRunMoney);
+                 $("#kmPrice").text(totalRunMoney + "元");
+                
 
+                //加購項目
+                var myProduct = team.product;
+                var strProduct = String(myProduct);
+                var myStr = new Array;
+                var addPrice = 0;
+                products.forEach(function (add) {
+                    if (strProduct.includes(add.idProduct + '')) {
+                        // console.log(add);
+                        myProducts = add.productName;
+                        myStr.push(myProducts);
+                        addPrice = add.productPrice + addPrice;
+                    }
+                })
+                totalproductMoney += addPrice;
+                $("#productPrice").text(totalproductMoney + "元");
+
+                totalMoney = totalRunMoney + totalproductMoney;
+                $("#total").text(totalMoney + "元");
+
+                console.log(strProduct);
+                // console.log(myProducts);
+                console.log(myStr);
+                myStrProduct = String(myStr);
                 $("#teamMember").append(
                     '<tr class="d-flex justify-content-between">' +
                     "<th> 姓名 </th>" +
@@ -568,14 +528,15 @@
                     "</tr>" +
                     '<tr class="d-flex justify-content-between">' +
                     "<th>報名項目</th>" +
-                    "<td>" + km + "</td>" +
+                    "<td>" + myRun + "</td>" +
                     "</tr>" +
                     '<tr class="d-flex justify-content-between">' +
                     "<th>加購項目</th>" +
-                    "<td>" + myProduct + "</td>" +
+                    "<td>" + myStrProduct + "</td>" +
                     "</tr>"
                 );
-                console.log(myName);
+
+
             }
 
         }
@@ -618,43 +579,6 @@
             myData();
         }
 
-        //--------------------查看加購商品圖片-----------------------------------
-        // document.getElementById("product1").addEventListener("click", function () {
-        //     $('#showImg').modal('show');
-        //     $(".showImg").html(
-        //         "<img src='{{ URL::asset('img/product1.jpg') }}' class='img-fluid' alt='Responsive image'>");
-        // })
-        // document.getElementById("product2").addEventListener("click", function () {
-        //     $('#showImg').modal('show');
-        //     $(".showImg").html(
-        //         "<img src='{{ URL::asset('img/product2.jpg') }}' class='img-fluid' alt='Responsive image'>");
-        // })
-        // document.getElementById("product3").addEventListener("click", function () {
-        //     $('#showImg').modal('show');
-        //     $(".showImg").html(
-        //         "<img src='{{ URL::asset('img/product3.jpg') }}' class='img-fluid' alt='Responsive image'>");
-        // })
-        // document.getElementById("product4").addEventListener("click", function () {
-        //     $('#showImg').modal('show');
-        //     $(".showImg").html(
-        //         "<img src='{{ URL::asset('img/product4.jpg') }}' class='img-fluid' alt='Responsive image'>");
-        // })
-        // document.getElementById("product5").addEventListener("click", function () {
-        //     $('#showImg').modal('show');
-        //     $(".showImg").html(
-        //         "<img src='{{ URL::asset('img/product5.jpg') }}' class='img-fluid' alt='Responsive image'>");
-        // })
-        // document.getElementById("product6").addEventListener("click", function () {
-        //     $('#showImg').modal('show');
-        //     $(".showImg").html(
-        //         "<img src='{{ URL::asset('img/product6.jpg') }}' class='img-fluid' alt='Responsive image'>");
-        // })
-        // document.getElementById("product7").addEventListener("click", function () {
-        //     $('#showImg').modal('show');
-        //     $(".showImg").html(
-        //         "<img src='{{ URL::asset('img/product7.jpg') }}' class='img-fluid' alt='Responsive image'>");
-        // })
-
         //ajax
         $.ajaxSetup({
             headers: {
@@ -664,6 +588,7 @@
 
         function myData() {
             $(document).ready(function () {
+                event = data[0].eventId;
                 var teamName = $("#teamName").val();
                 var groupId;
                 $.ajax({
@@ -671,7 +596,10 @@
                     url: "/api/member/teamAdd",
                     data: {
                         orderGroupName: teamName,
-                        orderGroupNo: orderNumber
+                        orderGroupNo: orderNumber,
+                        orderGroupRevoke: "1",
+                        orderGroupStatus: "1",
+                        eventId: event
                     }
                 }).done(function (data) {
                     groupId = data;
@@ -714,6 +642,8 @@
                                 runId: km,
                                 productId: product.toString(),
                                 orderNo: personOrderNo1,
+                                orderStatus: "1",
+                                orderRevoke: "1",
                                 orderGroupId: groupId
                             }
                         });
@@ -725,11 +655,16 @@
         //撈賽事
         var runs;
         $(document).ready(function () {
+            var eventCity = $("#eventCity").val();
             $.ajax({
                 type: "GET",
                 url: "/api/member/runEvent",
+                data: {
+                    cityNo: eventCity
+                }
             }).done(function (data) {
                 runs = data;
+
                 for (var i = 0; i < data.length; i++) {
                     $("#signupOp").append(
                         "<div class='row radio d-flex justify-content-between'><div><input type='radio' name='km' value='" +

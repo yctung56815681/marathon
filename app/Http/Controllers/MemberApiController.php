@@ -65,14 +65,7 @@ class MemberApiController extends Controller
         };
     }
     public function teamAdd(Request $request)
-    {
-    //     $events =  DB::table("events")
-    //     ->join("cities","idCity","=","cityId")
-    //     ->select("events.idEvent")
-    //     ->where("cityNo",$request->cityNo)->get("events.idEvent");
-    //     // $events = DB::table("events")->get("idEvent");
-    //     return $events;
-        
+    {   
         $order_groups = DB::table("order_groups")
         ->insertGetId(
             [
@@ -97,8 +90,7 @@ class MemberApiController extends Controller
         ->join("cities","idCity","=","cityId")
         ->select("events.*","runs.*","cities.*")
         ->where("cityNo",$request->cityNo)->get();
-        
-
+    
         return $run;
     }
 }
