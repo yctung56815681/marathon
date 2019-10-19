@@ -58,12 +58,12 @@
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a href="/ui"><i class="fas fa-landmark fa-2x"></i>首頁</a>
+                    <a href="/ui" class="text-warning"><i class="fas fa-landmark fa-2x text-warning"></i>首頁</a>
                 </div>
                 <ul class="nav navbar-nav">
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <a href="/logout"><i class="fas fa-sign-out-alt fa-2x"></i>登出</a>
+                    <a href="/logout" class="text-warning"><i class="fas fa-sign-out-alt fa-2x text-warning"></i>登出</a>
                 </ul>
             </div>
         </nav>

@@ -6,30 +6,30 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>首頁</title>
-    
+
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    
+
         <!-- Awesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
             integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    
+
         <style>
             .Top {
                 width: auto;
                 /* height: 200px; */
                 height: 50px;
                 position: relative;
-    
+
                 /* background-image: url("/img/header.jpg"); */
                 /* background-size: cover; */
             }
-    
+
             .Left {
-    
+
                 /* width: 25%; */
                 width: 200px;
                 height: auto;
@@ -37,18 +37,18 @@
                 background-color: yellow;
                 display: inline-block;
             }
-    
+
             .Right {
                 width: 85%;
                 height: auto;
                 position: absolute;
                 background-color: #F0F8FF;
                 display: inline-block;
-    
+
             }
-    
+
             .content {}
-    
+
         </style>
     </head>
 
@@ -58,19 +58,19 @@
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a href="/ui"><i class="fas fa-landmark fa-2x"></i>首頁</a>
+                    <a href="/ui" class="text-warning"><i class="fas fa-landmark fa-2x text-warning"></i>首頁</a>
                 </div>
                 <ul class="nav navbar-nav">
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <a href="/logout"><i class="fas fa-sign-out-alt fa-2x"></i>登出</a>
+                    <a href="/logout" class="text-warning"><i class="fas fa-sign-out-alt fa-2x text-warning"></i>登出</a>
                 </ul>
             </div>
         </nav>
     </div>
 
     <!--------------------------------------------------------------------------------------content-------------------------------------------------------------------------------------->
-   
+
         <div class="Left">
             <div class="accordion" id="accordionExample">
                 <div class="card">
@@ -82,7 +82,7 @@
                             </button>
                         </h2>
                     </div>
-    
+
                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                         data-parent="#accordionExample">
                         <div class="card-body">
@@ -141,14 +141,14 @@
             </div>
         </div>
 
-    
+
     <div class="Right col-10">
         <h4>賽事活動列表 </h4>
   <table class="table table-hover">
     <thead>
       <tr>
         <th>賽事活動編號</th>
-        <th>賽事活動名稱</th>        
+        <th>賽事活動名稱</th>
         <th>賽事舉辦地點</th>
         <th>活動報名開始時間</th>
         <th>活動報名截止時間</th>
@@ -167,7 +167,7 @@
             @foreach ($eventsList as $eve)
         <tr>
             <td>{{$eve->idEvent}}</td>
-            <td>{{$eve->eventTittle}}</td>            
+            <td>{{$eve->eventTittle}}</td>
             <td>{{$eve->eventAddr}}</td>
             <td>{{$eve->eventSignupStartTime}}</td>
             <td>{{$eve->eventSignupEndTime}}</td>
@@ -175,7 +175,7 @@
             <td>{{$eve->eventRunEndTime}}</td>
             <td>{{$eve->eventTel}}</td>
             <td>{{$eve->created_at}}</td>
-            
+
             <td>
                 <span class="pull-right">
                     <form method="post" action="/eventAdmin/{{$eve->idEvent}}">
@@ -191,23 +191,23 @@
             </td>
         </tr>
         @endforeach
-        
+
 
         </tbody>
-    
+
 
   </table>
   <div>
     {{-- @foreach ($eventsList as $eve)
         <li>
-        <a href="employeeDetails.html?id=1" data-ajax="false"> 
-            
+        <a href="employeeDetails.html?id=1" data-ajax="false">
+
             <p>{{ $eve->eventTittle }}</p>
             <p>{{ $eve->eventAddr }}</p>
         </a>
         </li>
     @endforeach --}}
-    
+
   </div>
 
     </div>
