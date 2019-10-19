@@ -32,9 +32,6 @@
         {{$year}} ZEPRO RUN 全國半程馬拉松 - {{ $cityNameCh }}
     </title>
 
-    <!--CIS ico-->
-    {{-- <link rel="shortcut icon" href="image/favicon.ico" />
-    <link rel="bookmark" href="image/favicon.ico" /> --}}
 
     <!-- Bootstrap CSS-->
     <link href="{{ URL::asset('NewCSS/css/style.css') }}" rel="stylesheet" />
@@ -103,7 +100,6 @@
     </section>
 
 
-
     <section class="main">
         <div class="outer">
             <div class="row01">
@@ -167,9 +163,9 @@
                         {{--以上為測試替換區--}}
                         <div class="other_link">
                             <a href="/signup/{{$city}}/{{$year}}/{{$month}}" id="SignTitle"
-                                class="btn active">我要報名／Signup</a>
+                                class="btn active" >我要報名／Signup</a>
                             <a href="/query/{{$city}}/{{$year}}/{{$month}}" id="SignQuery"
-                                class="btn">報名查詢與修改／Query&Modify</a>
+                                class="btn" >報名查詢與修改／Query&Modify</a>
                         </div>
 
                     </div>
@@ -280,14 +276,12 @@
 
 
 
-
-    {{--要更改路徑格式--}}
+    {{--返還鍵圖示設定--}}
     <section class="back_top">
         <a href="#">
           <i class="far fa-arrow-alt-circle-up "
              style="font-size:50px; color:rgb(73, 175, 73); position: fixed; bottom:20px; right:20px;"></i>
     </section>
-
 
 
     <nav id="mobile_nav" class="mobile_nav">
@@ -349,10 +343,14 @@
             }else if(Sid=='{{ $eventRunStartTime }}' ){
                 remain_txt.innerHTML = "<span>離路跑開始剩:</span>";
                 SignTitle.style.display = "none";
+                //只有改變連結
+                // SignTitle.href = "#";
             }else if(Sid=='{{ $eventRunEndTime }}' ){
                 remain_txt.innerHTML = "<span>離路跑結束剩</span>";
                 SignTitle.style.display = "none";
                 SignQuery.style.display = "none";
+                // SignTitle.href = "#";
+                // SignQuery.href = "#";
             }
 
             var Target_date = new Date(Sid);
@@ -385,8 +383,8 @@
     <div id="body_overly"></div>
 
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="{{ URL::asset('NewCSS/js/jquery.countdown.js') }}"></script>
     <script src="{{ URL::asset('NewCSS/js/script.js') }}"></script>
+
     <!--這行是驗證用，要放在jquery後面-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
     <script
@@ -395,7 +393,6 @@
 
     {{-- <div id="twzipcode" ></div>
     <script> $("#twzipcode").twzipcode();</script> --}}
-
 
 </body>
 

@@ -104,7 +104,7 @@ class EventsTableSeeder extends Seeder
                 'eventRunStartTime' => '2019-10-06 07:00:00',
                 'eventRunEndTime' => '2019-10-06 11:00:00',
                 'eventTittle' => '2019屏東場',
-                'eventImage' => 'PCH202001.jpg',
+                'eventImage' => 'PCH201910.jpg',
                 'eventTel' => '0800-111-222',
                 'eventAddr' => '四林平地森林園區',
             ]);

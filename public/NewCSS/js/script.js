@@ -3,10 +3,6 @@ $(function () {
 	set_toggle_menu();
 	set_go_top();
 	set_mobile_menu_toggle();
-	set_countdown();
-	set_signup_gift_check();
-	set_purchase_quantity();
-	set_open_close();
 	set_sidebar();
 	set_carousel();
 });
@@ -51,62 +47,6 @@ function set_go_top() {
 }
 
 
-function set_countdown() {
-	if ($('.countdown').length > 0) {
-		$('.countdown').countdown('2019/06/30', function (event) {
-			$(this).html(event.strftime('%D 憭� %H �� %M �� %S 蝘�'));
-		});
-	}
-}
-
-
-function set_signup_gift_check(){
-	if($('.keyin_list .item .item_signup .item_row .controll_box .control.radio').length>0){
-		$('.keyin_list .item .item_signup .item_row .controll_box .control.radio .box input').click(function(){
-			$(this).parent().parent().parent().find('.control.radio').removeClass('active');
-			$(this).parent().parent().addClass('active');
-		});
-	}
-	if($('.keyin_list .item .item_gift .item_row .controll_box .control.radio').length>0){
-		$('.keyin_list .item .item_gift .item_row .controll_box .control.radio .box input').click(function(){
-			$(this).parent().parent().parent().find('.control.radio').removeClass('active');
-			$(this).parent().parent().addClass('active');
-		});
-		$('.keyin_list .item .item_gift .item_row .controll_box .control.radio').click(function(){
-			$(this).parent().find('.control.radio').removeClass('active');
-			$(this).addClass('active');
-			$(this).parent().find('input[type="radio"]').attr('checked', false);
-			$(this).find('input[type="radio"]').attr('checked', true);
-		});
-	}
-}
-
-function set_purchase_quantity(){
-	if($('.keyin_list .item .item_purchase_detail .col .right .quantity').length>0){
-		$('.keyin_list .item .item_purchase_detail .col .right .quantity .btn_add').click(function(){
-			var total = Number($(this).parent().find('input').val());			
-			$(this).parent().find('input').val(total+1);
-		});
-		$('.keyin_list .item .item_purchase_detail .col .right .quantity .btn_subtract').click(function(){
-			var total = Number($(this).parent().find('input').val());
-			if(total>0){		
-				$(this).parent().find('input').val(total-1);
-			}
-		});
-
-	}
-}
-
-function set_open_close(){
-	$('.keyin_list .item .title h3').click(function(){
-		$(this).parent().parent().toggleClass('close');
-	});
-	$('.pay_list .item .title h3').click(function(){
-		$(this).parent().parent().toggleClass('close');
-	});
-
-
-}
 
 //.main .outer .row02 .countdown_div .gray_bg
 function set_sidebar() {
@@ -122,6 +62,7 @@ function set_sidebar() {
 		}
 	});
 }
+
 
 function set_sidebar_pos(sidebar_id) {
 	var mainBannerHeight = $(".header_banner").height();
@@ -154,7 +95,6 @@ function set_sidebar_pos(sidebar_id) {
 		}
 	});
 }
-
 
 
 
@@ -257,6 +197,7 @@ function set_carousel(){
 
 }
 
+
 // $(function () {
 // 	 $('h3').click(function () {
 // 		  if ($(this).next('.fold').hasClass('o') == true) {
@@ -274,10 +215,6 @@ function set_carousel(){
 //  });
 
 
-// if( $(window).width()>640 ){
-//  $("#mobile_nav").toggle();
-//   console.log("畫面");
-// }
 
  
    

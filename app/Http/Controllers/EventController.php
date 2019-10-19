@@ -190,7 +190,7 @@ class EventController extends Controller
         $eventRunStartTime=Event::all()->where('cityId', $idCity )->first()->eventRunStartTime;
         $eventRunStartTimeF=date("Y年m月d日", strtotime($eventRunStartTime) );
         $eventRunEndTime=Event::all()->where('cityId', $idCity )->first()->eventRunEndTime;
-        // 
+
         $jsonContent1=EventContent::all()->where('eventId', $idEvent )->first()->eventContentSignup;
         $eventContentSignup=json_decode($jsonContent1);
         $jsonContent2=EventContent::all()->where('eventId', $idEvent )->first()->eventContentReward;
@@ -211,7 +211,6 @@ class EventController extends Controller
             "year",
             "month",
             // "list",
-            // "jsonContent1"
             "cityNameCh", 
             "eventSignupStartTime",               
             "eventSignupEndTime",

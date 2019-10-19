@@ -337,8 +337,8 @@
     <div id="body_overly"></div>
 
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="{{ URL::asset('NewCSS/js/jquery.countdown.js') }}"></script>
     <script src="{{ URL::asset('NewCSS/js/script.js') }}"></script>
+    
     <!--這行是驗證用，要放在jquery後面-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
     <script
