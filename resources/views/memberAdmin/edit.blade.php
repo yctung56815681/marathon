@@ -159,7 +159,9 @@
                 </tr>
                 <tr>
                     <th>性別:</th>
-                    <td><input id="memberGender" name="memberGender" value="{{ $mem->memberGender }}" type="text" placeholder="" class="form-control input-md"></td>
+                    
+                    <td>
+                    <input id="memberGender" name="memberGender" value="{{ $mem->memberGender }}" type="text" placeholder="" class="form-control input-md"></td>
                     <th>出生日期:</th>
                     <td>
                       <div class="form-row">

@@ -47,19 +47,7 @@
             </div>
         </div>
     </div>
-    {{------------------------------------------Modal3----------------------------------------------------}}
-    <div id="showImg" class="modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content" style="border-radius: 0 25%;">
-                <div class="modal-body" style="font-size: 2em; text-align: center">
-                    <p class="showImg"></p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <div class="container-fulid">
         <div class="row" style="flex-direction:row-reverse">
             {{------------------------------------------Nav----------------------------------------------------}}
@@ -76,9 +64,7 @@
             {{-- <div class="col-md-2 countDown">這是倒數計時</div> --}}
             {{------------------------------------------報名資料----------------------------------------------------}}
             <div class="col-md-12 content">
-                {{-- action="/memberAdmin" --}}
                 <form name="memberForm">
-                    {{-- @csrf --}}
                     <div class="content">
                         <div class="row">
                             <div class="col-md-12 mb-3">
@@ -463,11 +449,6 @@
             var str = String(product);
             console.log(str);
             // console.log(product.length);
-            // console.log(Object.keys(product).length);
-            // console.log(products);
-
-            // product.forEach(function (add) {
-            //     console.log(add);
             $("#addProduct").empty();
             var addPrice = 0;
             var totalPrice = 0;
@@ -481,8 +462,8 @@
                     $("#productPrice").text(addPrice + "元");
                 }
             })
-            var totalPrice = runMoney + addPrice + "元";
-            $("#total").text(totalPrice);
+            var totalPrice = runMoney + addPrice;
+            $("#total").text(totalPrice + "元");
         }
         //根據時間產生訂單號
         var orderNumber = "";
@@ -509,45 +490,6 @@
             }
             myData();
         }
-        //查看加購商品圖片
-        // var el = document.getElementById("product0");
-        // if(el) {
-        //     el.addEventListener("click", function () {
-        //     $('#showImg').modal('show');
-        //     $(".showImg").html(
-        //         "<img src='{{ URL::asset('img/product1.jpg') }}' class='img-fluid' alt='Responsive image'>");
-        // })
-        // }
-        // document.getElementById("product1").addEventListener("click", function () {
-        //     $('#showImg').modal('show');
-        //     $(".showImg").html(
-        //         "<img src='{{ URL::asset('img/product2.jpg') }}' class='img-fluid' alt='Responsive image'>");
-        // })
-        // document.getElementById("product2").addEventListener("click", function () {
-        //     $('#showImg').modal('show');
-        //     $(".showImg").html(
-        //         "<img src='{{ URL::asset('img/product3.jpg') }}' class='img-fluid' alt='Responsive image'>");
-        // })
-        // document.getElementById("product3").addEventListener("click", function () {
-        //     $('#showImg').modal('show');
-        //     $(".showImg").html(
-        //         "<img src='{{ URL::asset('img/product4.jpg') }}' class='img-fluid' alt='Responsive image'>");
-        // })
-        // document.getElementById("product5").addEventListener("click", function () {
-        //     $('#showImg').modal('show');
-        //     $(".showImg").html(
-        //         "<img src='{{ URL::asset('img/product5.jpg') }}' class='img-fluid' alt='Responsive image'>");
-        // })
-        // document.getElementById("product6").addEventListener("click", function () {
-        //     $('#showImg').modal('show');
-        //     $(".showImg").html(
-        //         "<img src='{{ URL::asset('img/product6.jpg') }}' class='img-fluid' alt='Responsive image'>");
-        // })
-        // document.getElementById("product7").addEventListener("click", function () {
-        //     $('#showImg').modal('show');
-        //     $(".showImg").html(
-        //         "<img src='{{ URL::asset('img/product7.jpg') }}' class='img-fluid' alt='Responsive image'>");
-        // })
 
         //ajax
         $.ajaxSetup({
@@ -576,6 +518,8 @@
                         data: {
                             orderGroupName: teamName,
                             orderGroupNo: orderNumber,
+                            orderGroupStatus: "1",
+                            orderGroupRevoke: "1",
                             eventId: event
                         }
                     }).done(function (data) {
@@ -627,7 +571,6 @@
                         });
                     });
                 })
-
             });
         }
 
@@ -643,8 +586,7 @@
                 }
             }).done(function (data) {
                 runs = data;
-                // event = data[0].eventId;
-                // console.log(data[0].eventId);
+
                 for (var i = 0; i < data.length; i++) {
                     $("#signupOp").append(
                         "<div class='row radio d-flex justify-content-between'><div><input type='radio' name='km' value='" +
