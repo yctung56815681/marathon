@@ -458,8 +458,8 @@
             console.log(teams);
             i = teams.length;
             $("#teamArray").append('<div id=person' + i + ' class="row d-flex justify-content-between schedule "> ' +
-                '<button disabled="disabled" type="button">' + team.name +
-                '</button><button type="button" onclick="deletePerson(' + i +
+                '<button class="myPerson" disabled="disabled" type="button">' + team.name +
+                '</button><button class="myPerson" type="button" onclick="deletePerson(' + i +
                 ')"><i class="fas fa-trash-alt"></i></button></div>'
             );
         }

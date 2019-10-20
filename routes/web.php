@@ -52,6 +52,7 @@ Route::post('/api/member/teamAdd', "MemberApiController@teamAdd");
 Route::post('/api/member/add', "MemberApiController@add");
 Route::get('/api/member/addProduct', "MemberApiController@addProduct");
 Route::get('/api/member/runEvent', "MemberApiController@runEvent");
+Route::get('/api/member/checkTwId', "MemberApiController@checkTwId");
 
 Route::resource('/orderGroupAdmin', 'OrderGroupAdminController');
 
