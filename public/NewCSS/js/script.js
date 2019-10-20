@@ -16,6 +16,7 @@ function set_toggle_menu() {
 	});
 }
 
+
 function set_mobile_menu_toggle() {
 
 	$('#mobile_nav li .list .sub_title').click(function () {

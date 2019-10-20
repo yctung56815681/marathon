@@ -45,9 +45,7 @@
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
 
 
-    <!--引用縣市js檔-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script>
+    
 
 
     <!--引用彈出視窗sweetalert2檔-->
@@ -176,11 +174,12 @@
 
                     <div class="detail_div">
                      <!--中間可替換內容處-->
+
                         {{--要更改路徑格式--}}
                         <link rel="stylesheet" href="{{ URL::asset('NewCSS/css/jquerycollapse.css') }}">
+
                         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
                             rel="stylesheet">
-
                         <link rel="stylesheet"
                             href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
                             integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -189,6 +188,7 @@
                         {{--要更改路徑格式--}}
                         <link href="{{ URL::asset('NewCSS/css/StyleSheet.css') }}" rel="stylesheet" />
 
+                        {{-- 本頁的jquerycdn檔從此處匯入 --}}
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
                         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
                             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
@@ -196,12 +196,11 @@
                         </script>
 
                         <div id="ContentPlaceHolder1_content">
-
-                           <center>
-                             <h2 style="text-align:center">
+                           
+                            <h2 style="text-align:center">
                                 <span style="font-weight:800;">最新消息</span>
-                             </h2>
-                           </center>
+                            </h2>
+                           
 
                            <p>&nbsp;</p>
                             <!--以下要能替換內容-->
@@ -250,9 +249,6 @@
                          <!--以上要能替換內容-->
                          <p>&nbsp;</p>
 
-                          {{-- <p>{!! $eventContentNews->eventNewstext1!!}</p> --}}
-                          {{-- <img src="/img/{{ $eventContentNews ->eventNewsImage }}" alt=""> --}}
-                          {{-- <p>{!! $eventContentNews ->eventNewstext2!!}</p> --}}
 
                           {{-- <div>
                             @foreach ( $eventContent1 as $k=>$v  )
@@ -369,30 +365,18 @@
                     remain_time.innerHTML = Cal_Day + "天" + Cal_Hour + "時" + Cal_Minute + "分" + Cal_Second + "秒";
                 }  
                 
-                // remain_time.innerHTML = Cal_Day + "天" + Cal_Hour + "時" + Cal_Minute + "分" + Cal_Second + "秒";
-             
+                // remain_time.innerHTML = Cal_Day + "天" + Cal_Hour + "時" + Cal_Minute + "分" + Cal_Second + "秒";    
             }
 
             var mm = window.setInterval("Check_Time()", 1000);
         }
-
     </script>
     <!-------JavaScript特定日期倒數計時 END-------->
 
 
-    <div id="body_overly"></div>
-
-    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- 此jquery函式檔放置在文檔末尾，可使頁面加載速度更快 -->
     <script src="{{ URL::asset('NewCSS/js/script.js') }}"></script>
 
-    <!--這行是驗證用，要放在jquery後面-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js">
-    </script>
-
-    {{-- <div id="twzipcode" ></div>
-    <script> $("#twzipcode").twzipcode();</script> --}}
 
 </body>
 

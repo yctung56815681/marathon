@@ -155,28 +155,32 @@
                     <div class="detail_div">
 
                         <link rel="stylesheet" href="{{ URL::asset('NewCSS/css/jquerycollapse.css') }}">
+
                         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
                             rel="stylesheet">
-
                         <link rel="stylesheet"
                             href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
                             integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
                             crossorigin="anonymous">
 
                         <link href="{{ URL::asset('NewCSS/css/StyleSheet.css') }}" rel="stylesheet" />
-
+                        
+                        {{-- 本頁的jquerycdn檔從此處匯入 --}}
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
                         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
                             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-                            crossorigin="anonymous"></script>
+                            crossorigin="anonymous">
+                        </script>
+                 
+                            
                         <div id="ContentPlaceHolder1_content">
 
                             <h2 style="text-align: center;">
                                 <span style="font-weight:800;">競賽獎勵</span>
                             </h2>
 
-                            <!--以下要能替換內容-->
 
+                            <!--以下要能替換內容-->
                             <center>
                                 <h3><div class="titleCenter">排名</div></h3>
                             </center>
@@ -335,18 +339,10 @@
     <!-------JavaScript特定日期倒數計時 END-------->
 
 
-    <div id="body_overly"></div>
-
-    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- 此jquery函式檔放置在文檔末尾，可使頁面加載速度更快 -->
     <script src="{{ URL::asset('NewCSS/js/script.js') }}"></script>
 
-    <!--這行是驗證用，要放在jquery後面-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js">
-    </script>
-
-
+ 
 </body>
 
 </html>
