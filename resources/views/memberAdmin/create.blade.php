@@ -151,55 +151,58 @@
 <fieldset>
             <table class="table table-striped table-bordered table-hover">
                 <tr>
-                    <th width="20%">身分證字號:</th>
+                    <th width="20%">身分證字號 : </th>
                     <td width="25%"><input id="memberTwId" name="memberTwId" type="text" placeholder="" class="form-control input-md" required>
                     </td>
-                    <th width="15%">姓名:</th>
+                    <th width="15%">姓名 : </th>
                     <td width="40%"><input id="memberName" name="memberName" type="text" placeholder="" class="form-control input-md" required>
                     </td>
                 </tr>
                 <tr>
-                    <th>性別:</th>
-                    <td><input id="memberGender" name="memberGender" type="text" placeholder="" class="form-control input-md"></td>
-                    <th>出生日期:</th>
+                    <th>性別 : </th>
+                    <td>
+                        <label class="radio-inline"><input  type="radio" name="memberGender" value="男">男</label>
+                        <label class="radio-inline"><input  type="radio" name="memberGender" value="女">女</label>
+                    </td>
+                    <th>出生日期 : </th>
                     <td>
                       <div class="form-row">
                         <div class="col-2 ">
-                            <input  class="form-control "  id="memberYear" name="memberYear" type="text">
+                            <input  class="form-control"  id="memberYear" name="memberYear" type="text">
                         </div>
                         <div>_</div>
-                        <div class="col-2 ">
-                            <input  class="form-control "  id="memberMonth" name="memberMonth"  type="text">
+                        <div class="col-2">
+                            <input  class="form-control"  id="memberMonth" name="memberMonth"  type="text">
                         </div>
                         <div>_</div>
-                        <div class="col-2 ">
-                            <input  class="form-control "  id="memberDay" name="memberDay"  type="text">
+                        <div class="col-2">
+                            <input  class="form-control"  id="memberDay" name="memberDay"  type="text">
                         </div>
                       </div>
                     </td>
                 </tr>
                 <tr>
-                    <th>居住城市:</th>
+                    <th>居住城市 : </th>
                     <td><input id="memberCity" name="memberCity"  type="text" placeholder="" class="form-control input-md"></td>
-                    <th>鄉鎮市:</th>
+                    <th>鄉鎮市 : </th>
                     <td><input id="memberTown" name="memberTown"  type="text" placeholder="" class="form-control input-md"></td>
                 </tr>
                 <tr>
-                    <th>地址:</th>
+                    <th>地址 : </th>
                     <td><input id="memberAddr" name="memberAddr" type="text" placeholder="" class="form-control input-md"></td>
-                    <th>e-mail:</th>
+                    <th>e-mail : </th>
                     <td><input id="memberEmail" name="memberEmail"  type="text" placeholder="" class="form-control input-md"></td>
                 </tr>
                 <tr>
-                    <th>電話:</th>
+                    <th>電話 : </th>
                     <td><input id="memberMobile" name="memberMobile" type="text" placeholder="" class="form-control input-md"></td>
-                    <th>緊急聯絡人:</th>
+                    <th>緊急聯絡人 : </th>
                     <td><input id="memberEmergencyContact" name="memberEmergencyContact" type="text" placeholder="" class="form-control input-md"></td>
                 </tr>
                 <tr>
-                    <th>與緊急聯絡人關係:</th>
+                    <th>與緊急聯絡人關係 : </th>
                     <td><input id="memberEmergencyRelationship" name="memberEmergencyRelationship" type="text" placeholder="" class="form-control input-md"></td>
-                    <th>緊急聯絡人電話:</th>
+                    <th>緊急聯絡人電話 : </th>
                     <td><input id="memberEmergencyMobile" name="memberEmergencyMobile"  type="text" placeholder="" class="form-control input-md"></td>
                 </tr>
                 <tr>

@@ -57,12 +57,12 @@
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a href="/ui"><i class="fas fa-landmark fa-2x"></i>首頁</a>
+                    <a href="/ui" class="text-warning"><i class="fas fa-landmark fa-2x text-warning"></i>首頁</a>
                 </div>
                 <ul class="nav navbar-nav">
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <a href="/logout"><i class="fas fa-sign-out-alt fa-2x"></i>登出</a>
+                    <a href="/logout" class="text-warning"><i class="fas fa-sign-out-alt fa-2x text-warning"></i>登出</a>
                 </ul>
             </div>
         </nav>
@@ -185,7 +185,7 @@
                 </tr>
                 <tr>
                     <th>訂單時間 : </th>
-                    <td class="text-danger">2019-09-06-09:00:02</td>
+                    <td class="text-danger">2019-09-10-17:05:20</td>
                     <th>訂單狀態 : </th>
                     <td class="text-danger">{{$obj->order->orderRevoke}}</td>
                     <th>訂單總額 : </th>

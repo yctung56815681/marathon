@@ -18,13 +18,10 @@
                 width: auto;
                 height: 50px;
                 position: relative;
-
                 /* background-image: url("/img/header.jpg");
                 background-size: cover; */
             }
-
             .Left {
-
                 /* width: 25%; */
                 width: 200px;
                 height: auto;
@@ -32,18 +29,14 @@
                 background-color: yellow;
                 display: inline-block;
             }
-
             .Right {
                 width: 85%;
                 height: auto;
                 position: absolute;
                 background-color: #F0F8FF;
                 display: inline-block;
-
             }
-
             .content {}
-
         </style>
     </head>
 
@@ -75,12 +68,12 @@
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a href="/ui"><i class="fas fa-landmark fa-2x"></i>首頁</a>
+                    <a href="/ui" class="text-warning"><i class="fas fa-landmark fa-2x text-warning"></i>首頁</a>
                 </div>
                 <ul class="nav navbar-nav">
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <a href="/logout"><i class="fas fa-sign-out-alt fa-2x"></i>登出</a>
+                    <a href="/logout" class="text-warning"><i class="fas fa-sign-out-alt fa-2x text-warning"></i>登出</a>
                 </ul>
             </div>
         </nav>
@@ -168,130 +161,95 @@
                 <div id="group">
                     <form name="memberForm">
                         <fieldset>
-                        <!-- 賽事選擇 -->
-                        <div id="title0" class="title"><i class="fas fa-dot-circle"></i>賽事選擇
-                            <select class="custom-select my-1 mr-sm-2" id="eventCity" onchange="changeCity()">
-                                <option >請選擇賽事</option>
-                                <option value="TPH">新北場</option>
-                                <option value="TYC">桃園場</option>
-                                <option value="TXG">台中場</option>
-                                <option value="CWH">彰化場</option>
-                                <option value="YUN">雲林場</option>
-                                <option value="TNN">台南場</option>
-                                <option value="KHH">高雄場</option>
-                                <option value="PCH">屏東場</option>
-                                <option value="ILN">宜蘭場</option>
-                            </select>
-                            <hr>
-                        </div>
-                        <div id="title1" class="title"><i class="fas fa-dot-circle"></i>個人資料
-                            <hr>
-                        </div>
-                        <div id="personalData">
+                        <table class="table table-striped table-bordered table-hover">
+                        <tr>
+                            <th width="180px">賽事選擇 : </th>
+                            <td  width="300px">
+                                <select class="custom-select my-1 mr-sm-2" id="eventCity" onchange="changeCity()">
+                                    <option >請選擇賽事</option>
+                                    <option value="TPH">新北場</option>
+                                    <option value="TYC">桃園場</option>
+                                    <option value="TXG">台中場</option>
+                                    <option value="CWH">彰化場</option>
+                                    <option value="YUN">雲林場</option>
+                                    <option value="TNN">台南場</option>
+                                    <option value="KHH">高雄場</option>
+                                    <option value="PCH">屏東場</option>
+                                    <option value="ILN">宜蘭場</option>
+                                </select>
+                            </td>
+                            <td width="180px"></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>姓名 :</th>
+                            <td> <input type="text" class="form-control" name="name" id="name" placeholder="" required></td>
+                            <th>身分證字號 :</th>
+                            <td><input type="text" class="form-control" name="twId" id="twId" placeholder="" required></td>
+                        </tr>
+                        <tr>
+                            <th>姓別 :</th>
+                            <td>
+                                
+                                <label class="radio-inline"><input  type="radio" name="sex" value="男">男</label>
+                                <label class="radio-inline"><input  type="radio" name="sex" value="女">女</label>
+                            </td>
+                            <th>出生日期 :</th>
+                            <td>
                             <div class="form-row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="name">姓名</label>
-                                    <input type="text" class="form-control myInput" name="name" id="name"
-                                        placeholder="請輸入姓名" required>
+                                <div class="col-3 ">
+                                    <input  class="form-control"  id="year" name="year" type="text" required>
                                 </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="name">身分證字號</label>
-                                    <input type="text" class="form-control myInput" name="twId" id="twId"
-                                        placeholder="請輸入身分證" required>
+                                <div>_</div>
+                                <div class="col-3">
+                                    <input  class="form-control"  id="month" name="month"  type="text" required>
+                                </div>
+                                <div>_</div>
+                                <div class="col-3">
+                                    <input  class="form-control"  id="day" name="day"  type="text" required>
                                 </div>
                             </div>
-                            <div class="form-row">
-                                <div class="col-md-3 mb-3">
-                                    <label for="name">性別</label>
-                                    <div class="d-flex justify-content-start">
-                                        <input type="radio" class="form-control myInput" name="sex"
-                                            value="male">男
-                                        <input type="radio" class="form-control myInput" name="sex"
-                                            value="female">女
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-md-2 mb-3">
-                                    <label for="year">年</label>
-                                    <input type="text" class="form-control myInput" name="year" id="year"
-                                        placeholder="請輸入出生民國年分" required>
-                                </div>
-                                <div class="col-md-2 mb-3">
-                                    <label for="month">月</label>
-                                    <input type="text" class="form-control myInput" name="month" id="month"
-                                        placeholder=" 請輸入出生月份" required>
-                                </div>
-                                <div class="col-md-2 mb-3">
-                                    <label for="day">日</label>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control myInput" name="day" id="day"
-                                            placeholder="請輸入出生日" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 mb-3">
-                                    <label for="email">信箱</label>
-                                    <input type="text" class="form-control myInput" name="email" id="email"
-                                        placeholder="請輸入信箱" required>
-                                </div>
-                                <div class="col-md-3 mb-3">
-                                    <label for="cellPhone">電話</label>
-                                    <input type="text" class="form-control myInput" name="cellPhone"
-                                        id="cellPhone" placeholder="請輸入電話" required>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-md-3 mb-3">
-                                    <label for="city">城市</label>
-                                    <input type="text" class="form-control myInput" name="city" id="city"
-                                        placeholder="請輸入城市" required>
-                                </div>
-                                <div class="col-md-3 mb-3">
-                                    <label for="town">鄉鎮</label>
-                                    <input type="text" class="form-control myInput" name="town" id="town"
-                                        placeholder="請輸入鄉鎮" required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="address">地址</label>
-                                    <input type="text" class="form-control myInput" name="address"
-                                        id="address" placeholder="請輸入居住地址" required>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-md-5 mb-3">
-                                    <label for="emName">姓名</label>
-                                    <input type="text" class="form-control myInput" name="emName"
-                                        id="emName" placeholder="請輸入緊急聯絡人姓名" required>
-                                </div>
-                                <div class="col-md-5 mb-3">
-                                    <label for="emCellphone">電話</label>
-                                    <input type="text" class="form-control myInput" name="emCellphone"
-                                        id="emCellphone" placeholder="請輸入緊急聯絡人電話" required>
-                                </div>
-                                <div class="col-md-2 mb-3">
-                                    <label for="emRelationship">關係</label>
-                                    <input type="text" class="form-control myInput" name="emRelationship"
-                                        id="emRelationship" placeholder="請輸入關係" required>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 報名項目選擇 -->
-                        <div id="title2" class="title"><i class="fas fa-dot-circle"></i>報名項目
-                            <hr>
-                        </div>
-                        <div id="signupOp">
-                        </div>
-                        <!-- 加購項目 -->
-                        <div id="title3" class="title"><i class="fas fa-dot-circle"></i>加購項目
-                            <hr>
-                        </div>
-                        <div id="addPurchase">
-                        </div>
-                    <input class="btn btn-primary" type="button" value="確認訂單" onclick=" group2();check_data(); ">
+                        </tr>
+                        <tr>
+                            <th>e-mail :</th>
+                            <td><input type="text" class="form-control" name="email" id="email" placeholder="" required></td>
+                            <th>電話 :</th>
+                            <td><input type="text" class="form-control" name="cellPhone" id="cellPhone" placeholder="" required></td>
+                        </tr>
+                            <th>居住城市 :</th>
+                            <td><input type="text" class="form-control" name="city" id="city"placeholder="" required></td>
+                            <th>鄉鎮 :</th>
+                            <td><input type="text" class="form-control" name="town" id="town" placeholder="" required></td>
+                        </tr>
+                            <th>地址 :</th>
+                            <td><input type="text" class="form-control" name="address"id="address" placeholder="" required></td>
+                            <th>緊急聯絡人姓名</th>
+                            <td><input type="text" class="form-control" name="emName"id="emName" placeholder="" required></td>
+                        </tr>
+                        <tr>
+                            <th>緊急聯絡人電話 :</th>
+                            <td><input type="text" class="form-control" name="emCellphone"id="emCellphone" placeholder="" required></td>
+                            <th>與緊急聯絡人關係 :</th>
+                            <td><input type="text" class="form-control" name="emRelationship"id="emRelationship" placeholder="" required></td>
+                        </tr>
+                        <tr>
+                            <th>報名項目 :</th>
+                            <td><div id="signupOp"></div></td>
+                            <th>加購商品 :</th>
+                            <td><div id="addPurchase"></div></td>
+                        </tr>
+                        </table>
+                        <button type="button" onclick="window.history.back(-1)" id="okOrCancel" name="okOrCancel" class="btn-sm btn-warning float-right"><i class="fas fa-ban"></i>取消</button>
+                        <button class="btn-sm btn-success float-right" type="button" value="確認"  onclick=" group2();check_data(); "><i class="far fa-plus-square"></i> 確認</button>
                     </form>
                 </div>
                 <div id="group2" style="display:none">
-                <p>已成功新增一筆訂單資料</p>
+                <div class="card text-center">
+                    <div class="card-body">
+                        <p class="card-text-center">成功新增一筆訂單資料</p>
+                        <a href="/orderGroupAdmin" type="submit" id="okOrCancel" name="okOrCancel" class="btn-sm btn-warning float-right btn-center"><i class="fas fa-arrow-alt-circle-left"></i> 返回</a>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
@@ -493,7 +451,7 @@ $.ajax({
     runs = data;
     for (var i = 0; i < data.length; i++) {
         $("#signupOp").append(
-            "<div class='row radio d-flex justify-content-between'><div><input type='radio' name='km' value='" +
+            "<div class='radio d-flex justify-content-between'><div><input type='radio' name='km' value='" +
             data[i].idRun + "'>" + data[i].runNameLong + "</div><div>NT$" + data[i]
             .runPrice + "</div></div>");
     }
@@ -501,8 +459,6 @@ $.ajax({
 });
 });
 }
-
-
 //撈商品
 var products;
 $(document).ready(function () {
@@ -513,24 +469,18 @@ $.ajax({
     products = data;
     for (var i = 0; i < data.length; i++) {
         $("#addPurchase").append(
-            "<div class='row d-flex justify-content-between'><div><input type='checkbox' name='product[]' value='" +
+            "<div class='d-flex justify-content-between'><div><input type='checkbox' name='product[]' value='" +
             data[i].idProduct + "'>" + data[i].productName + "</div><div>NT" + data[i]
             .productPrice + "</div></div>");
     }
     console.log(data);
 });
-
-
 })
-
 </script>
 
 <div>&nbsp;</div>
 <div>&nbsp;</div>
 
-{{-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-</script> --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
 integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
 </script>
@@ -538,8 +488,6 @@ integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0
 integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
 </script>
 
-
-
 </body>
 
-</html>
+
