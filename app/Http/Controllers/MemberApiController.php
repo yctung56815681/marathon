@@ -71,8 +71,8 @@ class MemberApiController extends Controller
             [
                 "orderGroupNo" => $request->orderGroupNo,
                 "orderGroupName" => $request->orderGroupName,
-                "orderGroupRevoke" => $request->orderGroupRevoke,
                 "orderGroupStatus" => $request->orderGroupStatus,
+                "orderGroupRevoke" => $request->orderGroupRevoke,
                 "eventId" =>  $request->eventId
             ]
         );

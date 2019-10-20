@@ -462,7 +462,7 @@
                     $("#productPrice").text(addPrice + "元");
                 }
             })
-            var totalPrice = runMoney + addPrice ;
+            var totalPrice = runMoney + addPrice;
             $("#total").text(totalPrice + "元");
         }
         //根據時間產生訂單號
@@ -500,69 +500,77 @@
 
         function myData() {
             $(document).ready(function () {
-                event = data[0].eventId;
-                var teamName = $("#name").val();
-                var groupId;
+                var eventCity = $("#eventCity").val();
+                var event;
                 $.ajax({
-                    type: "POST",
-                    url: "/api/member/teamAdd",
+                    type: "GET",
+                    url: "/api/member/runEvent",
                     data: {
-                        orderGroupName: teamName,
-                        orderGroupNo: orderNumber,
-                        orderGroupRevoke: "1",
-                        orderGroupStatus: "1",
-                        eventId: event
+                        cityNo: eventCity
                     }
                 }).done(function (data) {
-                    groupId = data;
-                    var name = $("#name").val();
-                    var twId = $("#twId").val();
-                    var sex = $("input[name=sex]:checked").val();
-                    var year = $("#year").val();
-                    var month = $("#month").val();
-                    var day = $("#day").val();
-                    var city = $("#city").val();
-                    var town = $("#town").val();
-                    var address = $("#address").val();
-                    var email = $("#email").val();
-                    var cellPhone = $("#cellPhone").val();
-                    var emName = $("#emName").val();
-                    var emRelationship = $("#emRelationship").val();
-                    var emCellphone = $("#emCellphone").val();
-                    var km = $('input:radio:checked[name="km"]').val();
-                    var product = [$('input:checkbox:checked[name="product[]"]').map(
-                        function () {
-                            return $(this).val();
-                        }).get()];
+                    event = data[0].eventId;
+                    var teamName = $("#name").val();
+                    var groupId;
                     $.ajax({
                         type: "POST",
-                        url: "/api/member/add",
+                        url: "/api/member/teamAdd",
                         data: {
-                            memberTwId: twId,
-                            memberName: name,
-                            memberGender: sex,
-                            memberYear: year,
-                            memberMonth: month,
-                            memberDay: day,
-                            memberCity: city,
-                            memberTown: town,
-                            memberAddr: address,
-                            memberEmail: email,
-                            memberMobile: cellPhone,
-                            memberEmergencyMobile: emCellphone,
-                            memberEmergencyContact: emName,
-                            memberEmergencyRelationship: emRelationship,
-                            runId: km,
-                            productId: product.toString(),
-                            orderNo: orderNumber,
-                            orderStatus: "1",
-                            orderRevoke: "1",
-                            orderGroupId: groupId,
+                            orderGroupName: teamName,
+                            orderGroupNo: orderNumber,
+                            orderGroupStatus: "1",
+                            orderGroupRevoke: "1",
+                            eventId: event
                         }
+                    }).done(function (data) {
+                        groupId = data;
+                        var name = $("#name").val();
+                        var twId = $("#twId").val();
+                        var sex = $("input[name=sex]:checked").val();
+                        var year = $("#year").val();
+                        var month = $("#month").val();
+                        var day = $("#day").val();
+                        var city = $("#city").val();
+                        var town = $("#town").val();
+                        var address = $("#address").val();
+                        var email = $("#email").val();
+                        var cellPhone = $("#cellPhone").val();
+                        var emName = $("#emName").val();
+                        var emRelationship = $("#emRelationship").val();
+                        var emCellphone = $("#emCellphone").val();
+                        var km = $('input:radio:checked[name="km"]').val();
+                        var product = [$('input:checkbox:checked[name="product[]"]').map(
+                            function () {
+                                return $(this).val();
+                            }).get()];
+                        $.ajax({
+                            type: "POST",
+                            url: "/api/member/add",
+                            data: {
+                                memberTwId: twId,
+                                memberName: name,
+                                memberGender: sex,
+                                memberYear: year,
+                                memberMonth: month,
+                                memberDay: day,
+                                memberCity: city,
+                                memberTown: town,
+                                memberAddr: address,
+                                memberEmail: email,
+                                memberMobile: cellPhone,
+                                memberEmergencyMobile: emCellphone,
+                                memberEmergencyContact: emName,
+                                memberEmergencyRelationship: emRelationship,
+                                runId: km,
+                                productId: product.toString(),
+                                orderNo: orderNumber,
+                                orderStatus: "1",
+                                orderRevoke: "1",
+                                orderGroupId: groupId,
+                            }
+                        });
                     });
-                });
-
-
+                })
             });
         }
 

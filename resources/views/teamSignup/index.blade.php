@@ -349,7 +349,7 @@
                 // },
                 team = {
                     "name": $("#myName").val(),
-                    "twid": $("#twId").val(),
+                    "twId": $("#twId").val(),
                     "sex": $("input[name=sex]:checked").val(),
                     "year": $("#year").val(),
                     "month": $("#month").val(),
@@ -495,8 +495,8 @@
                 })
                 totalRunMoney += runMoney;
                 console.log(totalRunMoney);
-                 $("#kmPrice").text(totalRunMoney + "元");
-                
+                $("#kmPrice").text(totalRunMoney + "元");
+
 
                 //加購項目
                 var myProduct = team.product;
@@ -588,67 +588,77 @@
 
         function myData() {
             $(document).ready(function () {
-                event = data[0].eventId;
-                var teamName = $("#teamName").val();
-                var groupId;
+                var eventCity = $("#eventCity").val();
+                var event;
                 $.ajax({
-                    type: "POST",
-                    url: "/api/member/teamAdd",
+                    type: "GET",
+                    url: "/api/member/runEvent",
                     data: {
-                        orderGroupName: teamName,
-                        orderGroupNo: orderNumber,
-                        orderGroupRevoke: "1",
-                        orderGroupStatus: "1",
-                        eventId: event
+                        cityNo: eventCity
                     }
                 }).done(function (data) {
-                    groupId = data;
-                    for (i = 0; i < teams.length; i++) {
-                        team = teams[i];
-                        var myName = team.name;
-                        var twId = team.twId;
-                        var sex = team.sex;
-                        var year = team.year;
-                        var month = team.month;
-                        var day = team.day;
-                        var email = team.email;
-                        var cellPhone = team.cellPhone;
-                        var city = team.city;
-                        var town = team.town;
-                        var address = team.address;
-                        var emName = team.emName;
-                        var emCellphone = team.emCellphone;
-                        var emRelationship = team.emRelationship;
-                        var km = team.km;
-                        var product = team.product;
-                        $.ajax({
-                            type: "POST",
-                            url: "/api/member/add",
-                            data: {
-                                memberName: myName,
-                                memberTwId: twId,
-                                memberGender: sex,
-                                memberYear: year,
-                                memberMonth: month,
-                                memberDay: day,
-                                memberCity: city,
-                                memberTown: town,
-                                memberAddr: address,
-                                memberEmail: email,
-                                memberMobile: cellPhone,
-                                memberEmergencyContact: emName,
-                                memberEmergencyRelationship: emRelationship,
-                                memberEmergencyMobile: emCellphone,
-                                runId: km,
-                                productId: product.toString(),
-                                orderNo: personOrderNo1,
-                                orderStatus: "1",
-                                orderRevoke: "1",
-                                orderGroupId: groupId
-                            }
-                        });
-                    }
-                });
+                    event = data[0].eventId;
+                    var teamName = $("#teamName").val();
+                    var groupId;
+                    $.ajax({
+                        type: "POST",
+                        url: "/api/member/teamAdd",
+                        data: {
+                            orderGroupName: teamName,
+                            orderGroupNo: orderNumber,
+                            orderGroupRevoke: "1",
+                            orderGroupStatus: "1",
+                            eventId: event
+                        }
+                    }).done(function (data) {
+                        groupId = data;
+                        for (i = 0; i < teams.length; i++) {
+                            team = teams[i];
+                            var myName = team.name;
+                            var twId = team.twId;
+                            var sex = team.sex;
+                            var year = team.year;
+                            var month = team.month;
+                            var day = team.day;
+                            var email = team.email;
+                            var cellPhone = team.cellPhone;
+                            var city = team.city;
+                            var town = team.town;
+                            var address = team.address;
+                            var emName = team.emName;
+                            var emCellphone = team.emCellphone;
+                            var emRelationship = team.emRelationship;
+                            var km = team.km;
+                            var product = team.product;
+                            $.ajax({
+                                type: "POST",
+                                url: "/api/member/add",
+                                data: {
+                                    memberName: myName,
+                                    memberTwId: twId,
+                                    memberGender: sex,
+                                    memberYear: year,
+                                    memberMonth: month,
+                                    memberDay: day,
+                                    memberCity: city,
+                                    memberTown: town,
+                                    memberAddr: address,
+                                    memberEmail: email,
+                                    memberMobile: cellPhone,
+                                    memberEmergencyContact: emName,
+                                    memberEmergencyRelationship: emRelationship,
+                                    memberEmergencyMobile: emCellphone,
+                                    runId: km,
+                                    productId: product.toString(),
+                                    orderNo: personOrderNo1,
+                                    orderStatus: "1",
+                                    orderRevoke: "1",
+                                    orderGroupId: groupId
+                                }
+                            });
+                        }
+                    });
+                })
             });
         }
 
