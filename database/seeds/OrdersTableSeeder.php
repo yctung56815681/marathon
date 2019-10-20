@@ -13,7 +13,7 @@ class OrdersTableSeeder extends Seeder
     {
         if (DB::table('orders')->get()->count() == 0) {
             DB::table('orders')->insert([
-                'orderNo' => '訂單編號1',
+                'orderNo' => 'P123456789012345',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '1',
@@ -21,7 +21,7 @@ class OrdersTableSeeder extends Seeder
                 'runId' => '1',
             ]);
             DB::table('orders')->insert([
-                'orderNo' => '訂單編號2',
+                'orderNo' => 'P098765432112345',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '2',
@@ -30,7 +30,7 @@ class OrdersTableSeeder extends Seeder
             ]);
 
             DB::table('orders')->insert([
-                'orderNo' => '訂單編號3',
+                'orderNo' => 'P098765432112345',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '2',
@@ -39,7 +39,7 @@ class OrdersTableSeeder extends Seeder
             ]);
 
             DB::table('orders')->insert([
-                'orderNo' => '訂單編號4',
+                'orderNo' => 'P321569874563214',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '3',
@@ -47,7 +47,7 @@ class OrdersTableSeeder extends Seeder
                 'runId' => '4',
             ]);
             DB::table('orders')->insert([
-                'orderNo' => '訂單編號5',
+                'orderNo' => 'P321569874563214',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '3',
@@ -56,7 +56,7 @@ class OrdersTableSeeder extends Seeder
             ]);
 
             DB::table('orders')->insert([
-                'orderNo' => '訂單編號6',
+                'orderNo' => 'P321569874563214',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '3',
@@ -64,7 +64,7 @@ class OrdersTableSeeder extends Seeder
                 'runId' => '6',
             ]);
             DB::table('orders')->insert([
-                'orderNo' => '訂單編號7',
+                'orderNo' => 'P023654123589654',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '4',
@@ -72,7 +72,7 @@ class OrdersTableSeeder extends Seeder
                 'runId' => '1',
             ]);
             DB::table('orders')->insert([
-                'orderNo' => '訂單編號8',
+                'orderNo' => 'P023654123589654',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '4',
@@ -80,7 +80,7 @@ class OrdersTableSeeder extends Seeder
                 'runId' => '2',
             ]);
             DB::table('orders')->insert([
-                'orderNo' => '訂單編號9',
+                'orderNo' => 'P023654123589654',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '4',
@@ -88,7 +88,7 @@ class OrdersTableSeeder extends Seeder
                 'runId' => '2',
             ]);
             DB::table('orders')->insert([
-                'orderNo' => '訂單編號10',
+                'orderNo' => 'P023654123589654',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '4',

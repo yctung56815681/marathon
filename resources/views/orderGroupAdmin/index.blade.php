@@ -171,18 +171,18 @@
                             <td>
                             @foreach($item->order as $item2)
                                 @if ($item->orderGroupRevoke == "撤銷")
-                                    <a id="{{$item->orderGroupRevoke}}"  name="btn" class="btn btn-outline-secondary">{{$item2->memberTwId}} / {{$item2->memberName}} (x)</a>
+                                    <a id="{{$item2->orderRevoke}}" name="btn" class="btn btn-outline-secondary">{{$item2->memberTwId}} / {{$item2->memberName}} (x)</a>
                                 @else
-                                    <a id="{{$item->orderGroupRevoke}}" name="btn" href="/orderAdmin/{{$item2->idOrder}}" class="btn btn-outline-primary">{{$item2->memberTwId}} / {{$item2->memberName}}</a>
+                                    <a id="{{$item2->orderRevoke}}" name="btn" href="/orderAdmin/{{$item2->idOrder}}" class="btn btn-outline-primary">{{$item2->memberTwId}} / {{$item2->memberName}}</a>
                                 @endif
                             @endforeach
                             </td>
                             <td>
                             @if ($item->orderGroupRevoke == "撤銷")
-                            <button  id="{{$item->orderGroupRevoke}}" disabled="disabled"  class="btn-sm btn-seconddark" ><i class="fas fa-minus-circle"></i> 禁用</button>
+                            <a disabled="disabled"  class="btn-sm btn-seconddark" ></a>
                             
                             @else
-                            <button  id="{{$item->orderGroupRevoke}}" type="button"  class="btn-sm btn-danger" data-toggle="modal"
+                            <button   type="button"  class="btn-sm btn-danger" data-toggle="modal"
                                     data-target="#exampleModal{{$item->idOrderGroup}}"><i class="far fa-trash-alt"></i> 撤銷</button>
                             @endif
                                 <!-- <button  id="" type="button"  class="btn-sm btn-danger" data-toggle="modal"

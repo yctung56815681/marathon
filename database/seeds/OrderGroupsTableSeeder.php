@@ -13,52 +13,52 @@ class OrderGroupsTableSeeder extends Seeder
     {
         if (DB::table('order_groups')->get()->count() == 0) {
             DB::table('order_groups')->insert([
-                'orderGroupNo' => '訂單群組編號1',
+                'orderGroupNo' => 'P123456789012345',
                 'orderGroupStatus' => '1',
                 'orderGroupRevoke' => '1',
-                'orderGroupName' => '訂單群組名稱1',
+                'orderGroupName' => '資策研究社',
                 'eventId' => '1',
-                'orderGroupInvoiceLetterhead' => '公司抬頭1',
-                'orderGroupInvoiceNumber' => '公司統編1',
+                'orderGroupInvoiceLetterhead' => '資策會',
+                'orderGroupInvoiceNumber' => '12365448',
             ]);
             DB::table('order_groups')->insert([
-                'orderGroupNo' => '訂單群組編號2',
+                'orderGroupNo' => 'P098765432112345',
                 'orderGroupStatus' => '1',
                 'orderGroupRevoke' => '1',
-                'orderGroupName' => '訂單群組名稱2',
+                'orderGroupName' => '中佑大戲院',
                 'eventId' => '1',
-                'orderGroupInvoiceLetterhead' => '公司抬頭2',
-                'orderGroupInvoiceNumber' => '公司統編2',
+                'orderGroupInvoiceLetterhead' => '中佑大戲院',
+                'orderGroupInvoiceNumber' => '78998875',
             ]);
             DB::table('order_groups')->insert([
-                'orderGroupNo' => '訂單群組編號3',
+                'orderGroupNo' => 'P321569874563214',
                 'orderGroupStatus' => '1',
                 'orderGroupRevoke' => '1',
-                'orderGroupName' => '訂單群組名稱3',
+                'orderGroupName' => 'CY FOOD美食網',
                 'eventId' => '2',
-                'orderGroupInvoiceLetterhead' => '公司抬頭3',
-                'orderGroupInvoiceNumber' => '公司統編3',
+                'orderGroupInvoiceLetterhead' => '美食網',
+                'orderGroupInvoiceNumber' => '1235455874',
             ]);
             DB::table('order_groups')->insert([
-                'orderGroupNo' => '訂單群組編號4',
+                'orderGroupNo' => 'P023654123589654',
                 'orderGroupStatus' => '1',
                 'orderGroupRevoke' => '1',
-                'orderGroupName' => '訂單群組名稱4',
+                'orderGroupName' => '鼎王鍋集團',
                 'eventId' => '2',
-                'orderGroupInvoiceLetterhead' => '公司抬頭4',
-                'orderGroupInvoiceNumber' => '公司統編4',
+                'orderGroupInvoiceLetterhead' => '鼎王',
+                'orderGroupInvoiceNumber' => '112233554489',
             ]);
             DB::table('order_groups')->insert([
-                'orderGroupNo' => '訂單群組編號5',
+                'orderGroupNo' => 'P123654789541236',
                 'orderGroupStatus' => '1',
                 'orderGroupRevoke' => '1',
-                'orderGroupName' => '訂單群組名稱5',
+                'orderGroupName' => '99大賣場',
                 'eventId' => '3',
-                'orderGroupInvoiceLetterhead' => '公司抬頭5',
-                'orderGroupInvoiceNumber' => '公司統編5',
+                'orderGroupInvoiceLetterhead' => '99大公司',
+                'orderGroupInvoiceNumber' => '335866525',
             ]);
             DB::table('order_groups')->insert([
-                'orderGroupNo' => '訂單群組編號6',
+                'orderGroupNo' => 'P12365478954123',
                 'orderGroupStatus' => '1',
                 'orderGroupRevoke' => '1',
                 'orderGroupName' => '訂單群組名稱6',
