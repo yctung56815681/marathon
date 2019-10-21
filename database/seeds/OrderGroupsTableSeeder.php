@@ -36,14 +36,14 @@ class OrderGroupsTableSeeder extends Seeder
                 'orderGroupRevoke' => '1',
                 'orderGroupName' => 'CY FOOD美食網',
                 'eventId' => '2',
-                'orderGroupInvoiceLetterhead' => '美食網',
+                'orderGroupInvoiceLetterhead' => 'CY FOOD 美食網',
                 'orderGroupInvoiceNumber' => '1235455874',
             ]);
             DB::table('order_groups')->insert([
                 'orderGroupNo' => 'P023654123589654',
                 'orderGroupStatus' => '1',
                 'orderGroupRevoke' => '1',
-                'orderGroupName' => '鼎王鍋集團',
+                'orderGroupName' => 'APP STORE商店部',
                 'eventId' => '2',
                 'orderGroupInvoiceLetterhead' => '鼎王',
                 'orderGroupInvoiceNumber' => '112233554489',

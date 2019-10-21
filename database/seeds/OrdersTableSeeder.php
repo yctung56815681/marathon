@@ -92,7 +92,135 @@ class OrdersTableSeeder extends Seeder
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '4',
+                'memberId' => '10',
+                'runId' => '2',
+            ]);
+            DB::table('orders')->insert([
+                'orderNo' => 'P123654789541236',
+                'orderStatus' => '1',
+                'orderRevoke' => '1',
+                'orderGroupId' => '5',
+                'memberId' => '11',
+                'runId' => '2',
+            ]);
+            DB::table('orders')->insert([
+                'orderNo' => 'P123654789541236',
+                'orderStatus' => '1',
+                'orderRevoke' => '1',
+                'orderGroupId' => '5',
+                'memberId' => '12',
+                'runId' => '2',
+            ]);
+            DB::table('orders')->insert([
+                'orderNo' => 'P123654789541236',
+                'orderStatus' => '1',
+                'orderRevoke' => '13',
+                'orderGroupId' => '5',
                 'memberId' => '1',
+                'runId' => '2',
+            ]);
+            DB::table('orders')->insert([
+                'orderNo' => 'P123654789541236',
+                'orderStatus' => '1',
+                'orderRevoke' => '1',
+                'orderGroupId' => '5',
+                'memberId' => '14',
+                'runId' => '2',
+            ]);
+            DB::table('orders')->insert([
+                'orderNo' => 'P123654789541236',
+                'orderStatus' => '1',
+                'orderRevoke' => '1',
+                'orderGroupId' => '5',
+                'memberId' => '15',
+                'runId' => '2',
+            ]);
+            DB::table('orders')->insert([
+                'orderNo' => 'P12365478954123',
+                'orderStatus' => '1',
+                'orderRevoke' => '1',
+                'orderGroupId' => '6',
+                'memberId' => '16',
+                'runId' => '2',
+            ]);
+            DB::table('orders')->insert([
+                'orderNo' => 'P12365478954123',
+                'orderStatus' => '1',
+                'orderRevoke' => '1',
+                'orderGroupId' => '6',
+                'memberId' => '17',
+                'runId' => '2',
+            ]);
+            DB::table('orders')->insert([
+                'orderNo' => 'P12365478954123',
+                'orderStatus' => '1',
+                'orderRevoke' => '1',
+                'orderGroupId' => '6',
+                'memberId' => '18',
+                'runId' => '2',
+            ]);
+            DB::table('orders')->insert([
+                'orderNo' => 'P234321234567890',
+                'orderStatus' => '1',
+                'orderRevoke' => '1',
+                'orderGroupId' => '7',
+                'memberId' => '19',
+                'runId' => '2',
+            ]);
+            DB::table('orders')->insert([
+                'orderNo' => 'P234321234567890',
+                'orderStatus' => '1',
+                'orderRevoke' => '1',
+                'orderGroupId' => '7',
+                'memberId' => '20',
+                'runId' => '2',
+            ]);
+            DB::table('orders')->insert([
+                'orderNo' => 'P234321234567890',
+                'orderStatus' => '1',
+                'orderRevoke' => '1',
+                'orderGroupId' => '7',
+                'memberId' => '21',
+                'runId' => '2',
+            ]);
+            DB::table('orders')->insert([
+                'orderNo' => 'P234321234567890',
+                'orderStatus' => '1',
+                'orderRevoke' => '1',
+                'orderGroupId' => '7',
+                'memberId' => '22',
+                'runId' => '2',
+            ]);
+            DB::table('orders')->insert([
+                'orderNo' => 'P234321234567890',
+                'orderStatus' => '1',
+                'orderRevoke' => '1',
+                'orderGroupId' => '7',
+                'memberId' => '23',
+                'runId' => '2',
+            ]);
+            DB::table('orders')->insert([
+                'orderNo' => 'P234321234567890',
+                'orderStatus' => '1',
+                'orderRevoke' => '1',
+                'orderGroupId' => '7',
+                'memberId' => '24',
+                'runId' => '2',
+            ]);
+            DB::table('orders')->insert([
+                'orderNo' => 'P234321234567890',
+                'orderStatus' => '1',
+                'orderRevoke' => '1',
+                'orderGroupId' => '7',
+                'memberId' => '25',
+                'runId' => '2',
+            ]);
+            DB::table('orders')->insert([
+                'orderNo' => 'P234321234567890',
+                'orderStatus' => '1',
+                'orderRevoke' => '1',
+                'orderGroupId' => '7',
+                'memberId' => '26',
                 'runId' => '2',
             ]);
         }
