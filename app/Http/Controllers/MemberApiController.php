@@ -13,11 +13,17 @@ class MemberApiController extends Controller
 
         $query = DB::table("orders")
             ->join("members","memberId","=","idMember")
+            ->join("order_groups","orderGroupId","=","idOrderGroup")
+            ->join("events","eventId","=","idevent")
+            ->join("cities","cityId","=","idCity")
             ->join("order_details","idOrder","=","orderId")
             ->join("runs","runId","=","idRun")
             ->join("products","productId","=","idProduct")
             ->select("members.*","orders.orderNo","runs.*","products.*")
-            ->where("memberTwId", $request->memberTwId)->get();
+            ->where("cityNo",$request->cityNo,)
+            ->Where("memberTwId", $request->memberTwId)
+            ->lockForUpdate()
+            ->get();
 
         return $query;
     }
@@ -79,7 +85,8 @@ class MemberApiController extends Controller
         return $order_groups;
     }
     public function addProduct() {
-        $product =  DB::table("products")->get();
+        $product =  DB::table("products")
+        ->get();
 
         return $product;
     }
@@ -89,7 +96,8 @@ class MemberApiController extends Controller
         ->join("runs","eventId","=","idEvent")
         ->join("cities","idCity","=","cityId")
         ->select("events.*","runs.*","cities.*")
-        ->where("cityNo",$request->cityNo)->get();
+        ->where("cityNo",$request->cityNo)
+        ->get();
     
         return $run;
     }

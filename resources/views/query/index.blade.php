@@ -57,6 +57,7 @@
                         </div>
                     </div>
                     <div id="query">
+                        <input type="hidden" name="eventCity" id="eventCity" value="{{$city}}">
                         <div class="col-md-12 mb-3 ">
                             <div class="form-row d-flex justify-content-center">
                                 <div class="col-md-6 mb-3 ">
@@ -167,11 +168,13 @@
             $("#resultProduct").empty();
             $("#resultPrice").empty();
             $(document).ready(function () {
+                var eventCity = $("#eventCity").val();
                 var twId = $("#twId").val();
                 $.ajax({
                     type: "GET",
                     url: "/api/member/show",
                     data: {
+                        cityNo: eventCity,
                         memberTwId: twId,
                     }
                 }).done(function (data) {
@@ -200,16 +203,21 @@
                     };
 
                     $("#resultRun").append(
-                        "<div class='row'><div class='col-md-10 myQuery'>" + data[0].runNameLong + "</div>"+ "<div class='col-md-2 myQuery myTotal'>" + data[0].runPrice + "元" + "</div></div><br>"
+                        "<div class='row'><div class='col-md-10 myQuery'>" + data[0].runNameLong +
+                        "</div>" + "<div class='col-md-2 myQuery myTotal'>" + data[0].runPrice +
+                        "元" + "</div></div><br>"
                     );
                     for (i = 0; i < data.length; i++) {
                         $("#resultProduct").append(
-                            "<div class='row'><div class='col-md-10 myQuery'>" + data[i].productName + "</div>" + "<div class='col-md-2 myQuery myTotal'>" + data[i].productPrice + "元" + "</div></div><br>"
+                            "<div class='row'><div class='col-md-10 myQuery'>" + data[i]
+                            .productName + "</div>" + "<div class='col-md-2 myQuery myTotal'>" +
+                            data[i].productPrice + "元" + "</div></div><br>"
                         );
                     };
 
                     $("#resultPrice").append(
-                        "<div class='row d-flex justify-content-end'><div class='col-md-2 myQuery myTotal'>" + totalPrice + "元" + "</div></div>"
+                        "<div class='row d-flex justify-content-end'><div class='col-md-2 myQuery myTotal'>" +
+                        totalPrice + "元" + "</div></div>"
                     );
                     console.log(data);
                 });
