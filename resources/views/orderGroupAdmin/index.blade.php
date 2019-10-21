@@ -149,9 +149,9 @@
                         <tr>
                             <th width="70px" class="text-center" scope="col">群組編號</th>
                             <th width="70px" class="text-center" scope="col">群組名稱</th>
-                            <th width="65px" class="text-center" scope="col">群組狀態</th>
+                            <th width="70px" class="text-center" scope="col">群組狀態</th>
                             <th width="300px" class="text-center" scope="col">身分證字號 / 會員姓名</th>
-                            <td width="40px">
+                            <td width="70px">
                                 <a href="/orderGroupAdmin/create" class="btn btn-sm btn-success"><i class="far fa-plus-square"> </i> 新增</a>
                             </td>
                         </tr>

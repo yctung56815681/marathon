@@ -87,9 +87,9 @@ class MembersTableSeeder extends Seeder
             ]);
             DB::table('members')->insert([
                 'memberTwId' => createTWIdByBoth(true, 'C'),
-                'memberName' => '王美麗',
+                'memberName' => '王陳麗雲',
                 'memberGender' => '女',
-                'memberYear' => '65',
+                'memberYear' => '45',
                 'memberMonth' => '5',
                 'memberDay' => '6',
                 'memberCity' => '基隆市',
@@ -151,7 +151,7 @@ class MembersTableSeeder extends Seeder
             ]);
             DB::table('members')->insert([
                 'memberTwId' => createTWIdByBoth(true, 'G'),
-                'memberName' => '何裕隆',
+                'memberName' => '歐陽裕隆',
                 'memberGender' => '男',
                 'memberYear' => '87',
                 'memberMonth' => '1',
