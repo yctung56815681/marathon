@@ -35,7 +35,6 @@
                 <div class="content">
                     <div class="row">
                         <div class="col-md-12 mb-3">
-
                             <div class="row d-flex justify-content-between schedule">
                                 <div>
                                     <button class="action" disabled="disabled">個人資料</button>
@@ -47,18 +46,14 @@
                                     <button class="action" disabled="disabled">完成報名</button>
                                 </div>
                             </div>
-
                             <div class="detail2">
-                                <p>
+                                <p class="finish">
                                     繳費成功!!!!
                                     <br>
                                     恭喜完成報名!!!!
                                     <br>
-
                                 </p>
                             </div>
-
-
                         </div>
                     </div>
                 </div>

@@ -201,10 +201,10 @@
                     <button type ="button" class="btn-sm btn-success pull-right"onclick="history.go(-1)"><i class="far fa-plus-square"></i>返回</button>
 
                     @if ($obj->order->orderRevoke == "撤銷")
-                    <button id="{{$obj->orderGroup->orderGroupRevoke}}" name="btn" disabled="disabled" class="btn-sm btn-seconddark pull-right"><i class="fas fa-minus-circle"></i> 禁用
-                    </button>
+                    <a id="{{$obj->order->orderRevoke}}" name="btn" disabled="disabled" class="btn-sm btn-seconddark pull-right"></a>
+                    </a>
                     @else
-                    <button id="{{$obj->orderGroup->orderGroupRevoke}}" name="btn" type="button" class="btn-sm btn-danger pull-right" data-toggle="modal" data-target="#exampleModal{{$obj->order->idOrder}}"data-whatever="@mdo"><i class="far fa-trash-alt"></i>撤銷
+                    <button id="{{$obj->order->orderRevoke}}" name="btn" type="button" class="btn-sm btn-danger pull-right" data-toggle="modal" data-target="#exampleModal{{$obj->order->idOrder}}"data-whatever="@mdo"><i class="far fa-trash-alt"></i>撤銷
                     </button>
                     @endif
                     </td>

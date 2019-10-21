@@ -30,14 +30,13 @@
             </div>
 
             <!-- {{------------------------------------------倒數計時----------------------------------------------------}} -->
-            <div class="col-md-2 countDown">這是倒數計時</div>
+            {{-- <div class="col-md-2 countDown">這是倒數計時</div> --}}
 
             <!-- {{------------------------------------------完成報名----------------------------------------------------}} -->
-            <div class="col-md-10 content">
+            <div class="col-md-12 content">
                 <div class="content">
                     <div class="row">
                         <div class="col-md-12 mb-3">
-
                             <div class="row d-flex justify-content-between schedule">
                                 <div>
                                     <button class="action" disabled="disabled">團員資料</button>
@@ -51,7 +50,7 @@
                             </div>
 
                             <div class="detail2">
-                                <p>
+                                <p class="finish">
                                     繳費成功!!!!
                                     <br>
                                     恭喜完成報名!!!!

@@ -93,4 +93,10 @@ class MemberApiController extends Controller
     
         return $run;
     }
+    public function checkTwId(Request $request)
+    {
+       
+    }
+    
+    
 }
