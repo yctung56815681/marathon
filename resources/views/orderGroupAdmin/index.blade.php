@@ -171,9 +171,9 @@
                             <td>
                                 @foreach($item->order as $item2)
                                     @if ($item->orderGroupRevoke == "撤銷" or $item2->orderRevoke == "2")
-                                        <a  name="btn" class="btn btn-outline-secondary">  {{$item2->memberName}} / {{$item2->memberTwId}} <i class="far fa-times-circle"></i> </a>
+                                        <a  name="btn" class="btn btn-outline-secondary mb-1">  {{$item2->memberName}} / {{$item2->memberTwId}} <i class="far fa-times-circle"></i> </a>
                                     @else
-                                        <a  name="btn" href="/orderAdmin/{{$item2->idOrder}}" class="btn btn-outline-primary">{{$item2->memberName}} / {{$item2->memberTwId}}</a>
+                                        <a  name="btn" href="/orderAdmin/{{$item2->idOrder}}" class="btn btn-outline-primary mb-1">{{$item2->memberName}} / {{$item2->memberTwId}}</a>
                                     @endif
                                 @endforeach
                             </td>
