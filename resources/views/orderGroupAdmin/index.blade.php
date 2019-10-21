@@ -148,8 +148,8 @@
                     <thead class="table-info">
                         <tr>
                             <th width="70px" class="text-center" scope="col">群組編號</th>
-                            <th width="70px" class="text-center" scope="col">群組名稱</th>
-                            <th width="70px" class="text-center" scope="col">群組狀態</th>
+                            <th width="120px" class="text-center" scope="col">群組名稱</th>
+                            <th width="80px" class="text-center" scope="col">群組狀態</th>
                             <th width="300px" class="text-center" scope="col">身分證字號 / 會員姓名</th>
                             <td width="70px">
                                 <a href="/orderGroupAdmin/create" class="btn btn-sm btn-success"><i class="far fa-plus-square"> </i> 新增</a>
@@ -169,25 +169,23 @@
                                 <a class="text-danger">{{$item->orderGroupRevoke}}</a>
                             </td>
                             <td>
-                            @foreach($item->order as $item2)
-                                @if ($item->orderGroupRevoke == "撤銷")
-                                    <a id="{{$item2->orderRevoke}}" name="btn" class="btn btn-outline-secondary">{{$item2->memberTwId}} / {{$item2->memberName}} (x)</a>
-                                @else
-                                    <a id="{{$item2->orderRevoke}}" name="btn" href="/orderAdmin/{{$item2->idOrder}}" class="btn btn-outline-primary">{{$item2->memberTwId}} / {{$item2->memberName}}</a>
-                                @endif
-                            @endforeach
+                                @foreach($item->order as $item2)
+                                    @if ($item->orderGroupRevoke == "撤銷" or $item2->orderRevoke == "2")
+                                        <a  name="btn" class="btn btn-outline-secondary">{{$item2->memberTwId}} / {{$item2->memberName}} (x)</a>
+                                    @else
+                                        <a  name="btn" href="/orderAdmin/{{$item2->idOrder}}" class="btn btn-outline-primary">{{$item2->memberTwId}} / {{$item2->memberName}}</a>
+                                    @endif
+                                @endforeach
                             </td>
                             <td>
-                            @if ($item->orderGroupRevoke == "撤銷")
-                            <a disabled="disabled"  class="btn-sm btn-seconddark" ></a>
-                            
-                            @else
-                            <button   type="button"  class="btn-sm btn-danger" data-toggle="modal"
+                                @if ($item->orderGroupRevoke == "撤銷")
+                                    <a  disabled="disabled"  class="btn-sm btn-seconddark" ></a>
+                                @else
+                                    <button  id="{{$item->orderGroupRevoke}}" type="button"  class="btn-sm btn-danger" data-toggle="modal"
                                     data-target="#exampleModal{{$item->idOrderGroup}}"><i class="far fa-trash-alt"></i> 撤銷</button>
-                            @endif
+                                @endif
                                 <!-- <button  id="" type="button"  class="btn-sm btn-danger" data-toggle="modal"
                                     data-target="#exampleModal{{$item->idOrderGroup}}"><i class="far fa-trash-alt"></i> 撤銷</button> -->
-                                    
                             </td>
                         </tr>
                         <!-- 撤銷 model跳出 -->
