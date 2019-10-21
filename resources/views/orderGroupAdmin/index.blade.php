@@ -178,7 +178,7 @@
                                 @endforeach
                             </td>
                             <td>
-                                @if ($item->orderGroupRevoke == "撤銷")
+                                @if ($item->orderGroupRevoke == "撤銷" and $item2->orderRevoke == "2")
                                     <a  disabled="disabled"  class="btn-sm btn-seconddark" ></a>
                                 @else
                                     <button  id="{{$item->orderGroupRevoke}}" type="button"  class="btn-sm btn-danger" data-toggle="modal"

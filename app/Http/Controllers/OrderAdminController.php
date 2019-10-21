@@ -173,8 +173,31 @@ class OrderAdminController extends Controller
         if ($userName == "Guest") {
             return redirect("/login");
         }
-        DB::table('orders')->where('orders.idOrder',"=" ,$id)
+
+        DB::table('orders')
+        ->where('orders.idOrder',"=" ,$id)
         ->update(['orderRevoke'=> 2]);
+
+        $order = DB::table('orders')
+        ->where('orders.idOrder', '=', $id)
+        ->get()->first();
+        
+        $orderAll = DB::table('orders')
+        ->where('orders.orderGroupId', '=', $order->orderGroupId)
+        ->get();
+
+        $revoke = 1;
+        foreach($orderAll as $oi) {
+            if ($oi->orderRevoke != "2")
+                $revoke = 0;
+        }
+
+        if ($revoke == 1) {
+            DB::table('order_groups')
+            ->where('order_groups.idOrderGroup',"=" ,$order->orderGroupId)
+            ->update(['orderGroupRevoke'=> 2]);        
+        }
+
         return redirect("/orderGroupAdmin");
     }
 }
