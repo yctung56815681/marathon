@@ -65,6 +65,38 @@ function set_sidebar() {
 }
 
 
+// function set_sidebar_pos(sidebar_id) {
+// 	var mainBannerHeight = $(".header_banner").height();
+// 	var mainHeader = $(".header").height();
+// 	var sidebarHeight = $(".main .outer .row01").height();
+// 	var sidebar = $(sidebar_id);
+// 	var wid = $(sidebar_id).parent().width();
+// 	$(sidebar_id).width(wid);
+// 	$(document).on("scroll", function () {
+// 		//'stick' sidebar to the bottom of main block if we scroll 'too far'
+// 		if ($(window).scrollTop() >= mainBannerHeight + mainHeader) {
+// 			sidebar.css({
+// 				position: 'fixed',
+// 				top: mainHeader
+// 			});
+// 		}
+// 		//'stick' sidebar to the top of main block 
+// 		else if ($(window).scrollTop() < mainHeader) {
+// 			sidebar.css({
+// 				position: 'relative',
+// 				top: 0
+// 			});
+// 		}
+// 		//fixed sidebar until it won't reach top or bottom of the main content block
+// 		else {
+// 			sidebar.css({
+// 				position: 'relative',
+// 				top: 0
+// 			});
+// 		}
+// 	});
+// }
+
 function set_sidebar_pos(sidebar_id) {
 	var mainBannerHeight = $(".header_banner").height();
 	var mainHeader = $(".header").height();
@@ -73,30 +105,22 @@ function set_sidebar_pos(sidebar_id) {
 	var wid = $(sidebar_id).parent().width();
 	$(sidebar_id).width(wid);
 	$(document).on("scroll", function () {
-		//'stick' sidebar to the bottom of main block if we scroll 'too far'
-		if ($(window).scrollTop() > mainBannerHeight + mainHeader) {
+		//直接將導覽列的高設為初始頂部，再以圖片頂部為基準，判定下拉時有無超過
+		if ($(window).scrollTop() >= mainBannerHeight) {
 			sidebar.css({
 				position: 'fixed',
 				top: mainHeader
 			});
 		}
-		//'stick' sidebar to the top of main block 
-		else if ($(window).scrollTop() < mainHeader) {
+		else if ($(window).scrollTop() < mainBannerHeight) {
 			sidebar.css({
 				position: 'relative',
-				top: 0
-			});
-		}
-		//fixed sidebar until it won't reach top or bottom of the main content block
-		else {
-			sidebar.css({
-				position: 'relative',
-				top: 0
+				top: mainHeader
 			});
 		}
 	});
+	
 }
-
 
 
 

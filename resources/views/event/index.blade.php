@@ -45,8 +45,6 @@
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
 
 
-    
-
 
     <!--引用彈出視窗sweetalert2檔-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
@@ -374,6 +372,7 @@
     <!-------JavaScript特定日期倒數計時 END-------->
 
 
+    
     <!-- 此jquery函式檔放置在文檔末尾，可使頁面加載速度更快 -->
     <script src="{{ URL::asset('NewCSS/js/script.js') }}"></script>
 
