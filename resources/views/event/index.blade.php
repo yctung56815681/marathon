@@ -63,7 +63,7 @@
             imageWidth: 500,
             imageHeight: 350,
             width:520,
-            background: "url({{ URL::asset("img/bg01.jpg") }})",
+            background: "url( {{ URL::asset("img/bg01.jpg") }} )",
             animation: true,
             customClass: { popup: "animated tada" },
             timer: 5000,
@@ -246,7 +246,7 @@
                          <!--以上要能替換內容-->
                          <p>&nbsp;</p>
 
-
+                        
                           {{-- <div>
                             @foreach ( $eventContent1 as $k=>$v  )
                             <h5>{!! $k !!}</h5>
