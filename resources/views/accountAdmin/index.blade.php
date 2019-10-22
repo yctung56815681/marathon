@@ -154,7 +154,7 @@
                     <tr>
                         <th scope="col" class="text-nowrap">帳號</th>
                         {{-- <th scope="col" class="text-nowrap">密碼</th> --}}
-                        <th><a class="btn btn-sm btn-success" role="button" href="/accountAdmin/create"><i class="far fa-plus-square"></i> 新增</a></th>
+                        <th style="width:160px"><a class="btn btn-sm btn-success" role="button" href="/accountAdmin/create"><i class="far fa-plus-square"></i> 新增</a></th>
                     </tr>
                 </thead>
                 <tbody>
