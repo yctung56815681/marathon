@@ -47,7 +47,12 @@
 
                     }
 
-                    .content {}
+                    .bttn{
+                        width: 60px;
+                        height: 30px;
+                        background-color: aqua; 
+                        display: inline-block;                       
+                    }
 
                 </style>
             </head>
@@ -144,13 +149,13 @@
                 <form method="post" action="/eventAdmin" class="form-horizontal">
                     @csrf
 
-                    <div id="eventBag">
+                   
+                <div id="textfirst">
+                    賽事活動名稱<span style="color:red">(必填)</span>
 
-                    賽事活動名稱
-
-                    <input id="" name="eventTittle" class="form-control col-8" type="text">
+                    <input id="" name="eventTittle" class="form-control col-8" type="text" required>
                     <br>
-                    活動舉辦城市
+                    活動舉辦城市<span style="color:red" >(必填)</span>
                     <br>
                     <select id="" name="cityid" class="form-control col-8">
                             <option value="1">台北</option>
@@ -175,8 +180,8 @@
                             <option value="20">連江</option>
                             </select>
                     <br>
-                    賽事活動地點
-                    <input id="" name="eventAddr" class="form-control col-8" type="text">
+                    賽事活動地點<span style="color:red">(必填)</span>
+                    <input id="" name="eventAddr" class="form-control col-8" type="text" required>
                     <br>
                     賽事規格-報名名稱-定價
                     <br>
@@ -191,10 +196,10 @@
                     </div>
                     <br>
                     <br>
-                    賽事主視覺圖片
+                    賽事主視覺圖片<span style="color:red">(必填)</span>
                     <br>
                     <hr>
-                <input id="" name="eventImage"  type="file">
+                <input id="" name="eventImage"  type="file" required>
                     <hr>
 
 
@@ -216,9 +221,17 @@
                     <br>
                     主辦連絡電話
                     <input id="" name="eventTel"class="form-control col-2" type="text">
-                    <hr>
-                    <hr>
                     <br>
+                    <br>
+                    <div onclick="nextfirst()" class="btn btn-outline-primary">
+                        下一頁
+                    </div>
+                    <p ></p>
+                    
+            </div>
+            <div id="textsecond" style="display:none">
+                   <h1>最新消息</h1>
+                   <br>
                     最新消息-圖片
                     <br>
                     <input id="" name="eventNewsImage" type="file">
@@ -231,6 +244,7 @@
                     <textarea id="" name="eventNewstext2" class="form-control col-8"  cols="30" rows="10"></textarea>
                     <hr>
                     <hr>
+                    <h1>報名辦法</h1>
                     <br>
                     報名辦法-圖片
                     <br>
@@ -242,21 +256,36 @@
                     <br>
                     報名辦法-退費辦法
                     <textarea id="" name="eventMethodtext2" class="form-control col-8"  cols="30" rows="10"></textarea>
-                    <hr>
-                    <hr>
+                    <br>
+                    <br>
+                    <div onclick="prefirst()" class="btn btn-outline-primary">
+                            上一頁
+                    </div><>
+                    <div onclick="nextsecond()" class="btn btn-outline-primary">
+                            下一頁
+                    </div>
+                    <br>
+                                 
+                    
+                    <br>
+            </div>
+            <div id="textthird" style="display:none">
+                    <h1>競賽獎勵</h1>
                     <br>
                     競賽獎勵-圖片
                     <br>
                     <input id="" name="eventRaceImage" type="file">
                     <hr>
                     <br>
-                    競賽獎勵-報名方式
+                    競賽獎勵-競賽獎勵
                     <textarea id="" name="eventRacetext1" class="form-control col-8"  cols="30" rows="10"></textarea>
                     <br>
-                    競賽獎勵-退費辦法
+                    競賽獎勵-敘獎辦法
                     <textarea id="" name="eventRacetext2" class="form-control col-8"  cols="30" rows="10"></textarea>
                     <hr>
                     <hr>
+                    <h1>活動規範</h1>
+                    <br>
                     活動規範-圖片
                     <br>
                     <input id="" name="eventRuleImage" type="file">
@@ -266,7 +295,8 @@
                     <textarea id="" name="eventRuletext1" class="form-control col-8"  cols="30" rows="10"></textarea>
                     <br>
                     活動規範-違規罰則
-                    <textarea id="" name="eventRuletext2" class="form-control col-8"  cols="30" rows="10"></textarea>
+                    <textarea id="" name="eventRuletext2" class="form-control col-8"  cols="30" rows="10" ></textarea>
+            
                     <br>
                     <hr>
 
@@ -274,7 +304,12 @@
 
                     <hr>
                     {{-- <textarea name="editor1" id="editor"></textarea> --}}
+                    <br>                    
                     <br>
+                    <div onclick="presecond()" class="btn btn-outline-primary">
+                            上一頁
+                    </div>               
+                   
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="okOrCancel"></label>
                         <div class="col-md-8">
@@ -282,7 +317,10 @@
                             <button type="reset" id="okOrCancel"  onclick="window.history.back(-1)" name="okOrCancel" class="btn btn-danger">取消新增</button>
                         </div>
                     </div>
+                   
+                </div>
                 </form>
+            
 
 
 
@@ -317,6 +355,30 @@
 
     </script> --}}
     <script>
+        function nextfirst(){
+            document.getElementById("textfirst").style.display="none";
+            document.getElementById("textsecond").style.display="";
+            // console.log( document.getElementById("textfirst").style.display);
+
+        }
+        function nextsecond(){
+            document.getElementById("textsecond").style.display="none";
+            document.getElementById("textthird").style.display="";
+            // console.log( document.getElementById("textfirst").style.display);
+
+        }
+        function prefirst(){
+            document.getElementById("textfirst").style.display="";
+            document.getElementById("textsecond").style.display="none";
+            // console.log( document.getElementById("textfirst").style.display);
+
+        }
+        function presecond(){
+            document.getElementById("textsecond").style.display="";
+            document.getElementById("textthird").style.display="none";
+            // console.log( document.getElementById("textfirst").style.display);
+
+        }
 
     </script>
 

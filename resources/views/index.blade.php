@@ -111,6 +111,15 @@
             background: #13d474;
 
         }
+        p{
+        
+          text-align: left;
+        }
+        .item{
+          display: inline-block;
+
+        }
+  
 
 
 
@@ -118,7 +127,7 @@
     </style>
 
 </head>
-<body id="Allapp">
+<body id="body">
   <div>
   <!---------------------------------------------------------------------GoTop------------------------------------------------------------>
 
@@ -142,13 +151,15 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="img/CWH202002.jpg" class="d-block w-100" alt="...">
+          <a href="event/CWH/2020/02"><img src="img/CWH202002.jpg" class="d-block w-100" alt="..."></a>          
         </div>
         <div class="carousel-item">
-          <img src="img/KHH201912.jpg" class="d-block w-100" alt="...">
+            <a href="event/KHH/2019/12"><img src="img/KHH201912.jpg" class="d-block w-100" alt="..."></a>
+          
         </div>
         <div class="carousel-item">
-          <img src="img/TPH201912.jpg" class="d-block w-100" alt="...">
+            <a href="event/TPH/2019/12"><img src="img/TPH201912.jpg" class="d-block w-100" alt="..."></a>
+          
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -205,7 +216,7 @@
             <img src="img/{{$eve->eventImage}}" class="card-img-top" :alt="">
             <div class="cardBack card-body">
             <h5 class="card-title">{{$eve->eventTittle}}</h5>
-              <p class="card-text"> <img src="img/calendar.png" alt="">{{$eve->eventRunStartTime}}</p>
+            <p class="card-text"> <img src="img/calendar.png" alt="">{{$eve->eventRunStartTime}}</p>
             <p class="card-text"> <img src="img/flag.png" alt="">{{$City[$eve->cityId-1]->cityNameCh}}</p>
             <p class="card-text"> <img src="img/placeholder-filled-point.png" alt="">{{$eve->eventAddr}}</p>
 
@@ -256,7 +267,22 @@
   <!-----------------------------------------------------------------------------footer---------------------------------------------------->
   <a name="footer"></a>
  <div id="footer">
-   <h1>關於我們</h1>
+   <h1 style="color:white">關於我們</h1>
+   <div class="outer">
+      <div class="col01">
+          
+          <div class="links" >
+              <div class="item"> <a href=""><h6>門市據點</h6></a>  </div>
+              <div class="item"> <a href=""><h6>隱私權政策</h6></a> </div>
+              <div class="item"> <a href=""><h6>人才招募</h6></a> </div>
+              <div class="item"> <a href=""><h6>條款與細則</h6></a> </div>
+              <div class="item"> <a href=""><h6>會員中心</h6></a> </div>
+
+          </div>
+      </div>
+ 
+    
+  </div>
 
   </div>
 </div>
@@ -331,70 +357,6 @@
 		}
 	}).scroll();
 });
-
-// var app = new Vue({
-//   el: '#cardapp',
-//   data: {
-//     dataAll:[
-//       {eventsList:[],eventsContentsList:[],runsList:[],eventsList:[],eventsList:[],eventsList:[]}
-//     ],
-
-//     message:"Hello",
-//     list:
-//       [                                                                                                             event/CWH/2020/02
-//         {location:"屏東",time:"2019年10月09日",distance:"21K-10K-5K",place:"屏東鎮",imgname:"img/PCH201910.jpg",add:"event/PCH/2019/10"},
-//         {location:"彰化",time:"2020年02月09日",distance:"21K-10K-5K",place:"彰化鎮",imgname:"img/CWH202002.jpg",add:"event/CWH/2020/02"},
-//         {location:"新北",time:"2019年11月09日",distance:"21K-10K-5K",place:"新北鎮",imgname:"img/TPH201911.jpg",add:"event/TPH/2019/11"},
-//         {location:"高雄",time:"2019年12月09日",distance:"21K-10K-5K",place:"高雄鎮",imgname:"img/KHH201912.jpg",add:"event/KHH/2019/12"},
-//         {location:"台南",time:"2019年10月09日",distance:"21K-10K-5K",place:"台南鎮",imgname:"img/TNN201910.jpg",add:"event/TNN/2019/10"},
-//         {location:"桃園",time:"2019年11月09日",distance:"21K-10K-5K",place:"桃園鎮",imgname:"img/TYC201911.jpg",add:"event/TYC/2019/11"},
-//         {location:"宜蘭",time:"2020年01月09日",distance:"21K-10K-5K",place:"宜蘭鎮",imgname:"img/ILN202001.jpg",add:"event/ILN/2020/01"},
-//         {location:"員林",time:"2019年19月09日",distance:"21K-10K-5K",place:"員林鎮",imgname:"img/YUN201909.jpg",add:"event/YUN/2019/09"},
-//         {location:"台中",time:"2019年12月09日",distance:"21K-10K-5K",place:"台中鎮",imgname:"img/TXG201912.jpg",add:"event/TXG/2019/12"}
-
-//       ]
-
-//   }
-//   ,methods:{
-//     init: function () {
-//             let self = this;
-//             axios.get('/api/eventsList')
-//             .then(function (response) {
-//                 self.eventsList  = response.data;
-//                 console.log(self.eventsList);
-//             })
-//             axios.get('/api/citiesList')
-//             .then(function (response) {
-//                 self.citiesList  = response.data;
-//                 console.log(self.citiesList);
-//             })
-//             axios.get('/api/eventsContentsList')
-//             .then(function (response) {
-//                 self.eventsContentsList  = response.data;
-//                 console.log(self.eventsContentsList);
-//             })
-//             axios.get('/api/runsList')
-//             .then(function (response) {
-//                 self.runsList  = response.data;
-//                 console.log(self.runsListt);
-//             })
-//             .catch(function (response) {
-//                 console.log(response);
-//             })
-//   }
-
-
-
-
-
-
-// },
-//   mounted: function () {
-//         this.init();
-
-//     }
-// });
-
 
 
 
