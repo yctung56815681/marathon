@@ -388,6 +388,11 @@ class OrderGroupAdminController extends Controller
     // else if ($order_groups[$orderGroupRevoke]->level === 1)
     //     $order_groups[$orderGroupRevoke]->level = '正常';
         // $obj->save();
-        return redirect("/orderGroupAdmin");
+        // return redirect("/orderGroupAdmin");
+        DB::statement(DB::raw("set @row:=0"));
+        $orderGroup = DB::table("order_groups")->select(DB::raw("@row := @row + 1 as rank"))->where("idOrderGroup", "<=", $id)->get();
+        $idNew = $orderGroup->count() - 1;
+        $idNew = floor($idNew / 10) * 10;
+        return redirect("/orderGroupAdmin/$idNew");
     }
 }

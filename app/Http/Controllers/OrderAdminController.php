@@ -181,7 +181,7 @@ class OrderAdminController extends Controller
         $order = DB::table('orders')
         ->where('orders.idOrder', '=', $id)
         ->get()->first();
-        
+
         $orderAll = DB::table('orders')
         ->where('orders.orderGroupId', '=', $order->orderGroupId)
         ->get();
@@ -195,9 +195,14 @@ class OrderAdminController extends Controller
         if ($revoke == 1) {
             DB::table('order_groups')
             ->where('order_groups.idOrderGroup',"=" ,$order->orderGroupId)
-            ->update(['orderGroupRevoke'=> 2]);        
+            ->update(['orderGroupRevoke'=> 2]);
         }
 
-        return redirect("/orderGroupAdmin");
+        // return redirect("/orderGroupAdmin");
+        DB::statement(DB::raw("set @row:=0"));
+        $orderGroup = DB::table("order_groups")->select(DB::raw("@row := @row + 1 as rank"))->where("idOrderGroup", "<=", $order->orderGroupId)->get();
+        $idNew = $orderGroup->count() - 1;
+        $idNew = floor($idNew / 10) * 10;
+        return redirect("/orderGroupAdmin/$idNew");
     }
 }
