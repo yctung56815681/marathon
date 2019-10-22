@@ -149,12 +149,11 @@
                 <thead class="table-info">
                     <tr>
                         <th scope="col">姓名</th>
-                        <th scope="col" style="width:115px;">身分證字號</th>
+                        <th scope="col" style="width:120px;">身分證字號</th>
                         <th scope="col" style="width:60px;">性別</th>
                         <th scope="col" style="width:95px;">居住城市</th>
                         <th scope="col">電子信箱</th>
                         <th scope="col">聯絡方式</th>
-                        <th scope="col">創建時間</th>
                         <th scope="col">
                             <a class="btn btn-sm btn-success" role="button" href="/memberAdmin/create"><i class="far fa-plus-square"></i> 新增</a>
                         </th>
@@ -169,7 +168,6 @@
                         <td>{{$mem->memberCity}}</td>
                         <td>{{$mem->memberEmail}}</td>
                         <td>{{$mem->memberMobile}}</td>
-                        <td>{{$mem->created_at}}</td>
                         <td>
                             <span class="pull-right">
                                 <form method="post" action="/memberAdmin/{{$mem->idMember}}">
