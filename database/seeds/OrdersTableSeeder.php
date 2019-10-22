@@ -114,7 +114,7 @@ class OrdersTableSeeder extends Seeder
             DB::table('orders')->insert([
                 'orderNo' => 'P123654789541236',
                 'orderStatus' => '1',
-                'orderRevoke' => '13',
+                'orderRevoke' => '1',
                 'orderGroupId' => '5',
                 'memberId' => '1',
                 'runId' => '2',
