@@ -147,15 +147,13 @@
   <table class="table table-hover">
     <thead>
       <tr>
-        <th>賽事活動編號</th>
-        <th>賽事活動名稱</th>
-        <th>賽事舉辦地點</th>
-        <th>活動報名開始時間</th>
-        <th>活動報名截止時間</th>
-        <th>賽事活動開始時間</th>
-        <th>賽事活動結束時間</th>
-        <th>賽事活動聯絡電話</th>
-        <th>創建時間</th>
+        <th>編號</th>
+        <th>活動名稱</th>
+        <th>地點</th>
+        <th>報名開始時間</th>        
+        <th>活動開始時間</th>        
+        <th>聯絡電話</th>
+        {{-- <th>創建時間</th> --}}
         <th>
         <a class="btn btn-sm btn-success" role="button" href="/eventAdmin/create"><i class="far fa-plus-square"></i> 新增</a>
         {{-- <a href="/eventAdmin/create" class="btn btn-success pull-right">新增</a> --}}
@@ -166,15 +164,15 @@
     <tbody>
             @foreach ($eventsList as $eve)
         <tr>
-            <td>{{$eve->idEvent}}</td>
+            <th>&emsp;{{$eve->idEvent}}&emsp;</th>
             <td>{{$eve->eventTittle}}</td>
             <td>{{$eve->eventAddr}}</td>
             <td>{{$eve->eventSignupStartTime}}</td>
-            <td>{{$eve->eventSignupEndTime}}</td>
+            {{-- <td>{{$eve->eventSignupEndTime}}&emsp;&emsp;&emsp;</td> --}}
             <td>{{$eve->eventRunStartTime}}</td>
-            <td>{{$eve->eventRunEndTime}}</td>
+            {{-- <td>{{$eve->eventRunEndTime}}</td> --}}
             <td>{{$eve->eventTel}}</td>
-            <td>{{$eve->created_at}}</td>
+            {{-- <td>{{$eve->created_at}}</td> --}}
 
             <td>
                 <span class="pull-right">
