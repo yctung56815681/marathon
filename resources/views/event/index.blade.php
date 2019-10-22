@@ -81,10 +81,7 @@
     <section class="header">
         <div class="outer">
             <div class="site_logo">
-                <a href="/">
-                    運動報名網
-                    {{-- <img src="/NewCSS/images/logo_zepro_w.png"> --}}
-                </a>
+               <a href="/">運動報名網</a>
             </div>
         </div>
     </section>
@@ -152,7 +149,7 @@
                         <div class="other_link">
                             <div class="btn111" style="font-size: 1.2em;">
                                 <span id="remain_txt"><span>報名截止剩餘:</span></span>
-                                <span id="remain_time">Label</span>
+                                <span id="remain_time"> </span>
                             </div>
                         </div>
 
@@ -199,7 +196,6 @@
                                 <span style="font-weight:800;">最新消息</span>
                             </h2>
                            
-
                            <p>&nbsp;</p>
                             <!--以下要能替換內容-->
 
@@ -223,7 +219,6 @@
                                      style="width: 100%; max-width: 100%;" />
                             </center>
                             <p>&nbsp;</p>
-
 
 
                             <center>
@@ -329,7 +324,14 @@
     <script type="text/javascript">
 
         if (Sid == "") {
-            remain_time.innerHTML = "";
+            remain_txt.innerHTML = "<span>--請設定日期參數--</span>";
+            // remain_time.innerHTML = "";
+            SignTitle.style.display = "none";
+            SignQuery.style.display = "none";
+            STDK.style.display = "none";
+            SQDK.style.display = "none";
+            STMB.style.display = "none";
+            SQMB.style.display = "none";
         } else {
             
             if( Sid=='{{ $eventSignupStartTime }}'){

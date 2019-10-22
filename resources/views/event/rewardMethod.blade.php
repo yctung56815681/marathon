@@ -56,13 +56,11 @@
         <span></span>
         <span></span>
     </button>
+
     <section class="header">
         <div class="outer">
             <div class="site_logo">
-                <a href="/">
-                    運動報名網
-                    {{-- <img src="{{ URL::asset('/NewCSS/images/logo_zepro_w.png') }}"> --}}
-                </a>
+               <a href="/">運動報名網</a>
             </div>
         </div>
     </section>
@@ -134,7 +132,7 @@
                         <div class="other_link">
                             <div class="btn111" style="font-size: 1.2em;">
                                 <span id="remain_txt"><span>報名截止剩餘:</span></span>
-                                <span id="remain_time">Label</span>
+                                <span id="remain_time"> </span>
                             </div>
                         </div>
 
@@ -298,7 +296,14 @@
     <!-------JavaScript特定日期倒數計時 START-------->
     <script type="text/javascript">
         if (Sid == "") {
-            remain_time.innerHTML = "";
+            remain_txt.innerHTML = "<span>--請設定日期參數--</span>";
+            // remain_time.innerHTML = "";
+            SignTitle.style.display = "none";
+            SignQuery.style.display = "none";
+            STDK.style.display = "none";
+            SQDK.style.display = "none";
+            STMB.style.display = "none";
+            SQMB.style.display = "none";
         } else {
 
             if( Sid=='{{ $eventSignupStartTime }}'){
@@ -346,8 +351,7 @@
                 }else{
                     remain_time.innerHTML = Cal_Day + "天" + Cal_Hour + "時" + Cal_Minute + "分" + Cal_Second + "秒";
                 }  
-
-                
+              
             }
             var mm = window.setInterval("Check_Time()", 1000);
         }
