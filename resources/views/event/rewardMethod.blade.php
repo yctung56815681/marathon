@@ -89,9 +89,9 @@
 
                         <li><a href="/event/{{$city}}/{{$year}}/{{$month}}/actSpec">活動規範</a></li>
 
-                        <li><a href="/signup/{{$city}}/{{$year}}/{{$month}}">我要報名</a></li>
+                        <li><a href="/signup/{{$city}}/{{$year}}/{{$month}}" id="STDK">我要報名</a></li>
 
-                        <li><a href="/query/{{$city}}/{{$year}}/{{$month}}">報名查詢與修改</a></li>
+                        <li><a href="/query/{{$city}}/{{$year}}/{{$month}}" id="SQDK">報名查詢與修改</a></li>
                     <ul>
                 </div>
             </div>
@@ -278,17 +278,19 @@
                     </div>
                 </div><br />
 
-                <li><a href="/signup/{{$city}}/{{$year}}/{{$month}}">我要報名</a></li>
-                <div style='width:100%' ;>
-                    <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
-                    </div>
-                </div><br />
-
-                <li><a href="/query/{{$city}}/{{$year}}/{{$month}}">報名查詢與修改</a></li>
-                <div style='width:100%' ;>
-                    <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'>
-                    </div>
-                </div><br />
+                <div id="STMB">    
+                   <li><a href="/signup/{{$city}}/{{$year}}/{{$month}}" >我要報名</a></li>
+                   <div style='width:100%' ;>
+                        <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'></div>
+                   </div><br/>
+                </div>   
+    
+                <div id="SQMB">   
+                   <li><a href="/query/{{$city}}/{{$year}}/{{$month}}"  >報名查詢與修改</a></li>
+                   <div style='width:100%' ;>
+                         <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'></div>
+                   </div><br/>
+                </div>
         </div>
     </nav>
 
@@ -303,15 +305,27 @@
                 remain_txt.innerHTML = "<span>離報名開始剩:</span>";
                 SignTitle.style.display = "none";
                 SignQuery.style.display = "none";
+                STDK.style.display = "none";
+                SQDK.style.display = "none";
+                STMB.style.display = "none";
+                SQMB.style.display = "none";
             }else if( Sid=='{{ $eventSignupEndTime }}' ){
                 remain_txt.innerHTML = "<span>離報名結束剩:</span>";
+
             }else if(Sid=='{{ $eventRunStartTime }}' ){
                 remain_txt.innerHTML = "<span>離路跑開始剩:</span>";
                 SignTitle.style.display = "none";
+                STDK.style.display = "none";
+                STMB.style.display = "none"; 
+
             }else if(Sid=='{{ $eventRunEndTime }}' ){
                 remain_txt.innerHTML = "<span>離路跑結束剩</span>";
                 SignTitle.style.display = "none";
                 SignQuery.style.display = "none";
+                STDK.style.display = "none";
+                SQDK.style.display = "none";
+                STMB.style.display = "none";
+                SQMB.style.display = "none";
             }
 
             var Target_date = new Date(Sid);
