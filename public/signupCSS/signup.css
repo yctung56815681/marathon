@@ -96,7 +96,7 @@
 }
 
 .myTotal {
-    text-align: center;
+    text-align: left;
 }
 
 .navbg {
@@ -145,4 +145,10 @@
     font: normal normal bold 5px times new roman;
     color: #ffffff;
     text-decoration: none;
+}
+
+.remind {
+    margin-top: 5px;
+    color: red;
+    font-weight: bold;
 }

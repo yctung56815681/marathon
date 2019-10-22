@@ -62,14 +62,15 @@
                             <div class="form-row d-flex justify-content-center">
                                 <div class="col-md-6 mb-3 ">
                                     <label for="twId">身分證</label>
-                                    <input type="text" class="form-control myInput" name="twId" id="twId"
+                                    <input onchange="check_data()" type="text" class="form-control myInput" name="twId" id="twId" 
                                         placeholder="請輸入身分證" required>
+                                        <div id="remind" class="remind"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="btn-group d-flex justify-content-center myButton">
-                        <div><input class="btn btn-primary" type="button" value="查詢資料" onclick="showDetail(); myData()">
+                        <div><input class="btn btn-primary" type="button" value="查詢資料" onclick="myData()">
                         </div>
                     </div>
                 </form>
@@ -155,6 +156,17 @@
         function showDetail() {
             $("#showPerson").attr("style", "display:block");
         }
+
+        function check_data() {
+            var twIdRegex = new RegExp(/^[A-Za-z][12]\d{8}$/);
+            var memberTwId = $('input[name="twId"]').val();
+            if (memberTwId != memberTwId.match(twIdRegex)) {
+                $("#remind").text("請輸入正確的身分證格式");
+            }else {
+                $("#remind").text("格式正確");
+            }
+        }
+
         //ajax
         $.ajaxSetup({
             headers: {
@@ -178,49 +190,62 @@
                         memberTwId: twId,
                     }
                 }).done(function (data) {
-                    $("#result").append(
-                        "<div class='myQuery'>" + data[0].orderNo + "</div><br>" +
-                        "<div class='myQuery'>" + data[0].memberName + "</div><br>" +
-                        "<div class='myQuery'>" + data[0].memberTwId + "</div><br>" +
-                        "<div class='myQuery'>" + data[0].memberGender + "</div><br>" +
-                        "<div class='myQuery'>" + data[0].memberYear + "年" + data[0].memberMonth +
-                        "月" + data[0].memberDay +
-                        "日" + "</div><br>" +
-                        "<div class='myQuery'>" + data[0].memberEmail + "</div><br>" +
-                        "<div class='myQuery'>" + data[0].memberMobile + "</div><br>" +
-                        "<div class='myQuery'>" + data[0].memberCity + data[0].memberTown + data[0]
-                        .memberAddr + "</div><br>" +
-                        "<div class='myQuery'>" + data[0].memberEmergencyContact + "</div><br>" +
-                        "<div class='myQuery'>" + data[0].memberEmergencyMobile + "</div><br>" +
-                        "<div class='myQuery'>" + data[0].memberEmergencyRelationship + "</div>"
-                    );
-                    //取得價錢
-                    var addPrice = 0;
-                    var totalPrice = 0;
-                    for (i = 0; i < data.length; i++) {
-                        addPrice = data[i].productPrice + addPrice;
-                        totalPrice = addPrice + data[0].runPrice;
-                    };
-
-                    $("#resultRun").append(
-                        "<div class='row'><div class='col-md-10 myQuery'>" + data[0].runNameLong +
-                        "</div>" + "<div class='col-md-2 myQuery myTotal'>" + data[0].runPrice +
-                        "元" + "</div></div><br>"
-                    );
-                    for (i = 0; i < data.length; i++) {
-                        $("#resultProduct").append(
-                            "<div class='row'><div class='col-md-10 myQuery'>" + data[i]
-                            .productName + "</div>" + "<div class='col-md-2 myQuery myTotal'>" +
-                            data[i].productPrice + "元" + "</div></div><br>"
+                    if (!(data == "")) {
+                        showDetail();
+                        $("#result").append(
+                            "<div class='myQuery'>" + data[0].orderNo + "</div><br>" +
+                            "<div class='myQuery'>" + data[0].memberName + "</div><br>" +
+                            "<div class='myQuery'>" + data[0].memberTwId + "</div><br>" +
+                            "<div class='myQuery'>" + data[0].memberGender + "</div><br>" +
+                            "<div class='myQuery'>" + data[0].memberYear + "年" + data[0]
+                            .memberMonth +
+                            "月" + data[0].memberDay +
+                            "日" + "</div><br>" +
+                            "<div class='myQuery'>" + data[0].memberEmail + "</div><br>" +
+                            "<div class='myQuery'>" + data[0].memberMobile + "</div><br>" +
+                            "<div class='myQuery'>" + data[0].memberCity + data[0].memberTown +
+                            data[0]
+                            .memberAddr + "</div><br>" +
+                            "<div class='myQuery'>" + data[0].memberEmergencyContact +
+                            "</div><br>" +
+                            "<div class='myQuery'>" + data[0].memberEmergencyMobile + "</div><br>" +
+                            "<div class='myQuery'>" + data[0].memberEmergencyRelationship + "</div>"
                         );
-                    };
+                        //取得價錢
+                        var addPrice = 0;
+                        var totalPrice = 0;
+                        for (i = 0; i < data.length; i++) {
+                            addPrice = data[i].productPrice + addPrice;
+                            totalPrice = addPrice + data[0].runPrice;
+                        };
 
-                    $("#resultPrice").append(
-                        "<div class='row d-flex justify-content-end'><div class='col-md-2 myQuery myTotal'>" +
-                        totalPrice + "元" + "</div></div>"
-                    );
+                        $("#resultRun").append(
+                            "<div class='row'><div class='col-md-10 mb-3 myQuery'>" + data[0]
+                            .runNameLong +
+                            "</div>" + "<div class='col-md-2 myQuery  mb-3 myTotal'>" + data[0].runPrice +
+                            "元" + "</div></div><br>"
+                        );
+                        for (i = 0; i < data.length; i++) {
+                            $("#resultProduct").append(
+                                "<div class='row'><div class='col-md-10 mb-3 myQuery'>" + data[i]
+                                .productName + "</div>" + "<div class='col-md-2 mb-3 myQuery myTotal'>" +
+                                data[i].productPrice + "元" + "</div></div><br>"
+                            );
+                        };
+
+                        $("#resultPrice").append(
+                            "<div class='row d-flex justify-content-end'><div class='col-md-2 mb-3 myQuery myTotal'>" +
+                            totalPrice + "元" + "</div></div>"
+                        );
+
+                    } else {
+                        $('#checkRegex').modal('show');
+                        $(".checkRegex").text("查無資料");
+                        
+                    }
                     console.log(data);
                 });
+
                 queryMember.reset();
             });
 
