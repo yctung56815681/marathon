@@ -80,8 +80,8 @@
 
 
                                 <p>
-                                    <input type="checkbox" name="confirm[]" class="form-check-input"
-                                        required>已詳細閱讀、瞭解並同意運動報名網《活動聲明》
+                                    <input type="checkbox" id="confirm" name="confirm[]" class="form-check-input"
+                                        required><label for="confirm">已詳細閱讀、瞭解並同意運動報名網《活動聲明》</label>
                                 </p>
                                 <br>
                                 <br>

@@ -143,13 +143,14 @@
     <!--------------------------------------------------------------------------------------right-------------------------------------------------------------------------------------->
     <div class="Right">
         <div class="container">
-            <div class="p-3 bg-secondary text-white text-center">群組管理</div>
+            <div class="p-3 bg-secondary text-white text-center">訂單管理</div>
                 <table class="table table-striped table-bordered table-hover">
                     <thead class="table-info">
                         <tr>
                             <th width="70px" class="text-center" scope="col">群組編號</th>
                             <th width="130px" class="text-center" scope="col">群組名稱</th>
-                            <th width="80px" class="text-center" scope="col">群組狀態</th>
+                            <th width="60px" class="text-center" scope="col">場次</th>
+                            <th width="60px" class="text-center" scope="col">狀態</th>
                             <th width="300px" class="text-center" scope="col">身分證字號 / 會員姓名</th>
                             <td width="80px">
                                 <a href="/orderGroupAdmin/create" class="btn btn-sm btn-success"><i class="far fa-plus-square"> </i> 新增</a>
@@ -164,6 +165,9 @@
                             </td>
                             <td class=" text-black text-center">
                                 {{$item->orderGroupName}}
+                            </td>
+                            <td class=" text-black text-center">
+                                {{$item->cityNameCh}}
                             </td>
                             <td class=" text-black text-center">
                                 <a class="text-danger">{{$item->orderGroupRevoke}}</a>

@@ -93,19 +93,19 @@
                                                     placeholder="請輸入姓名" required>
                                             </div>
                                             <div class="col-md-6 mb-3">
-                                                <label for="name">身分證</label>
+                                                <label for="twId">身分證</label>
                                                 <input type="text" class="form-control myInput" name="twId" id="twId"
                                                     placeholder="請輸入身分證" required>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="col-md-3 mb-3">
-                                                <label for="name">性別</label>
+                                                <label>性別</label>
                                                 <div class="d-flex justify-content-start myInput myRadio">
-                                                    <input type="radio" class="form-control" name="sex" value="男"><span
-                                                        class="myText">男</span>
-                                                    <input type="radio" class="form-control" name="sex" value="女"><span
-                                                        class="myText">女</span>
+                                                    <input type="radio" class="form-control" id="male" name="sex" value="男"><span
+                                                        class="myText"><label for="male">男</label></span>
+                                                    <input type="radio" class="form-control" id="female" name="sex" value="女"><span
+                                                        class="myText"><label for="female">女</label></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -467,12 +467,13 @@
         }
         //根據時間產生訂單號
         var orderNumber = "";
-        for (var i = 0; i < 2; i++) //j位隨機數，用以加在時間戳後面。
+        for (var i = 0; i < 4; i++) //j位隨機數，用以加在時間戳後面。
         {
             orderNumber += Math.floor(Math.random() * 10);
         }
         var today = new Date();
-        var orderNumber = "P" + today.getTime() + orderNumber;
+        
+        var orderNumber = "P" + today.getFullYear() + (today.getMonth()+1) + today.getDate() + orderNumber;
         console.log(orderNumber);
         $("#orderNumber").text(orderNumber);
 
@@ -497,7 +498,7 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-
+        //送資料到資料庫
         function myData() {
             $(document).ready(function () {
                 var eventCity = $("#eventCity").val();
@@ -589,8 +590,8 @@
 
                 for (var i = 0; i < data.length; i++) {
                     $("#signupOp").append(
-                        "<div class='row radio d-flex justify-content-between'><div><input type='radio' name='km' value='" +
-                        data[i].idRun + "'>" + data[i].runNameLong + "</div><div>NT$" + data[i]
+                        "<div class='row radio d-flex justify-content-between'><div><input type='radio' id=km" + i + " name='km' value='" +
+                        data[i].idRun + "'><label for=km" + i + ">" + data[i].runNameLong +"</label>" + "</div><div>NT$" + data[i]
                         .runPrice + "</div></div>");
                 }
                 console.log(data);
@@ -607,11 +608,11 @@
                 products = data;
                 for (var i = 0; i < data.length; i++) {
                     $("#addPurchase").append(
-                        "<div class='row d-flex justify-content-between'><div><input type='checkbox' name='product[]' value='" +
-                        data[i].idProduct + "'>" + data[i].productName + "</div><div>NT" + data[
+                        "<div class='row d-flex justify-content-between'><div><input type='checkbox' id=add" + i + " name='product[]' value='" +
+                        data[i].idProduct + "'><label for=add" + i + ">" + data[i].productName +"</label>" + "</div><div>NT" + data[
                             i]
                         .productPrice + "</div></div>");
-                }
+                } 
                 console.log(data);
             });
         })

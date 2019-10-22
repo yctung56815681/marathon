@@ -98,7 +98,8 @@
                 <div class="form-group row">
                     <label for="inputEmail">帳號</label>
                     {{-- <input type="email" id="inputEmail" class="form-control" placeholder="帳號" required autofocus> --}}
-                    <input type="text" id="inputEmail" class="form-control" name="username" placeholder="帳號" >
+                    <input type="text" id="inputEmail" class="form-control" name="username" placeholder="帳號" required
+                        autofocus>
                 </div>
 
                 <div class="form-group row">
