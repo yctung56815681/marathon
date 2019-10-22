@@ -191,6 +191,7 @@
                 @method("PUT")
                 <button type="submit" class="btn btn-sm btn-info"><i class="far fa-check-square"></i> 確認</button>
                 <button type="reset" class="btn btn-sm btn-warning"><i class="far fa-window-close"></i> 重置</button>
+                <button type="reset" class="btn btn-sm btn-success" onclick="history.go(-1)"><i class="far fa-plus-square"></i> 返回</button>
             </form>
             {{-- </div> --}}
 
