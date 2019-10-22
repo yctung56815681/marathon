@@ -154,7 +154,7 @@
                     <tr>
                         <th scope="col" class="text-nowrap">帳號</th>
                         {{-- <th scope="col" class="text-nowrap">密碼</th> --}}
-                        <th><a class="btn btn-sm btn-success" role="button" href="/accountAdmin/create"><i class="far fa-plus-square"></i> 新增</a></th>
+                        <th style="width:160px"><a class="btn btn-sm btn-success" role="button" href="/accountAdmin/create"><i class="far fa-plus-square"></i> 新增</a></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -163,48 +163,43 @@
                         <td>{{$item->username}}</td>
                         {{-- <td>{{$item->password}}</td> --}}
                         <td>
-                            <div class="pull-right">
-                                {{-- <form method="post" action="/accountAdmin/{{$item->idAccount}}">
-                                    @csrf --}}
-                                    <a class="btn btn-sm btn-info" role="button" href="/accountAdmin/{{$item->idAccount}}/edit"><i class="far fa-edit"></i> 編輯</a>
-                                    {{-- @method("DELETE")
-                                    <button type="submit" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i> 刪除</button> --}}
-                                    <button type="button" class="btn btn-sm btn-danger" onclick="$('#myModal{{$item->idAccount}}').modal('show');"><i class="far fa-trash-alt"></i> 刪除</button>
+                            <a class="btn btn-sm btn-info" role="button" href="/accountAdmin/{{$item->idAccount}}/edit"><i class="far fa-edit"></i> 編輯</a>
+                            {{-- @method("DELETE")
+                            <button type="submit" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i> 刪除</button> --}}
+                            <button type="button" class="btn btn-sm btn-danger" onclick="$('#myModal{{$item->idAccount}}').modal('show');"><i class="far fa-trash-alt"></i> 刪除</button>
 
-                                    <!-- The Modal -->
-                                    <div class="modal fade" id="myModal{{$item->idAccount}}">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content" style="background-color: lightyellow">
+                            <!-- The Modal -->
+                            <div class="modal fade" id="myModal{{$item->idAccount}}">
+                                <div class="modal-dialog">
+                                    <div class="modal-content" style="background-color: lightyellow">
 
-                                                <!-- Modal Header -->
-                                                <div class="modal-header">
-                                                    <span class="modal-title text-warning font-weight-bolder"
-                                                        style="font-size: 1.3rem">提示訊息</span>
-                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                </div>
+                                        <!-- Modal Header -->
+                                        <div class="modal-header">
+                                            <span class="modal-title text-warning font-weight-bolder"
+                                                style="font-size: 1.3rem">提示訊息</span>
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
 
-                                                <!-- Modal body -->
-                                                <div class="modal-body">
-                                                    <div class="alert alert-warning">
-                                                        確定要刪除帳號？
-                                                    </div>
-                                                </div>
-
-                                                <!-- Modal footer -->
-                                                <div class="modal-footer">
-                                                    <form method="post" action="/accountAdmin/{{$item->idAccount}}">
-                                                        @csrf
-                                                        @method("DELETE")
-                                                        <button type="submit" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i> 刪除</button>
-                                                        <button type="button" class="btn btn-sm btn-info" data-dismiss="modal">返回</button>
-                                                    </form>
-                                                </div>
+                                        <!-- Modal body -->
+                                        <div class="modal-body">
+                                            <div class="alert alert-warning">
+                                                確定要刪除帳號？
                                             </div>
                                         </div>
+
+                                        <!-- Modal footer -->
+                                        <div class="modal-footer">
+                                            <form method="post" action="/accountAdmin/{{$item->idAccount}}">
+                                                @csrf
+                                                @method("DELETE")
+                                                <button type="submit" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i> 刪除</button>
+                                                <button type="button" class="btn btn-sm btn-info" data-dismiss="modal">返回</button>
+                                            </form>
+                                        </div>
                                     </div>
-                                    <!-- The Modal -->
-                                </form>
+                                </div>
                             </div>
+                            <!-- The Modal -->
                         </td>
                     </tr>
                     @endforeach
