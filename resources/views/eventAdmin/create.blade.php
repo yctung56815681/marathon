@@ -277,10 +277,10 @@
                     <input id="" name="eventRaceImage" type="file">
                     <hr>
                     <br>
-                    競賽獎勵-報名方式
+                    競賽獎勵-競賽獎勵
                     <textarea id="" name="eventRacetext1" class="form-control col-8"  cols="30" rows="10"></textarea>
                     <br>
-                    競賽獎勵-退費辦法
+                    競賽獎勵-敘獎辦法
                     <textarea id="" name="eventRacetext2" class="form-control col-8"  cols="30" rows="10"></textarea>
                     <hr>
                     <hr>
