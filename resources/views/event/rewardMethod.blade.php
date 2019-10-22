@@ -301,6 +301,8 @@
 
             if( Sid=='{{ $eventSignupStartTime }}'){
                 remain_txt.innerHTML = "<span>離報名開始剩:</span>";
+                SignTitle.style.display = "none";
+                SignQuery.style.display = "none";
             }else if( Sid=='{{ $eventSignupEndTime }}' ){
                 remain_txt.innerHTML = "<span>離報名結束剩:</span>";
             }else if(Sid=='{{ $eventRunStartTime }}' ){
