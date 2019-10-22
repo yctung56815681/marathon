@@ -86,13 +86,15 @@ class MemberAdminController extends Controller
         $mem->memberEmergencyRelationship = $request->memberEmergencyRelationship;
         $mem->memberEmergencyMobile = $request->memberEmergencyMobile;
         $mem->save();
-        return redirect("/memberAdmin");
+        // return redirect("/memberAdmin");
 
-        // DB::statement(DB::raw("set @row:=0"));
-        // $member = DB::table("members")->select(DB::raw("@row := @row + 1 as rank"))->where("idMember", "<=", $id)->get();
-        // $idNew = $member->count() - 1;
-        // $idNew = floor($idNew / 10) * 10;
-        // return redirect("/memberAdmin/$idNew");
+        $member = DB::table("members")->where("memberTwId", "=", $request->memberTwId)->first();
+
+        DB::statement(DB::raw("set @row:=0"));
+        $member = DB::table("members")->select(DB::raw("@row := @row + 1 as rank"))->where("idMember", "<=", $member->idMember)->get();
+        $idNew = $member->count() - 1;
+        $idNew = floor($idNew / 10) * 10;
+        return redirect("/memberAdmin/$idNew");
     }
 
     /**
