@@ -71,7 +71,6 @@ class AccountAdminController extends Controller
         if ($num != 0)
             return redirect("/accountAdmin/duplicateAccount");
 
-        // DB::table("accounts")->insert(["username" => $request->username, "password" => $request->password]);
         $password = $request->password;
         $password = password_hash($password, PASSWORD_DEFAULT);
         DB::table("accounts")->insert(["username" => $request->username, "password" => $password]);
@@ -132,7 +131,6 @@ class AccountAdminController extends Controller
 
         $account = DB::table("accounts")->where("idAccount", "=", $id)->get();
         $userNameUpdate = $account[0]->username;
-        // DB::table("accounts")->where("idAccount", "=", $id)->update(["username" => $userNameUpdate, "password" => $request->password]);
         $password = $request->password;
         $password = password_hash($password, PASSWORD_DEFAULT);
         DB::table("accounts")->where("idAccount", "=", $id)->update(["username" => $userNameUpdate, "password" => $password]);
@@ -159,7 +157,6 @@ class AccountAdminController extends Controller
         }
 
         DB::table("accounts")->where("idAccount", "=", $id)->delete();
-        // return redirect("/accountAdmin");
         $num = DB::table("accounts")->count();
         DB::statement(DB::raw("set @row:=0"));
         $account = DB::table("accounts")->select(DB::raw("@row := @row + 1 as rank"))->where("idAccount", "<", $id)->get();
@@ -168,7 +165,6 @@ class AccountAdminController extends Controller
             $idNew -= 1;
         $idNew = floor($idNew / 10) * 10;
         $url = "/accountAdmin/" . $idNew;
-        // dd($num, $account->count(), $idNew);
         return redirect($url);
     }
 
