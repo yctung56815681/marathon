@@ -7,6 +7,7 @@ use App\Event;
 use App\EventContent;
 use App\Run;
 use App\City;
+use App\OrderGroup;
 use Session;
 
 class EventAdminController extends Controller
@@ -259,23 +260,41 @@ class EventAdminController extends Controller
     }
     public function destroy($idEvent)
     {   
+        // dd($idEvent);
         $userName = Session::get("userName", "Guest");
         if ($userName == "Guest") {
             return redirect("/login");
         }
+        $orderlist = OrderGroup::all();
+        //  dd($orderlist);
+        
+            foreach($orderlist as $k=>$ord){
+                // dd($ord);
+                if($ord->eventId==$idEvent)goto END;
+                
+            } 
+            $runs = Run::Where('eventId',$idEvent)->get();
+            $runs[0]->delete();
+            $runs = Run::Where('eventId',$idEvent)->get();
+            $runs[0]->delete();
+            $runs = Run::Where('eventId',$idEvent)->get();
+            $runs[0]->delete();
+            $evec = EventContent::find($idEvent);
+            $evec->delete();
+            $eve = Event::find($idEvent);
+            $eve->delete();
+            return redirect("/eventAdmin"); 
+            END:
+            echo("網頁已有報名者不得刪除");
+
+   
         
         
-        $runs = Run::Where('eventId',$idEvent)->get();
-        $runs[0]->delete();
-        $runs = Run::Where('eventId',$idEvent)->get();
-        $runs[0]->delete();
-        $runs = Run::Where('eventId',$idEvent)->get();
-        $runs[0]->delete();
-        $evec = EventContent::find($idEvent);
-        $evec->delete();
-        $eve = Event::find($idEvent);
-        $eve->delete();
-        return redirect("/eventAdmin");        //
+
+        
+        
+        
+               //
     }
     ////////////////////////////////////////////////////////////
     // public function create()
