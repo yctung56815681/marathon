@@ -106,13 +106,13 @@ function set_sidebar_pos(sidebar_id) {
 	$(sidebar_id).width(wid);
 	$(document).on("scroll", function () {
 		//直接將導覽列的高設為初始頂部，再以圖片頂部為基準，判定下拉時有無超過
-		if ($(window).scrollTop() >= mainBannerHeight) {
+		if ($(window).scrollTop() >= mainBannerHeight + mainHeader) {
 			sidebar.css({
 				position: 'fixed',
 				top: mainHeader
 			});
 		}
-		else if ($(window).scrollTop() < mainBannerHeight) {
+		else if ($(window).scrollTop() < mainBannerHeight+ mainHeader ) {
 			sidebar.css({
 				position: 'relative',
 				top: mainHeader
@@ -182,7 +182,6 @@ function set_carousel(){
 				},
 				1000:{	
 					items:3				
-
 				}
 			}
 		});
@@ -214,7 +213,6 @@ function set_carousel(){
 				},
 				1000:{	
 					items:3				
-
 				}
 			}
 		});

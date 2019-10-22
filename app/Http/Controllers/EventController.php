@@ -18,14 +18,6 @@ class EventController extends Controller
         // $view = "event.{$city}{$year}{$month}";
         // return view($view);
 
-        // 第二階段的測試
-        // $viewModel = compact(
-        //     "city",
-        //     "year",
-        //     "month",
-        // );
-        // return view("event.index", $viewModel);
-
 
         // 第三階段的測試
         // $lists=array(
@@ -40,6 +32,7 @@ class EventController extends Controller
         //     "TXG"=>array("location"=>"台中","time"=>"2019年12月09日","distance"=>"21K-10K-5K","place"=>"台中鎮","phone"=>"0800-279-000(工作日9:00~18:00)")
         //    );
         // $list=$lists[$city];
+        //
         // $viewModel = compact(
         //     "city",
         //     "year",
@@ -94,17 +87,12 @@ class EventController extends Controller
         // $jsondata=City::all()->where('cityId', "TPE" )->first()->event_contents[0]->eventContentNews;
         // $cityId2=json_decode($jsondata, true);
         // $cityId3=City::all()->where('cityId', "TPE" )->first()->runs[0]->id;
-
-        // $test="<img src='/img/pt02.jpg' style='width: 100%; max-width: 100%;' />";
-        // $test='<img src="/img/pt02.jpg" style="width: 100%; max-width: 100%;" />';
-        // 方法內測試""和''互換OK，但在MYSQK的JASON格式中連建立都不可-> (文章區塊與IMG標籤之'要加\)
         
         $viewModel = compact(
             "city",
             "year",
             "month",
             // "list",
-            // "jsonContent1"
             "cityNameCh", 
             "eventSignupStartTime",                  
             "eventSignupEndTime",
@@ -140,6 +128,8 @@ class EventController extends Controller
         // return view($view, $viewModel);
 
         // 第三階段的測試
+        // $view = "event.{$page}";
+        //
         // $lists=array(
         //   "PCH"=>array("location"=>"屏東","time"=>"2019年10月09日",      "distance"=>"21K-10K-5K","place"=>"屏東鎮","phone"=>"0800-271-000(工作日9:00~18:00)"),
         //   "CWH"=>array("location"=>"彰化","time"=>"2020年02月09日","distance"=>"21K-10K-5K","place"=>"彰化鎮","phone"=>"0800-272-000(工作日9:00~18:00)"),
@@ -152,7 +142,6 @@ class EventController extends Controller
         //   "TXG"=>array("location"=>"台中","time"=>"2019年12月09日","distance"=>"21K-10K-5K","place"=>"台中鎮","phone"=>"0800-279-000(工作日9:00~18:00)")
         // );
         // $list=$lists[$city];
-        // $view = "event.{$page}"; 
         // $viewModel = compact(
         //       "city",
         //       "year",
@@ -163,6 +152,8 @@ class EventController extends Controller
 
 
         // 第四階段的測試
+        $view = "event.{$page}";
+
         // $lists=array(
         //     "PCH"=>array("location"=>"屏東","time"=>"2019年10月09日","distance"=>"21K-10K-5K","place"=>"屏東鎮","phone"=>"0800-271-000(工作日9:00~18:00)"),
         //     "CWH"=>array("location"=>"彰化","time"=>"2020年02月09日","distance"=>"21K-10K-5K","place"=>"彰化鎮","phone"=>"0800-272-000(工作日9:00~18:00)"),
@@ -203,8 +194,7 @@ class EventController extends Controller
         $eventDL=Run::all()->where('eventId', $idEvent  )->find($idRun)->runName;
         $eventDM=Run::all()->where('eventId', $idEvent  )->find($idRun+1)->runName;
         $eventDS=Run::all()->where('eventId', $idEvent  )->find($idRun+2)->runName;
-
-        $view = "event.{$page}";
+       
         
         $viewModel = compact(
             "city",
