@@ -112,17 +112,20 @@
                                             <div class="col-md-6 mb-3">
                                                 <label for="twId">身分證</label>
                                                 <input type="text" class="form-control myInput" name="twId" id="twId"
-                                                    placeholder="請輸入身分證">
+                                                    onchange="checkTwId1()" placeholder="請輸入身分證">
+                                                <div id="remind" class="remind"></div>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="col-md-3 mb-3">
-                                                <label >性別</label>
+                                                <label>性別</label>
                                                 <div class="d-flex justify-content-start myInput myRadio">
                                                     <input type="radio" class="form-control" id="male" name="sex"
-                                                        value="male"><span class="myText"><label for="male">男</label></span>
+                                                        value="male"><span class="myText"><label
+                                                            for="male">男</label></span>
                                                     <input type="radio" class="form-control" id="female" name="sex"
-                                                        value="female"><span class="myText"><label for="female">女</label></span>
+                                                        value="female"><span class="myText"><label
+                                                            for="female">女</label></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -210,7 +213,7 @@
                                                     class="btn btn-primary myInput" type="button" value="報名首頁"></a>
                                         </div>
                                         <div><input class="btn btn-primary myInput" type="button" value="新增團員"
-                                                onclick="personOrderNo(); check_data(); "></div>
+                                                onclick="personOrderNo(); checkTwId(); "></div>
                                     </div>
                                 </div>
                                 <div id="group2" style="display:none">
@@ -445,9 +448,40 @@
                 $(".checkRegex").text("請選擇要報名的賽事");
                 return goGroup1();
             }
+
             memberForm.reset();
             createPerson();
 
+        }
+        //防呆
+        function checkTwId1(){
+            var twId = $('input[name="twId"]').val();
+            check.forEach(function (data) {
+                if (twId.includes(data.memberTwId)) {
+                    $('#checkRegex').modal('show');
+                    $(".checkRegex").text("身分證已報名");
+                    return goGroup1();
+                }
+
+            })
+        }
+
+        //檢查是否重複報名
+        function checkTwId() {
+            var isCheck = true;
+            var twId = $('input[name="twId"]').val();
+            for (i = 0; i < check.length; i++) {
+                if (twId.includes(check[i].memberTwId)) {
+                    isCheck = false;
+                    break;
+                }
+            }
+            if(isCheck){
+                check_data();
+            }else{
+                $('#checkRegex').modal('show');
+                $(".checkRegex").text("身分證已報名");
+            }
         }
         //-------------------------------------------資料放入陣列-------------------------------------------------
         function createPerson() {
@@ -544,7 +578,7 @@
             orderNumber += Math.floor(Math.random() * 10);
         }
         var today = new Date();
-        var orderNumber = "G" + today.getFullYear() + (today.getMonth()+1) + today.getDate() + orderNumber;
+        var orderNumber = "G" + today.getFullYear() + (today.getMonth() + 1) + today.getDate() + orderNumber;
         console.log(orderNumber);
         $("#orderNumber").text(orderNumber);
 
@@ -556,7 +590,7 @@
                 personOrderNo2 += Math.floor(Math.random() * 10);
             }
             var today = new Date();
-            personOrderNo1 = "P" + today.getFullYear() + (today.getMonth()+1) + today.getDate() +  personOrderNo2;
+            personOrderNo1 = "P" + today.getFullYear() + (today.getMonth() + 1) + today.getDate() + personOrderNo2;
             console.log(personOrderNo1);
 
         }
@@ -627,7 +661,7 @@
                             var emRelationship = team.emRelationship;
                             var km = team.km;
                             var product = team.product;
-                            var personOrderNo1 =  team.orderNo;
+                            var personOrderNo1 = team.orderNo;
                             $.ajax({
                                 type: "POST",
                                 url: "/api/member/add",
@@ -675,8 +709,10 @@
 
                 for (var i = 0; i < data.length; i++) {
                     $("#signupOp").append(
-                        "<div class='row radio d-flex justify-content-between'><div><input type='radio' id=km" + i + " name='km' value='" +
-                        data[i].idRun + "'><label for=km" + i + ">" + data[i].runNameLong +"</label>" + "</div><div>NT$" + data[i]
+                        "<div class='row radio d-flex justify-content-between'><div><input type='radio' id=km" +
+                        i + " name='km' value='" +
+                        data[i].idRun + "'><label for=km" + i + ">" + data[i].runNameLong +
+                        "</label>" + "</div><div>NT$" + data[i]
                         .runPrice + "</div></div>");
                 }
                 console.log(data);
@@ -693,11 +729,31 @@
                 products = data;
                 for (var i = 0; i < data.length; i++) {
                     $("#addPurchase").append(
-                        "<div class='row d-flex justify-content-between'><div><input type='checkbox' id=add" + i + " name='product[]' value='" +
-                        data[i].idProduct + "'><label for=add" + i + ">" + data[i].productName +"</label>" + "</div><div>NT" + data[i]
+                        "<div class='row d-flex justify-content-between'><div><input type='checkbox' id=add" +
+                        i + " name='product[]' value='" +
+                        data[i].idProduct + "'><label for=add" + i + ">" + data[i].productName +
+                        "</label>" + "</div><div>NT" + data[i]
                         .productPrice + "</div></div>");
                 }
                 console.log(data);
+            });
+        })
+
+        //撈賽事裡的身分證
+        var check;
+        $(document).ready(function () {
+            var eventCity = $("#eventCity").val();
+            var twId = $("#twId").val();
+            $.ajax({
+                type: "GET",
+                url: "/api/member/checkTwId",
+                data: {
+                    cityNo: eventCity,
+                }
+            }).done(function (data) {
+                check = data;
+                console.log(data);
+                console.log(data.length);
             });
         })
 

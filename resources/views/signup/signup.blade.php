@@ -94,18 +94,21 @@
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="twId">身分證</label>
-                                                <input type="text" class="form-control myInput" name="twId" id="twId"
+                                                <input type="text" class="form-control myInput" name="twId" id="twId" onchange="checkTwId()"
                                                     placeholder="請輸入身分證" required>
+                                                    <div id="remind" class="remind"></div>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="col-md-3 mb-3">
                                                 <label>性別</label>
                                                 <div class="d-flex justify-content-start myInput myRadio">
-                                                    <input type="radio" class="form-control" id="male" name="sex" value="男"><span
-                                                        class="myText"><label for="male">男</label></span>
-                                                    <input type="radio" class="form-control" id="female" name="sex" value="女"><span
-                                                        class="myText"><label for="female">女</label></span>
+                                                    <input type="radio" class="form-control" id="male" name="sex"
+                                                        value="男"><span class="myText"><label
+                                                            for="male">男</label></span>
+                                                    <input type="radio" class="form-control" id="female" name="sex"
+                                                        value="女"><span class="myText"><label
+                                                            for="female">女</label></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -192,7 +195,7 @@
                                                     class="btn btn-primary" type="button" value="報名首頁"></a>
                                         </div>
                                         <div><input class="btn btn-primary" type="button" value="送出資料"
-                                                onclick="goGroup2(); processFormData(); check_data();"></div>
+                                                onclick="goGroup2(); processFormData(); checkTwId(); check_data();"></div>
                                     </div>
                                 </div>
                                 <div id="group2" style="display:none">
@@ -236,7 +239,6 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-
                                     </div>
                                     <div id="title5" class="title"><i class="fas fa-dot-circle"></i>費用明細
                                         <hr>
@@ -423,6 +425,19 @@
 
             // memberForm.submit();
         }
+        //檢查是否重複報名
+        function checkTwId(){
+            var twId = $('input[name="twId"]').val();
+            check.forEach(function (data) {
+                if (twId.includes(data.memberTwId)) {
+                    $('#checkRegex').modal('show');
+                    $(".checkRegex").text("身分證已報名");
+                    return goGroup1();
+                }
+
+            })
+        }
+
         //取得個人報名資料
         function processFormData() {
             var name = $('input[name="name"]').val(); //姓名
@@ -472,8 +487,8 @@
             orderNumber += Math.floor(Math.random() * 10);
         }
         var today = new Date();
-        
-        var orderNumber = "P" + today.getFullYear() + (today.getMonth()+1) + today.getDate() + orderNumber;
+
+        var orderNumber = "P" + today.getFullYear() + (today.getMonth() + 1) + today.getDate() + orderNumber;
         console.log(orderNumber);
         $("#orderNumber").text(orderNumber);
 
@@ -489,6 +504,7 @@
                 $('#waiting').modal('show');
                 setTimeout("window.location.assign('finish')", 3000);
             }
+            
             myData();
         }
 
@@ -590,8 +606,10 @@
 
                 for (var i = 0; i < data.length; i++) {
                     $("#signupOp").append(
-                        "<div class='row radio d-flex justify-content-between'><div><input type='radio' id=km" + i + " name='km' value='" +
-                        data[i].idRun + "'><label for=km" + i + ">" + data[i].runNameLong +"</label>" + "</div><div>NT$" + data[i]
+                        "<div class='row radio d-flex justify-content-between'><div><input type='radio' id=km" +
+                        i + " name='km' value='" +
+                        data[i].idRun + "'><label for=km" + i + ">" + data[i].runNameLong +
+                        "</label>" + "</div><div>NT$" + data[i]
                         .runPrice + "</div></div>");
                 }
                 console.log(data);
@@ -608,12 +626,32 @@
                 products = data;
                 for (var i = 0; i < data.length; i++) {
                     $("#addPurchase").append(
-                        "<div class='row d-flex justify-content-between'><div><input type='checkbox' id=add" + i + " name='product[]' value='" +
-                        data[i].idProduct + "'><label for=add" + i + ">" + data[i].productName +"</label>" + "</div><div>NT" + data[
+                        "<div class='row d-flex justify-content-between'><div><input type='checkbox' id=add" +
+                        i + " name='product[]' value='" +
+                        data[i].idProduct + "'><label for=add" + i + ">" + data[i].productName +
+                        "</label>" + "</div><div>NT" + data[
                             i]
                         .productPrice + "</div></div>");
-                } 
+                }
                 console.log(data);
+            });
+        })
+
+        //撈賽事裡的身分證
+        var check;
+        $(document).ready(function () {
+            var eventCity = $("#eventCity").val();
+            var twId = $("#twId").val();
+            $.ajax({
+                type: "GET",
+                url: "/api/member/checkTwId",
+                data: {
+                    cityNo: eventCity,
+                }
+            }).done(function (data) {
+                check = data;
+                console.log(data);
+                console.log(data.length);
             });
         })
 
