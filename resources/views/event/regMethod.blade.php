@@ -280,6 +280,8 @@
                         <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'></div>
                    </div><br/>
                 </div>
+            </ul> 
+               
         </div>
     </nav>
 

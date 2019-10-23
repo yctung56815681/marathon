@@ -168,8 +168,7 @@
                 <form id="form1">
 
                     <div class="detail_div">
-                     <!--中間可替換內容處-->
-
+                     
                         {{--要更改路徑格式--}}
                         <link rel="stylesheet" href="{{ URL::asset('NewCSS/css/jquerycollapse.css') }}">
 
@@ -190,12 +189,12 @@
                             crossorigin="anonymous">
                         </script>
 
+
                         <div id="ContentPlaceHolder1_content">
                            
                             <h2 style="text-align:center">
                                 <span style="font-weight:800;">最新消息</span>
-                            </h2>
-                           
+                            </h2>                         
                            <p>&nbsp;</p>
                             <!--以下要能替換內容-->
 
@@ -254,10 +253,9 @@
 
                     </div>
 
-
                 </form>
-
             </div>
+
         </div>
 
     </section>
@@ -314,6 +312,8 @@
                       <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'></div>
                    </div><br/>
                 </div>
+            </ul>
+                
         </div>
     </nav>
 
@@ -338,11 +338,13 @@
                 remain_txt.innerHTML = "<span>離報名開始剩:</span>";
                 SignTitle.style.display = "none";
                 SignQuery.style.display = "none";
-                //ID前面不能命名太接近，不然系統判定會混亂
+                //桌面選項顯示與否
                 STDK.style.display = "none";
                 SQDK.style.display = "none";
+                //行動選項顯示與否
                 STMB.style.display = "none";
                 SQMB.style.display = "none";
+
             }else if( Sid=='{{ $eventSignupEndTime }}' ){
                 remain_txt.innerHTML = "<span>離報名結束剩:</span>";
 
@@ -375,10 +377,10 @@
                     remain_txt.innerHTML = "<span>路跑已經結束</span>";
                     remain_time.innerHTML = "<span></span>";
                 }else{
+                    //原本在Check_Time()的第一層
                     remain_time.innerHTML = Cal_Day + "天" + Cal_Hour + "時" + Cal_Minute + "分" + Cal_Second + "秒";
                 }  
-                
-                // remain_time.innerHTML = Cal_Day + "天" + Cal_Hour + "時" + Cal_Minute + "分" + Cal_Second + "秒";    
+               
             }
 
             var mm = window.setInterval("Check_Time()", 1000);
@@ -386,11 +388,15 @@
     </script>
     <!-------JavaScript特定日期倒數計時 END-------->
 
-
-    
     <!-- 此jquery函式檔放置在文檔末尾，可使頁面加載速度更快 -->
     <script src="{{ URL::asset('NewCSS/js/script.js') }}"></script>
 
+
+    {{-- 開發時之靈異現象: 增修 id.style.display="none"時，id命名後修改測試中，
+         2019/10/22全部失敗 2019/10/23全部成功，但測試程序幾乎一樣...
+         例如: id命名SignTitle/ SignTitleDK/ SignTitleMB後使用
+         ..style.display = "none"去控制選項，2019/10/22時會導致if判定混亂
+         (該顯示部顯示不該先是卻顯示)，但隔天卻沒有這情況... --}}
 
 </body>
 

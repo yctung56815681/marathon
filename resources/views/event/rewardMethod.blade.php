@@ -238,14 +238,12 @@
     </section>
 
 
-
     <section class="back_top">
         <i class="far fa-arrow-alt-circle-up "
             style="font-size:50px; color:rgb(73, 175, 73); position: fixed; bottom:20px; right:20px;"></i>
     </section>
 
     <section class="footer">
-
 
     </section>
     <nav id="mobile_nav" class="mobile_nav">
@@ -289,6 +287,8 @@
                          <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'></div>
                    </div><br/>
                 </div>
+            </ul>
+
         </div>
     </nav>
 
