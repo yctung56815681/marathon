@@ -103,7 +103,17 @@ class MemberApiController extends Controller
     }
     public function checkTwId(Request $request)
     {
+       $check = DB::table("events")
+       ->join("cities","idCity","=","cityId")
+       ->join("order_groups","idEvent","=","eventId")
+       ->join("orders","idOrderGroup","=","orderGroupId")
+       ->join("members","idMember","=","memberId")
+       ->select("events.idEvent","members.memberTwId")
+       ->where("cityNo",$request->cityNo,)
+       ->get();
        
+
+        return  $check;
     }
     
     
