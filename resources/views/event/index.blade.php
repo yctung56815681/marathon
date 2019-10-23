@@ -392,11 +392,11 @@
     <script src="{{ URL::asset('NewCSS/js/script.js') }}"></script>
 
 
-    {{-- 開發時之靈異現象: 增修 id.style.display="none"時，id命名後修改測試中，
+    {{-- 開發時之怪現象: 增修 id.style.display="none"時，id命名後修改測試中，
          2019/10/22全部失敗 2019/10/23全部成功，但測試程序幾乎一樣...
          例如: id命名SignTitle/ SignTitleDK/ SignTitleMB後使用
-         ..style.display = "none"去控制選項，2019/10/22時會導致if判定混亂
-         (該顯示部顯示不該先是卻顯示)，但隔天卻沒有這情況... --}}
+         ..style.display = "none"去控制選項時，會導致無法顯示計時+顯示判別式失效
+         ，經再再測試後有可能是id大小寫導致的問題 --}}
 
 </body>
 
