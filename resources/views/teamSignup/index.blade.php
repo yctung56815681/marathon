@@ -374,7 +374,7 @@
         //------------------------檢查個人資料輸入欄位---------------------------------------------------------------------
         function check_data() {
             person();
-            var twIdRegex = new RegExp(/^[A-Za-z][12]\d{8}$/);
+            var twIdRegex = new RegExp(/^[A-Z][12]\d{8}$/);
             var phoneRegex = new RegExp(/^09[0-9]{8}$/);
             if (document.memberForm.myName.value.length == 0) {
                 $('#checkRegex').modal('show');
@@ -489,8 +489,8 @@
             console.log(teams);
             i = teams.length;
             $("#teamArray").append('<div id=person' + i + ' class="row d-flex justify-content-between schedule "> ' +
-                '<button class="myPerson" disabled="disabled" type="button">' + team.name +
-                '</button><button class="myPerson" type="button" onclick="deletePerson(' + i +
+                '<div>' + team.name +
+                '</div><button class="myPerson" type="button" onclick="deletePerson(' + i +
                 ')"><i class="fas fa-trash-alt"></i></button></div>'
             );
         }
@@ -571,7 +571,7 @@
             }
 
         }
-        //---------------------------------根據時間產生訂單號--------------------------------------------------------
+        //---------------------------------根據時間產生團體訂單號--------------------------------------------------------
         var orderNumber = "";
         for (var i = 0; i < 4; i++) //j位隨機數，用以加在時間戳後面。
         {
@@ -582,7 +582,7 @@
         console.log(orderNumber);
         $("#orderNumber").text(orderNumber);
 
-
+        //產生個人訂單編號
         function personOrderNo() {
             var personOrderNo2 = "";
             for (var i = 0; i < 4; i++) //j位隨機數，用以加在時間戳後面。

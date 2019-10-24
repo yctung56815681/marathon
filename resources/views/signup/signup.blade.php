@@ -348,7 +348,7 @@
 
         //檢查個人資料輸入欄位
         function check_data() {
-            var twIdRegex = new RegExp(/^[A-Za-z][12]\d{8}$/);
+            var twIdRegex = new RegExp(/^[A-Z][12]\d{8}$/);
             var phoneRegex = new RegExp(/^09[0-9]{8}$/);
             if (document.memberForm.name.value.length == 0) {
                 $('#checkRegex').modal('show');
