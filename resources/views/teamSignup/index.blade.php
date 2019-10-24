@@ -498,7 +498,7 @@
         //刪除個人資料
         function deletePerson(i) {
             $("#person" + i).remove();
-            teams.splice(i - 1, 1);
+            teams.splice('person'+(i - 1), 1);
             console.log(i);
             console.log(teams);
         }
