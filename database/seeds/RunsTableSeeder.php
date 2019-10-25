@@ -211,27 +211,28 @@ class RunsTableSeeder extends Seeder
                 'runPrice' => '500',
             ]);
             // ==========
-            DB::table('runs')->insert([
-                'eventId' => '10',
-                'runType' => 'L',
-                'runName' => '25K',
-                'runNameLong' => '25K 豪華組',
-                'runPrice' => '2500',
-            ]);
-            DB::table('runs')->insert([
-                'eventId' => '10',
-                'runType' => 'M',
-                'runName' => '16K',
-                'runNameLong' => '16K 豪華組',
-                'runPrice' => '1600',
-            ]);
-            DB::table('runs')->insert([
-                'eventId' => '10',
-                'runType' => 'S',
-                'runName' => '8K',
-                'runNameLong' => '8K 豪華組',
-                'runPrice' => '800',
-            ]);
+            // DB::table('runs')->insert([
+            //     'eventId' => '10',
+            //     'runType' => 'L',
+            //     'runName' => '25K',
+            //     'runNameLong' => '25K 豪華組',
+            //     'runPrice' => '2500',
+            // ]);
+            // DB::table('runs')->insert([
+            //     'eventId' => '10',
+            //     'runType' => 'M',
+            //     'runName' => '16K',
+            //     'runNameLong' => '16K 豪華組',
+            //     'runPrice' => '1600',
+            // ]);
+            // DB::table('runs')->insert([
+            //     'eventId' => '10',
+            //     'runType' => 'S',
+            //     'runName' => '8K',
+            //     'runNameLong' => '8K 豪華組',
+            //     'runPrice' => '800',
+            // ]);
+            
         }
     }
 }

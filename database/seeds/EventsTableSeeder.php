@@ -121,17 +121,17 @@ class EventsTableSeeder extends Seeder
                 'eventAddr' => '冬山河親水公園',
             ]);
 
-            DB::table('events')->insert([
-                'cityId' => '7',
-                'eventSignupStartTime' => '2020-01-08 09:00:00',
-                'eventSignupEndTime' => '2020-02-08 18:00:00',
-                'eventRunStartTime' => '2020-03-08 07:00:00',
-                'eventRunEndTime' => '2020-03-08 18:00:00',
-                'eventTittle' => '2020台中場',
-                'eventImage' => 'TXG202003.jpg',
-                'eventTel' => '0800-555-666',
-                'eventAddr' => '太平區運動場',
-            ]);
+            // DB::table('events')->insert([
+            //     'cityId' => '7',
+            //     'eventSignupStartTime' => '2020-01-08 09:00:00',
+            //     'eventSignupEndTime' => '2020-02-08 18:00:00',
+            //     'eventRunStartTime' => '2020-03-08 07:00:00',
+            //     'eventRunEndTime' => '2020-03-08 18:00:00',
+            //     'eventTittle' => '2020台中場',
+            //     'eventImage' => 'TXG202003.jpg',
+            //     'eventTel' => '0800-555-666',
+            //     'eventAddr' => '太平區運動場',
+            // ]);
         }
     }
 }
