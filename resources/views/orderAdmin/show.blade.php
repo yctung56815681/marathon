@@ -185,7 +185,7 @@
                 </tr>
                 <tr>
                     <th>訂單時間 : </th>
-                    <td class="text-danger">2019-09-10-17:05:20</td>
+                    <td class="text-danger">{{ date('Y-m-d H:i:s') }}</td>
                     <th>訂單狀態 : </th>
                     <td class="text-danger">{{$obj->order->orderRevoke}}</td>
                     <th>訂單總額 : </th>
@@ -258,33 +258,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card  col-md-9 text-center" style="margin: 0 auto;">
