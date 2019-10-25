@@ -43,50 +43,23 @@ class EventController extends Controller
 
 
         // 第四階段的測試
-        // $lists=array(
-        //     "PCH"=>array("location"=>"屏東","time"=>"2019年10月09日","distance"=>"21K-10K-5K","place"=>"屏東鎮","phone"=>"0800-271-000(工作日9:00~18:00)"),
-        //     "CWH"=>array("location"=>"彰化","time"=>"2020年02月09日","distance"=>"21K-10K-5K","place"=>"彰化鎮","phone"=>"0800-272-000(工作日9:00~18:00)"),
-        //     "TPH"=>array("location"=>"新北","time"=>"2019年11月09日","distance"=>"21K-10K-5K","place"=>"新北鎮","phone"=>"0800-273-000(工作日9:00~18:00)"),
-        //     "KHH"=>array("location"=>"高雄","time"=>"2019年12月09日","distance"=>"21K-10K-5K","place"=>"高雄鎮","phone"=>"0800-274-000(工作日9:00~18:00)"),
-        //     "TNN"=>array("location"=>"台南","time"=>"2019年10月09日","distance"=>"21K-10K-5K","place"=>"台南鎮","phone"=>"0800-275-000(工作日9:00~18:00)"),
-        //     "TYC"=>array("location"=>"桃園","time"=>"2019年11月09日","distance"=>"21K-10K-5K","place"=>"桃園鎮","phone"=>"0800-276-000(工作日9:00~18:00)"),
-        //     "ILN"=>array("location"=>"宜蘭","time"=>"2020年01月09日","distance"=>"21K-10K-5K","place"=>"宜蘭鎮","phone"=>"0800-277-000(工作日9:00~18:00)"),
-        //     "YUN"=>array("location"=>"員林","time"=>"2019年9月09日","distance"=>"21K-10K-5K","place"=>"員林鎮","phone"=>"0800-278-000(工作日9:00~18:00)"),
-        //     "TXG"=>array("location"=>"台中","time"=>"2019年12月09日","distance"=>"21K-10K-5K","place"=>"台中鎮","phone"=>"0800-279-000(工作日9:00~18:00)")
-        //    );
-        // $list=$lists[$city];
-
+       
 
         // 手動設ID連結表單+搜尋特定資料:
         $idCity=City::all()->where('cityNo', $city )->first()->idCity;
        // dd($idCity);
         $cityNameCh=City::all()->where('cityNo', $city )->first()->cityNameCh;
 
-        $from= $year."-".$month."-"."01";
-        $to= $year."-".$month."-"."31";
-        $idEvent=Event::all()->where('cityId', $idCity )
-                             ->whereBetween('eventRunStartTime',[$from,$to])
-                             ->first()->idEvent;
+
+        $idEvent=Event::all()->where('cityId', $idCity )->first()->idEvent;
         // dd($idEvent);
-        $eventAddr=Event::all()->where('cityId', $idCity )
-                               ->whereBetween('eventRunStartTime',[$from,$to])
-                               ->first()->eventAddr;
-        $eventTel=Event::all()->where('cityId', $idCity )
-                              ->whereBetween('eventRunStartTime',[$from,$to])
-                              ->first()->eventTel; 
-        $eventSignupStartTime=Event::all()->where('cityId', $idCity )
-                                          ->whereBetween('eventRunStartTime',[$from,$to])
-                                          ->first()->eventSignupStartTime;
-        $eventSignupEndTime=Event::all()->where('cityId', $idCity )
-                                        ->whereBetween('eventRunStartTime',[$from,$to])
-                                        ->first()->eventSignupEndTime;
-        $eventRunStartTime=Event::all()->where('cityId', $idCity )
-                                       ->whereBetween('eventRunStartTime',[$from,$to])
-                                       ->first()->eventRunStartTime;
+        $eventAddr=Event::all()->where('cityId', $idCity )->first()->eventAddr;
+        $eventTel=Event::all()->where('cityId', $idCity )->first()->eventTel; 
+        $eventSignupStartTime=Event::all()->where('cityId', $idCity )->first()->eventSignupStartTime;
+        $eventSignupEndTime=Event::all()->where('cityId', $idCity )->first()->eventSignupEndTime;
+        $eventRunStartTime=Event::all()->where('cityId', $idCity )->first()->eventRunStartTime;
         $eventRunStartTimeF=date("Y年m月d日", strtotime($eventRunStartTime) );
-        $eventRunEndTime=Event::all()->where('cityId', $idCity )
-                                     ->whereBetween('eventRunStartTime',[$from,$to])
-                                     ->first()->eventRunEndTime;
+        $eventRunEndTime=Event::all()->where('cityId', $idCity )->first()->eventRunEndTime;
         
         $jsonContent1=EventContent::all()->where('eventId', $idEvent )->first()->eventContentNews;
         $eventContentNews=json_decode($jsonContent1);
@@ -170,48 +143,22 @@ class EventController extends Controller
         // 第四階段的測試
         $view = "event.{$page}";
 
-        // $lists=array(
-        //     "PCH"=>array("location"=>"屏東","time"=>"2019年10月09日","distance"=>"21K-10K-5K","place"=>"屏東鎮","phone"=>"0800-271-000(工作日9:00~18:00)"),
-        //     "CWH"=>array("location"=>"彰化","time"=>"2020年02月09日","distance"=>"21K-10K-5K","place"=>"彰化鎮","phone"=>"0800-272-000(工作日9:00~18:00)"),
-        //     "TPH"=>array("location"=>"新北","time"=>"2019年11月09日","distance"=>"21K-10K-5K","place"=>"新北鎮","phone"=>"0800-273-000(工作日9:00~18:00)"),
-        //     "KHH"=>array("location"=>"高雄","time"=>"2019年12月09日","distance"=>"21K-10K-5K","place"=>"高雄鎮","phone"=>"0800-274-000(工作日9:00~18:00)"),
-        //     "TNN"=>array("location"=>"台南","time"=>"2019年10月09日","distance"=>"21K-10K-5K","place"=>"台南鎮","phone"=>"0800-275-000(工作日9:00~18:00)"),
-        //     "TYC"=>array("location"=>"桃園","time"=>"2019年11月09日","distance"=>"21K-10K-5K","place"=>"桃園鎮","phone"=>"0800-276-000(工作日9:00~18:00)"),
-        //     "ILN"=>array("location"=>"宜蘭","time"=>"2020年01月09日","distance"=>"21K-10K-5K","place"=>"宜蘭鎮","phone"=>"0800-277-000(工作日9:00~18:00)"),
-        //     "YUN"=>array("location"=>"員林","time"=>"2019年9月09日","distance"=>"21K-10K-5K","place"=>"員林鎮","phone"=>"0800-278-000(工作日9:00~18:00)"),
-        //     "TXG"=>array("location"=>"台中","time"=>"2019年12月09日","distance"=>"21K-10K-5K","place"=>"台中鎮","phone"=>"0800-279-000(工作日9:00~18:00)")
-        //    );
-        // $list=$lists[$city];
-
+        
         // 手動設ID連結表單+搜尋特定資料:
         $idCity=City::all()->where('cityNo', $city )->first()->idCity;
         $cityNameCh=City::all()->where('cityNo', $city )->first()->cityNameCh;
 
-        $from= $year."-".$month."-"."01";
-        $to= $year."-".$month."-"."31";
-        $idEvent=Event::all()->where('cityId', $idCity )
-                             ->whereBetween('eventRunStartTime',[$from,$to])
-                             ->first()->idEvent;
+        
+
+        $idEvent=Event::all()->where('cityId', $idCity )->first()->idEvent;
         // dd($idEvent);
-        $eventAddr=Event::all()->where('cityId', $idCity )
-                               ->whereBetween('eventRunStartTime',[$from,$to])
-                               ->first()->eventAddr;
-        $eventTel=Event::all()->where('cityId', $idCity )
-                              ->whereBetween('eventRunStartTime',[$from,$to])
-                              ->first()->eventTel;  
-        $eventSignupStartTime=Event::all()->where('cityId', $idCity )
-                                          ->whereBetween('eventRunStartTime',[$from,$to])
-                                          ->first()->eventSignupStartTime;
-        $eventSignupEndTime=Event::all()->where('cityId', $idCity )
-                                        ->whereBetween('eventRunStartTime',[$from,$to])
-                                        ->first()->eventSignupEndTime;
-        $eventRunStartTime=Event::all()->where('cityId', $idCity )
-                                       ->whereBetween('eventRunStartTime',[$from,$to])
-                                       ->first()->eventRunStartTime;
+        $eventAddr=Event::all()->where('cityId', $idCity )->first()->eventAddr;
+        $eventTel=Event::all()->where('cityId', $idCity )->first()->eventTel;  
+        $eventSignupStartTime=Event::all()->where('cityId', $idCity )->first()->eventSignupStartTime;
+        $eventSignupEndTime=Event::all()->where('cityId', $idCity )->first()->eventSignupEndTime;
+        $eventRunStartTime=Event::all()->where('cityId', $idCity )->first()->eventRunStartTime;
         $eventRunStartTimeF=date("Y年m月d日", strtotime($eventRunStartTime) );
-        $eventRunEndTime=Event::all()->where('cityId', $idCity )
-                                     ->whereBetween('eventRunStartTime',[$from,$to])
-                                     ->first()->eventRunEndTime;
+        $eventRunEndTime=Event::all()->where('cityId', $idCity )->first()->eventRunEndTime;
        
                                      
         $jsonContent1=EventContent::all()->where('eventId', $idEvent )->first()->eventContentSignup;
