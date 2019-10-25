@@ -2,7 +2,7 @@
     box-shadow: inset -33px 6px 18px -6px #276873;
     background: linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
     background-color: #599bb3;
-    border-radius: 42px;
+    /* border-radius: 42px; */
     border: 5px solid #29668f;
     display: inline-block;
     cursor: pointer;

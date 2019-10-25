@@ -158,7 +158,7 @@
         }
 
         function check_data() {
-            var twIdRegex = new RegExp(/^[A-Za-z][12]\d{8}$/);
+            var twIdRegex = new RegExp(/^[A-Z][12]\d{8}$/);
             var memberTwId = $('input[name="twId"]').val();
             if (memberTwId != memberTwId.match(twIdRegex)) {
                 $("#remind").text("請輸入正確的身分證格式");
@@ -243,7 +243,7 @@
                         $(".checkRegex").text("查無資料");
                         
                     }
-                    console.log(data);
+                    // console.log(data);
                 });
 
                 queryMember.reset();
