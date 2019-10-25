@@ -59,18 +59,34 @@ class EventController extends Controller
 
         // 手動設ID連結表單+搜尋特定資料:
         $idCity=City::all()->where('cityNo', $city )->first()->idCity;
+       // dd($idCity);
         $cityNameCh=City::all()->where('cityNo', $city )->first()->cityNameCh;
 
-        $idEvent=Event::all()->where('cityId', $idCity )->first()->idEvent;
-
-        $eventAddr=Event::all()->where('cityId', $idCity )->first()->eventAddr;
-        $eventTel=Event::all()->where('cityId', $idCity )->first()->eventTel;
-        
-        $eventSignupStartTime=Event::all()->where('cityId', $idCity )->first()->eventSignupStartTime;
-        $eventSignupEndTime=Event::all()->where('cityId', $idCity )->first()->eventSignupEndTime;
-        $eventRunStartTime=Event::all()->where('cityId', $idCity )->first()->eventRunStartTime;
+        $from= $year."-".$month."-"."01";
+        $to= $year."-".$month."-"."31";
+        $idEvent=Event::all()->where('cityId', $idCity )
+                             ->whereBetween('eventRunStartTime',[$from,$to])
+                             ->first()->idEvent;
+        // dd($idEvent);
+        $eventAddr=Event::all()->where('cityId', $idCity )
+                               ->whereBetween('eventRunStartTime',[$from,$to])
+                               ->first()->eventAddr;
+        $eventTel=Event::all()->where('cityId', $idCity )
+                              ->whereBetween('eventRunStartTime',[$from,$to])
+                              ->first()->eventTel; 
+        $eventSignupStartTime=Event::all()->where('cityId', $idCity )
+                                          ->whereBetween('eventRunStartTime',[$from,$to])
+                                          ->first()->eventSignupStartTime;
+        $eventSignupEndTime=Event::all()->where('cityId', $idCity )
+                                        ->whereBetween('eventRunStartTime',[$from,$to])
+                                        ->first()->eventSignupEndTime;
+        $eventRunStartTime=Event::all()->where('cityId', $idCity )
+                                       ->whereBetween('eventRunStartTime',[$from,$to])
+                                       ->first()->eventRunStartTime;
         $eventRunStartTimeF=date("Y年m月d日", strtotime($eventRunStartTime) );
-        $eventRunEndTime=Event::all()->where('cityId', $idCity )->first()->eventRunEndTime;
+        $eventRunEndTime=Event::all()->where('cityId', $idCity )
+                                     ->whereBetween('eventRunStartTime',[$from,$to])
+                                     ->first()->eventRunEndTime;
         
         $jsonContent1=EventContent::all()->where('eventId', $idEvent )->first()->eventContentNews;
         $eventContentNews=json_decode($jsonContent1);
@@ -171,17 +187,33 @@ class EventController extends Controller
         $idCity=City::all()->where('cityNo', $city )->first()->idCity;
         $cityNameCh=City::all()->where('cityNo', $city )->first()->cityNameCh;
 
-        $idEvent=Event::all()->where('cityId', $idCity )->first()->idEvent;
-
-        $eventAddr=Event::all()->where('cityId', $idCity )->first()->eventAddr;
-        $eventTel=Event::all()->where('cityId', $idCity )->first()->eventTel;
-
-        $eventSignupStartTime=Event::all()->where('cityId', $idCity )->first()->eventSignupStartTime;
-        $eventSignupEndTime=Event::all()->where('cityId', $idCity )->first()->eventSignupEndTime;
-        $eventRunStartTime=Event::all()->where('cityId', $idCity )->first()->eventRunStartTime;
+        $from= $year."-".$month."-"."01";
+        $to= $year."-".$month."-"."31";
+        $idEvent=Event::all()->where('cityId', $idCity )
+                             ->whereBetween('eventRunStartTime',[$from,$to])
+                             ->first()->idEvent;
+        // dd($idEvent);
+        $eventAddr=Event::all()->where('cityId', $idCity )
+                               ->whereBetween('eventRunStartTime',[$from,$to])
+                               ->first()->eventAddr;
+        $eventTel=Event::all()->where('cityId', $idCity )
+                              ->whereBetween('eventRunStartTime',[$from,$to])
+                              ->first()->eventTel;  
+        $eventSignupStartTime=Event::all()->where('cityId', $idCity )
+                                          ->whereBetween('eventRunStartTime',[$from,$to])
+                                          ->first()->eventSignupStartTime;
+        $eventSignupEndTime=Event::all()->where('cityId', $idCity )
+                                        ->whereBetween('eventRunStartTime',[$from,$to])
+                                        ->first()->eventSignupEndTime;
+        $eventRunStartTime=Event::all()->where('cityId', $idCity )
+                                       ->whereBetween('eventRunStartTime',[$from,$to])
+                                       ->first()->eventRunStartTime;
         $eventRunStartTimeF=date("Y年m月d日", strtotime($eventRunStartTime) );
-        $eventRunEndTime=Event::all()->where('cityId', $idCity )->first()->eventRunEndTime;
-
+        $eventRunEndTime=Event::all()->where('cityId', $idCity )
+                                     ->whereBetween('eventRunStartTime',[$from,$to])
+                                     ->first()->eventRunEndTime;
+       
+                                     
         $jsonContent1=EventContent::all()->where('eventId', $idEvent )->first()->eventContentSignup;
         $eventContentSignup=json_decode($jsonContent1);
         $jsonContent2=EventContent::all()->where('eventId', $idEvent )->first()->eventContentReward;
