@@ -185,7 +185,7 @@
                             <th>姓名 :</th>
                             <td> <input type="text" class="form-control" name="name" id="name" placeholder="" required></td>
                             <th>身分證字號 :</th>
-                            <td><input type="text" class="form-control" name="twId" id="twId" placeholder="" required></td>
+                            <td><input type="text" class="form-control" name="twId" id="twId" onchange="checkTwId()" required></td>
                         </tr>
                         <tr>
                             <th>姓別 :</th>
@@ -344,16 +344,20 @@ if (km == 0) {
 // memberForm.submit();
 myData();
 }
+
+
 //根據時間產生訂單號
 var orderNumber = "";
-for (var i = 0; i < 2; i++) //j位隨機數，用以加在時間戳後面。
-{
-orderNumber += Math.floor(Math.random() * 10);
-}
-var today = new Date();
-var orderNumber = "P" + today.getTime() + orderNumber;
-console.log(orderNumber);
-$("#orderNumber").text(orderNumber);
+    for (var i = 0; i < 4; i++) //j位隨機數，用以加在時間戳後面。
+    {
+        orderNumber += Math.floor(Math.random() * 10);
+    }
+    var today = new Date();
+
+    var orderNumber = "P" + today.getFullYear() + (today.getMonth() + 1) + today.getDate() + orderNumber;
+    console.log(orderNumber);
+    $("#orderNumber").text(orderNumber);
+
 //ajax
 $.ajaxSetup({
 headers: {
@@ -476,6 +480,38 @@ $.ajax({
     console.log(data);
 });
 })
+
+    //撈賽事裡的身分證
+    var check;
+    $(document).ready(function () {
+        var eventCity = $("#eventCity").val();
+        var twId = $("#twId").val();
+        $.ajax({
+            type: "GET",
+            url: "/api/member/checkTwId",
+            data: {
+                cityNo: eventCity,
+            }
+        }).done(function (data) {
+            check = data;
+            console.log(data);
+            console.log(data.length);
+        });
+    })
+
+
+ //檢查是否重複報名
+ function checkTwId(){
+            var twId = $('input[name="twId"]').val();
+            check.forEach(function (data) {
+                if (twId.includes(data.memberTwId)) {
+                    $('#checkRegex').modal('show');
+                    $(".checkRegex").text("身分證已報名");
+                    return goGroup1();
+                }
+
+            })
+        }
 </script>
 
 <div>&nbsp;</div>

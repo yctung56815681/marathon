@@ -13,7 +13,7 @@ class OrdersTableSeeder extends Seeder
     {
         if (DB::table('orders')->get()->count() == 0) {
             DB::table('orders')->insert([
-                'orderNo' => 'P123456789012345',
+                'orderNo' => 'P201910191234',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '1',
@@ -21,7 +21,7 @@ class OrdersTableSeeder extends Seeder
                 'runId' => '1',
             ]);
             DB::table('orders')->insert([
-                'orderNo' => 'P098765432112345',
+                'orderNo' => 'P201910111234',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '2',
@@ -30,7 +30,7 @@ class OrdersTableSeeder extends Seeder
             ]);
 
             DB::table('orders')->insert([
-                'orderNo' => 'P098765432112345',
+                'orderNo' => 'P201910111234',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '2',
@@ -39,7 +39,7 @@ class OrdersTableSeeder extends Seeder
             ]);
 
             DB::table('orders')->insert([
-                'orderNo' => 'P321569874563214',
+                'orderNo' => 'P201910231234',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '3',
@@ -47,7 +47,7 @@ class OrdersTableSeeder extends Seeder
                 'runId' => '4',
             ]);
             DB::table('orders')->insert([
-                'orderNo' => 'P321569874563214',
+                'orderNo' => 'P201910231234',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '3',
@@ -56,7 +56,7 @@ class OrdersTableSeeder extends Seeder
             ]);
 
             DB::table('orders')->insert([
-                'orderNo' => 'P321569874563214',
+                'orderNo' => 'P201910231234',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '3',
@@ -64,7 +64,7 @@ class OrdersTableSeeder extends Seeder
                 'runId' => '6',
             ]);
             DB::table('orders')->insert([
-                'orderNo' => 'P023654123589654',
+                'orderNo' => 'P201910241122',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '4',
@@ -72,7 +72,7 @@ class OrdersTableSeeder extends Seeder
                 'runId' => '1',
             ]);
             DB::table('orders')->insert([
-                'orderNo' => 'P023654123589654',
+                'orderNo' => 'P201910241122',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '4',
@@ -80,7 +80,7 @@ class OrdersTableSeeder extends Seeder
                 'runId' => '2',
             ]);
             DB::table('orders')->insert([
-                'orderNo' => 'P023654123589654',
+                'orderNo' => 'P201910241122',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '4',
@@ -88,7 +88,7 @@ class OrdersTableSeeder extends Seeder
                 'runId' => '2',
             ]);
             DB::table('orders')->insert([
-                'orderNo' => 'P023654123589654',
+                'orderNo' => 'P201910241122',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '4',
@@ -96,7 +96,7 @@ class OrdersTableSeeder extends Seeder
                 'runId' => '2',
             ]);
             DB::table('orders')->insert([
-                'orderNo' => 'P123654789541236',
+                'orderNo' => 'P201910252345',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '5',
@@ -104,7 +104,7 @@ class OrdersTableSeeder extends Seeder
                 'runId' => '2',
             ]);
             DB::table('orders')->insert([
-                'orderNo' => 'P123654789541236',
+                'orderNo' => 'P201910252345',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '5',
@@ -112,7 +112,7 @@ class OrdersTableSeeder extends Seeder
                 'runId' => '2',
             ]);
             DB::table('orders')->insert([
-                'orderNo' => 'P123654789541236',
+                'orderNo' => 'P201910252345',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '5',
@@ -120,7 +120,7 @@ class OrdersTableSeeder extends Seeder
                 'runId' => '2',
             ]);
             DB::table('orders')->insert([
-                'orderNo' => 'P123654789541236',
+                'orderNo' => 'P201910252345',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '5',
@@ -128,7 +128,7 @@ class OrdersTableSeeder extends Seeder
                 'runId' => '2',
             ]);
             DB::table('orders')->insert([
-                'orderNo' => 'P123654789541236',
+                'orderNo' => 'P201910252345',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '5',
@@ -136,7 +136,7 @@ class OrdersTableSeeder extends Seeder
                 'runId' => '2',
             ]);
             DB::table('orders')->insert([
-                'orderNo' => 'P12365478954123',
+                'orderNo' => 'P201910221234',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '6',
@@ -144,7 +144,7 @@ class OrdersTableSeeder extends Seeder
                 'runId' => '2',
             ]);
             DB::table('orders')->insert([
-                'orderNo' => 'P12365478954123',
+                'orderNo' => 'P201910221234',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '6',
@@ -152,7 +152,7 @@ class OrdersTableSeeder extends Seeder
                 'runId' => '2',
             ]);
             DB::table('orders')->insert([
-                'orderNo' => 'P12365478954123',
+                'orderNo' => 'P201910221234',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '6',
@@ -160,7 +160,7 @@ class OrdersTableSeeder extends Seeder
                 'runId' => '2',
             ]);
             DB::table('orders')->insert([
-                'orderNo' => 'P234321234567890',
+                'orderNo' => 'P201910091919',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '7',
@@ -168,7 +168,7 @@ class OrdersTableSeeder extends Seeder
                 'runId' => '2',
             ]);
             DB::table('orders')->insert([
-                'orderNo' => 'P234321234567890',
+                'orderNo' => 'P201910091919',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '7',
@@ -176,7 +176,7 @@ class OrdersTableSeeder extends Seeder
                 'runId' => '2',
             ]);
             DB::table('orders')->insert([
-                'orderNo' => 'P234321234567890',
+                'orderNo' => 'P201910091919',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '7',
@@ -184,7 +184,7 @@ class OrdersTableSeeder extends Seeder
                 'runId' => '2',
             ]);
             DB::table('orders')->insert([
-                'orderNo' => 'P234321234567890',
+                'orderNo' => 'P201910091919',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '7',
@@ -192,7 +192,7 @@ class OrdersTableSeeder extends Seeder
                 'runId' => '2',
             ]);
             DB::table('orders')->insert([
-                'orderNo' => 'P234321234567890',
+                'orderNo' => 'P201910091919',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '7',
@@ -200,7 +200,7 @@ class OrdersTableSeeder extends Seeder
                 'runId' => '2',
             ]);
             DB::table('orders')->insert([
-                'orderNo' => 'P234321234567890',
+                'orderNo' => 'P201910091919',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '7',
@@ -208,7 +208,7 @@ class OrdersTableSeeder extends Seeder
                 'runId' => '2',
             ]);
             DB::table('orders')->insert([
-                'orderNo' => 'P234321234567890',
+                'orderNo' => 'P201910091919',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '7',
@@ -216,11 +216,75 @@ class OrdersTableSeeder extends Seeder
                 'runId' => '2',
             ]);
             DB::table('orders')->insert([
-                'orderNo' => 'P234321234567890',
+                'orderNo' => 'P201910091919',
                 'orderStatus' => '1',
                 'orderRevoke' => '1',
                 'orderGroupId' => '7',
                 'memberId' => '26',
+                'runId' => '2',
+            ]);
+            DB::table('orders')->insert([
+                'orderNo' => 'P201910211233',
+                'orderStatus' => '1',
+                'orderRevoke' => '1',
+                'orderGroupId' => '8',
+                'memberId' => '27',
+                'runId' => '2',
+            ]);
+            DB::table('orders')->insert([
+                'orderNo' => 'P201910211233',
+                'orderStatus' => '1',
+                'orderRevoke' => '1',
+                'orderGroupId' => '8',
+                'memberId' => '28',
+                'runId' => '2',
+            ]);
+            DB::table('orders')->insert([
+                'orderNo' => 'P201910220909',
+                'orderStatus' => '1',
+                'orderRevoke' => '1',
+                'orderGroupId' => '9',
+                'memberId' => '29',
+                'runId' => '2',
+            ]);
+            DB::table('orders')->insert([
+                'orderNo' => 'P201910220909',
+                'orderStatus' => '1',
+                'orderRevoke' => '1',
+                'orderGroupId' => '9',
+                'memberId' => '30',
+                'runId' => '2',
+            ]);
+            DB::table('orders')->insert([
+                'orderNo' => 'P201910220909',
+                'orderStatus' => '1',
+                'orderRevoke' => '1',
+                'orderGroupId' => '9',
+                'memberId' => '31',
+                'runId' => '2',
+            ]);
+            DB::table('orders')->insert([
+                'orderNo' => 'P201910091234',
+                'orderStatus' => '1',
+                'orderRevoke' => '1',
+                'orderGroupId' => '10',
+                'memberId' => '32',
+                'runId' => '2',
+            ]);
+            DB::table('orders')->insert([
+                'orderNo' => 'P201910091234',
+                'orderStatus' => '1',
+                'orderRevoke' => '1',
+                'orderGroupId' => '10',
+                'memberId' => '33',
+                'runId' => '2',
+            ]);
+            DB::table('orders')->insert([
+                'orderNo' => 'P201910091234',
+                'orderStatus' => '1',
+                'orderRevoke' => '1',
+                'orderGroupId' => '10',
+                'memberId' => '34',
                 'runId' => '2',
             ]);
         }

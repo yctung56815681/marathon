@@ -13,7 +13,7 @@ class OrderGroupsTableSeeder extends Seeder
     {
         if (DB::table('order_groups')->get()->count() == 0) {
             DB::table('order_groups')->insert([
-                'orderGroupNo' => 'P123456789012345',
+                'orderGroupNo' => 'P201910191234',
                 'orderGroupStatus' => '1',
                 'orderGroupRevoke' => '1',
                 'orderGroupName' => '資策研究社',
@@ -22,7 +22,7 @@ class OrderGroupsTableSeeder extends Seeder
                 'orderGroupInvoiceNumber' => '12365448',
             ]);
             DB::table('order_groups')->insert([
-                'orderGroupNo' => 'P098765432112345',
+                'orderGroupNo' => 'P201910111234',
                 'orderGroupStatus' => '1',
                 'orderGroupRevoke' => '1',
                 'orderGroupName' => '中佑大戲院',
@@ -31,7 +31,7 @@ class OrderGroupsTableSeeder extends Seeder
                 'orderGroupInvoiceNumber' => '78998875',
             ]);
             DB::table('order_groups')->insert([
-                'orderGroupNo' => 'P321569874563214',
+                'orderGroupNo' => 'P201910231234',
                 'orderGroupStatus' => '1',
                 'orderGroupRevoke' => '1',
                 'orderGroupName' => 'CY FOOD美食網',
@@ -40,16 +40,16 @@ class OrderGroupsTableSeeder extends Seeder
                 'orderGroupInvoiceNumber' => '1235455874',
             ]);
             DB::table('order_groups')->insert([
-                'orderGroupNo' => 'P023654123589654',
+                'orderGroupNo' => 'P201910241122',
                 'orderGroupStatus' => '1',
                 'orderGroupRevoke' => '1',
-                'orderGroupName' => 'APP STORE商店部',
+                'orderGroupName' => '鼎王麻辣部隊',
                 'eventId' => '2',
                 'orderGroupInvoiceLetterhead' => '鼎王',
                 'orderGroupInvoiceNumber' => '112233554489',
             ]);
             DB::table('order_groups')->insert([
-                'orderGroupNo' => 'P123654789541236',
+                'orderGroupNo' => 'P201910252345',
                 'orderGroupStatus' => '1',
                 'orderGroupRevoke' => '1',
                 'orderGroupName' => '99大賣場',
@@ -58,7 +58,7 @@ class OrderGroupsTableSeeder extends Seeder
                 'orderGroupInvoiceNumber' => '335866525',
             ]);
             DB::table('order_groups')->insert([
-                'orderGroupNo' => 'P12365478954123',
+                'orderGroupNo' => 'P201910221234',
                 'orderGroupStatus' => '1',
                 'orderGroupRevoke' => '1',
                 'orderGroupName' => '陳林美月家族',
@@ -67,7 +67,7 @@ class OrderGroupsTableSeeder extends Seeder
                 'orderGroupInvoiceNumber' => '',
             ]);
             DB::table('order_groups')->insert([
-                'orderGroupNo' => 'P234321234567890',
+                'orderGroupNo' => 'P201910091919',
                 'orderGroupStatus' => '1',
                 'orderGroupRevoke' => '1',
                 'orderGroupName' => '馬自達南區銷售部',
@@ -76,7 +76,7 @@ class OrderGroupsTableSeeder extends Seeder
                 'orderGroupInvoiceNumber' => '344522334',
             ]);
             DB::table('order_groups')->insert([
-                'orderGroupNo' => 'P123443209873845',
+                'orderGroupNo' => 'P201910211233',
                 'orderGroupStatus' => '1',
                 'orderGroupRevoke' => '1',
                 'orderGroupName' => '麗明營造',
@@ -85,7 +85,7 @@ class OrderGroupsTableSeeder extends Seeder
                 'orderGroupInvoiceNumber' => '98493093',
             ]);
             DB::table('order_groups')->insert([
-                'orderGroupNo' => 'P345678909876543',
+                'orderGroupNo' => 'P201910220909',
                 'orderGroupStatus' => '1',
                 'orderGroupRevoke' => '1',
                 'orderGroupName' => '中興電工',
@@ -94,7 +94,7 @@ class OrderGroupsTableSeeder extends Seeder
                 'orderGroupInvoiceNumber' => '443988',
                 ]);
             DB::table('order_groups')->insert([
-                'orderGroupNo' => 'P763876787635425',
+                'orderGroupNo' => 'P201910091234',
                 'orderGroupStatus' => '1',
                 'orderGroupRevoke' => '1',
                 'orderGroupName' => '大山診所',
@@ -103,7 +103,7 @@ class OrderGroupsTableSeeder extends Seeder
                 'orderGroupInvoiceNumber' => '3949494',
             ]);
             DB::table('order_groups')->insert([
-                'orderGroupNo' => 'P839383938393839',
+                'orderGroupNo' => 'P201910019090',
                 'orderGroupStatus' => '1',
                 'orderGroupRevoke' => '1',
                 'orderGroupName' => '東海音樂研究社',
@@ -112,7 +112,7 @@ class OrderGroupsTableSeeder extends Seeder
                 'orderGroupInvoiceNumber' => '',
             ]);
             DB::table('order_groups')->insert([
-                'orderGroupNo' => 'P778839876787636',
+                'orderGroupNo' => 'P201910121122',
                 'orderGroupStatus' => '1',
                 'orderGroupRevoke' => '1',
                 'orderGroupName' => '逢甲租書坊',
@@ -121,7 +121,7 @@ class OrderGroupsTableSeeder extends Seeder
                 'orderGroupInvoiceNumber' => '9893893',
             ]);
             DB::table('order_groups')->insert([
-                'orderGroupNo' => 'P120987837876546',
+                'orderGroupNo' => 'P201910123456',
                 'orderGroupStatus' => '1',
                 'orderGroupRevoke' => '1',
                 'orderGroupName' => '林新路跑社',
@@ -130,7 +130,7 @@ class OrderGroupsTableSeeder extends Seeder
                 'orderGroupInvoiceNumber' => '8838738',
             ]);
             DB::table('order_groups')->insert([
-                'orderGroupNo' => 'P989387485743789',
+                'orderGroupNo' => 'P201910091010',
                 'orderGroupStatus' => '1',
                 'orderGroupRevoke' => '1',
                 'orderGroupName' => '鄉鄰國際',
@@ -139,7 +139,7 @@ class OrderGroupsTableSeeder extends Seeder
                 'orderGroupInvoiceNumber' => '983984983',
             ]);
             DB::table('order_groups')->insert([
-                'orderGroupNo' => 'P984989484939838',
+                'orderGroupNo' => 'P201910081919',
                 'orderGroupStatus' => '1',
                 'orderGroupRevoke' => '1',
                 'orderGroupName' => 'CT圖書社',
@@ -148,7 +148,7 @@ class OrderGroupsTableSeeder extends Seeder
                 'orderGroupInvoiceNumber' => '4535355',
             ]);
             DB::table('order_groups')->insert([
-                'orderGroupNo' => 'P454678948765432',
+                'orderGroupNo' => 'P201909091212',
                 'orderGroupStatus' => '1',
                 'orderGroupRevoke' => '1',
                 'orderGroupName' => '相信事業有限公司',
@@ -157,7 +157,7 @@ class OrderGroupsTableSeeder extends Seeder
                 'orderGroupInvoiceNumber' => '98738789',
             ]);
             DB::table('order_groups')->insert([
-                'orderGroupNo' => 'P098889876378476',
+                'orderGroupNo' => 'P201910211122',
                 'orderGroupStatus' => '1',
                 'orderGroupRevoke' => '1',
                 'orderGroupName' => '王明月',
@@ -166,7 +166,7 @@ class OrderGroupsTableSeeder extends Seeder
                 'orderGroupInvoiceNumber' => '',
             ]);
             DB::table('order_groups')->insert([
-                'orderGroupNo' => 'P989098765456789',
+                'orderGroupNo' => 'P201910071819',
                 'orderGroupStatus' => '1',
                 'orderGroupRevoke' => '1',
                 'orderGroupName' => '順風快遞事業部',
@@ -175,7 +175,7 @@ class OrderGroupsTableSeeder extends Seeder
                 'orderGroupInvoiceNumber' => '98493849',
             ]);
             DB::table('order_groups')->insert([
-                'orderGroupNo' => 'P876736545678987',
+                'orderGroupNo' => 'P201910071122',
                 'orderGroupStatus' => '1',
                 'orderGroupRevoke' => '1',
                 'orderGroupName' => '財團法人義興基金會',
@@ -184,7 +184,7 @@ class OrderGroupsTableSeeder extends Seeder
                 'orderGroupInvoiceNumber' => '89484893',
                 ]);
             DB::table('order_groups')->insert([
-                'orderGroupNo' => 'P983908765637845',
+                'orderGroupNo' => 'P201910031221',
                 'orderGroupStatus' => '1',
                 'orderGroupRevoke' => '1',
                 'orderGroupName' => '吳何太',
@@ -193,7 +193,7 @@ class OrderGroupsTableSeeder extends Seeder
                 'orderGroupInvoiceNumber' => '',
             ]);
             DB::table('order_groups')->insert([
-                'orderGroupNo' => 'P098489873876478',
+                'orderGroupNo' => 'P201909081188',
                 'orderGroupStatus' => '1',
                 'orderGroupRevoke' => '1',
                 'orderGroupName' => '鄉親便當店',
@@ -202,7 +202,7 @@ class OrderGroupsTableSeeder extends Seeder
                 'orderGroupInvoiceNumber' => '98394848',
             ]);
             DB::table('order_groups')->insert([
-                'orderGroupNo' => 'P989487637846534',
+                'orderGroupNo' => 'P201910213456',
                 'orderGroupStatus' => '1',
                 'orderGroupRevoke' => '1',
                 'orderGroupName' => '巨大機械台中銷售部',
