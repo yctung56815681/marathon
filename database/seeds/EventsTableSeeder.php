@@ -20,7 +20,7 @@ class EventsTableSeeder extends Seeder
                 'eventRunStartTime' => '2019-11-24 09:00:00',
                 'eventRunEndTime' => '2019-11-24 18:00:00',
                 'eventTittle' => '2019新北場',
-                'eventImage' => 'TPH201912.jpg',
+                'eventImage' => 'TPH201911.jpg',
                 'eventTel' => '0800-333-444',
                 'eventAddr' => '浮洲橋下',
             ]);
@@ -32,7 +32,7 @@ class EventsTableSeeder extends Seeder
                 'eventRunStartTime' => '2019-11-03 07:00:00',
                 'eventRunEndTime' => '2019-11-03 18:00:00',
                 'eventTittle' => '2019桃園場',
-                'eventImage' => 'TYC201912.jpg',
+                'eventImage' => 'TYC201911.jpg',
                 'eventTel' => '0800-333-444',
                 'eventAddr' => '永安漁港',
             ]);
