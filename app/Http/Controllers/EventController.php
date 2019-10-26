@@ -13,7 +13,7 @@ use App\Run;
 class EventController extends Controller
 {
     
-    public function event(Request $request, $city, $year, $month)
+    public function eventIndex(Request $request, $city, $year, $month)
     {   // 第一階段的測試
         // $view = "event.{$city}{$year}{$month}";
         // return view($view);
@@ -42,14 +42,12 @@ class EventController extends Controller
         // return view("event.index", $viewModel);
 
 
-        // 第四階段的測試
-       
 
+        // 第四階段的測試
         // 手動設ID連結表單+搜尋特定資料:
         $idCity=City::all()->where('cityNo', $city )->first()->idCity;
        // dd($idCity);
         $cityNameCh=City::all()->where('cityNo', $city )->first()->cityNameCh;
-
 
         $idEvent=Event::all()->where('cityId', $idCity )->first()->idEvent;
         // dd($idEvent);
@@ -63,12 +61,16 @@ class EventController extends Controller
         
         $jsonContent1=EventContent::all()->where('eventId', $idEvent )->first()->eventContentNews;
         $eventContentNews=json_decode($jsonContent1);
-        // dd( $eventContent1->eventNewsImage);
+        //dd( $eventContent1->eventNewsImage);
 
-        $idRun=Run::all()->where('eventId', $idEvent )->first()->idRun;     
-        $eventDL=Run::all()->where('eventId', $idEvent  )->find($idRun)->runName;
-        $eventDM=Run::all()->where('eventId', $idEvent  )->find($idRun+1)->runName;
-        $eventDS=Run::all()->where('eventId', $idEvent  )->find($idRun+2)->runName;
+        // $idRun=Run::all()->where('eventId', $idEvent )->first()->idRun;     
+        // $eventDL=Run::all()->where('eventId', $idEvent  )->find($idRun)->runName;
+        // $eventDM=Run::all()->where('eventId', $idEvent  )->find($idRun+1)->runName;
+        // $eventDS=Run::all()->where('eventId', $idEvent  )->find($idRun+2)->runName;
+        //上4行與下3行有想同功能
+        $eventDL=Run::where('eventId', $idEvent  )->get()[0]->runName;
+        $eventDM=Run::where('eventId', $idEvent  )->get()[1]->runName;
+        $eventDS=Run::where('eventId', $idEvent  )->get()[2]->runName;
 
 
         // 自動ID連結表單+搜尋特定資料(還在測試):
@@ -102,7 +104,7 @@ class EventController extends Controller
 
 
 
-    public function event3(Request $request, $city,$year,$month,$page)
+    public function eventOther(Request $request, $city,$year,$month,$page)
     {   // 第一階段的測試
         // $view = "event.{$city}{$year}{$month}{$page}";
         // return view($view);
@@ -142,14 +144,10 @@ class EventController extends Controller
 
         // 第四階段的測試
         $view = "event.{$page}";
-
-        
         // 手動設ID連結表單+搜尋特定資料:
         $idCity=City::all()->where('cityNo', $city )->first()->idCity;
         $cityNameCh=City::all()->where('cityNo', $city )->first()->cityNameCh;
-
-        
-
+      
         $idEvent=Event::all()->where('cityId', $idCity )->first()->idEvent;
         // dd($idEvent);
         $eventAddr=Event::all()->where('cityId', $idCity )->first()->eventAddr;
@@ -160,7 +158,7 @@ class EventController extends Controller
         $eventRunStartTimeF=date("Y年m月d日", strtotime($eventRunStartTime) );
         $eventRunEndTime=Event::all()->where('cityId', $idCity )->first()->eventRunEndTime;
        
-                                     
+        
         $jsonContent1=EventContent::all()->where('eventId', $idEvent )->first()->eventContentSignup;
         $eventContentSignup=json_decode($jsonContent1);
         $jsonContent2=EventContent::all()->where('eventId', $idEvent )->first()->eventContentReward;
@@ -169,11 +167,14 @@ class EventController extends Controller
         $eventContentActSpecs=json_decode($jsonContent3);
         // dd( $eventContent1->eventNewsImage);
 
-        $idRun=Run::all()->where('eventId', $idEvent )->first()->idRun;     
-        $eventDL=Run::all()->where('eventId', $idEvent  )->find($idRun)->runName;
-        $eventDM=Run::all()->where('eventId', $idEvent  )->find($idRun+1)->runName;
-        $eventDS=Run::all()->where('eventId', $idEvent  )->find($idRun+2)->runName;
-       
+        // $idRun=Run::all()->where('eventId', $idEvent )->first()->idRun;     
+        // $eventDL=Run::all()->where('eventId', $idEvent  )->find($idRun)->runName;
+        // $eventDM=Run::all()->where('eventId', $idEvent  )->find($idRun+1)->runName;
+        // $eventDS=Run::all()->where('eventId', $idEvent  )->find($idRun+2)->runName;
+        //上4行與下3行有想同功能
+        $eventDL=Run::where('eventId', $idEvent  )->get()[0]->runName;
+        $eventDM=Run::where('eventId', $idEvent  )->get()[1]->runName;
+        $eventDS=Run::where('eventId', $idEvent  )->get()[2]->runName;
         
         $viewModel = compact(
             "city",
