@@ -10,25 +10,3 @@ h3 {
 	line-height: 17pt;
 }
 
-.container {
-    padding: 10px 10px 10px 30px;
-    border: solid #f3f3f3 2px;
-    font-size: 1rem;
-}
-
-.lnk{
-	color: #1384db!important;
-	text-decoration: underline!important;
-}
-
-.container center{ 
-    text-align: center;
-}
-.container .center .img {
-     width:750px;
-    max-width: 100%;
-}
-
-.close {
-	cursor: pointer;
-}

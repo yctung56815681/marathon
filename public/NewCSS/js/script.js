@@ -4,7 +4,6 @@ $(function () {
 	set_go_top();
 	set_mobile_menu_toggle();
 	set_sidebar();
-	set_carousel();
 });
 
 
@@ -48,7 +47,6 @@ function set_go_top() {
 }
 
 
-
 //.main .outer .row02 .countdown_div .gray_bg
 function set_sidebar() {
 
@@ -64,7 +62,7 @@ function set_sidebar() {
 	});
 }
 
-
+//(原):
 // function set_sidebar_pos(sidebar_id) {
 // 	var mainBannerHeight = $(".header_banner").height();
 // 	var mainHeader = $(".header").height();
@@ -97,6 +95,7 @@ function set_sidebar() {
 // 	});
 // }
 
+//(改):
 function set_sidebar_pos(sidebar_id) {
 	var mainBannerHeight = $(".header_banner").height();
 	var mainHeader = $(".header").height();
@@ -106,7 +105,7 @@ function set_sidebar_pos(sidebar_id) {
 	$(sidebar_id).width(wid);
 	$(document).on("scroll", function () {
 		//直接將導覽列的高設為初始頂部，再以圖片頂部為基準，判定下拉時有無超過
-		if ($(window).scrollTop() >= mainBannerHeight + mainHeader) {
+		if ($(window).scrollTop() > mainBannerHeight+ mainHeader  ) {
 			sidebar.css({
 				position: 'fixed',
 				top: mainHeader
@@ -118,109 +117,15 @@ function set_sidebar_pos(sidebar_id) {
 				top: mainHeader
 			});
 		}
+			
 	});
 	
 }
 
 
 
-function set_carousel(){
-	if($('.news_div .owl-carousel').length>0){
-		$('.news_div .owl-carousel').owlCarousel({
-			loop:true,			
-			responsiveClass:true,
-			items:1,
-			dots:false,
-			responsive:{
-				0:{					
-					nav:true
-				},
-				768:{					
-					nav:false
-				},
-				1000:{					
-					nav:false,
-					autoplay:true
-				}
-			}
-		});
-	}	
-	if($('.run_event .owl-carousel').length>0){
-		$('.run_event .owl-carousel').owlCarousel({
-			loop:true,	
-			margin:30,			
-			responsiveClass:true,
-			nav:true,
-			dots:false,
-			responsive:{
-				0:{					
-					items:1	
-				},
-				600:{					
-					items:2
-				},
-				1000:{	
-					items:3				
 
-				}
-			}
-		});
-	}
-	if($('.photo_event .owl-carousel').length>0){
-		$('.photo_event .owl-carousel').owlCarousel({
-			loop:true,	
-			margin:30,		
-			responsiveClass:true,
-			nav:true,
-			dots:false,
-			responsive:{
-				0:{					
-					items:1	
-				},
-				600:{					
-					items:2
-				},
-				1000:{	
-					items:3				
-				}
-			}
-		});
-	}
-	if($('.video_mobile .owl-carousel').length>0){
-
-		$('.video_mobile .owl-carousel').owlCarousel({
-			loop:true,	
-			margin:0,
-			nav:true,
-			dots:false,
-			items:1	
-		});
-
-	}
-	if($('.commodity_mobile .owl-carousel').length>0){
-		$('.commodity_mobile .owl-carousel').owlCarousel({
-			loop:true,	
-			margin:30,		
-			responsiveClass:true,
-			nav:true,
-			dots:false,
-			responsive:{
-				0:{					
-					items:1	
-				},
-				600:{					
-					items:2
-				},
-				1000:{	
-					items:3				
-				}
-			}
-		});
-	}
-
-}
-
-
+//向右箭頭及向下箭頭的Font Awesome icon圖案+下拉式文章設定
 // $(function () {
 // 	 $('h3').click(function () {
 // 		  if ($(this).next('.fold').hasClass('o') == true) {
