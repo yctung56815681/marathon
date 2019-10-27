@@ -364,7 +364,8 @@
                     "emCellphone": $("#emCellphone").val(),
                     "km": $("input[name=km]:checked").val(),
                     "product": product,
-                    "orderNo": personOrderNo1
+                    "orderNo": personOrderNo1,
+                    "delete":false
                 }
             ];
             console.log(team);
@@ -498,7 +499,8 @@
         //刪除個人資料
         function deletePerson(i) {
             $("#person" + i).remove();
-            teams.splice('person'+(i - 1), 1);
+            // teams.splice('person'+(i - 1), 1);
+            teams[i-1].delete = true;
             console.log(i);
             console.log(teams);
         }
@@ -512,6 +514,9 @@
             $("#teamMember").empty();
             for (i = 0; i < teams.length; i++) {
                 team = teams[i];
+                if(team.delete == true){
+                    continue;
+                }
                 var myName = team.name;
                 //賽事
                 var runMoney = 0;
