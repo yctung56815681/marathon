@@ -145,16 +145,12 @@
 
                     <div class="detail_div">
 
-                        <link rel="stylesheet" href="{{ URL::asset('NewCSS/css/jquerycollapse.css') }}">
-
                         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
                             rel="stylesheet">
                         <link rel="stylesheet"
                             href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
                             integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
                             crossorigin="anonymous">
-
-                        <link href="{{ URL::asset('NewCSS/css/StyleSheet.css') }}" rel="stylesheet" /> 
 
                         {{-- 本頁的jquerycdn檔從此處匯入 --}}
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>

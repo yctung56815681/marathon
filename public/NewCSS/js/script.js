@@ -11,7 +11,7 @@ function set_toggle_menu() {
 	$('.toggle_btn').click(function () {
 		$('.toggle_btn').toggleClass('active');
 		$('body').toggleClass('nav_active');
-		$('#body_overly').toggle();
+		// $('#body_overly').toggle();
 	});
 }
 

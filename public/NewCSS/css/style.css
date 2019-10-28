@@ -45,10 +45,21 @@ h1,h2,h3,h4,h5,h6,p {
     padding: 0;
 }
 
+h3 {
+	padding: 10px;
+	cursor: pointer;
+	color: rgb(0, 0, 0);
+    margin-bottom: 0;
+}
+
+.fold {
+	display: none;
+	line-height: 17pt;
+}
+
 .body_detail{
    height: auto;
 }
-
 
 .toggle_btn {
     display: none;

@@ -137,7 +137,7 @@
                         <div class="other_link">
                             <a href="/signup/changhua/2020/02" id="SignTitle"
                                 class="btn active">我要報名／Signup</a>
-                            <a href="SignQuery.aspx?CF_ActCode=AM200105#MobileStart" id="SignQuery"
+                            <a href="/query/{{$city}}/{{$year}}/{{$month}}" id="SignQuery"
                                 class="btn">報名查詢與修改／Query&Modify</a>
                         </div>
 
@@ -149,8 +149,6 @@
 
                     <div class="detail_div">
 
-                        <link rel="stylesheet" href="{{ URL::asset('NewCSS/css/jquerycollapse.css') }}">
-
                         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
                             rel="stylesheet">
                         <link rel="stylesheet"
@@ -158,7 +156,6 @@
                             integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
                             crossorigin="anonymous">
 
-                        <link href="{{ URL::asset('NewCSS/css/StyleSheet.css') }}" rel="stylesheet" />
                         {{-- 本頁的jquerycdn檔從此處匯入 --}}
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
                         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
@@ -275,7 +272,7 @@
                 </div>   
    
                 <div id="SQMB">   
-                   <li><a href="/query/{{$city}}/{{$year}}/{{$month}}"  >報名查詢與修改</a></li>
+                   <li><a href="/query/{{$city}}/{{$year}}/{{$month}}">報名查詢與修改</a></li>
                    <div style='width:100%' ;>
                         <div style='width:25%; border-bottom:1px solid; border-bottom-color:#CECECE; margin:0px auto;'></div>
                    </div><br/>
