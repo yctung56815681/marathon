@@ -365,7 +365,7 @@
                     "km": $("input[name=km]:checked").val(),
                     "product": product,
                     "orderNo": personOrderNo1,
-                    "delete":false
+                    "delete": false
                 }
             ];
             console.log(team);
@@ -455,7 +455,7 @@
 
         }
         //防呆
-        function checkTwId1(){
+        function checkTwId1() {
             var twId = $('input[name="twId"]').val();
             check.forEach(function (data) {
                 if (twId.includes(data.memberTwId)) {
@@ -477,9 +477,9 @@
                     break;
                 }
             }
-            if(isCheck){
+            if (isCheck) {
                 check_data();
-            }else{
+            } else {
                 $('#checkRegex').modal('show');
                 $(".checkRegex").text("身分證已報名");
             }
@@ -500,7 +500,7 @@
         function deletePerson(i) {
             $("#person" + i).remove();
             // teams.splice('person'+(i - 1), 1);
-            teams[i-1].delete = true;
+            teams[i - 1].delete = true;
             console.log(i);
             console.log(teams);
         }
@@ -514,7 +514,7 @@
             $("#teamMember").empty();
             for (i = 0; i < teams.length; i++) {
                 team = teams[i];
-                if(team.delete == true){
+                if (team.delete == true) {
                     continue;
                 }
                 var myName = team.name;
@@ -650,6 +650,9 @@
                         groupId = data;
                         for (i = 0; i < teams.length; i++) {
                             team = teams[i];
+                            if (team.delete == true) {
+                                continue;
+                            }
                             var myName = team.name;
                             var twId = team.twId;
                             var sex = team.sex;
