@@ -19,32 +19,32 @@
 
     <style>
         .Top {
-            width: auto;
+            /* width: auto; */
             /* height: 200px; */
             height: 50px;
-            position: relative;
+            /* position: relative; */
 
             /* background-image: url("/img/header.jpg"); */
             /* background-size: cover; */
         }
 
         .Left {
-
             /* width: 25%; */
-            width: 200px;
-            height: auto;
-            position: relative;
-            background-color: yellow;
-            display: inline-block;
+            /* width: 200px; */
+            /* height: auto; */
+            /* position: relative; */
+            /* background-color: yellow; */
+            /* display: inline-block; */
         }
 
         .Right {
-            width: 85%;
-            height: auto;
-            position: absolute;
-            background-color: #F0F8FF;
-            display: inline-block;
-
+            /* width: 100%; */
+            /* width: 800px; */
+            /* height: auto; */
+            /* position: absolute; */
+            /* background-color: red; */
+            /* background-color: #F0F8FF; */
+            /* display: inline-block; */
         }
 
         .content {}
@@ -55,7 +55,7 @@
 <body>
     <!--------------------------------------------------------------------------------------Top-------------------------------------------------------------------------------------->
     <div class="Top bg-dark">
-        <nav class="navbar navbar-inverse">
+        <nav class="navbar">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a href="/ui" class="text-warning"><i class="fas fa-landmark fa-2x text-warning"></i>首頁</a>
@@ -69,72 +69,89 @@
         </nav>
     </div>
 
-    <!--------------------------------------------------------------------------------------Left-------------------------------------------------------------------------------------->
-    <div class="Left">
-        <div class="accordion" id="accordionExample">
-            <div class="card">
-                <div class="card-header" id="headingOne">
-                    <h2 class="mb-0">
-                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
-                            aria-expanded="true" aria-controls="collapseOne">
-                            會員及訂單管理
-                        </button>
-                    </h2>
-                </div>
+    <div class="container-fluid">
+        <div class="row">
+            <!--------------------------------------------------------------------------------------Left-------------------------------------------------------------------------------------->
+            <div class="col-3 Left text-nowrap p-0">
+                <div class="accordion" id="accordionExample">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse"
+                                    data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    會員管理
+                                </button>
+                            </h2>
+                        </div>
 
-                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                    data-parent="#accordionExample">
-                    <div class="card-body">
-                        <a class="dropdown-item" href="/memberAdmin">會員管理</a>
-                        <a class="dropdown-item" href="/orderGroupAdmin">訂單管理</a>
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                            data-parent="#accordionExample">
+                            <div class="card-body">
+                                <a class="dropdown-item" href="/memberAdmin">會員列表</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header" id="headingTwo">
-                    <h2 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                            data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            賽事管理
-                        </button>
-                    </h2>
-                </div>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                    <div class="card-body">
-                        <a class="dropdown-item" href="/eventAdmin">賽事列表</a>
-                        {{-- <a class="dropdown-item" href="#">賽事編輯</a> --}}
-                    </div>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header" id="headingFour">
-                    <h2 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                            data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                            帳號管理
-                        </button>
-                    </h2>
-                </div>
-                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
-                    <div class="card-body">
-                        <a class="dropdown-item" href="/accountAdmin"> 帳號列表</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse"
+                                    data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                    訂單管理
+                                </button>
+                            </h2>
+                        </div>
 
-    <!--------------------------------------------------------------------------------------right-------------------------------------------------------------------------------------->
-    <div class="Right">
-        <div class="container">
-            {{-- <div class="row"> --}}
-            <div class="pt-2">
-                <div class="alert alert-info text-center">
-                    <h5>歡迎&nbsp;&nbsp; {{$userName}} &nbsp;&nbsp;登入管理系統</h5>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                            data-parent="#accordionExample">
+                            <div class="card-body">
+                                <a class="dropdown-item" href="/orderGroupAdmin">訂單列表</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                    data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    賽事管理
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                            data-parent="#accordionExample">
+                            <div class="card-body">
+                                <a class="dropdown-item" href="/eventAdmin">賽事列表</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="headingFour">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                    data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    帳號管理
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
+                            data-parent="#accordionExample">
+                            <div class="card-body">
+                                <a class="dropdown-item" href="/accountAdmin"> 帳號列表</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            {{-- </div> --}}
+
+            <!--------------------------------------------------------------------------------------right-------------------------------------------------------------------------------------->
+            <div class="col-9 Right">
+                <div class="pt-3">
+                    <div class="alert alert-info text-center">
+                        <h5>歡迎&nbsp;&nbsp; {{$userName}} &nbsp;&nbsp;登入管理系統</h5>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
