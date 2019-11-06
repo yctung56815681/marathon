@@ -12,13 +12,13 @@ class SignupController extends Controller
         $viewModel = compact(
             "city",
             "year",
-            "month",
+            "month"
         );
         return view("signup.index", $viewModel);
     }
     public function action(Request $request, $city, $year, $month, $action)
     {
-       
+
         $view = "signup.{$action}";
         $viewModel = compact(
             "city",

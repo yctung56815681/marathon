@@ -12,13 +12,13 @@ class TeamSignupController extends Controller
         $viewModel = compact(
             "city",
             "year",
-            "month",
+            "month"
         );
         return view("teamSignup.index", $viewModel);
     }
     public function action(Request $request, $city, $year, $month, $action)
     {
-       
+
         $view = "teamSignup.{$action}";
         $viewModel = compact(
             "city",

@@ -114,7 +114,7 @@ class EventController extends Controller
         // $viewModel = compact(
         //     "city",
         //     "year",
-        //     "month",
+        //     "month"
         // );
         // return view($view, $viewModel);
 

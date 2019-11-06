@@ -12,9 +12,9 @@ class QueryController extends Controller
         $viewModel = compact(
             "city",
             "year",
-            "month",
+            "month"
         );
         return view("query.index", $viewModel);
     }
-   
+
 }
