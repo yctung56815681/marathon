@@ -12,7 +12,7 @@ use App\Run;
 
 class EventController extends Controller
 {
-    
+
     public function eventIndex(Request $request, $city, $year, $month)
     {   // 第一階段的測試
         // $view = "event.{$city}{$year}{$month}";
@@ -52,18 +52,18 @@ class EventController extends Controller
         $idEvent=Event::all()->where('cityId', $idCity )->first()->idEvent;
         // dd($idEvent);
         $eventAddr=Event::all()->where('cityId', $idCity )->first()->eventAddr;
-        $eventTel=Event::all()->where('cityId', $idCity )->first()->eventTel; 
+        $eventTel=Event::all()->where('cityId', $idCity )->first()->eventTel;
         $eventSignupStartTime=Event::all()->where('cityId', $idCity )->first()->eventSignupStartTime;
         $eventSignupEndTime=Event::all()->where('cityId', $idCity )->first()->eventSignupEndTime;
         $eventRunStartTime=Event::all()->where('cityId', $idCity )->first()->eventRunStartTime;
         $eventRunStartTimeF=date("Y年m月d日", strtotime($eventRunStartTime) );
         $eventRunEndTime=Event::all()->where('cityId', $idCity )->first()->eventRunEndTime;
-        
+
         $jsonContent1=EventContent::all()->where('eventId', $idEvent )->first()->eventContentNews;
         $eventContentNews=json_decode($jsonContent1);
         //dd( $eventContent1->eventNewsImage);
 
-        // $idRun=Run::all()->where('eventId', $idEvent )->first()->idRun;     
+        // $idRun=Run::all()->where('eventId', $idEvent )->first()->idRun;
         // $eventDL=Run::all()->where('eventId', $idEvent  )->find($idRun)->runName;
         // $eventDM=Run::all()->where('eventId', $idEvent  )->find($idRun+1)->runName;
         // $eventDS=Run::all()->where('eventId', $idEvent  )->find($idRun+2)->runName;
@@ -78,14 +78,14 @@ class EventController extends Controller
         // $jsondata=City::all()->where('cityId', "TPE" )->first()->event_contents[0]->eventContentNews;
         // $cityId2=json_decode($jsondata, true);
         // $cityId3=City::all()->where('cityId', "TPE" )->first()->runs[0]->id;
-        
+
         $viewModel = compact(
             "city",
             "year",
             "month",
             // "list",
-            "cityNameCh", 
-            "eventSignupStartTime",                  
+            "cityNameCh",
+            "eventSignupStartTime",
             "eventSignupEndTime",
             "eventRunStartTime",
             "eventRunStartTimeF",
@@ -108,9 +108,9 @@ class EventController extends Controller
     {   // 第一階段的測試
         // $view = "event.{$city}{$year}{$month}{$page}";
         // return view($view);
-        
+
         // 第二階段的測試
-        // $view = "event.{$page}";  
+        // $view = "event.{$page}";
         // $viewModel = compact(
         //     "city",
         //     "year",
@@ -147,18 +147,18 @@ class EventController extends Controller
         // 手動設ID連結表單+搜尋特定資料:
         $idCity=City::all()->where('cityNo', $city )->first()->idCity;
         $cityNameCh=City::all()->where('cityNo', $city )->first()->cityNameCh;
-      
+
         $idEvent=Event::all()->where('cityId', $idCity )->first()->idEvent;
         // dd($idEvent);
         $eventAddr=Event::all()->where('cityId', $idCity )->first()->eventAddr;
-        $eventTel=Event::all()->where('cityId', $idCity )->first()->eventTel;  
+        $eventTel=Event::all()->where('cityId', $idCity )->first()->eventTel;
         $eventSignupStartTime=Event::all()->where('cityId', $idCity )->first()->eventSignupStartTime;
         $eventSignupEndTime=Event::all()->where('cityId', $idCity )->first()->eventSignupEndTime;
         $eventRunStartTime=Event::all()->where('cityId', $idCity )->first()->eventRunStartTime;
         $eventRunStartTimeF=date("Y年m月d日", strtotime($eventRunStartTime) );
         $eventRunEndTime=Event::all()->where('cityId', $idCity )->first()->eventRunEndTime;
-       
-        
+
+
         $jsonContent1=EventContent::all()->where('eventId', $idEvent )->first()->eventContentSignup;
         $eventContentSignup=json_decode($jsonContent1);
         $jsonContent2=EventContent::all()->where('eventId', $idEvent )->first()->eventContentReward;
@@ -167,7 +167,7 @@ class EventController extends Controller
         $eventContentActSpecs=json_decode($jsonContent3);
         // dd( $eventContent1->eventNewsImage);
 
-        // $idRun=Run::all()->where('eventId', $idEvent )->first()->idRun;     
+        // $idRun=Run::all()->where('eventId', $idEvent )->first()->idRun;
         // $eventDL=Run::all()->where('eventId', $idEvent  )->find($idRun)->runName;
         // $eventDM=Run::all()->where('eventId', $idEvent  )->find($idRun+1)->runName;
         // $eventDS=Run::all()->where('eventId', $idEvent  )->find($idRun+2)->runName;
@@ -175,14 +175,14 @@ class EventController extends Controller
         $eventDL=Run::where('eventId', $idEvent  )->get()[0]->runName;
         $eventDM=Run::where('eventId', $idEvent  )->get()[1]->runName;
         $eventDS=Run::where('eventId', $idEvent  )->get()[2]->runName;
-        
+
         $viewModel = compact(
             "city",
             "year",
             "month",
             // "list",
-            "cityNameCh", 
-            "eventSignupStartTime",               
+            "cityNameCh",
+            "eventSignupStartTime",
             "eventSignupEndTime",
             "eventRunStartTime",
             "eventRunStartTimeF",
@@ -194,12 +194,12 @@ class EventController extends Controller
             "eventTel",
             "eventContentSignup",
             "eventContentReward",
-            "eventContentActSpecs",
+            "eventContentActSpecs"
         );
         return view( $view, $viewModel);
 
 
     }
 
-    
+
 }
