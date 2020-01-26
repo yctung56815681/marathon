@@ -19,4 +19,3 @@ php artisan db:seed<br/>
 
 php artisan key:generate<br/>
 php artisan serve<br/>
-1111
